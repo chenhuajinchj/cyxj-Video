@@ -1,0 +1,35 @@
+{
+  "name": "claude-19-tips-remotion",
+  "version": "1.0.0",
+  "description": "Motion-only Remotion timeline for Claude 19 tips",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.456",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.456",
+    "@remotion/tailwind-v4": "4.0.456",
+    "tailwindcss": "4.0.0"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.456",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.19.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "render": "remotion render Claude19Tips out/claude-19-tips-motion-only.mp4",
+    "still": "remotion still Claude19Tips --frame=0 --output=out/frame-0000.png",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  },
+  "sideEffects": [
+    "*.css"
+  ]
+}

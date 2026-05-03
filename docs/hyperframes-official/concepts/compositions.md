@@ -1,0 +1,215 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://hyperframes.mintlify.app/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Compositions
+
+> The fundamental building block of a Hyperframes video.
+
+A composition is an HTML document that defines a video timeline. Every clip -- video, image, audio -- lives inside a composition.
+
+## Structure
+
+Every composition needs a root element with `data-composition-id`:
+
+```html index.html theme={null}
+<div id="root" data-composition-id="root"
+     data-start="0" data-width="1920" data-height="1080">
+  <!-- Elements go here -->
+</div>
+```
+
+The `index.html` file is the top-level composition. It can contain nested compositions within it. Any composition can be imported into another -- there is no special "root" type.
+
+## Clip Types
+
+A clip is any discrete block on the timeline, represented as an HTML element with [data attributes](/concepts/data-attributes):
+
+* `<video>` -- Video clips, B-roll, A-roll
+* `<img>` -- Static images, overlays
+* `<audio>` -- Music, sound effects
+* `<div data-composition-id="...">` -- Nested compositions (animations, grouped sequences)
+
+See the [HTML Schema Reference](/reference/html-schema) for the full list of attributes on each clip type.
+
+## Nested Compositions
+
+You can embed one composition inside another in two ways: loading from an external file or defining it inline. External files are the recommended approach for reusable compositions.
+
+<Tabs>
+  <Tab title="External file">
+    Reference another HTML file with `data-composition-src`. The framework automatically fetches the file, extracts the `<template>` content, mounts it, executes scripts, and registers the timeline.
+
+    ```html index.html theme={null}
+    <div
+      id="el-5"
+      data-composition-id="intro-anim"
+      data-composition-src="compositions/intro-anim.html"
+      data-start="0"
+      data-track-index="3"
+    ></div>
+    ```
+
+    Each external composition file wraps its content in a `<template>` tag:
+
+    ```html compositions/intro-anim.html theme={null}
+    <template id="intro-anim-template">
+      <div data-composition-id="intro-anim" data-width="1920" data-height="1080">
+        <div class="title">Welcome!</div>
+
+        <style>
+          [data-composition-id="intro-anim"] .title {
+            font-size: 72px; color: white; text-align: center;
+          }
+        </style>
+
+        <script>
+          const tl = gsap.timeline({ paused: true });
+          tl.from(".title", { opacity: 0, y: -50, duration: 1 });
+          window.__timelines["intro-anim"] = tl;
+        </script>
+      </div>
+    </template>
+    ```
+  </Tab>
+
+  <Tab title="Inline">
+    Define a nested composition directly inside the parent. This is simpler for one-off compositions that do not need to be reused.
+
+    ```html index.html theme={null}
+    <div id="root" data-composition-id="root"
+         data-start="0" data-width="1920" data-height="1080">
+
+      <!-- Inline nested composition -->
+      <div id="el-5" data-composition-id="intro-anim"
+           data-start="0" data-track-index="3"
+           data-width="1920" data-height="1080">
+        <div class="title">Welcome!</div>
+      </div>
+
+      <script>
+        // Timeline for the inline composition
+        const introTl = gsap.timeline({ paused: true });
+        introTl.from(".title", { opacity: 0, y: -50, duration: 1 });
+        window.__timelines["intro-anim"] = introTl;
+      </script>
+    </div>
+    ```
+
+    Inline compositions do not use `<template>` tags or `data-composition-src`.
+  </Tab>
+</Tabs>
+
+### Project Structure
+
+<Tree>
+  <Tree.Folder name="project" defaultOpen>
+    <Tree.File name="index.html" />
+
+    <Tree.Folder name="compositions" defaultOpen>
+      <Tree.File name="intro-anim.html" />
+
+      <Tree.File name="caption-overlay.html" />
+
+      <Tree.File name="outro-title.html" />
+    </Tree.Folder>
+
+    <Tree.Folder name="assets">
+      <Tree.File name="video.mp4" />
+
+      <Tree.File name="music.mp3" />
+
+      <Tree.File name="logo.png" />
+    </Tree.Folder>
+  </Tree.Folder>
+</Tree>
+
+## Two Layers: Primitives and Scripts
+
+Every composition has two layers:
+
+* **HTML** -- primitive clips (`video`, `img`, `audio`, nested compositions). The declarative structure: what plays, when, and on which track. Controlled by [data attributes](/concepts/data-attributes).
+* **Script** -- effects, transitions, dynamic DOM, canvas, SVG -- creative animation via [GSAP](/guides/gsap-animation). Scripts do **not** control media playback or clip visibility.
+
+<Warning>
+  Never use scripts to play/pause/seek media elements or to show/hide clips based on timing. The framework handles this automatically from data attributes. Scripts that duplicate this behavior will conflict with the framework. See [Common Mistakes](/guides/common-mistakes) for examples.
+</Warning>
+
+## Variables
+
+HyperFrames does not automatically bind `data-var-*` attributes into your composition DOM or CSS.
+
+Today, the supported pattern is:
+
+1. Pass per-instance values on the composition host with `data-variable-values`
+2. Read those values inside the composition and apply them in your own script
+
+```html index.html theme={null}
+<div
+  data-composition-id="card"
+  data-composition-src="compositions/card.html"
+  data-start="0"
+  data-track-index="1"
+  data-variable-values='{"title":"Hello","color":"#ff4d4f"}'
+></div>
+```
+
+```html compositions/card.html theme={null}
+<template id="card-template">
+  <div data-composition-id="card" data-width="1920" data-height="1080">
+    <h1 class="title">Fallback</h1>
+
+    <style>
+      [data-composition-id="card"] {
+        --card-color: #111827;
+      }
+
+      [data-composition-id="card"] .title {
+        color: var(--card-color);
+      }
+    </style>
+
+    <script>
+      const root = document.querySelector('[data-composition-id="card"]');
+      const vars = JSON.parse(root?.getAttribute("data-variable-values") ?? "{}");
+      const titleEl = root?.querySelector(".title");
+
+      if (titleEl) {
+        titleEl.textContent = vars.title ?? "Fallback";
+      }
+
+      root?.style.setProperty("--card-color", String(vars.color ?? "#111827"));
+    </script>
+  </div>
+</template>
+```
+
+If you are building tooling on top of `@hyperframes/core`, you can also declare variable metadata separately with `data-composition-variables` and read it via `extractCompositionMetadata()`. That metadata is descriptive only; you still apply the actual values manually inside the composition.
+
+## Listing Compositions
+
+Use the [CLI](/packages/cli) to see all compositions in a project:
+
+```bash theme={null}
+npx hyperframes compositions
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Data Attributes" icon="code" href="/concepts/data-attributes">
+    Full reference for timing, media, and composition attributes
+  </Card>
+
+  <Card title="GSAP Animation" icon="wand-magic-sparkles" href="/guides/gsap-animation">
+    Add animations to your compositions with GSAP timelines
+  </Card>
+
+  <Card title="Examples" icon="grid-2" href="/examples">
+    Start from built-in examples for common video patterns
+  </Card>
+
+  <Card title="HTML Schema Reference" icon="book" href="/reference/html-schema">
+    Complete schema for authoring compositions
+  </Card>
+</CardGroup>

@@ -1,0 +1,39 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://hyperframes.mintlify.app/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Grain Overlay
+
+> Animated film grain texture overlay using CSS keyframes — adds warmth and analog character to any composition
+
+# Grain Overlay
+
+Animated film grain texture overlay using CSS keyframes — adds warmth and analog character to any composition
+
+`texture` `grain` `overlay` `film`
+
+<video className="w-full aspect-video rounded-xl object-cover bg-zinc-100 dark:bg-zinc-800" src="https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/grain-overlay.mp4" poster="https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/grain-overlay.png" autoPlay muted loop playsInline />
+
+## Install
+
+<CodeGroup>
+  ```bash Terminal theme={null}
+  npx hyperframes add grain-overlay
+  ```
+</CodeGroup>
+
+## Details
+
+| Property | Value     |
+| -------- | --------- |
+| Type     | Component |
+
+## Files
+
+| File                 | Target                                       | Type                |
+| -------------------- | -------------------------------------------- | ------------------- |
+| `grain-overlay.html` | `compositions/components/grain-overlay.html` | hyperframes:snippet |
+
+## Usage
+
+Open `compositions/components/grain-overlay.html` and paste its contents into your composition. See the comment header in the file for detailed instructions.

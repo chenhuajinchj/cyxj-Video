@@ -21,9 +21,13 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 │   ├── nate-demos/                       # 软链 12 个 Nate 工程
 │   ├── heygen-launches/                  # 软链 3 个 HeyGen 官方工程
 │   └── 我的作品/                          # 真存的 3 个旧项目（按日期前缀命名）
-├── scripts/refresh-catalog.sh            # 月度刷新 catalog.json
+├── scripts/
+│   ├── refresh-catalog.sh                # 刷新 catalog.json
+│   └── refresh-docs.sh                   # 刷新 docs/hyperframes-official/ 官方文档镜像
 ├── 2026-MM-DD/                           # 新视频按日期建工作区
-├── docs/, examples/, 录屏/                # 资料、示例、素材
+├── docs/
+│   ├── hyperframes-official/             # 78 页官方文档本地镜像（mintlify .md 全集）
+│   └── lottie-davinci-experiment/        # 自建实验记录
 ├── hyperframes-student-kit/              # 上游 (gitignored，可 git pull 跟进)
 └── hyperframes-launches/                 # 上游 (gitignored，可 git pull 跟进)
 ```
@@ -104,6 +108,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 | 周期 | 命令 |
 |---|---|
 | 每月 | `bash scripts/refresh-catalog.sh` 刷新 `参考库/catalog.json` |
+| 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像（动态读 llms.txt，自动跟进新增页面） |
 | 每 1-2 月 | `cd hyperframes-student-kit && git pull && cd ../hyperframes-launches && git pull` |
 | 每条新视频做完 | 让 `/cyxj-new-video` 阶段 B 自动归档 + 询问是否抽模板 |
 

@@ -1,0 +1,39 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://hyperframes.mintlify.app/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Grid Pixelate Wipe
+
+> Transition effect where the screen dissolves into a grid of squares that fade out with staggered timing — use between scenes
+
+# Grid Pixelate Wipe
+
+Transition effect where the screen dissolves into a grid of squares that fade out with staggered timing — use between scenes
+
+`transition` `wipe` `grid` `pixelate`
+
+<video className="w-full aspect-video rounded-xl object-cover bg-zinc-100 dark:bg-zinc-800" src="https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/grid-pixelate-wipe.mp4" poster="https://static.heygen.ai/hyperframes-oss/docs/images/catalog/components/grid-pixelate-wipe.png" autoPlay muted loop playsInline />
+
+## Install
+
+<CodeGroup>
+  ```bash Terminal theme={null}
+  npx hyperframes add grid-pixelate-wipe
+  ```
+</CodeGroup>
+
+## Details
+
+| Property | Value     |
+| -------- | --------- |
+| Type     | Component |
+
+## Files
+
+| File                      | Target                                            | Type                |
+| ------------------------- | ------------------------------------------------- | ------------------- |
+| `grid-pixelate-wipe.html` | `compositions/components/grid-pixelate-wipe.html` | hyperframes:snippet |
+
+## Usage
+
+Open `compositions/components/grid-pixelate-wipe.html` and paste its contents into your composition. See the comment header in the file for detailed instructions.

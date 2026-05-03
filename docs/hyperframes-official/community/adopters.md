@@ -1,0 +1,36 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://hyperframes.mintlify.app/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Adopters
+
+> Organizations using HyperFrames in production or actively evaluating it.
+
+The teams below are shipping with HyperFrames. If your organization uses HyperFrames — in production, in evaluation, or in a side project — we'd love to add you.
+
+## How to add your organization
+
+Open a pull request that adds your team to [`ADOPTERS.md`](https://github.com/heygen-com/hyperframes/blob/main/ADOPTERS.md) at the repository root. The format is intentionally lightweight:
+
+* **Organization** — your company or project name, linked to your website.
+* **Contact** — a GitHub handle so other adopters can reach out.
+* **How HyperFrames is used** — one sentence on the use case.
+* **Logo** *(optional)* — a square logo or icon to show on this page. If you skip this, your entry still appears in the table below.
+
+If you'd rather not be listed publicly, we'd still love to hear about your usage — drop a note in [our Discord](https://discord.gg/EbK98HBPdk).
+
+## Production
+
+<CardGroup cols={3}>
+  <Card title="HeyGen" href="https://www.heygen.com">
+    Powers AI-generated video composition and rendering across HeyGen's video product surface.
+  </Card>
+</CardGroup>
+
+| Organization                     | Contact                                      | How HyperFrames is used                                                                    |
+| -------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [HeyGen](https://www.heygen.com) | [@jrusso1020](https://github.com/jrusso1020) | Powers AI-generated video composition and rendering across HeyGen's video product surface. |
+
+## Evaluating
+
+*Open a PR to add your organization here if you're trying HyperFrames in a non-production context.*

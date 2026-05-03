@@ -2,7 +2,7 @@
 
 > **入口文件**。做新视频前先扫这里：找参考工程、找零件。
 >
-> 📅 最后更新：2026-05-03 · 18 个完整工程 + 46 个 catalog 零件
+> 📅 最后更新：2026-05-03 · 18 个完整工程 + 46 个 catalog 零件 + 78 页官方文档镜像
 
 ---
 
@@ -172,7 +172,27 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 
 ---
 
-## 四、模板（仓库根 `templates/`，3 个）
+## 四、官方文档本地镜像（`docs/hyperframes-official/`）
+
+> 78 页全量镜像 mintlify `.md` 原文，每 1-2 月跑 `bash scripts/refresh-docs.sh` 刷新。
+> 优先 grep 这里而不是开浏览器查官网。
+
+| 子目录 | 内容 |
+|---|---|
+| `getting-started/` | introduction、quickstart |
+| `concepts/` | compositions、data-attributes、determinism、frame-adapters |
+| `guides/` | gsap-animation、rendering、common-mistakes（**必读**）、performance、prompting…（13 篇） |
+| `packages/` | cli、core、engine、producer、studio、player（API 速查） |
+| `reference/html-schema.md` | HTML schema 完整参考 |
+| `catalog/blocks/` | 43 个 block 的官方说明（社交叠层、shader 转场、案例展示…） |
+| `catalog/components/` | grain-overlay、shimmer-sweep、grid-pixelate-wipe |
+| `community/adopters.md` | 谁在用 hyperframes |
+
+完整索引看 `docs/hyperframes-official/README.md`。
+
+---
+
+## 五、模板（仓库根 `templates/`，3 个）
 
 跟参考库不同：模板是抽过的精简骨架，**直接 cp 起步**用。
 
@@ -213,6 +233,7 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 | 周期 | 动作 |
 |---|---|
 | 每月 | `bash scripts/refresh-catalog.sh` 刷新 catalog 索引（看是否有新增 block） |
+| 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像（78 页，动态读 llms.txt） |
 | 每 1-2 月 | `cd hyperframes-student-kit && git pull && cd ../hyperframes-launches && git pull` 更新上游 |
 | 每条新视频做完 | 归档到 `参考库/我的作品/`，本 INDEX 加一行 |
 | 每 3-6 月 | 盘点 INDEX，把高频参考工程抽成新 templates/ 模板 |

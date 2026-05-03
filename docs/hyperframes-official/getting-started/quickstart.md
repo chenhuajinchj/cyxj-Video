@@ -1,0 +1,257 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://hyperframes.mintlify.app/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Quickstart
+
+> Create, preview, and render your first Hyperframes video in under two minutes.
+
+Go from zero to a rendered MP4 — either by prompting your AI agent or by starting a project manually.
+
+## Option 1: With an AI coding agent (recommended)
+
+Install the HyperFrames skills, then describe the video you want:
+
+```bash theme={null}
+npx skills add heygen-com/hyperframes
+```
+
+This teaches your agent (Claude Code, Cursor, Gemini CLI, Codex) how to write correct compositions, GSAP timelines, Tailwind v4 browser-runtime styles, and first-party adapter animations. In Claude Code the skills register as slash commands — `/hyperframes` for composition authoring, `/hyperframes-cli` for CLI commands, `/tailwind` for `init --tailwind` projects, `/gsap` for timeline animation help, and `/animejs`, `/css-animations`, `/lottie`, `/three`, or `/waapi` when a composition uses those runtimes. Invoking the slash command loads the skill context explicitly, which produces correct output the first time.
+
+<Note>
+  Claude Design uses a different entry path. Open [`docs/guides/claude-design-hyperframes.md`](https://github.com/heygen-com/hyperframes/blob/main/docs/guides/claude-design-hyperframes.md) on GitHub, click the download button (↓) to save it, then attach to your Claude Design chat. It produces a valid first draft you can refine in any AI coding agent. See the [Claude Design guide](/guides/claude-design).
+</Note>
+
+### Try it: example prompts
+
+Copy any of these into your agent to get started.
+
+<CardGroup cols={1}>
+  <Card title="Cold start — describe what you want">
+    > Using `/hyperframes`, create a 10-second product intro with a fade-in title over a dark background and subtle background music.
+  </Card>
+
+  <Card title="Warm start — turn existing context into a video">
+    > Take a look at this GitHub repo [https://github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) and explain its uses and architecture to me using `/hyperframes`.
+
+    > Summarize the attached PDF into a 45-second pitch video using `/hyperframes`.
+
+    > Turn this CSV into an animated bar chart race using `/hyperframes`.
+  </Card>
+
+  <Card title="Format-specific">
+    > Make a 9:16 TikTok-style hook video about \[topic] using `/hyperframes`, with bouncy captions synced to a TTS narration.
+  </Card>
+
+  <Card title="Iterate — talk to the agent like a video editor">
+    > Make the title 2x bigger, swap to dark mode, and add a fade-out at the end.
+
+    > Add a lower third at 0:03 with my name and title.
+  </Card>
+</CardGroup>
+
+The agent handles scaffolding, animation, and rendering. See the [prompting guide](/guides/prompting) for more patterns.
+
+<Tip>
+  Skills encode HyperFrames-specific patterns — like required `class="clip"` on timed elements, GSAP timeline registration, adapter registries such as `window.__hfLottie`, and `data-*` attribute semantics — that are not in generic web docs. Using skills produces correct compositions from the start.
+</Tip>
+
+## Option 2: Start a project manually
+
+### Prerequisites
+
+* **Node.js 22+** — runtime for the CLI and dev server
+* **FFmpeg** — video encoding for local renders
+
+<Accordion title="Install instructions">
+  <Steps>
+    <Step title="Install Node.js 22+">
+      Hyperframes requires Node.js 22 or later. Check your version:
+
+      ```bash theme={null}
+      node --version
+      ```
+
+      ```bash Expected output theme={null}
+      v22.0.0   # or any version >= 22
+      ```
+    </Step>
+
+    <Step title="Install FFmpeg">
+      FFmpeg is required for local video rendering (encoding captured frames into MP4).
+
+      <CodeGroup>
+        ```bash macOS theme={null}
+        brew install ffmpeg
+        ```
+
+        ```bash Ubuntu / Debian theme={null}
+        sudo apt install ffmpeg
+        ```
+
+        ```bash Windows theme={null}
+        # Download from https://ffmpeg.org/download.html
+        # or install via winget:
+        winget install ffmpeg
+        ```
+      </CodeGroup>
+
+      Verify the installation:
+
+      ```bash theme={null}
+      ffmpeg -version
+      ```
+
+      ```bash Expected output theme={null}
+      ffmpeg version 7.x ...
+      ```
+    </Step>
+  </Steps>
+</Accordion>
+
+### Create your first video
+
+<Steps>
+  <Step title="Scaffold the project">
+    ```bash theme={null}
+    npx hyperframes init my-video
+    cd my-video
+    ```
+
+    This starts an interactive wizard that walks you through example selection and media import. To skip prompts (e.g. in CI or from an agent), use `--non-interactive`:
+
+    ```bash theme={null}
+    npx hyperframes init my-video --non-interactive --example blank
+    ```
+
+    See [Examples](/examples) for all available examples.
+
+    This generates a project structure like:
+
+    <Tree>
+      <Tree.Folder name="my-video" defaultOpen>
+        <Tree.File name="meta.json" />
+
+        <Tree.File name="index.html" />
+
+        <Tree.Folder name="compositions" defaultOpen>
+          <Tree.File name="intro.html" />
+
+          <Tree.File name="captions.html" />
+        </Tree.Folder>
+
+        <Tree.Folder name="assets" defaultOpen>
+          <Tree.File name="video.mp4" />
+        </Tree.Folder>
+      </Tree.Folder>
+    </Tree>
+
+    | Path            | Purpose                                            |
+    | --------------- | -------------------------------------------------- |
+    | `meta.json`     | Project metadata (name, ID, creation date)         |
+    | `index.html`    | Root composition — your video's entry point        |
+    | `compositions/` | Sub-compositions loaded via `data-composition-src` |
+    | `assets/`       | Media files (video, audio, images)                 |
+
+    If you have a source video, pass it with `--video` for automatic transcription and captions:
+
+    ```bash theme={null}
+    npx hyperframes init my-video --example warm-grain --video ./intro.mp4
+    ```
+
+    `hyperframes init` installs AI agent skills automatically, so you can hand off to your AI agent at any point.
+  </Step>
+
+  <Step title="Preview in the browser">
+    ```bash theme={null}
+    npx hyperframes preview
+    ```
+
+    This starts the Hyperframes Studio and opens your composition in the browser. Edits to `index.html` reload automatically.
+
+    <Tip>
+      The dev server supports hot reload — save your HTML file and the preview updates instantly, no manual refresh needed.
+    </Tip>
+  </Step>
+
+  <Step title="Edit the composition">
+    Open the project with your AI coding agent (Claude Code, Cursor, etc.) — skills are installed automatically and your agent knows how to create and edit compositions.
+
+    Or edit `index.html` directly — here's a minimal composition:
+
+    ```html index.html theme={null}
+    <div id="root" data-composition-id="my-video"
+         data-start="0" data-width="1920" data-height="1080">
+
+      <!-- 1. Define a timed text clip on track 0 -->
+      <h1 id="title" class="clip"
+          data-start="0" data-duration="5" data-track-index="0"
+          style="font-size: 72px; color: white; text-align: center;
+                 position: absolute; top: 50%; left: 50%;
+                 transform: translate(-50%, -50%);">
+        Hello, Hyperframes!
+      </h1>
+
+      <!-- 2. Load GSAP for animation -->
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+      <!-- 3. Create a paused timeline and register it -->
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["my-video"] = tl;
+      </script>
+    </div>
+    ```
+
+    Three rules to remember:
+
+    * **Root element** must have `data-composition-id`, `data-width`, and `data-height`
+    * **Timed elements** need `data-start`, `data-duration`, `data-track-index`, and `class="clip"`
+    * **GSAP timeline** must be created with `{ paused: true }` and registered on `window.__timelines`
+  </Step>
+
+  <Step title="Render to MP4">
+    ```bash theme={null}
+    npx hyperframes render --output output.mp4
+    ```
+
+    ```bash Expected output theme={null}
+    ✔ Capturing frames... 150/150
+    ✔ Encoding MP4...
+    ✔ output.mp4 (1920x1080, 5.0s, 30fps)
+    ```
+
+    Your video is now at `output.mp4`. Open it with any media player.
+  </Step>
+</Steps>
+
+## Requirements summary
+
+| Dependency      | Required | Notes                                              |
+| --------------- | -------- | -------------------------------------------------- |
+| **Node.js** 22+ | Yes      | Runtime for CLI and dev server                     |
+| **npm** or bun  | Yes      | Package manager                                    |
+| **FFmpeg**      | Yes      | Video encoding for local renders                   |
+| **Docker**      | No       | Optional — for deterministic, reproducible renders |
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Browse the Catalog" icon="grid-2" href="/catalog/blocks/data-chart">
+    50+ ready-to-use blocks — transitions, overlays, data visualizations, and effects
+  </Card>
+
+  <Card title="GSAP Animation" icon="wand-magic-sparkles" href="/guides/gsap-animation">
+    Add fade, slide, scale, and custom animations to your videos
+  </Card>
+
+  <Card title="Examples" icon="rocket" href="/examples">
+    Start from built-in examples like Warm Grain and Swiss Grid
+  </Card>
+
+  <Card title="Rendering" icon="film" href="/guides/rendering">
+    Explore render options: quality presets, Docker mode, and GPU acceleration
+  </Card>
+</CardGroup>

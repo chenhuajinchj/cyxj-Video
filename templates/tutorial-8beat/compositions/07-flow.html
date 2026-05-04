@@ -1,0 +1,263 @@
+<!-- 此 beat 的核心比喻：可勾选执行计划——5 步 checkbox 列表，逐步亮起打勾，展示"全做完了"。
+     文案需替换：
+       {{KICKER_ICON}} {{KICKER_LABEL}}（顶部 kicker，icon 可用 emoji）
+       {{PANEL_TITLE}}（面板标题，mono 字体）
+       {{LIST_ITEM_1}} {{LIST_ITEM_2}} {{LIST_ITEM_3}} {{LIST_ITEM_4}} {{LIST_ITEM_5}}（5 步文案）
+       {{STATUS_TAG_1~5}}（每步右侧状态标签，如 已完成 / Done）
+     hot 色：--c-blue（checkbox + 激活行）/ --c-green（最后一步完成态）
+     保留：kicker 滑入、面板 de-blur 入场、每步 translateX 滑入 + checkbox stroke-draw + tag 淡入、
+           最后一步绿色强化 + 面板全完成 halo、全场 fade 退场 -->
+
+<template id="beat-7-flow-template">
+  <div
+    data-composition-id="beat-7-flow"
+    data-start="42.5"
+    data-duration="14"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b7-kicker">
+      <span class="b7-kicker-icon">{{KICKER_ICON}}</span>
+      <span class="b7-kicker-label">{{KICKER_LABEL}}</span>
+    </div>
+
+    <!-- 执行计划面板 -->
+    <div class="b7-panel">
+      <div class="b7-panel-header">
+        <span class="b7-panel-title">{{PANEL_TITLE}}</span>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="b7-item b7-item-1">
+        <div class="b7-check-wrap">
+          <svg class="b7-checkbox" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="rgba(91,169,255,0.5)" stroke-width="1.5" fill="rgba(91,169,255,0.08)"/>
+            <path class="b7-check-mark b7-mark-1" d="M7 14 L11.5 19 L21 9"
+              stroke="#5BA9FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="22" stroke-dashoffset="22"/>
+          </svg>
+        </div>
+        <span class="b7-step-text">{{LIST_ITEM_1}}</span>
+        <div class="b7-qa-tag">{{STATUS_TAG_1}}</div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="b7-item b7-item-2">
+        <div class="b7-check-wrap">
+          <svg class="b7-checkbox" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="rgba(91,169,255,0.5)" stroke-width="1.5" fill="rgba(91,169,255,0.08)"/>
+            <path class="b7-check-mark b7-mark-2" d="M7 14 L11.5 19 L21 9"
+              stroke="#5BA9FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="22" stroke-dashoffset="22"/>
+          </svg>
+        </div>
+        <span class="b7-step-text">{{LIST_ITEM_2}}</span>
+        <div class="b7-qa-tag">{{STATUS_TAG_2}}</div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="b7-item b7-item-3">
+        <div class="b7-check-wrap">
+          <svg class="b7-checkbox" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="rgba(91,169,255,0.5)" stroke-width="1.5" fill="rgba(91,169,255,0.08)"/>
+            <path class="b7-check-mark b7-mark-3" d="M7 14 L11.5 19 L21 9"
+              stroke="#5BA9FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="22" stroke-dashoffset="22"/>
+          </svg>
+        </div>
+        <span class="b7-step-text">{{LIST_ITEM_3}}</span>
+        <div class="b7-qa-tag">{{STATUS_TAG_3}}</div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="b7-item b7-item-4">
+        <div class="b7-check-wrap">
+          <svg class="b7-checkbox" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="rgba(91,169,255,0.5)" stroke-width="1.5" fill="rgba(91,169,255,0.08)"/>
+            <path class="b7-check-mark b7-mark-4" d="M7 14 L11.5 19 L21 9"
+              stroke="#5BA9FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="22" stroke-dashoffset="22"/>
+          </svg>
+        </div>
+        <span class="b7-step-text">{{LIST_ITEM_4}}</span>
+        <div class="b7-qa-tag">{{STATUS_TAG_4}}</div>
+      </div>
+
+      <!-- Step 5（最后一步，绿色强化）-->
+      <div class="b7-item b7-item-5">
+        <div class="b7-check-wrap">
+          <svg class="b7-checkbox" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="6" stroke="rgba(91,169,255,0.5)" stroke-width="1.5" fill="rgba(91,169,255,0.08)"/>
+            <path class="b7-check-mark b7-mark-5" d="M7 14 L11.5 19 L21 9"
+              stroke="#5BA9FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="22" stroke-dashoffset="22"/>
+          </svg>
+        </div>
+        <span class="b7-step-text">{{LIST_ITEM_5}}</span>
+        <div class="b7-qa-tag b7-qa-final">{{STATUS_TAG_5}}</div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-7-flow"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        font-family: var(--f-zh, "Noto Sans SC", "Inter", sans-serif);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-7-flow"] .b7-kicker {
+        position: absolute;
+        top: 56px; left: 56px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      [data-composition-id="beat-7-flow"] .b7-kicker-icon { font-size: 26px; line-height: 1; }
+      [data-composition-id="beat-7-flow"] .b7-kicker-label {
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 26px; font-weight: 900;
+        color: #ffffff; letter-spacing: 0.10em;
+      }
+
+      /* ── 面板 ── */
+      [data-composition-id="beat-7-flow"] .b7-panel {
+        position: absolute;
+        left: 56px; top: 140px;
+        width: 1200px;
+        padding: 36px 44px 44px;
+        background: linear-gradient(145deg, rgba(13,23,46,0.92) 0%, rgba(20,32,66,0.88) 100%);
+        border: 1.5px solid rgba(91,169,255,0.18);
+        border-radius: 24px;
+        box-shadow:
+          0 32px 80px rgba(0,0,0,0.60),
+          0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.08);
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(10px);
+      }
+
+      /* ── 面板标题 ── */
+      [data-composition-id="beat-7-flow"] .b7-panel-header {
+        margin-bottom: 28px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(91,169,255,0.12);
+      }
+      [data-composition-id="beat-7-flow"] .b7-panel-title {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 20px; font-weight: 700;
+        color: #5BA9FF; letter-spacing: 0.06em;
+        text-shadow: 0 0 20px rgba(91,169,255,0.4);
+      }
+
+      /* ── 列表项 ── */
+      [data-composition-id="beat-7-flow"] .b7-item {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 22px 28px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.025);
+        border: 1px solid rgba(255,255,255,0.06);
+        margin-bottom: 14px;
+        opacity: 0;
+        transform: translateX(-24px);
+      }
+      [data-composition-id="beat-7-flow"] .b7-item:last-child { margin-bottom: 0; }
+
+      /* ── Checkbox ── */
+      [data-composition-id="beat-7-flow"] .b7-check-wrap { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+      [data-composition-id="beat-7-flow"] .b7-checkbox { width: 28px; height: 28px; }
+
+      /* ── 步骤文字 ── */
+      [data-composition-id="beat-7-flow"] .b7-step-text {
+        flex: 1;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 28px; font-weight: 600;
+        color: rgba(255,255,255,0.75); letter-spacing: 0.02em;
+      }
+
+      /* ── 状态标签 ── */
+      [data-composition-id="beat-7-flow"] .b7-qa-tag {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 15px; font-weight: 700; letter-spacing: 0.10em;
+        color: #8DD891;
+        background: rgba(141,216,145,0.12);
+        border: 1px solid rgba(141,216,145,0.30);
+        border-radius: 100px;
+        padding: 7px 18px;
+        white-space: nowrap;
+        opacity: 0;
+        text-transform: uppercase;
+      }
+      [data-composition-id="beat-7-flow"] .b7-qa-final {
+        background: rgba(141,216,145,0.20);
+        border-color: rgba(141,216,145,0.50);
+        box-shadow: 0 0 20px rgba(141,216,145,0.20);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const ROOT = '[data-composition-id="beat-7-flow"]';
+
+        // Kicker
+        tl.to(ROOT + ' .b7-kicker', { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 0.2);
+
+        // 面板 de-blur 入场
+        tl.to(ROOT + ' .b7-panel', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, 0.4);
+
+        // 5 步时间点（总 14s，每步间隔 2.2s）
+        var stepTimes = [1.2, 3.4, 5.6, 7.8, 10.0];
+
+        // 通用：每步 item 滑入 + active halo + check mark draw + tag 淡入
+        function addStep(n, t, isLast) {
+          tl.to(ROOT + ' .b7-item-' + n,
+            { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, t);
+          tl.to(ROOT + ' .b7-item-' + n, {
+            backgroundColor: isLast ? 'rgba(141,216,145,0.06)' : 'rgba(91,169,255,0.06)',
+            borderColor: isLast ? 'rgba(141,216,145,0.40)' : 'rgba(91,169,255,0.35)',
+            boxShadow: isLast
+              ? '0 0 40px rgba(141,216,145,0.15), inset 0 0 20px rgba(141,216,145,0.05)'
+              : '0 0 30px rgba(91,169,255,0.12), inset 0 0 20px rgba(91,169,255,0.04)',
+            duration: 0.35, ease: 'power2.out'
+          }, t + 0.5);
+          tl.to(ROOT + ' .b7-mark-' + n,
+            { strokeDashoffset: 0, duration: 0.45, ease: 'power2.out' }, t + 0.55);
+          if (isLast) {
+            tl.to(ROOT + ' .b7-mark-' + n, { stroke: '#8DD891', duration: 0.01 }, t + 0.55);
+          }
+          tl.to(ROOT + ' .b7-item-' + n + ' .b7-qa-tag',
+            { opacity: 1, duration: 0.35, ease: 'power2.out' }, t + 1.1);
+        }
+
+        addStep(1, stepTimes[0], false);
+        addStep(2, stepTimes[1], false);
+        addStep(3, stepTimes[2], false);
+        addStep(4, stepTimes[3], false);
+        addStep(5, stepTimes[4], true);
+
+        // 全完成后面板变绿 halo
+        tl.to(ROOT + ' .b7-panel', {
+          borderColor: 'rgba(141,216,145,0.35)',
+          boxShadow: '0 32px 80px rgba(0,0,0,0.60), 0 0 0 1px rgba(255,255,255,0.06), 0 0 60px rgba(141,216,145,0.12)',
+          duration: 0.6, ease: 'power2.out'
+        }, stepTimes[4] + 1.2);
+
+        // 退场（13s fade）
+        tl.to(ROOT, { opacity: 0, duration: 0.8, ease: 'power2.in' }, 13.0);
+
+        tl.to({}, { duration: 14 }, 0);
+        window.__timelines['beat-7-flow'] = tl;
+      })();
+    </script>
+  </div>
+</template>

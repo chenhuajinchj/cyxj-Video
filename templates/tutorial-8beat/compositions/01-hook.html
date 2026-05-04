@@ -1,0 +1,251 @@
+<!-- 此 beat 的核心比喻：开场引钩——用「删除线对话气泡」颠覆观众预设认知。
+     文案需替换：{{BUBBLE_TEXT}} {{HEADLINE_LINE_1}} {{HEADLINE_LINE_2}} {{HOT_WORD}}
+     kicker 需替换：{{KICKER_NUM}} {{KICKER_LABEL}}
+     hot 色：--c-red（删除线 + hot 词 + 底部 halo）
+     保留：kicker 结构、bubble + 红色斜划线、hero 两行 + hot 词 pulse、exit fade-blur -->
+
+<template id="beat-1-hook-template">
+  <div
+    data-composition-id="beat-1-hook"
+    data-start="0"
+    data-duration="6.5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker 顶部章节标签 -->
+    <div class="b1-kicker">
+      <span class="b1-kicker-num">{{KICKER_NUM}}</span>
+      <span class="b1-kicker-sep">/</span>
+      <span class="b1-kicker-label">{{KICKER_LABEL}}</span>
+    </div>
+
+    <!-- 对话气泡（带红色斜划线，Nate 7.40.04 风格）-->
+    <div class="b1-bubble-wrap">
+      <div class="b1-bubble">
+        <span class="b1-bubble-text">{{BUBBLE_TEXT}}</span>
+        <!-- 红色删除线（GSAP 从 width: 0 扩展到 100%）-->
+        <div class="b1-strike"></div>
+      </div>
+    </div>
+
+    <!-- 底部大字 hero（两行）-->
+    <div class="b1-hero">
+      <div class="b1-hero-line1">
+        <!-- 将 {{HEADLINE_LINE_1}} 的每个字拆成 <span class="b1-char">字</span> 便于 stagger 动画 -->
+        <!-- 示例："真正耗费时间的" → <span class="b1-char">真</span>...<span class="b1-char">的</span> -->
+        {{HEADLINE_LINE_1_CHARS}}
+      </div>
+      <div class="b1-hero-line2">
+        {{HEADLINE_LINE_2_PREFIX}}<span class="b1-hot">{{HOT_WORD}}</span>
+      </div>
+    </div>
+
+    <!-- 红色环境 halo（hero 底部背景光）-->
+    <div class="b1-halo"></div>
+
+    <style>
+      [data-composition-id="beat-1-hook"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        font-family: var(--f-zh, "Noto Sans SC", "Inter", sans-serif);
+        background: transparent;
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-1-hook"] .b1-kicker {
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-1-hook"] .b1-kicker-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: #d97757;
+        text-shadow: 0 0 16px rgba(217,119,87,0.65);
+      }
+      [data-composition-id="beat-1-hook"] .b1-kicker-sep {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        color: rgba(150, 162, 182, 0.6);
+        letter-spacing: 0;
+      }
+      [data-composition-id="beat-1-hook"] .b1-kicker-label {
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: #ffffff;
+      }
+
+      /* ── 对话气泡 ── */
+      [data-composition-id="beat-1-hook"] .b1-bubble-wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -80px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-1-hook"] .b1-bubble {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 56px;
+        background: #0d172e;
+        border: 1.5px solid rgba(91, 169, 255, 0.28);
+        border-radius: 50px;
+        box-shadow:
+          0 24px 60px rgba(0,0,0,0.55),
+          0 0 0 1px rgba(255,255,255,0.06) inset;
+      }
+      [data-composition-id="beat-1-hook"] .b1-bubble-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 38px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: rgba(255,255,255,0.85);
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+      /* 红色删除线（GSAP 控制 width: 0 → 100%）*/
+      [data-composition-id="beat-1-hook"] .b1-strike {
+        position: absolute;
+        left: 56px;
+        right: 56px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-4deg);
+        height: 3px;
+        width: 0%;
+        background: #F05F6E;
+        border-radius: 2px;
+        box-shadow: 0 0 12px rgba(240,95,110,0.75), 0 0 4px rgba(240,95,110,0.9);
+        z-index: 2;
+        transform-origin: left center;
+      }
+
+      /* ── Hero 大字（底部）── */
+      [data-composition-id="beat-1-hook"] .b1-hero {
+        position: absolute;
+        bottom: 140px;
+        left: 88px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        line-height: 1.05;
+      }
+      [data-composition-id="beat-1-hook"] .b1-hero-line1,
+      [data-composition-id="beat-1-hook"] .b1-hero-line2 {
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        background: linear-gradient(180deg, #ffffff 0%, #c8d3e0 62%, #e8ecf2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      /* 每个字符用 span.b1-char 包裹，便于 stagger 入场 */
+      [data-composition-id="beat-1-hook"] .b1-char {
+        display: inline-block;
+        opacity: 0;
+      }
+      [data-composition-id="beat-1-hook"] .b1-hero-line2 {
+        opacity: 0;
+      }
+      /* hot 词（红色）*/
+      [data-composition-id="beat-1-hook"] .b1-hot {
+        background: linear-gradient(180deg, #ff8a94 0%, #F05F6E 60%, #d94050 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+        filter: drop-shadow(0 0 18px rgba(240,95,110,0.65));
+      }
+
+      /* ── 红色环境 halo ── */
+      [data-composition-id="beat-1-hook"] .b1-halo {
+        position: absolute;
+        bottom: 60px;
+        left: -60px;
+        width: 900px;
+        height: 340px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 30% 80%, rgba(240,95,110,0.18) 0%, transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        filter: blur(40px);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.0s — kicker 从左滑入
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-kicker',
+          { x: -24, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+          0.1);
+
+        // 0.4s — bubble 从下浮入
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-bubble-wrap',
+          { y: 24, opacity: 0, filter: 'blur(10px)' },
+          { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.55, ease: 'back.out(1.4)' },
+          0.4);
+
+        // 1.1s — 红色删除线扫过
+        tl.to('[data-composition-id="beat-1-hook"] .b1-strike',
+          { width: '100%', duration: 0.45, ease: 'expo.out' },
+          1.1);
+
+        // 1.5s — bubble 文字变暗
+        tl.to('[data-composition-id="beat-1-hook"] .b1-bubble-text',
+          { opacity: 0.45, duration: 0.3, ease: 'power2.out' },
+          1.55);
+
+        // 1.8s — 红色 halo 亮起
+        tl.to('[data-composition-id="beat-1-hook"] .b1-halo',
+          { opacity: 1, duration: 0.7, ease: 'power2.out' },
+          1.8);
+
+        // 2.0s — hero line1 字符 stagger 入场
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-hero-line1 .b1-char',
+          { y: 40, opacity: 0, filter: 'blur(14px)' },
+          { y: 0, opacity: 1, filter: 'blur(0px)', stagger: 0.07, duration: 0.55, ease: 'back.out(1.4)' },
+          2.0);
+
+        // 2.6s — hero line2 入场
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-hero-line2',
+          { y: 30, opacity: 0, filter: 'blur(14px)' },
+          { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.55, ease: 'back.out(1.4)' },
+          2.6);
+
+        // 3.1s — hot 词 pulse（放大 + 弹回）
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-hot',
+          { scale: 1 },
+          { scale: 1.07, duration: 0.18, ease: 'power2.out', yoyo: true, repeat: 1 },
+          3.1);
+
+        // 5.6s — 退场：整体 fade + blur out
+        tl.to('[data-composition-id="beat-1-hook"]',
+          { opacity: 0, filter: 'blur(8px)', duration: 0.7, ease: 'power2.in' },
+          5.6);
+
+        // 时长锚点
+        tl.to({}, { duration: 6.5 }, 0);
+        window.__timelines['beat-1-hook'] = tl;
+      })();
+    </script>
+  </div>
+</template>

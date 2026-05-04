@@ -394,57 +394,57 @@
         // ====================================================
         // PHASE 0 (0.00–0.70s) — terminal + HUD enter
         // ====================================================
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-term`,
+        tl.from(root + ' .b3-term',
           { x: -60, opacity: 0, filter: "blur(16px)",
             duration: 0.65, ease: "power3.out" }, 0.00);
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-term-chrome`,
+        tl.from(root + ' .b3-term-chrome',
           { y: -8, opacity: 0, duration: 0.40, ease: "power2.out" }, 0.20);
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-hud`,
+        tl.from(root + ' .b3-hud',
           { x: 60, opacity: 0, filter: "blur(14px)",
             duration: 0.65, ease: "power3.out" }, 0.10);
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-hud-eyebrow`,
+        tl.from(root + ' .b3-hud-eyebrow',
           { x: 12, opacity: 0, duration: 0.35, ease: "expo.out" }, 0.32);
 
         // chrome pulse — finite, throughout
-        gsap.to(`[data-composition-id="beat-3-terminal"] .b3-term-pulse`,
+        gsap.to(root + ' .b3-term-pulse',
           { opacity: 0.45, duration: 0.5, repeat: 18, yoyo: true,
             ease: "sine.inOut", delay: 0.20 });
 
         // ====================================================
         // PHASE 1 (0.70–2.30s) — prompt typewriter
         // ====================================================
-        gsap.set(`[data-composition-id="beat-3-terminal"] .b3-cursor`, { opacity: 0 });
+        gsap.set(root + ' .b3-cursor', { opacity: 0 });
 
-        typewriter(`[data-composition-id="beat-3-terminal"] .b3-prompt-cmd`, "claude ", 0.80, 0.65);
-        typewriter(`[data-composition-id="beat-3-terminal"] .b3-prompt-arg`, "mcp add codex", 1.45, 0.85);
+        typewriter(root + ' .b3-prompt-cmd', "claude ", 0.80, 0.65);
+        typewriter(root + ' .b3-prompt-arg', "mcp add codex", 1.45, 0.85);
 
-        tl.to(`[data-composition-id="beat-3-terminal"] .b3-cursor`,
+        tl.to(root + ' .b3-cursor',
           { opacity: 1, duration: 0.15, ease: "power1.in" }, 2.30);
-        gsap.to(`[data-composition-id="beat-3-terminal"] .b3-cursor`,
+        gsap.to(root + ' .b3-cursor',
           { opacity: 0, duration: 0.32, repeat: 22, yoyo: true,
             ease: "steps(1)", delay: 2.40 });
 
         // ====================================================
         // PHASE 2 (2.40–3.40s) — Thinking
         // ====================================================
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-thinking`,
+        tl.from(root + ' .b3-thinking',
           { y: 6, opacity: 0, duration: 0.30, ease: "power2.out" }, 2.50);
-        gsap.to(`[data-composition-id="beat-3-terminal"] .b3-spinner`,
+        gsap.to(root + ' .b3-spinner',
           { rotate: 720, duration: 1.5, ease: "none", delay: 2.50 });
-        gsap.fromTo(`[data-composition-id="beat-3-terminal"] .b3-bounce-dots span`,
+        gsap.fromTo(root + ' .b3-bounce-dots span',
           { y: 0, opacity: 0.4 },
           { y: -4, opacity: 1, duration: 0.28, repeat: 5, yoyo: true,
             stagger: 0.12, ease: "sine.inOut", delay: 2.60 });
 
         // HUD server populates
-        gsap.set(`[data-composition-id="beat-3-terminal"] .b3-hud-server`, { opacity: 0 });
-        tl.to(`[data-composition-id="beat-3-terminal"] .b3-hud-server`,
+        gsap.set(root + ' .b3-hud-server', { opacity: 0 });
+        tl.to(root + ' .b3-hud-server',
           { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.70);
 
         // ====================================================
         // PHASE 3 (3.40–6.20s) — tool log rows + tools count + status flip
         // ====================================================
-        const logRows = document.querySelectorAll(`[data-composition-id="beat-3-terminal"] .b3-log-row`);
+        const logRows = document.querySelectorAll(root + ' .b3-log-row');
         const logTimes = [3.50, 4.00, 4.50, 5.00];
         logRows.forEach((row, i) => {
           tl.from(row,
@@ -457,7 +457,7 @@
         });
 
         // HUD tools count up 0 → 8
-        const toolsEl = document.querySelector(`[data-composition-id="beat-3-terminal"] .b3-hud-tools`);
+        const toolsEl = document.querySelector(root + ' .b3-hud-tools');
         const toolsCounter = { v: 0 };
         tl.to(toolsCounter, {
           v: 8, duration: 1.4, ease: "power2.out",
@@ -469,11 +469,11 @@
         // ====================================================
         // PHASE 4 (6.20–7.80s) — code block (mcp_settings.json)
         // ====================================================
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-code`,
+        tl.from(root + ' .b3-code',
           { y: 16, opacity: 0, filter: "blur(8px)",
             duration: 0.40, ease: "power3.out" }, 6.30);
 
-        const codeLines = document.querySelectorAll(`[data-composition-id="beat-3-terminal"] .b3-code .b3-code-line`);
+        const codeLines = document.querySelectorAll(root + ' .b3-code .b3-code-line');
         codeLines.forEach((ln, i) => {
           tl.from(ln,
             { x: -8, opacity: 0, duration: 0.22, ease: "power2.out" },
@@ -483,15 +483,15 @@
         // ====================================================
         // PHASE 5 (7.80–9.20s) — done line + status flip
         // ====================================================
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-done`,
+        tl.from(root + ' .b3-done',
           { y: 8, opacity: 0, duration: 0.30, ease: "power3.out" }, 7.90);
-        tl.from(`[data-composition-id="beat-3-terminal"] .b3-check`,
+        tl.from(root + ' .b3-check',
           { scale: 0.5, opacity: 0, duration: 0.32,
             ease: "back.out(2.0)" }, 7.95);
 
         // HUD status PENDING → CONNECTED
-        const stateEl = document.querySelector(`[data-composition-id="beat-3-terminal"] .b3-hud-state-text`);
-        const ledEl = document.querySelector(`[data-composition-id="beat-3-terminal"] .b3-hud-led`);
+        const stateEl = document.querySelector(root + ' .b3-hud-state-text');
+        const ledEl = document.querySelector(root + ' .b3-hud-led');
         tl.call(() => {
           if (stateEl) {
             stateEl.textContent = "CONNECTED";
@@ -502,13 +502,13 @@
             ledEl.style.boxShadow = "0 0 12px #8dffb8";
           }
         }, [], 8.00);
-        gsap.to(`[data-composition-id="beat-3-terminal"] .b3-hud-led`,
+        gsap.to(root + ' .b3-hud-led',
           { boxShadow: "0 0 22px #8dffb8, 0 0 36px rgba(141,255,184,0.5)",
             duration: 0.55, repeat: 5, yoyo: true,
             ease: "sine.inOut", delay: 8.05 });
 
         // Subtle window glow uptick
-        gsap.to(`[data-composition-id="beat-3-terminal"] .b3-term`,
+        gsap.to(root + ' .b3-term',
           { boxShadow:
               "0 40px 100px rgba(0,0,0,0.65), " +
               "0 0 0 1px rgba(255,255,255,0.04) inset, " +
@@ -519,11 +519,11 @@
         // ====================================================
         // PHASE 6 (9.20–10s) — whip out
         // ====================================================
-        tl.to(`[data-composition-id="beat-3-terminal"] .b3-term`,
-          { x: -120, opacity: 0, filter: "blur(20px)",
+        tl.to(root + ' .b3-term',
+          { x: -80, opacity: 0, filter: "blur(20px)",
             duration: 0.55, ease: "power3.in" }, 9.40);
-        tl.to(`[data-composition-id="beat-3-terminal"] .b3-hud`,
-          { x: 120, opacity: 0, filter: "blur(20px)",
+        tl.to(root + ' .b3-hud',
+          { x: 80, opacity: 0, filter: "blur(20px)",
             duration: 0.55, ease: "power3.in" }, 9.40);
 
         // Duration anchor

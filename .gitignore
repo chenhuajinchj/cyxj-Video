@@ -35,7 +35,9 @@ hyperframes-launches/
 **/renders/
 **/.hyperframes/
 **/.waveform-cache/
+**/.thumbnails/
 **/.debug-studio.mjs
+.playwright-mcp/
 
 # ============================================================
 # 软链（指向 gitignored 上游，跨机器不可用，不进 git）
@@ -52,6 +54,15 @@ MOTION_PHILOSOPHY.md
 .claude/skills/make-a-video
 .claude/skills/short-form-video
 
+# 仓库根 .agents/skills/ 下的 7 个上游 skill 软链（Codex 可选）
+.agents/skills/gsap
+.agents/skills/hyperframes
+.agents/skills/hyperframes-cli
+.agents/skills/hyperframes-registry
+.agents/skills/website-to-hyperframes
+.agents/skills/make-a-video
+.agents/skills/short-form-video
+
 # 参考库下 nate-demos 和 heygen-launches 整目录是软链
 参考库/nate-demos/
 参考库/heygen-launches/
@@ -60,10 +71,13 @@ MOTION_PHILOSOPHY.md
 # Claude Code workspace state
 # ============================================================
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 .claude/agents/
 # 自写的两个 skill 是真目录，允许进 git：
 # .claude/skills/cyxj-new-video/
 # .claude/skills/cyxj-add-block/
+# .agents/skills/cyxj-new-video/
+# .agents/skills/cyxj-add-block/
 
 # 子工程 / 模板内的 .claude state
 templates/**/.claude/

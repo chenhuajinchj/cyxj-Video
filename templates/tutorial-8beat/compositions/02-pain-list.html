@@ -1,0 +1,239 @@
+<!-- 此 beat 的核心比喻：三痛点卡片栈——把问题具象化为三个并排卡片，stagger 入场。
+     文案需替换：
+       {{KICKER_NUM}} {{KICKER_LABEL}}
+       {{SUBTITLE}}（副标，上方一行说明文字）
+       {{CARD_ICON_1}} {{CARD_TITLE_1}} {{CARD_DESC_1}} {{CARD_TAG_1}}
+       {{CARD_ICON_2}} {{CARD_TITLE_2}} {{CARD_DESC_2}} {{CARD_TAG_2}}
+       {{CARD_ICON_3}} {{CARD_TITLE_3}} {{CARD_DESC_3}} {{CARD_TAG_3}}
+     hot 色：--c-red（卡片标题、左侧 accent 边框、icon 发光）
+     保留：三卡横排布局、左侧红色渐变 accent 线、stagger 0.15s 入场、exit fade-blur -->
+
+<template id="beat-2-pain-list-template">
+  <div
+    data-composition-id="beat-2-pain-list"
+    data-start="6.5"
+    data-duration="6.5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b2-kicker">
+      <span class="b2-kicker-num">{{KICKER_NUM}}</span>
+      <span class="b2-kicker-sep">/</span>
+      <span class="b2-kicker-label">{{KICKER_LABEL}}</span>
+    </div>
+
+    <!-- 副标题 -->
+    <div class="b2-subtitle">{{SUBTITLE}}</div>
+
+    <!-- 三个痛点卡片（横向排列）-->
+    <div class="b2-card b2-card-1">
+      <div class="b2-card-icon">{{CARD_ICON_1}}</div>
+      <div class="b2-card-title">{{CARD_TITLE_1}}</div>
+      <div class="b2-card-desc">{{CARD_DESC_1}}</div>
+      <div class="b2-card-tag">{{CARD_TAG_1}}</div>
+    </div>
+
+    <div class="b2-card b2-card-2">
+      <div class="b2-card-icon">{{CARD_ICON_2}}</div>
+      <div class="b2-card-title">{{CARD_TITLE_2}}</div>
+      <div class="b2-card-desc">{{CARD_DESC_2}}</div>
+      <div class="b2-card-tag">{{CARD_TAG_2}}</div>
+    </div>
+
+    <div class="b2-card b2-card-3">
+      <div class="b2-card-icon">{{CARD_ICON_3}}</div>
+      <div class="b2-card-title">{{CARD_TITLE_3}}</div>
+      <div class="b2-card-desc">{{CARD_DESC_3}}</div>
+      <div class="b2-card-tag">{{CARD_TAG_3}}</div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-2-pain-list"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        font-family: var(--f-zh, "Noto Sans SC", "Inter", sans-serif);
+        background: transparent;
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-2-pain-list"] .b2-kicker {
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-2-pain-list"] .b2-kicker-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: #d97757;
+        text-shadow: 0 0 16px rgba(217,119,87,0.65);
+      }
+      [data-composition-id="beat-2-pain-list"] .b2-kicker-sep {
+        font-size: 22px;
+        font-weight: 400;
+        color: rgba(150, 162, 182, 0.6);
+      }
+      [data-composition-id="beat-2-pain-list"] .b2-kicker-label {
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: #ffffff;
+      }
+
+      /* ── 副标题 ── */
+      [data-composition-id="beat-2-pain-list"] .b2-subtitle {
+        position: absolute;
+        top: 148px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        color: rgba(150, 162, 182, 0.85);
+        opacity: 0;
+      }
+
+      /* ── 卡片（共用）── */
+      [data-composition-id="beat-2-pain-list"] .b2-card {
+        position: absolute;
+        top: 50%;
+        transform: translateY(calc(-50% + 40px));
+        width: 440px;
+        padding: 48px 40px 40px;
+        background: linear-gradient(150deg, #0d172e 0%, #142042 100%);
+        border: 1.5px solid rgba(255,255,255,0.10);
+        border-radius: 24px;
+        box-shadow:
+          0 24px 60px rgba(0,0,0,0.55),
+          0 0 0 1px rgba(255,255,255,0.06) inset,
+          0 0 50px rgba(240,95,110,0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        opacity: 0;
+        filter: blur(14px);
+      }
+
+      /* 三卡横排位置（居中分布）*/
+      [data-composition-id="beat-2-pain-list"] .b2-card-1 { left: 100px; }
+      [data-composition-id="beat-2-pain-list"] .b2-card-2 { left: 740px; }
+      [data-composition-id="beat-2-pain-list"] .b2-card-3 { left: 1380px; }
+
+      /* ── 卡片 icon ── */
+      [data-composition-id="beat-2-pain-list"] .b2-card-icon {
+        font-size: 56px;
+        line-height: 1;
+        filter: drop-shadow(0 0 12px rgba(240,95,110,0.45));
+      }
+
+      /* ── 卡片标题（红色）── */
+      [data-composition-id="beat-2-pain-list"] .b2-card-title {
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 56px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.0;
+        background: linear-gradient(180deg, #ff8a94 0%, #F05F6E 55%, #d94050 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0 0 14px rgba(240,95,110,0.45));
+      }
+
+      /* ── 卡片描述 ── */
+      [data-composition-id="beat-2-pain-list"] .b2-card-desc {
+        font-family: "Noto Sans SC", "Inter", sans-serif;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: rgba(150,162,182,0.85);
+      }
+
+      /* ── 卡片标签 ── */
+      [data-composition-id="beat-2-pain-list"] .b2-card-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #F05F6E;
+        text-shadow: 0 0 10px rgba(240,95,110,0.50);
+        margin-top: 8px;
+      }
+
+      /* ── 卡片左侧红色 accent 线（入场后 scaleY 展开）── */
+      [data-composition-id="beat-2-pain-list"] .b2-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 24px;
+        bottom: 24px;
+        width: 3px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, #F05F6E, rgba(240,95,110,0));
+        box-shadow: 0 0 14px rgba(240,95,110,0.6);
+        transform: scaleY(0);
+        transform-origin: top center;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // kicker
+        tl.fromTo('[data-composition-id="beat-2-pain-list"] .b2-kicker',
+          { x: -24, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: 'power3.out' },
+          0.1);
+
+        // 副标题
+        tl.fromTo('[data-composition-id="beat-2-pain-list"] .b2-subtitle',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out' },
+          0.4);
+
+        // 三张卡片 stagger 入场（0.6 / 0.75 / 0.90s）
+        tl.fromTo('[data-composition-id="beat-2-pain-list"] .b2-card-1',
+          { y: 'calc(-50% + 60px)', opacity: 0, filter: 'blur(14px)' },
+          { y: 'calc(-50% + 40px)', opacity: 1, filter: 'blur(0px)', duration: 0.65, ease: 'back.out(1.4)' },
+          0.6);
+        tl.to('[data-composition-id="beat-2-pain-list"] .b2-card-1::before',
+          { scaleY: 1, duration: 0.4, ease: 'expo.out' }, 1.0);
+
+        tl.fromTo('[data-composition-id="beat-2-pain-list"] .b2-card-2',
+          { y: 'calc(-50% + 60px)', opacity: 0, filter: 'blur(14px)' },
+          { y: 'calc(-50% + 40px)', opacity: 1, filter: 'blur(0px)', duration: 0.65, ease: 'back.out(1.4)' },
+          0.75);
+        tl.to('[data-composition-id="beat-2-pain-list"] .b2-card-2::before',
+          { scaleY: 1, duration: 0.4, ease: 'expo.out' }, 1.15);
+
+        tl.fromTo('[data-composition-id="beat-2-pain-list"] .b2-card-3',
+          { y: 'calc(-50% + 60px)', opacity: 0, filter: 'blur(14px)' },
+          { y: 'calc(-50% + 40px)', opacity: 1, filter: 'blur(0px)', duration: 0.65, ease: 'back.out(1.4)' },
+          0.9);
+        tl.to('[data-composition-id="beat-2-pain-list"] .b2-card-3::before',
+          { scaleY: 1, duration: 0.4, ease: 'expo.out' }, 1.3);
+
+        // 退场
+        tl.to('[data-composition-id="beat-2-pain-list"]',
+          { opacity: 0, filter: 'blur(8px)', duration: 0.7, ease: 'power2.in' },
+          5.6);
+
+        tl.to({}, { duration: 6.5 }, 0);
+        window.__timelines['beat-2-pain-list'] = tl;
+      })();
+    </script>
+  </div>
+</template>

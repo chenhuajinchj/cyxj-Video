@@ -32,12 +32,29 @@
       #face-video {
         position: absolute;
         top: 0;
-        left: 50%;
+        left: 0;
+        width: 100%;
         height: 100%;
-        width: auto;
-        transform: translateX(-50%);
-        display: block;
-        filter: contrast(1.05) saturate(1.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 18px;
+        background:
+          radial-gradient(circle at 35% 25%, rgba(217, 119, 87, 0.20), transparent 34%),
+          linear-gradient(135deg, #111827 0%, #05080f 62%, #1c0e0a 100%);
+        color: rgba(255, 255, 255, 0.86);
+        font-family: "JetBrains Mono", "Noto Sans SC", monospace;
+      }
+      #face-video .placeholder-title {
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+      #face-video .placeholder-subtitle {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.56);
+        letter-spacing: 0.08em;
       }
       #face-wrapper.pip {
         z-index: 10;
@@ -64,26 +81,13 @@
       data-width="1920"
       data-height="1080"
     >
-      <!-- 用户录屏（24.4s，1920×1080 横版） -->
+      <!-- 录屏占位：复制模板后，把这个 div 换成 muted video + 单独 audio。 -->
       <div id="face-wrapper">
-        <video
-          id="face-video"
-          data-start="0"
-          data-duration="24.4"
-          data-track-index="0"
-          src="assets/recording.mp4"
-          muted
-          playsinline
-        ></video>
+        <div id="face-video">
+          <div class="placeholder-title">REPLACE WITH RECORDING</div>
+          <div class="placeholder-subtitle">assets/recording.mp4 · muted video + separate audio</div>
+        </div>
       </div>
-      <audio
-        id="face-audio"
-        data-start="0"
-        data-duration="24.4"
-        data-track-index="2"
-        data-volume="1"
-        src="assets/recording.mp4"
-      ></audio>
 
       <!-- BEAT 1 — Hook: "用 Claude Code 自动做动效" 中文卡片，FULL 模式 -->
       <div

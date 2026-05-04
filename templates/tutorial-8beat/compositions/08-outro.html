@@ -1,0 +1,377 @@
+<!-- 此 beat 的核心比喻：品牌 hero hold——先左侧锁定 logo，face 回归全屏后居中 hero 呼吸，粒子爆发收尾。
+     文案需替换：
+       {{BRAND_NAME}}（品牌/频道名，如 XCYJ）
+       {{BRAND_TAGLINE}}（副标题，如 Claude Code × HyperFrames）
+       {{CTA_URL}}（CTA 胶囊链接，如 youtube.com/@XCYJ）
+       {{NOTIF_ICON_CHAR}}（通知 icon 单字母，如 C）
+     时序（基于总时长 64.6s）：
+       Seg A [0.0–3.5s]  (全局 56.5–60.0s) face 在右上 PiP，logo 在左侧 ≤1280px
+       Seg B [3.5–6.5s]  (全局 60.0–63.0s) face 回归全屏，logo 居中 hero hold 呼吸
+       Seg C [6.5–8.1s]  (全局 63.0–64.6s) 粒子爆发 + 渐黑收尾
+     hot 色：--c-hot（var，默认 Claude 橙）
+     保留：bg radial + 光线辐射、左侧 lockup 入场 + CTA 胶囊、B 段居中过渡 + hero hold 呼吸、
+           canvas 粒子爆发（LCG seeded 确定性）、final black fade -->
+
+<template id="beat-8-outro-template">
+  <div
+    data-composition-id="beat-8-outro"
+    data-start="0"
+    data-duration="8.1"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- A: 橙色背景光晕 -->
+    <div class="b8-bg-radial"></div>
+
+    <!-- 光线辐射（从左侧中央发出，Seg A）-->
+    <div class="b8-rays">
+      <div class="b8-ray" style="--b8-deg: 0deg"></div>
+      <div class="b8-ray" style="--b8-deg: 45deg"></div>
+      <div class="b8-ray" style="--b8-deg: 90deg"></div>
+      <div class="b8-ray" style="--b8-deg: 135deg"></div>
+      <div class="b8-ray" style="--b8-deg: 180deg"></div>
+      <div class="b8-ray" style="--b8-deg: 225deg"></div>
+      <div class="b8-ray" style="--b8-deg: 270deg"></div>
+      <div class="b8-ray" style="--b8-deg: 315deg"></div>
+    </div>
+
+    <!-- Seg A：左侧锁定布局（不挡 PiP，宽度 ≤1280px）-->
+    <div class="b8-lockup-left">
+      <div class="b8-brand-text">{{BRAND_NAME}}</div>
+      <div class="b8-divider"></div>
+      <div class="b8-tagline-left">{{BRAND_TAGLINE}}</div>
+    </div>
+
+    <!-- Seg B：居中布局（face 全屏后叠加）-->
+    <div class="b8-lockup-center">
+      <div class="b8-brand-center">{{BRAND_NAME}}</div>
+      <div class="b8-center-halo"></div>
+    </div>
+
+    <!-- 副标题（居中，Seg B）-->
+    <div class="b8-tagline-center">{{BRAND_TAGLINE}}</div>
+
+    <!-- CTA 胶囊（A/B 两段共用）-->
+    <div class="b8-cta-pill">
+      <span class="b8-cta-dot"></span>
+      <span class="b8-cta-text">{{CTA_URL}}</span>
+    </div>
+
+    <!-- Seg C：粒子 canvas -->
+    <canvas class="b8-particles-canvas"></canvas>
+
+    <!-- 渐黑收尾 -->
+    <div class="b8-final-fade"></div>
+
+    <style>
+      [data-composition-id="beat-8-outro"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        font-family: "Inter", system-ui, sans-serif;
+      }
+
+      /* ── 橙色背景光晕 ── */
+      [data-composition-id="beat-8-outro"] .b8-bg-radial {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 1100px 800px at 640px 540px,
+          rgba(217,119,87,0.32) 0%, rgba(217,119,87,0.10) 45%, transparent 70%);
+        pointer-events: none; opacity: 0; z-index: 1;
+      }
+
+      /* ── 光线辐射 ── */
+      [data-composition-id="beat-8-outro"] .b8-rays {
+        position: absolute;
+        top: 540px; left: 640px;
+        width: 2px; height: 2px;
+        opacity: 0; z-index: 1; pointer-events: none;
+      }
+      [data-composition-id="beat-8-outro"] .b8-ray {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1400px; height: 1px;
+        background: linear-gradient(90deg, rgba(217,119,87,0.28) 0%, transparent 100%);
+        transform-origin: 0 0;
+        transform: rotate(var(--b8-deg)) translateX(-700px);
+      }
+
+      /* ── Seg A 左侧锁定 ── */
+      [data-composition-id="beat-8-outro"] .b8-lockup-left {
+        position: absolute;
+        left: 120px; top: 380px;
+        width: 1100px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        opacity: 0;
+        transform: scale(0.9);
+        transform-origin: left center;
+        z-index: 5;
+      }
+      [data-composition-id="beat-8-outro"] .b8-brand-text {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 160px; font-weight: 900;
+        line-height: 1; letter-spacing: -0.03em;
+        background: linear-gradient(180deg, #ffffff 0%, #c8d3e0 55%, #f0f4f8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 40px rgba(217,119,87,0.55));
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-8-outro"] .b8-divider {
+        width: 100%; max-width: 520px; height: 1.5px;
+        background: linear-gradient(90deg, rgba(217,119,87,0.8) 0%, rgba(91,169,255,0.4) 60%, transparent 100%);
+        margin: 16px 0; opacity: 0.75;
+      }
+      [data-composition-id="beat-8-outro"] .b8-tagline-left {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 40px; font-weight: 500;
+        letter-spacing: 0.18em;
+        color: rgba(150,162,182,0.85); white-space: nowrap;
+      }
+
+      /* ── Seg B 居中锁定 ── */
+      [data-composition-id="beat-8-outro"] .b8-lockup-center {
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0; z-index: 6;
+        display: flex; align-items: center; justify-content: center;
+        pointer-events: none;
+      }
+      [data-composition-id="beat-8-outro"] .b8-brand-center {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 200px; font-weight: 900;
+        line-height: 1; letter-spacing: -0.04em;
+        background: linear-gradient(180deg, #ffffff 0%, #c8d3e0 50%, #f0f4f8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        white-space: nowrap; position: relative; z-index: 2;
+      }
+      [data-composition-id="beat-8-outro"] .b8-center-halo {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 700px; height: 400px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(ellipse at center,
+          rgba(217,119,87,0.45) 0%, rgba(91,169,255,0.18) 45%, transparent 70%);
+        filter: blur(40px); opacity: 0; z-index: 1;
+      }
+
+      /* ── 居中副标题（Seg B）── */
+      [data-composition-id="beat-8-outro"] .b8-tagline-center {
+        position: absolute;
+        left: 50%; top: calc(50% + 130px);
+        transform: translateX(-50%) translateY(20px);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 36px; font-weight: 500;
+        letter-spacing: 0.22em;
+        color: rgba(150,162,182,0.80); white-space: nowrap;
+        opacity: 0; z-index: 6; text-align: center;
+      }
+
+      /* ── CTA 胶囊 ── */
+      [data-composition-id="beat-8-outro"] .b8-cta-pill {
+        position: absolute;
+        left: 120px; bottom: 100px;
+        display: flex; align-items: center; gap: 12px;
+        padding: 12px 28px;
+        background: rgba(255,255,255,0.05);
+        border: 1.5px solid rgba(217,119,87,0.45);
+        border-radius: 100px;
+        opacity: 0;
+        transform: translateY(16px);
+        z-index: 7;
+        transition: none;
+      }
+      [data-composition-id="beat-8-outro"] .b8-cta-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: #d97757;
+        box-shadow: 0 0 10px rgba(217,119,87,0.8), 0 0 20px rgba(217,119,87,0.45);
+        flex-shrink: 0;
+      }
+      [data-composition-id="beat-8-outro"] .b8-cta-text {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 28px; font-weight: 500;
+        color: rgba(255,255,255,0.80); letter-spacing: 0.04em; white-space: nowrap;
+      }
+
+      /* ── 粒子 canvas ── */
+      [data-composition-id="beat-8-outro"] .b8-particles-canvas {
+        position: absolute; inset: 0;
+        width: 1920px; height: 1080px;
+        pointer-events: none; opacity: 0; z-index: 8;
+      }
+
+      /* ── 渐黑 ── */
+      [data-composition-id="beat-8-outro"] .b8-final-fade {
+        position: absolute; inset: 0;
+        background: #000000; opacity: 0;
+        pointer-events: none; z-index: 20;
+      }
+    </style>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+
+        const tpl = document.getElementById("beat-8-outro-template");
+        const target = document.querySelector("#beat-8");
+        if (target && !target.firstElementChild) {
+          target.appendChild(tpl.content.cloneNode(true));
+        }
+
+        const tl = gsap.timeline({ paused: true });
+
+        // ── SEG A [0.0–3.5s]（全局 56.5–60.0s，face 还在 PiP）──
+
+        // A1: 橙色光晕升起
+        tl.to('[data-composition-id="beat-8-outro"] .b8-bg-radial',
+          { opacity: 1, duration: 1.2, ease: "power2.out" }, 0.0);
+
+        // A2: 光线辐射 + 缓慢旋转
+        tl.to('[data-composition-id="beat-8-outro"] .b8-rays',
+          { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.3);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-rays',
+          { rotate: 45, duration: 8.0, ease: "none" }, 0.3);
+
+        // A3: 左侧 logo 入场
+        tl.to('[data-composition-id="beat-8-outro"] .b8-lockup-left',
+          { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.4)" }, 0.5);
+
+        // A4: CTA 胶囊飘入
+        tl.to('[data-composition-id="beat-8-outro"] .b8-cta-pill',
+          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 1.2);
+
+        // A5: 光晕呼吸
+        tl.to('[data-composition-id="beat-8-outro"] .b8-bg-radial',
+          { opacity: 0.55, duration: 1.8, ease: "sine.inOut" }, 1.5);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-bg-radial',
+          { opacity: 0.85, duration: 1.8, ease: "sine.inOut" }, 3.3);
+
+        // ── SEG B [3.5–6.5s]（全局 60.0–63.0s，face 回归全屏）──
+
+        // B1: 左侧 logo 退场
+        tl.to('[data-composition-id="beat-8-outro"] .b8-lockup-left',
+          { opacity: 0, scale: 0.92, duration: 0.55, ease: "power2.in" }, 3.5);
+
+        // B2: CTA 先淡出再居中淡入
+        tl.to('[data-composition-id="beat-8-outro"] .b8-cta-pill',
+          { opacity: 0, y: 10, duration: 0.4, ease: "power2.in" }, 3.5);
+        tl.set('[data-composition-id="beat-8-outro"] .b8-cta-pill',
+          { left: "50%", bottom: "80px", xPercent: -50 }, 3.95);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-cta-pill',
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 4.05);
+
+        // B3: 居中 brand 文字入场
+        tl.to('[data-composition-id="beat-8-outro"] .b8-lockup-center',
+          { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.4)", transformOrigin: "50% 50%" }, 3.9);
+
+        // B4: 中央 halo 绽放
+        tl.to('[data-composition-id="beat-8-outro"] .b8-center-halo',
+          { opacity: 1, duration: 0.8, ease: "power2.out" }, 4.1);
+
+        // B5: 居中副标题
+        tl.to('[data-composition-id="beat-8-outro"] .b8-tagline-center',
+          { opacity: 1, y: 0, letterSpacing: "0.28em", duration: 0.7, ease: "power2.out" }, 4.4);
+
+        // B6: hero hold 呼吸（scale ×1，sine 两次）
+        tl.to('[data-composition-id="beat-8-outro"] .b8-lockup-center',
+          { scale: 1.02, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.8);
+
+        // B7: 光线背景移到正中
+        tl.to('[data-composition-id="beat-8-outro"] .b8-bg-radial', {
+          backgroundImage: "radial-gradient(ellipse 1100px 800px at 960px 540px, rgba(217,119,87,0.38) 0%, rgba(217,119,87,0.12) 45%, transparent 70%)",
+          duration: 0.8, ease: "power2.out"
+        }, 3.8);
+
+        // ── SEG C [6.5–8.1s]（全局 63.0–64.6s，粒子爆发 + 渐黑）──
+
+        tl.to('[data-composition-id="beat-8-outro"] .b8-lockup-center',
+          { opacity: 0, scale: 1.06, duration: 0.7, ease: "power2.in" }, 6.5);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-tagline-center',
+          { opacity: 0, y: -16, duration: 0.55, ease: "power2.in" }, 6.5);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-cta-pill',
+          { opacity: 0, duration: 0.45, ease: "power2.in" }, 6.5);
+
+        tl.to('[data-composition-id="beat-8-outro"] .b8-particles-canvas',
+          { opacity: 1, duration: 0.15 }, 6.5);
+
+        tl.to('[data-composition-id="beat-8-outro"] .b8-bg-radial',
+          { opacity: 0, duration: 1.0, ease: "power2.in" }, 6.6);
+        tl.to('[data-composition-id="beat-8-outro"] .b8-rays',
+          { opacity: 0, duration: 0.6, ease: "power2.in" }, 6.6);
+
+        tl.to('[data-composition-id="beat-8-outro"] .b8-final-fade',
+          { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 6.9);
+
+        tl.to({}, { duration: 8.1 }, 0);
+        window.__timelines["beat-8-outro"] = tl;
+
+        // ── 粒子爆发（Seg C，6.5s 触发，LCG seeded 确定性）──
+        (function initParticles() {
+          const canvas = document.querySelector('[data-composition-id="beat-8-outro"] .b8-particles-canvas');
+          if (!canvas) return;
+          const ctx = canvas.getContext("2d");
+          canvas.width = 1920; canvas.height = 1080;
+
+          let seed = 42;
+          function rand() {
+            seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+            return (seed >>> 0) / 0x100000000;
+          }
+
+          // 粒子颜色可按主题调整：--c-hot / --c-blue / white / --c-purple
+          const COLORS = ["#d97757", "#ffd2bc", "#5ba9ff", "#ffffff", "#b891e4"];
+          const particles = [];
+          const N = 120;
+          const cx = 960, cy = 540;
+
+          for (let i = 0; i < N; i++) {
+            const angle = rand() * Math.PI * 2;
+            const speed = 180 + rand() * 420;
+            const size = 2 + rand() * 6;
+            const color = COLORS[Math.floor(rand() * COLORS.length)];
+            particles.push({
+              x: cx, y: cy,
+              vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+              size, color, life: 1.0, decay: 0.55 + rand() * 0.45
+            });
+          }
+
+          let startTime = null;
+          let rafId = null;
+
+          function draw(ts) {
+            if (!startTime) startTime = ts;
+            const dt = Math.min((ts - startTime) / 1000, 0.1);
+            startTime = ts;
+            ctx.clearRect(0, 0, 1920, 1080);
+            let alive = false;
+            for (const p of particles) {
+              if (p.life <= 0) continue;
+              alive = true;
+              p.x += p.vx * dt; p.y += p.vy * dt;
+              p.vy += 320 * dt; // 重力
+              p.life -= p.decay * dt;
+              ctx.globalAlpha = Math.max(0, p.life);
+              ctx.fillStyle = p.color;
+              ctx.shadowColor = p.color;
+              ctx.shadowBlur = 8;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+            if (alive) rafId = requestAnimationFrame(draw);
+          }
+
+          tl.call(function () {
+            startTime = null;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(draw);
+          }, [], 6.5);
+        })();
+      })();
+    </script>
+  </div>
+</template>

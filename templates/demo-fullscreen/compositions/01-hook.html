@@ -31,7 +31,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 1320px;
+        width: 1580px;
         padding: 64px 72px 56px;
         background: linear-gradient(
           150deg,
@@ -62,14 +62,14 @@
         text-shadow: 0 0 16px rgba(217, 119, 87, 0.65);
       }
       [data-composition-id="beat-1-hook"] .b1-headline {
-        font-size: 132px;
+        font-size: 118px;
         font-weight: 800;
         line-height: 1.0;
         letter-spacing: -0.02em;
         white-space: nowrap;
         display: flex;
         align-items: center;
-        gap: 32px;
+        gap: 28px;
       }
       [data-composition-id="beat-1-hook"] .b1-codex {
         background: linear-gradient(180deg, #ffffff 0%, #c8c8c8 62%, #ededed 100%);
@@ -83,7 +83,7 @@
       [data-composition-id="beat-1-hook"] .b1-cross {
         font-family: "Inter", sans-serif;
         font-weight: 300;
-        font-size: 156px;
+        font-size: 140px;
         color: #d97757;
         text-shadow:
           0 0 32px rgba(217, 119, 87, 0.85),
@@ -126,39 +126,39 @@
         const root = '[data-composition-id="beat-1-hook"]';
 
         // 卡入场（blur-clear + 上推）
-        tl.from(`${root} .b1-card`,
+        tl.from(root + ' .b1-card',
           { y: 60, opacity: 0, filter: "blur(18px)",
             duration: 0.7, ease: "power3.out" }, 0.20);
 
         // Eyebrow 横滑入
-        tl.from(`${root} .b1-eyebrow`,
+        tl.from(root + ' .b1-eyebrow',
           { opacity: 0, x: -16, duration: 0.45, ease: "expo.out" }, 0.85);
 
         // Headline 三段 stagger："Codex" → "×" → "Claude Code"
-        tl.from(`${root} .b1-codex`,
+        tl.from(root + ' .b1-codex',
           { y: 40, opacity: 0, filter: "blur(14px)",
             duration: 0.55, ease: "power3.out" }, 1.30);
-        tl.from(`${root} .b1-cross`,
+        tl.from(root + ' .b1-cross',
           { scale: 0.4, opacity: 0, rotation: -90,
             duration: 0.65, ease: "back.out(2.2)" }, 1.85);
-        tl.from(`${root} .b1-cc`,
+        tl.from(root + ' .b1-cc',
           { y: 40, opacity: 0, filter: "blur(14px)",
             duration: 0.6, ease: "power4.out" }, 2.50);
 
         // Tagline + 装饰线
-        tl.from(`${root} .b1-tagline`,
+        tl.from(root + ' .b1-tagline',
           { opacity: 0, y: 12, duration: 0.45, ease: "power2.out" }, 3.30);
-        tl.from(`${root} .b1-underline`,
+        tl.from(root + ' .b1-underline',
           { width: 0, opacity: 0, duration: 0.5, ease: "expo.out" }, 3.65);
 
         // × 持续呼吸（4 次 sine yoyo）
-        gsap.to(`${root} .b1-cross`,
+        gsap.to(root + ' .b1-cross',
           { textShadow:
               "0 0 48px rgba(217,119,87,0.95), 0 0 110px rgba(217,119,87,0.55)",
             duration: 1.0, repeat: 4, yoyo: true, ease: "sine.inOut" });
 
         // Whip 出场：5.4-6.0s blur + scale + opacity
-        tl.to(`${root} .b1-card`,
+        tl.to(root + ' .b1-card',
           { y: -40, opacity: 0, filter: "blur(20px)",
             duration: 0.55, ease: "power3.in" }, 5.40);
 

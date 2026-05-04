@@ -44,6 +44,7 @@
         width: 1920px;
         height: 1080px;
         z-index: 5;
+        overflow: hidden;
       }
       /* 字幕层基础样式（中文为主，先按 beat 整段时码塞入；后期可在达芬奇里调精度）
          默认 opacity:1，hyperframes 的 clip 类会按 data-start/duration 控制显隐。 */
@@ -119,6 +120,7 @@
         data-track-index="2"
         data-width="1920"
         data-height="1080"
+        data-layout-allow-overflow
       ></div>
 
       <!-- BEAT 4 — Topics: 九大主题 stagger 列表 -->
@@ -132,6 +134,7 @@
         data-track-index="2"
         data-width="1920"
         data-height="1080"
+        data-layout-allow-overflow
       ></div>
 
       <!-- BEAT 5 — Thesis: 1+1>2 kinetic type -->

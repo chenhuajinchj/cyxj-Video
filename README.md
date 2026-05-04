@@ -29,6 +29,10 @@
 .
 ├── README.md                  ← 你在看的这个
 ├── TEMPLATE_USAGE.md          ← 复用 checklist（下次做新视频翻这个）
+├── AGENTS.md                  ← Codex 工作边界
+├── CLAUDE.md                  ← Claude Code 工作边界
+├── .agents/skills/            ← Codex wrapper skills
+├── .claude/skills/            ← Claude Code skills
 ├── templates/                 ← 三个可复用模板（git 跟踪）
 │   ├── host-overlay/          ← 主播 + overlay（v2 风格）
 │   ├── host-overlay-alpha/    ← 主播 + overlay 的 alpha 变体
@@ -40,18 +44,16 @@
 │   ├── lottie-davinci-experiment/  ← DaVinci 21 Lottie 兼容性实验
 │   ├── round-1-next-steps.md  ← 第一轮工作历史归档
 │   └── round-1-progress.md
+├── 参考库/                     ← 参考工程、catalog、我的作品
+├── 2026-MM-DD/                ← 当前视频工作区
 ├── hyperframes-launches/      ← HeyGen 官方参考工程（git ignored）
 ├── hyperframes-student-kit/   ← Nate Herk 学习套件（git ignored）
 └── 录屏/                       ← 个人录屏素材（git ignored，不会推 GitHub）
 ```
 
-`hyperframes-launches/` 和 `hyperframes-student-kit/` 是上游 git 仓库，本仓库**不重复跟踪**——使用前需要单独 clone：
+`hyperframes-launches/` 和 `hyperframes-student-kit/` 是上游 git 仓库，本仓库**不重复跟踪**。它们只作为参考库/上游 skill 的来源；新视频工程不要放回这两个目录。
 
-```bash
-# 进入工作区后
-cd hyperframes-student-kit  # 已 clone，单独维护
-npx hyperframes preview     # 启动预览
-```
+Claude Code 看 `CLAUDE.md` 和 `.claude/skills/`；Codex 看 `AGENTS.md` 和 `.agents/skills/`。两个 AI 共用 `templates/`、`参考库/`、`2026-MM-DD/`，但正在制作的 `2026-MM-DD/<slug>/` 视为施工区，另一个 AI 做审查/修基础设施时应先排除它。
 
 ---
 
@@ -60,14 +62,15 @@ npx hyperframes preview     # 启动预览
 ### 用模板做新视频（30 秒了解）
 
 ```bash
-# 1. 复制模板成新工程（在 hyperframes-student-kit 工作区里）
-cp -R templates/demo-fullscreen \
-  hyperframes-student-kit/video-projects/my-new-intro
+# 1. 在仓库根复制模板成日期工作区
+DATE=$(date +%Y-%m-%d)
+mkdir -p "$DATE"
+cp -R templates/demo-fullscreen "$DATE/my-new-intro"
 
 # 2. 改文案 / 时间码 / beat 内容（看 TEMPLATE_USAGE.md 的 checklist）
 
 # 3. 渲染
-cd hyperframes-student-kit/video-projects/my-new-intro
+cd "$DATE/my-new-intro"
 npx hyperframes lint
 npx hyperframes preview              # http://localhost:3002 验收
 npx hyperframes render --quality standard --format mp4 \

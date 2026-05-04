@@ -1,0 +1,225 @@
+<!-- 此 beat 的核心比喻：左右双栏对比——✓ vs ✗，用视觉反差制造判决感。
+     文案需替换：
+       {{LEFT_TITLE}} {{LEFT_SUB}}（✓ 绿色一侧的标题和副标）
+       {{RIGHT_TITLE}} {{RIGHT_SUB}}（✗ 红色一侧的标题和副标）
+       {{VERDICT_PREFIX}} {{VERDICT_HOT}}（底部大字，前半 chrome，后半红色 hot）
+     hot 色：--c-green（左 ✓）/ --c-red（右 ✗ + 底部 hot 词）
+     保留：中央分割线 scaleY 动画、双侧 badge 弹入、面板 stagger 0.3s、exit fade -->
+
+<template id="beat-3-pain-verdict-template">
+  <div
+    data-composition-id="beat-3-pain-verdict"
+    data-start="13"
+    data-duration="6"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- NO local grid / vignette — top-level index.html 负责 -->
+
+    <!-- 中央分割线 -->
+    <div class="b3-divider"></div>
+
+    <!-- 左侧面板：✓ 绿色 -->
+    <div class="b3-panel-left">
+      <div class="b3-check-badge b3-check-green">✓</div>
+      <div class="b3-panel-title">{{LEFT_TITLE}}</div>
+      <div class="b3-panel-sub">{{LEFT_SUB}}</div>
+    </div>
+
+    <!-- 右侧面板：✗ 红色 -->
+    <div class="b3-panel-right">
+      <div class="b3-check-badge b3-check-red">✗</div>
+      <div class="b3-panel-title">{{RIGHT_TITLE}}</div>
+      <div class="b3-panel-sub">{{RIGHT_SUB}}</div>
+    </div>
+
+    <!-- 底部大字：前半 chrome + 后半 hot -->
+    <div class="b3-hero">
+      <span class="b3-hero-plain">{{VERDICT_PREFIX}}</span><span class="b3-hero-hot">{{VERDICT_HOT}}</span>
+    </div>
+
+    <style>
+      [data-composition-id="beat-3-pain-verdict"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        font-family: var(--f-zh, "Noto Sans SC", "Inter", sans-serif);
+        background: transparent;
+      }
+
+      /* ── 中央分割线 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-divider {
+        position: absolute;
+        left: 50%;
+        top: 12%;
+        bottom: 22%;
+        width: 1.5px;
+        transform: translateX(-50%) scaleY(0);
+        transform-origin: top center;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(255,255,255,0.10) 15%,
+          rgba(255,255,255,0.20) 50%,
+          rgba(255,255,255,0.10) 85%,
+          transparent 100%
+        );
+      }
+
+      /* ── 面板 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-left,
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-55%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-left {
+        left: 160px;
+        width: 700px;
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-right {
+        right: 160px;
+        width: 700px;
+        align-items: flex-end;
+        text-align: right;
+      }
+
+      /* ── ✓/✗ 徽章 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-check-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        font-size: 52px;
+        font-weight: 900;
+        font-family: "Inter", sans-serif;
+        line-height: 1;
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-check-green {
+        color: #8DD891;
+        background: rgba(141,216,145,0.12);
+        border: 2.5px solid #8DD891;
+        box-shadow: 0 0 40px rgba(141,216,145,0.35);
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-check-red {
+        color: #F05F6E;
+        background: rgba(240,95,110,0.12);
+        border: 2.5px solid #F05F6E;
+        box-shadow: 0 0 40px rgba(240,95,110,0.35);
+      }
+
+      /* ── 面板标题 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-title {
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.0;
+        background: linear-gradient(180deg, #ffffff 0%, #c8d3e0 65%, #e8ecf2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+      }
+
+      /* ── 面板副标 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-sub {
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-left .b3-panel-sub {
+        color: #8DD891;
+        text-shadow: 0 0 20px rgba(141,216,145,0.45);
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-panel-right .b3-panel-sub {
+        color: #F05F6E;
+        text-shadow: 0 0 20px rgba(240,95,110,0.45);
+      }
+
+      /* ── 底部大字判决 ── */
+      [data-composition-id="beat-3-pain-verdict"] .b3-hero {
+        position: absolute;
+        bottom: 96px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 88px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.0;
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-hero-plain {
+        background: linear-gradient(180deg, #ffffff 0%, #c8d3e0 65%, #e8ecf2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      [data-composition-id="beat-3-pain-verdict"] .b3-hero-hot {
+        color: #F05F6E;
+        text-shadow: 0 0 40px rgba(240,95,110,0.6), 0 0 80px rgba(240,95,110,0.3);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 分割线从顶部展开
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-divider',
+          { scaleY: 1, duration: 0.55, ease: 'expo.out' }, 0.15);
+
+        // 左侧面板（t=0.3s）
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-left',
+          { opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.3);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-left .b3-check-badge',
+          { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.0)' }, 0.4);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-left .b3-panel-title',
+          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }, 0.55);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-left .b3-panel-sub',
+          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.85);
+
+        // 右侧面板（t=0.6s，stagger 0.3s）
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-right',
+          { opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.6);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-right .b3-check-badge',
+          { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.0)' }, 0.7);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-right .b3-panel-title',
+          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }, 0.85);
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-panel-right .b3-panel-sub',
+          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 1.15);
+
+        // 底部大字（t=1.8s）
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-hero',
+          { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.4)' }, 1.8);
+
+        // 红色徽章 pulse（环境动效）
+        tl.to('[data-composition-id="beat-3-pain-verdict"] .b3-check-red',
+          { boxShadow: '0 0 60px rgba(240,95,110,0.7), 0 0 0 12px rgba(240,95,110,0.08)', duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 2.2);
+
+        // 退场
+        tl.to('[data-composition-id="beat-3-pain-verdict"]',
+          { opacity: 0, duration: 0.5, ease: 'power2.in' }, 5.5);
+
+        tl.to({}, { duration: 6 }, 0);
+        window.__timelines['beat-3-pain-verdict'] = tl;
+      })();
+    </script>
+  </div>
+</template>

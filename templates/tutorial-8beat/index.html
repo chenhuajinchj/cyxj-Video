@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!-- 修改 title 为视频标题 -->
+    <title>{{VIDEO_TITLE}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* ── 底色（午夜深蓝，不是纯黑）── */
+        --c-bg:        #0a1124;
+        --c-bg-2:      #0d172e;
+        --c-bg-3:      #142042;
+        --c-grid:      rgba(91, 180, 255, 0.08);
+
+        /* ── hot 色：默认 Claude 橙，改此变量即可全局换色 ──
+           注意：每个 beat 只允许有一个 hot 色出现（最饱和最亮），其余素材用 dim/text/grid
+           按主题调整此变量，例如绿色主题改为 #8DD891 */
+        --c-hot:       #d97757;
+        --c-hot-glow:  rgba(217, 119, 87, 0.55);
+
+        /* ── 教程语义色（5 个，单 beat 只主用一个）── */
+        --c-blue:      #5BA9FF;
+        --c-blue-glow: rgba(91, 169, 255, 0.55);
+        --c-green:     #8DD891;
+        --c-red:       #F05F6E;
+        --c-purple:    #B891E4;
+        --c-yellow:    #F0C75E;
+        --c-orange:    #d97757;  /* Claude 品牌色，PiP halo 专用 */
+        --c-orange-glow: rgba(217, 119, 87, 0.55);
+
+        /* ── chrome 渐变（大字填充）── */
+        --c-chrome-1:  #ffffff;
+        --c-chrome-2:  #c8d3e0;
+
+        /* ── 字色 ── */
+        --c-text:      #ffffff;
+        --c-text-dim:  #96a2b6;
+        --c-text-mute: rgba(255, 255, 255, 0.5);
+
+        /* ── 字体 ── */
+        --f-zh:   "Noto Sans SC", "Inter", sans-serif;
+        --f-en:   "Inter", system-ui, sans-serif;
+        --f-mono: "JetBrains Mono", ui-monospace, monospace;
+
+        /* ── 字号（按主题调整）── */
+        --fs-headline:      88px;
+        --fs-headline-hero: 120px;
+        --fs-card-title:    56px;
+        --fs-body:          32px;
+        --fs-kicker:        22px;
+        --fs-mono:          26px;
+
+        /* ── halo ── */
+        --halo-hot:    0 0 60px var(--c-hot-glow), 0 0 0 2px var(--c-hot);
+        --halo-orange: 0 0 60px rgba(217, 119, 87, 0.55), 0 0 0 2px var(--c-orange);
+        --halo-blue:   0 0 60px rgba(91, 169, 255, 0.5), 0 0 0 2px var(--c-blue);
+        --halo-card:   0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        --halo-soft:   0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--c-bg);
+        font-family: var(--f-zh);
+        color: var(--c-text);
+      }
+
+      /* ── Face-cam wrapper ──
+         GSAP 动 wrapper 不动 <video>（动 <video> 会冻帧）。
+         <video> 内部 width:auto, height:100%, translateX(-50%) 自动竖切。 */
+      #face-wrapper {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        transform-origin: 0 0;
+        z-index: 0;
+        background: #000;
+      }
+      #face-video {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: auto;
+        transform: translateX(-50%);
+        display: block;
+        filter: contrast(1.05) saturate(1.06);
+      }
+      /* PiP 状态：右上角缩图，Claude 橙 halo */
+      #face-wrapper.pip {
+        z-index: 10;
+        border-radius: 36px;
+        box-shadow:
+          0 40px 100px rgba(0, 0, 0, 0.55),
+          0 0 0 2px rgba(217, 119, 87, 0.6),
+          0 0 60px rgba(217, 119, 87, 0.45);
+      }
+
+      .scene-layer {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+
+      /* 全屏网格层（半透明，全程不遮内容）*/
+      #global-grid {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        pointer-events: none;
+        z-index: 5;
+        background-image:
+          linear-gradient(var(--c-grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+        background-size: 80px 80px;
+        opacity: 0;
+      }
+
+      /* 全屏暗角层 */
+      #global-vignette {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        pointer-events: none;
+        z-index: 6;
+        background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, rgba(5, 8, 20, 0.55) 100%);
+        opacity: 0;
+      }
+
+      /* grain 层（全程 64.6s）*/
+      #global-grain {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        pointer-events: none;
+        z-index: 8;
+        opacity: 0.12;
+        mix-blend-mode: overlay;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="xcyj-tutorial-8beat-PLACEHOLDER"
+      data-start="0"
+      data-duration="64.6"
+      data-width="1920"
+      data-height="1080"
+      <!-- 注意：data-duration 按主题调整，总时长建议 ≥30s。修改此处后：
+           1. 同步修改下方 GSAP 锚点 tl.to({}, { duration: 64.6 }, 0) 的数字
+           2. 同步修改 FULL 第二段（60.0s）和 PIP 时序的绝对秒数
+           3. 同步修改 grain 和 audio 的 data-duration
+      -->
+    >
+      <!-- 录屏底层（当录屏 + overlay 模式时用）。data-composition-id 是为了过 lint，face-wrapper 不是真正的 sub-composition。 -->
+      <div id="face-wrapper" data-layout-allow-overflow
+        data-composition-id="face-wrapper-stub"
+        data-width="1920" data-height="1080">
+        <video
+          id="face-video"
+          data-start="0"
+          data-duration="64.6"
+          data-track-index="0"
+          src="assets/source.mp4"
+          muted
+          playsinline
+        ></video>
+      </div>
+      <audio
+        id="face-audio"
+        data-start="0"
+        data-duration="64.6"
+        data-track-index="2"
+        data-volume="1"
+        src="assets/source.mp4"
+      ></audio>
+
+      <!-- 全屏网格 + 暗角（全程显示，由 GSAP 控制 fade-in）-->
+      <div id="global-grid"></div>
+      <div id="global-vignette"></div>
+
+      <!-- 全局 grain（z-index 8，全程）-->
+      <div
+        id="global-grain"
+        class="scene-layer"
+        data-composition-id="global-grain"
+        data-composition-src="compositions/components/grain-overlay.html"
+        data-start="0"
+        data-duration="64.6"
+        data-track-index="3"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 1 [0→6.5s] HOOK
+           核心比喻：{{HOOK_METAPHOR}}
+           hot 色：--c-red（删除线对话气泡） -->
+      <div
+        id="beat-1"
+        class="scene-layer"
+        data-composition-id="beat-1-hook"
+        data-composition-src="compositions/01-hook.html"
+        data-start="0"
+        data-duration="6.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 2 [6.5→13s] PAIN LIST
+           核心比喻：三痛点卡片栈
+           hot 色：--c-red（每个痛点卡片边框 + 标题） -->
+      <div
+        id="beat-2"
+        class="scene-layer"
+        data-composition-id="beat-2-pain-list"
+        data-composition-src="compositions/02-pain-list.html"
+        data-start="6.5"
+        data-duration="6.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 3 [13→19s] PAIN VERDICT
+           核心比喻：左右双栏对比（✓ vs ✗）
+           hot 色：--c-green（左）vs --c-red（右） -->
+      <div
+        id="beat-3"
+        class="scene-layer"
+        data-composition-id="beat-3-pain-verdict"
+        data-composition-src="compositions/03-pain-verdict.html"
+        data-start="13"
+        data-duration="6"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 4 [19→25s] PUNCHLINE（⭐ HERO beat）
+           核心比喻：大字 headline + 终端窗口 + 弧线箭头指向 PiP
+           face 在此 beat 开始前（18.4s）缩为 PiP
+           hot 色：--c-hot（var，Claude 橙） -->
+      <div
+        id="beat-4"
+        class="scene-layer"
+        data-composition-id="beat-4-punchline"
+        data-composition-src="compositions/04-punchline.html"
+        data-start="19"
+        data-duration="6"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 5 [25→31.5s] PROMISE
+           核心比喻：章节切换卡（数字 + 标签 + 大标题）
+           hot 色：--c-blue（章节卡描边 + halo） -->
+      <div
+        id="beat-5"
+        class="scene-layer"
+        data-composition-id="beat-5-promise"
+        data-composition-src="compositions/05-promise.html"
+        data-start="25"
+        data-duration="6.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 6 [31.5→42.5s] CONCEPT
+           核心比喻：三步流程卡（输入 → 处理 → 输出）
+           hot 色：--c-blue（卡1）/ --c-hot（卡2）/ --c-purple（卡3） -->
+      <div
+        id="beat-6"
+        class="scene-layer"
+        data-composition-id="beat-6-concept"
+        data-composition-src="compositions/06-concept.html"
+        data-start="31.5"
+        data-duration="11"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 7 [42.5→56.5s] FLOW
+           核心比喻：可勾选执行计划（5 步 checkbox 列表）
+           hot 色：--c-blue（checkbox + 激活行）/ --c-green（最后一步）-->
+      <div
+        id="beat-7"
+        class="scene-layer"
+        data-composition-id="beat-7-flow"
+        data-composition-src="compositions/07-flow.html"
+        data-start="42.5"
+        data-duration="14"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- BEAT 8 [56.5→64.6s] OUTRO
+           核心比喻：品牌 hero hold + 粒子爆发收尾
+           face 在 60.0s 回归全屏
+           hot 色：--c-hot（brand halo） -->
+      <div
+        id="beat-8"
+        class="scene-layer"
+        data-composition-id="beat-8-outro"
+        data-composition-src="compositions/08-outro.html"
+        data-start="56.5"
+        data-duration="8.1"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const mainTl = gsap.timeline({ paused: true });
+
+      // ── Face-wrapper PiP 时序 ──
+      // FULL (0–18.4s)       face 全屏作为 hook/pain 期 hero
+      // PIP  (18.4–60.0s)    face 缩到右上（教学段）
+      // FULL (60.0–64.6s)    outro 回归全屏 hero
+      // 注意：PIP 的 x/y/width/height 和 FULL 第二段时间点按总时长调整
+      const FULL = { x: 0, y: 0, width: 1920, height: 1080 };
+      const PIP  = { x: 1380, y: 60, width: 480, height: 320 };
+
+      gsap.set("#face-wrapper", FULL);
+
+      // 全屏 grid + vignette 0.6s fade-in
+      mainTl.to("#global-grid",    { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.0);
+      mainTl.to("#global-vignette",{ opacity: 1, duration: 0.6, ease: "power2.out" }, 0.0);
+
+      // 18.4s 缩到 PiP（beat-3 末尾，掩护切到 beat-4 hero）
+      mainTl.to(
+        "#face-wrapper",
+        {
+          ...PIP,
+          duration: 0.60,
+          ease: "power3.inOut",
+          onStart: () => document.getElementById("face-wrapper").classList.add("pip"),
+        },
+        18.4
+      );
+
+      // 60.0s 放回 FULL（outro 中段，脸回归 hero 收尾）
+      // 注意：按主题调整此时间点（通常 = 总时长 - 4.6s）
+      mainTl.to(
+        "#face-wrapper",
+        {
+          ...FULL,
+          duration: 0.50,
+          ease: "power3.out",
+          onComplete: () => document.getElementById("face-wrapper").classList.remove("pip"),
+        },
+        60.0
+      );
+
+      // 锚点：保证 timeline.duration() >= data-duration
+      // 注意：按主题调整 64.6 这个数字
+      mainTl.to({}, { duration: 64.6 }, 0);
+      window.__timelines["xcyj-tutorial-8beat-PLACEHOLDER"] = mainTl;
+    </script>
+  </body>
+</html>

@@ -149,7 +149,9 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 
 ---
 
-## 三、Skill 索引（9 个，仓库根 `.claude/skills/`）
+## 三、Skill 索引（Claude / Codex 分入口）
+
+Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agents/skills/`。两边的自写 wrapper skill 应保持同一套视频生产语义，但内部引用分别指向自己的指令文件。
 
 ### 上游 skill（软链跟随更新，7 个）
 
@@ -163,12 +165,18 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 | `make-a-video` | 从 0 到成片的 8 步引导 |
 | `short-form-video` | 9:16 竖屏 SOP（10 条质量铁律） |
 
-### 自写 skill（2 个）
+### 自写 wrapper skill（2 个，两边都应存在）
 
 | Skill | 触发词 | 干啥 |
 |---|---|---|
 | `cyxj-new-video` | 「新视频」「做视频」「片头」「new video」「做完了」「归档」 | 全生命周期：建工程 → 推参考 → 渲染 → 归档 → 询问抽模板 |
 | `cyxj-add-block` | 「加个零件」「装个 X」「加个转场」「加 macos 通知」 | 从 catalog 推荐 1-3 个 block 并 add，告知怎么引用 |
+
+### 边界规则
+
+- Claude 专属措辞留在 `.claude/skills/`，Codex 专属措辞留在 `.agents/skills/`
+- 共享层是 `templates/`、`参考库/`、README、INDEX、`.gitignore`
+- 另一个 AI 做审查或修共享层时，先排除正在制作的 `2026-MM-DD/<slug>/` 施工目录
 
 ---
 
@@ -192,7 +200,7 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 
 ---
 
-## 五、模板（仓库根 `templates/`，3 个）
+## 五、模板（仓库根 `templates/`，4 个）
 
 跟参考库不同：模板是抽过的精简骨架，**直接 cp 起步**用。
 
@@ -201,8 +209,15 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 | `templates/host-overlay/` | 录屏铺底 + 4 overlay（背景不透明） | 整片 MP4 | 主播口播为主 |
 | `templates/host-overlay-alpha/` | 仅 4 overlay（背景透明） | ProRes 4444 alpha MOV | 想在达芬奇精修录屏 |
 | `templates/demo-fullscreen/` | 7 beat 串联（无录屏） | 整片 MP4 | 含中文文字的"虚构 demo" |
+| `templates/tutorial-8beat/` | 8 beat 教程（hook → pain-list → verdict → punchline → promise → concept → flow → outro），含 face FULL→PiP→FULL 时序 + kicker + 终端 + 卡片栈 + 执行计划列表 + 章节切换卡 | 整片 MP4 | 中文教程视频 ≥30s ≥6 beat（口播 + 多组件） |
 
 详见 `TEMPLATE_USAGE.md`。
+
+**⭐ tutorial-8beat 配套资产**：
+- 风格借鉴方法论：`docs/STYLE_BORROW_PLAYBOOK.md`
+- 用户视觉 DNA 基线：`MY_VISUAL_DNA.md`（仓库根，与 `MOTION_PHILOSOPHY.md` 同级）
+
+用此模板时建议走 `/cyxj-new-video` 阶段 D（风格借鉴），自动接入 DNA + playbook。
 
 ---
 

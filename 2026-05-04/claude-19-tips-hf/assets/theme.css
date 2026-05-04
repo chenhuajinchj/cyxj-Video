@@ -1905,4 +1905,247 @@ html, body {
     }
 
 
+/* === Tip 05 specific-requests === */
+
+    /* Tip 05 不要下模糊需求 — 24.233s — 6 cues + hero hold */
+
+    /* hero opener zh 大字 */
+    [data-composition-id="tip-05-specific"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* 双卡对比舞台 */
+    [data-composition-id="tip-05-specific"] .sr-stage {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      opacity: 0;
+    }
+
+    /* BAD / GOOD 卡片公共骨架 */
+    [data-composition-id="tip-05-specific"] .sr-card {
+      width: 760px;
+      min-height: 420px;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: var(--shadow-panel);
+    }
+    [data-composition-id="tip-05-specific"] .sr-card.bad {
+      background: rgba(184, 81, 56, 0.05);
+      border: 1.5px solid rgba(184, 81, 56, 0.45);
+    }
+    [data-composition-id="tip-05-specific"] .sr-card.good {
+      background: rgba(78, 143, 114, 0.05);
+      border: 1.5px solid rgba(78, 143, 114, 0.45);
+    }
+    [data-composition-id="tip-05-specific"] .sr-card-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--c-line);
+    }
+    [data-composition-id="tip-05-specific"] .sr-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--f-en);
+      font-size: 18px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    [data-composition-id="tip-05-specific"] .sr-card.bad .sr-card-tag { color: var(--c-danger); }
+    [data-composition-id="tip-05-specific"] .sr-card.good .sr-card-tag { color: var(--c-success); }
+    [data-composition-id="tip-05-specific"] .sr-card-tag-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+    [data-composition-id="tip-05-specific"] .sr-card.bad .sr-card-tag-icon { background: var(--c-danger); }
+    [data-composition-id="tip-05-specific"] .sr-card.good .sr-card-tag-icon { background: var(--c-success); }
+    [data-composition-id="tip-05-specific"] .sr-card-meta {
+      font-family: var(--f-mono);
+      font-size: 14px;
+      color: var(--c-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* 用户气泡（模糊 / 具体两种） */
+    [data-composition-id="tip-05-specific"] .question-bubble {
+      align-self: flex-start;
+      max-width: 95%;
+      padding: 14px 18px;
+      border-radius: 14px 14px 14px 4px;
+      background: rgba(255, 251, 245, 0.85);
+      border: 1px solid var(--c-line);
+      font-family: var(--f-zh);
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--c-text);
+      box-shadow: var(--shadow-soft);
+      opacity: 0;
+    }
+    [data-composition-id="tip-05-specific"] .question-bubble + .question-bubble {
+      margin-top: -6px;
+    }
+
+    /* Claude 响应（终端简化版） */
+    [data-composition-id="tip-05-specific"] .claude-resp {
+      align-self: stretch;
+      margin-top: auto;
+      padding: 18px 20px;
+      background: var(--c-terminal);
+      border-radius: 10px;
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: var(--c-terminal-text);
+      letter-spacing: 0;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-05-specific"] .claude-resp-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    [data-composition-id="tip-05-specific"] .claude-resp-prompt {
+      color: var(--c-orange);
+      font-weight: 700;
+    }
+    [data-composition-id="tip-05-specific"] .claude-resp-text {
+      color: var(--c-terminal-text);
+    }
+    [data-composition-id="tip-05-specific"] .claude-resp-text.confused {
+      color: var(--c-warning);
+      letter-spacing: 0.05em;
+    }
+    [data-composition-id="tip-05-specific"] .claude-resp-text.muted {
+      color: rgba(248, 241, 231, 0.45);
+      font-size: 16px;
+    }
+
+    /* GOOD 卡片中 Claude 推理 step 列表 */
+    [data-composition-id="tip-05-specific"] .reason-step {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: var(--f-mono);
+      font-size: 17px;
+      color: var(--c-terminal-text);
+      opacity: 0;
+    }
+    [data-composition-id="tip-05-specific"] .reason-step-num {
+      color: var(--c-success);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-05-specific"] .reason-step-text {
+      color: var(--c-terminal-text);
+      letter-spacing: 0;
+    }
+
+    /* 质量条对比（cue E） */
+    [data-composition-id="tip-05-specific"] .quality-row {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+      width: 1480px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter {
+      flex: 1;
+      display: grid;
+      gap: 10px;
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: var(--c-muted);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter-pct {
+      font-family: var(--f-mono);
+      font-size: 32px;
+      font-weight: 800;
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter.bad .quality-meter-pct  { color: var(--c-danger); }
+    [data-composition-id="tip-05-specific"] .quality-meter.good .quality-meter-pct { color: var(--c-success); }
+    [data-composition-id="tip-05-specific"] .quality-meter-bar {
+      width: 100%;
+      height: 14px;
+      background: var(--c-surface-2);
+      border-radius: var(--r-chip);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--c-line), inset 0 2px 4px rgba(43, 38, 34, 0.08);
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: var(--r-chip);
+      transform-origin: left center;
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter.bad .quality-meter-fill {
+      background: linear-gradient(90deg, var(--c-danger), #D97757);
+      box-shadow: 0 0 16px rgba(184, 81, 56, 0.5);
+    }
+    [data-composition-id="tip-05-specific"] .quality-meter.good .quality-meter-fill {
+      background: linear-gradient(90deg, var(--c-success), #6CC09A);
+      box-shadow: 0 0 20px rgba(78, 143, 114, 0.55);
+    }
+
+    /* 「类似计划模式」callback hint chip（呼应 Tip 4 mode-toggle-bar 视觉） */
+    [data-composition-id="tip-05-specific"] .similar-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 22px;
+      background: rgba(255, 251, 245, 0.92);
+      border: 1px solid var(--c-line);
+      border-radius: 999px;
+      box-shadow: var(--shadow-soft);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-teal);
+      letter-spacing: 0;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    [data-composition-id="tip-05-specific"] .similar-hint-arrow {
+      color: var(--c-orange);
+      font-weight: 700;
+    }
+
+
+
 

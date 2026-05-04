@@ -3391,3 +3391,261 @@ html, body {
     }
 
 
+/* === Tip 10 esc-stop（重写） === */
+
+    /* Tip 10 及时止损 — 18.033s — 7 cues */
+
+    [data-composition-id="tip-10-esc-stop"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* 主舞台容器（B-F） */
+    [data-composition-id="tip-10-esc-stop"] .esc-stage {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    /* 终端居中（B-D 段） */
+    [data-composition-id="tip-10-esc-stop"] .drift-terminal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1100px;
+      max-width: 1100px;
+    }
+    [data-composition-id="tip-10-esc-stop"] .drift-terminal .cc-body {
+      min-height: 360px;
+      padding: 32px 40px;
+    }
+    [data-composition-id="tip-10-esc-stop"] .drift-line {
+      font-family: var(--f-mono);
+      font-size: 22px;
+      line-height: 1.55;
+      color: var(--c-text);
+      letter-spacing: 0;
+      opacity: 0;
+      white-space: pre;
+    }
+    [data-composition-id="tip-10-esc-stop"] .drift-line.drift {
+      color: var(--c-danger);
+    }
+    [data-composition-id="tip-10-esc-stop"] .drift-line.dim {
+      color: var(--c-muted);
+    }
+
+    /* 顶部「跑偏中」warning chip — 居中由 GSAP xPercent: -50 控制 */
+    [data-composition-id="tip-10-esc-stop"] .drift-warning-chip {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: rgba(193, 75, 60, 0.12);
+      border: 1px solid rgba(193, 75, 60, 0.55);
+      color: var(--c-danger);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      box-shadow: 0 6px 22px rgba(193, 75, 60, 0.20);
+      opacity: 0;
+      z-index: 4;
+    }
+    [data-composition-id="tip-10-esc-stop"] .drift-warning-chip-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--c-danger);
+      box-shadow: 0 0 12px rgba(193, 75, 60, 0.7);
+    }
+
+    /* ESC 大键（撞击式入场，~140px 大尺寸） */
+    [data-composition-id="tip-10-esc-stop"] .esc-keycap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 140px;
+      padding: 0;
+      border-radius: 22px;
+      background: rgba(255, 251, 245, 0.98);
+      border: 3px solid var(--c-text);
+      box-shadow: 0 18px 50px rgba(43, 38, 34, 0.35),
+                  0 0 0 1px rgba(43, 38, 34, 0.10),
+                  inset 0 -6px 0 rgba(43, 38, 34, 0.10);
+      font-family: var(--f-mono);
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--c-text);
+      opacity: 0;
+      z-index: 9;
+    }
+    [data-composition-id="tip-10-esc-stop"] .esc-keycap.pressed {
+      box-shadow: 0 8px 22px rgba(217, 119, 87, 0.50),
+                  0 0 0 6px rgba(217, 119, 87, 0.40),
+                  0 0 60px rgba(217, 119, 87, 0.45),
+                  inset 0 -3px 0 rgba(43, 38, 34, 0.10);
+      border-color: var(--c-orange);
+      color: var(--c-orange);
+    }
+
+    /* 撞击瞬间冲击波 ripple */
+    [data-composition-id="tip-10-esc-stop"] .impact-ripple {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      border: 4px solid rgba(217, 119, 87, 0.85);
+      box-shadow: 0 0 60px rgba(217, 119, 87, 0.55);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 8;
+    }
+
+    /* 撞击白闪 overlay（覆盖全屏） */
+    [data-composition-id="tip-10-esc-stop"] .white-flash {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 252, 244, 1);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 12;
+    }
+
+    /* STOPPED 红色 badge（撞击后弹出）— 居中由 GSAP xPercent: -50 控制 */
+    [data-composition-id="tip-10-esc-stop"] .stopped-badge {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 110px);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(193, 75, 60, 0.94);
+      color: #fff;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 0 28px rgba(193, 75, 60, 0.55);
+      opacity: 0;
+      z-index: 9;
+    }
+
+    /* 三 chip 浪费（cue E）— 居中由 GSAP xPercent/yPercent: -50 控制 */
+    [data-composition-id="tip-10-esc-stop"] .waste-row {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: flex;
+      gap: 36px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-10-esc-stop"] .waste-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 34px;
+      border-radius: 18px;
+      background: rgba(255, 251, 245, 0.96);
+      border: 2px solid var(--c-danger);
+      box-shadow: 0 0 22px rgba(193, 75, 60, 0.20), var(--shadow-soft);
+      opacity: 0;
+    }
+    [data-composition-id="tip-10-esc-stop"] .waste-chip-icon {
+      font-family: var(--f-mono);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--c-danger);
+      line-height: 1;
+    }
+    [data-composition-id="tip-10-esc-stop"] .waste-chip-zh {
+      font-family: var(--f-zh);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--c-text);
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-10-esc-stop"] .waste-chip-en {
+      font-family: var(--f-en);
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+
+    /* token 大数字 counter（cue F）— 居中由 GSAP xPercent/yPercent: -50 控制 */
+    [data-composition-id="tip-10-esc-stop"] .token-counter-stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-10-esc-stop"] .token-counter-label {
+      font-family: var(--f-zh);
+      font-size: 28px;
+      color: var(--c-muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    [data-composition-id="tip-10-esc-stop"] .token-counter-num {
+      font-family: var(--f-mono);
+      font-size: 220px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, var(--c-orange) 0%, var(--c-danger) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 36px rgba(193, 75, 60, 0.35);
+    }
+    [data-composition-id="tip-10-esc-stop"] .token-counter-unit {
+      font-family: var(--f-mono);
+      font-size: 36px;
+      color: var(--c-danger);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    /* 划掉的 ✗ 大叉 — 用 inset 偏移避开 GSAP transform 接管 */
+    [data-composition-id="tip-10-esc-stop"] .token-cross {
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: 50%;
+      margin-top: -4px;
+      height: 8px;
+      background: var(--c-danger);
+      border-radius: 999px;
+      box-shadow: 0 0 24px rgba(193, 75, 60, 0.65);
+      opacity: 0;
+      transform-origin: center;
+    }
+
+
+

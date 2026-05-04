@@ -1258,3 +1258,178 @@ html, body {
       opacity: 0;
       letter-spacing: 0;
     }
+
+
+/* === Tip 03 clear === */
+
+    /* Tip 03 /clear 清理上下文 — 13.667s — 5 cues + hero hold */
+
+    /* hero opener mono 大字（cue A） */
+    [data-composition-id="tip-03-clear"] .hero-mono {
+      font-family: var(--f-mono);
+      font-weight: 700;
+      font-size: 152px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* 终端窗口（复用 V5 .cc-window，仅调整尺寸、位置容器） */
+    [data-composition-id="tip-03-clear"] .cc-window {
+      width: 1100px;
+    }
+    [data-composition-id="tip-03-clear"] .cc-prompt-line {
+      font-size: 36px;
+    }
+    [data-composition-id="tip-03-clear"] .cc-info {
+      margin-top: 18px;
+      font-size: 22px;
+    }
+    [data-composition-id="tip-03-clear"] .cc-statusline {
+      font-size: 22px;
+    }
+    [data-composition-id="tip-03-clear"] .cc-cleared-info {
+      margin-top: 18px;
+      font-size: 22px;
+      font-family: var(--f-mono);
+      color: var(--c-success);
+      letter-spacing: 0;
+      opacity: 0;
+    }
+    [data-composition-id="tip-03-clear"] .cc-cleared-info::before {
+      content: '✓';
+      margin-right: 10px;
+      color: var(--c-success);
+      font-weight: 800;
+    }
+
+    /* 浮动 token chip（cue B 期间堆积感、cue C 集体消散） */
+    [data-composition-id="tip-03-clear"] .token-cloud {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    [data-composition-id="tip-03-clear"] .token-chip-floating {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255, 251, 245, 0.85);
+      border: 1px solid var(--c-line);
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: var(--c-muted);
+      font-weight: 600;
+      letter-spacing: 0;
+      box-shadow: 0 4px 12px rgba(43, 38, 34, 0.10);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translate(0, 0);
+    }
+    [data-composition-id="tip-03-clear"] .token-chip-floating.warm {
+      background: rgba(245, 220, 200, 0.85);
+      color: var(--c-orange);
+      border-color: rgba(217, 119, 87, 0.35);
+    }
+    [data-composition-id="tip-03-clear"] .token-chip-floating.cool {
+      background: rgba(220, 230, 230, 0.85);
+      color: var(--c-teal);
+      border-color: rgba(47, 125, 115, 0.30);
+    }
+    [data-composition-id="tip-03-clear"] .token-chip-floating.dark {
+      background: var(--c-terminal-soft);
+      color: var(--c-terminal-text);
+      border-color: rgba(255, 255, 255, 0.06);
+    }
+
+    /* hero 级 ctx-meter（终端下方独立大进度条，让"飙到 78% → 归零"动作显眼） */
+    [data-composition-id="tip-03-clear"] .ctx-meter {
+      position: absolute;
+      left: 50%;
+      bottom: 254px;
+      transform: translateX(-50%);
+      width: 1100px;
+      display: grid;
+      gap: 14px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--f-mono);
+      font-size: 24px;
+      color: var(--c-muted);
+      letter-spacing: 0.04em;
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-label-text {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 20px;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-pct {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--c-text);
+      font-family: var(--f-mono);
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-pct.warn   { color: var(--c-warning); }
+    [data-composition-id="tip-03-clear"] .ctx-meter-pct.danger { color: var(--c-danger); }
+    [data-composition-id="tip-03-clear"] .ctx-meter-pct.safe   { color: var(--c-teal); }
+
+    [data-composition-id="tip-03-clear"] .ctx-meter-bar {
+      width: 100%;
+      height: 18px;
+      background: var(--c-surface-2);
+      border-radius: var(--r-chip);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--c-line), inset 0 2px 4px rgba(43, 38, 34, 0.08);
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--c-orange), #E8A07A);
+      border-radius: var(--r-chip);
+      box-shadow: 0 0 16px rgba(217, 119, 87, 0.5);
+      transform-origin: left center;
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-fill.warn {
+      background: linear-gradient(90deg, var(--c-warning), #E8A07A);
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-fill.danger {
+      background: linear-gradient(90deg, var(--c-danger), #D97757);
+    }
+    [data-composition-id="tip-03-clear"] .ctx-meter-fill.safe {
+      background: linear-gradient(90deg, var(--c-teal), #5EBFB0);
+      box-shadow: 0 0 16px rgba(47, 125, 115, 0.5);
+    }
+
+    /* 终端入场容器（让 cue B 终端 + ctx-meter 上下整齐） */
+    [data-composition-id="tip-03-clear"] .terminal-stage {
+      position: absolute;
+      left: 50%;
+      top: 47%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      opacity: 0;
+    }
+
+    /* shutter overlay（cue C 清空动作触发的 white pulse） */
+    [data-composition-id="tip-03-clear"] .clear-pulse {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 254, 248, 0.0);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      z-index: 60;
+    }
+

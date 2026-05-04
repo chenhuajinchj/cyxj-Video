@@ -1510,8 +1510,9 @@ html, body {
     /* statusline 新增 mode 段 */
     [data-composition-id="tip-04-plan-mode"] .cc-sl-icon.mode { background: var(--c-orange); }
 
-    /* 计划草稿面板（cue D 右侧滑入） */
-    [data-composition-id="tip-04-plan-mode"] .plan-panel {
+    /* 计划草稿面板（cue D 右侧滑入）— Tip 4 + Tip 7 共享 */
+    [data-composition-id="tip-04-plan-mode"] .plan-panel,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel {
       width: 720px;
       background: var(--c-surface);
       border: 1px solid var(--c-line);
@@ -1522,7 +1523,8 @@ html, body {
       transform: translateX(40px);
       flex-shrink: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-panel-titlebar {
+    [data-composition-id="tip-04-plan-mode"] .plan-panel-titlebar,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel-titlebar {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1531,7 +1533,8 @@ html, body {
       margin-bottom: 18px;
       border-bottom: 1px solid var(--c-line);
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-panel-title {
+    [data-composition-id="tip-04-plan-mode"] .plan-panel-title,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel-title {
       font-family: var(--f-mono);
       font-size: 22px;
       color: var(--c-muted);
@@ -1539,7 +1542,8 @@ html, body {
       text-transform: uppercase;
       font-weight: 700;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-panel-mode {
+    [data-composition-id="tip-04-plan-mode"] .plan-panel-mode,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel-mode {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -1553,18 +1557,21 @@ html, body {
       font-weight: 700;
       letter-spacing: 0.04em;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-panel-mode-dot {
+    [data-composition-id="tip-04-plan-mode"] .plan-panel-mode-dot,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel-mode-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
       background: var(--c-orange);
       box-shadow: 0 0 10px var(--c-orange-glow);
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-steps {
+    [data-composition-id="tip-04-plan-mode"] .plan-steps,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-steps {
       display: grid;
       gap: 14px;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step {
+    [data-composition-id="tip-04-plan-mode"] .plan-step,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step {
       display: flex;
       align-items: center;
       gap: 16px;
@@ -1578,7 +1585,8 @@ html, body {
       font-weight: 500;
       opacity: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step-checkbox {
+    [data-composition-id="tip-04-plan-mode"] .plan-step-checkbox,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step-checkbox {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1593,31 +1601,36 @@ html, body {
       flex-shrink: 0;
       transition: none;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step.done .plan-step-checkbox {
+    [data-composition-id="tip-04-plan-mode"] .plan-step.done .plan-step-checkbox,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.done .plan-step-checkbox {
       background: var(--c-orange);
       border-color: var(--c-orange);
       color: #fff;
       box-shadow: 0 0 16px var(--c-orange-glow);
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step.done .plan-step-text {
+    [data-composition-id="tip-04-plan-mode"] .plan-step.done .plan-step-text,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.done .plan-step-text {
       color: var(--c-muted);
       text-decoration: line-through;
       text-decoration-color: rgba(109, 98, 89, 0.45);
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step-num {
+    [data-composition-id="tip-04-plan-mode"] .plan-step-num,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step-num {
       font-family: var(--f-mono);
       color: var(--c-muted);
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .plan-step-text {
+    [data-composition-id="tip-04-plan-mode"] .plan-step-text,
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step-text {
       flex: 1;
       letter-spacing: 0;
     }
 
     /* ⏸ Awaiting approval chip（cue D 末出现在面板下方） */
-    [data-composition-id="tip-04-plan-mode"] .approval-chip {
+    [data-composition-id="tip-04-plan-mode"] .approval-chip,
+    [data-composition-id="tip-07-plan-reviewer"] .approval-chip {
       display: inline-flex;
       align-items: center;
       gap: 12px;
@@ -1633,7 +1646,8 @@ html, body {
       letter-spacing: 0.04em;
       opacity: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .approval-chip-icon {
+    [data-composition-id="tip-04-plan-mode"] .approval-chip-icon,
+    [data-composition-id="tip-07-plan-reviewer"] .approval-chip-icon {
       font-size: 22px;
       font-weight: 700;
     }
@@ -1669,8 +1683,9 @@ html, body {
       font-weight: 700;
     }
 
-    /* 金光 sweep（cue E 扫过计划面板） */
-    [data-composition-id="tip-04-plan-mode"] .gold-sweep {
+    /* 金光 sweep（cue E 扫过计划面板）— Tip 4 + Tip 7 共享 */
+    [data-composition-id="tip-04-plan-mode"] .gold-sweep,
+    [data-composition-id="tip-07-plan-reviewer"] .gold-sweep {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -1847,7 +1862,8 @@ html, body {
     }
 
     /* mode 切换状态条（参照真实 Claude Code `‖ plan mode on ·`） */
-    [data-composition-id="tip-04-plan-mode"] .mode-toggle-bar {
+    [data-composition-id="tip-04-plan-mode"] .mode-toggle-bar,
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-bar {
       display: inline-flex;
       align-items: center;
       gap: 14px;
@@ -1864,22 +1880,26 @@ html, body {
       white-space: nowrap;
       opacity: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .mode-toggle-pause {
+    [data-composition-id="tip-04-plan-mode"] .mode-toggle-pause,
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-pause {
       font-weight: 800;
       letter-spacing: -0.05em;
       color: var(--c-teal);
     }
-    [data-composition-id="tip-04-plan-mode"] .mode-toggle-text {
+    [data-composition-id="tip-04-plan-mode"] .mode-toggle-text,
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-text {
       color: var(--c-teal);
       letter-spacing: 0;
     }
-    [data-composition-id="tip-04-plan-mode"] .mode-toggle-dot {
+    [data-composition-id="tip-04-plan-mode"] .mode-toggle-dot,
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-dot {
       color: var(--c-teal);
       font-size: 30px;
       line-height: 1;
       opacity: 0.75;
     }
-    [data-composition-id="tip-04-plan-mode"] .mode-toggle-cursor {
+    [data-composition-id="tip-04-plan-mode"] .mode-toggle-cursor,
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-cursor {
       display: inline-block;
       width: 10px;
       height: 24px;
@@ -2421,4 +2441,314 @@ html, body {
     [data-composition-id="tip-06-ask-questions"] .question-item-text {
       letter-spacing: 0;
       flex: 1;
+    }
+
+
+/* === Tip 07 plan-reviewer === */
+
+    /* Tip 07 换顾问审计划 — 13.7s — 6 cues + hero hold */
+
+    /* hero opener zh 大字 */
+    [data-composition-id="tip-07-plan-reviewer"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* 主舞台容器 */
+    [data-composition-id="tip-07-plan-reviewer"] .review-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      opacity: 0;
+    }
+
+    /* plan-panel Tip 7 专属布局：宽 1100 + 5 步 2 列 grid（callback Tip 4 V2） */
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel {
+      width: 1100px;
+      transform: translateY(0);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-steps {
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 18px;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step {
+      font-size: 22px;
+      position: relative;
+    }
+    /* Tip 7 done 状态用绿色（"计划已做好 · 通过初审"），覆盖 Tip 4 共享的橙色 */
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.done .plan-step-checkbox {
+      background: var(--c-success);
+      border-color: var(--c-success);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(115, 156, 86, 0.55);
+    }
+    /* Tip 7 不要删除线（计划是"待审视"不是"已划掉"），覆盖共享的 line-through */
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.done .plan-step-text {
+      color: var(--c-text);
+      text-decoration: none;
+    }
+
+    /* step audit 变色态：sweep 扫过后整 step 变红/橙 */
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.audit-warn {
+      background: rgba(217, 119, 87, 0.10);
+      border-color: rgba(217, 119, 87, 0.55);
+      box-shadow: 0 0 0 1px rgba(217, 119, 87, 0.25),
+                  0 6px 20px rgba(217, 119, 87, 0.15);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.audit-warn .plan-step-checkbox {
+      background: var(--c-orange);
+      border-color: var(--c-orange);
+      box-shadow: 0 0 14px var(--c-orange-glow);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.audit-fail {
+      background: rgba(193, 75, 60, 0.10);
+      border-color: rgba(193, 75, 60, 0.55);
+      box-shadow: 0 0 0 1px rgba(193, 75, 60, 0.28),
+                  0 6px 20px rgba(193, 75, 60, 0.18);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.audit-fail .plan-step-checkbox {
+      background: var(--c-danger);
+      border-color: var(--c-danger);
+      box-shadow: 0 0 14px rgba(193, 75, 60, 0.55);
+    }
+
+    /* step-sweep：单步内的扫描光带，从右缘滑到左缘 */
+    [data-composition-id="tip-07-plan-reviewer"] .step-sweep {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 35%;
+      background: linear-gradient(270deg,
+        transparent 0%,
+        rgba(255, 250, 240, 0.0) 12%,
+        rgba(255, 220, 170, 0.65) 50%,
+        rgba(255, 250, 240, 0.0) 88%,
+        transparent 100%);
+      filter: blur(3px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(0);
+      border-radius: inherit;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .plan-step.audit-fail .step-sweep {
+      background: linear-gradient(270deg,
+        transparent 0%,
+        rgba(255, 220, 200, 0.0) 12%,
+        rgba(255, 180, 160, 0.7) 50%,
+        rgba(255, 220, 200, 0.0) 88%,
+        transparent 100%);
+    }
+
+    /* mode-toggle-bar 在 Tip 7 中浮在屏幕顶部（整片在场，不被 role-badge 挤） */
+    [data-composition-id="tip-07-plan-reviewer"] .mode-toggle-bar {
+      position: absolute;
+      left: 50%;
+      top: 130px;
+      transform: translateX(-50%);
+      z-index: 4;
+    }
+
+    /* Tip 7 plan-panel 边框色：默认 plan-teal，加 .audit-mode 后橙色 */
+    [data-composition-id="tip-07-plan-reviewer"] .plan-panel.audit-mode {
+      border-color: rgba(217, 119, 87, 0.55);
+      box-shadow: 0 28px 70px rgba(43, 38, 34, 0.18),
+                  0 0 0 2px rgba(217, 119, 87, 0.30),
+                  0 0 60px rgba(217, 119, 87, 0.20);
+    }
+
+    /* role-badge：身份徽章 chip（顾问 vs 计划者）— Tip 7 核心隐喻 */
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge {
+      position: absolute;
+      top: -64px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: rgba(255, 251, 245, 0.98);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      box-shadow: var(--shadow-soft);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge.planner {
+      border: 1px solid var(--c-teal);
+      color: var(--c-teal);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge.reviewer {
+      border: 1px solid var(--c-orange);
+      color: var(--c-orange);
+      box-shadow: 0 0 24px rgba(217, 119, 87, 0.35), var(--shadow-soft);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge.planner .role-badge-dot {
+      background: var(--c-teal);
+      box-shadow: 0 0 10px rgba(47, 125, 115, 0.6);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .role-badge.reviewer .role-badge-dot {
+      background: var(--c-orange);
+      box-shadow: 0 0 10px var(--c-orange-glow);
+    }
+
+    /* 右侧 callout 副条「以新顾问身份」（紧贴 role-badge 右侧） */
+    [data-composition-id="tip-07-plan-reviewer"] .role-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: rgba(255, 251, 245, 0.95);
+      border: 1px solid rgba(217, 119, 87, 0.42);
+      color: var(--c-orange);
+      font-family: var(--f-zh);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(43, 38, 34, 0.10);
+      opacity: 0;
+      z-index: 5;
+    }
+
+    /* scan-line：reviewer 扫描线（顶到底） */
+    [data-composition-id="tip-07-plan-reviewer"] .scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(91, 180, 255, 0.0) 10%,
+        rgba(91, 180, 255, 0.55) 35%,
+        rgba(217, 119, 87, 0.85) 55%,
+        rgba(91, 180, 255, 0.55) 75%,
+        transparent 100%);
+      filter: blur(3px);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    /* audit-note：plan-step 内右侧批注 chip */
+    [data-composition-id="tip-07-plan-reviewer"] .audit-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: var(--f-mono);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      opacity: 0;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-note.warn {
+      background: rgba(217, 119, 87, 0.14);
+      border: 1px solid rgba(217, 119, 87, 0.55);
+      color: var(--c-orange);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-note.fail {
+      background: rgba(193, 75, 60, 0.14);
+      border: 1px solid rgba(193, 75, 60, 0.55);
+      color: var(--c-danger);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-note-icon {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    /* whip-streak：身份切换瞬间的 light streak（法则 #5） */
+    [data-composition-id="tip-07-plan-reviewer"] .whip-streak {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 12px;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 250, 240, 0.0) 15%,
+        rgba(255, 245, 220, 0.85) 50%,
+        rgba(255, 250, 240, 0.0) 85%,
+        transparent);
+      filter: blur(6px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    /* Cue E 双 chip 容器 + chip 本体 */
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 28px 56px;
+      border-radius: 24px;
+      background: rgba(255, 251, 245, 0.96);
+      box-shadow: var(--shadow-panel);
+      min-width: 360px;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip.gap {
+      border: 2px solid var(--c-danger);
+      box-shadow: 0 0 32px rgba(193, 75, 60, 0.35), var(--shadow-panel);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip.over {
+      border: 2px solid var(--c-orange);
+      box-shadow: 0 0 32px rgba(217, 119, 87, 0.35), var(--shadow-panel);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 56px;
+      line-height: 1;
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip.gap .audit-summary-chip-zh {
+      color: var(--c-danger);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip.over .audit-summary-chip-zh {
+      color: var(--c-orange);
+    }
+    [data-composition-id="tip-07-plan-reviewer"] .audit-summary-chip-en {
+      font-family: var(--f-en);
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
     }

@@ -17,39 +17,34 @@
   >
     <!--
       ==========================================================
-      Tip 1 statusline — V4（语义同步版，2026-05-04）
-      口播节奏：
-        0.0-4.6   "第一个也是我觉得 / 开启会对你使用 Claude Code 有很大帮助的"
+      Tip 1 statusline — V5（终端真实 UI + 逐字打字 + statusline 内嵌终端底部）
+      口播节奏（同 V4，未变）：
+        0.0-4.6   "第一个 / 开启会对你帮助很大"
         4.6-9.0   "在终端输入 /statusline"
-        9.0-12.0  "你就可以自定义你看到的信息 / 比如说模型的类型 上下文的占比"
+        9.0-12.0  "自定义你看到的信息 / 模型 / 上下文占比"
         12.0-15.0 "成本等等"
-        15.0-19.0 "它会生成一个显示在终端底部的小脚本"
-        19.0-25.0 "让你在对话过程中随时可以通过下面的仪表台来监控你的各项指标"
-        25.0-28.0 "从而有效地避免你的上下文污染"
-        28.0-32.0 "这个功能在最开始使用 Claude Code 的时候对你的帮助会很大"
+        15.0-19.0 "显示在终端底部的小脚本"
+        19.0-25.0 "对话过程中通过仪表台监控指标"
+        25.0-28.0 "避免你的上下文污染"
+        28.0-32.0 "对你帮助很大"
       ==========================================================
     -->
 
-    <!-- ===== Layer 0: 透视网格底（全程） ===== -->
     <div class="perspective-grid" id="grid"></div>
-
-    <!-- ===== Layer 1: 4 个十字准星 + ===== -->
-    <div class="crosshair-overlay" id="crosshairs">
+    <div class="crosshair-overlay">
       <span class="crosshair" style="left:340px; top:200px;">+</span>
       <span class="crosshair" style="right:340px; top:200px;">+</span>
       <span class="crosshair" style="left:340px; bottom:200px;">+</span>
       <span class="crosshair" style="right:340px; bottom:200px;">+</span>
     </div>
-
-    <!-- ===== Layer 2: 重 vignette ===== -->
     <div class="vignette-strong" id="vignette"></div>
 
-    <!-- ===== Cue A (0-4.6s): kicker + hero「自定义状态栏」整段标题 ===== -->
+    <!-- ===== Cue A (0-4.6s): hero「自定义状态栏」标题 ===== -->
     <div id="hero-block"
          style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
                 display:flex; flex-direction:column; align-items:center; gap:32px;
                 opacity:0;">
-      <div class="kicker" id="kicker">
+      <div class="kicker">
         <span class="kicker-num">第 01 招</span>
         <span style="opacity:.5">/</span>
         <span>CLAUDE CODE</span>
@@ -64,63 +59,67 @@
       </div>
     </div>
 
-    <!-- ===== Cue B (4.6-19s): Claude Code 终端 ===== -->
-    <div id="term-stage"
+    <!-- ===== Cue B-G (4.6-28s): Claude Code 终端窗口（含底部 statusline） ===== -->
+    <div id="cc-stage"
          style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
                 width:1280px; opacity:0;">
-      <div class="cc-terminal" id="cc-term">
-        <!-- prompt 行：Claude Code 风格 (> /statusline) -->
-        <div class="cc-prompt-line">
-          <span class="cc-prompt-arrow">&gt;</span>
-          <span class="cc-cmd" id="cc-cmd"
-                style="opacity:0; transform:translateY(20px);">/statusline</span>
-          <span class="cc-cursor" id="cc-cursor"></span>
+      <div class="cc-window" id="cc-window">
+        <!-- 顶部标题栏 -->
+        <div class="cc-titlebar">
+          <span class="mac-dot r"></span>
+          <span class="mac-dot y"></span>
+          <span class="mac-dot g"></span>
+          <span class="cc-title">claude — ~/project</span>
         </div>
-        <!-- 命令执行后的反馈 -->
-        <div class="cc-info" id="cc-info" style="opacity:0;">
-          ✓ 自定义你想看到的状态信息
+
+        <!-- 命令区 -->
+        <div class="cc-body">
+          <div class="cc-prompt-line">
+            <span class="cc-prompt-arrow">&gt;</span>
+            <span class="cc-cmd" id="cc-cmd"></span>
+            <span class="cc-cursor" id="cc-cursor"></span>
+          </div>
+          <div class="cc-info" id="cc-info" style="opacity:0;">
+            自定义你想看到的状态信息
+          </div>
+        </div>
+
+        <!-- 底部 statusline（Claude Code 实际就是这样 —— 终端窗口底部一行） -->
+        <div class="cc-statusline" id="cc-sl">
+          <span class="cc-sl-seg" id="sl-model" style="opacity:0;">
+            <span class="cc-sl-icon model"></span>
+            <span class="cc-sl-label">model</span>
+            <span class="cc-sl-value">opus-4.7</span>
+          </span>
+          <span class="cc-sl-seg" id="sl-ctx" style="opacity:0;">
+            <span class="cc-sl-icon ctx"></span>
+            <span class="cc-sl-label">ctx</span>
+            <span class="cc-sl-value" id="sl-ctx-val">38%</span>
+          </span>
+          <span class="cc-sl-seg" id="sl-cost" style="opacity:0;">
+            <span class="cc-sl-icon cost"></span>
+            <span class="cc-sl-label">cost</span>
+            <span class="cc-sl-value" id="sl-cost-val">$0.74</span>
+          </span>
+          <span class="cc-sl-seg" id="sl-tok" style="opacity:0;">
+            <span class="cc-sl-icon tok"></span>
+            <span class="cc-sl-label">tokens</span>
+            <span class="cc-sl-value" id="sl-tok-val">12.4k</span>
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- ===== Cue C (15-32s): Claude Code 底部 statusline 信息条 ===== -->
-    <div id="sl-stage"
-         style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-                opacity:0;">
-      <div class="cc-statusline" id="cc-sl">
-        <span class="cc-sl-seg" id="sl-model" style="opacity:0;">
-          <span class="cc-sl-icon model"></span>
-          <span class="cc-sl-label">model</span>
-          <span class="cc-sl-value">opus-4.7</span>
-        </span>
-        <span class="cc-sl-seg" id="sl-ctx" style="opacity:0;">
-          <span class="cc-sl-icon ctx"></span>
-          <span class="cc-sl-label">ctx</span>
-          <span class="cc-sl-value" id="sl-ctx-val">38%</span>
-        </span>
-        <span class="cc-sl-seg" id="sl-cost" style="opacity:0;">
-          <span class="cc-sl-icon cost"></span>
-          <span class="cc-sl-label">cost</span>
-          <span class="cc-sl-value" id="sl-cost-val">$0.74</span>
-        </span>
-        <span class="cc-sl-seg" id="sl-tok" style="opacity:0;">
-          <span class="cc-sl-icon tok"></span>
-          <span class="cc-sl-label">tokens</span>
-          <span class="cc-sl-value" id="sl-tok-val">12.4k</span>
-        </span>
-      </div>
-    </div>
-
-    <!-- ===== Cue D (25-28s): 污染 glitch frame + warning ===== -->
+    <!-- ===== Cue G (25-28s): 污染 glitch frame + warning ===== -->
     <div class="glitch-frame" id="glitch-frame"></div>
     <div id="warning"
-         style="position:absolute; left:50%; bottom:230px; transform:translateX(-50%);
+         style="position:absolute; left:50%; bottom:140px; transform:translateX(-50%);
                 opacity:0; font-family:var(--f-mono); font-size:30px; color:var(--c-danger);
                 letter-spacing:0.16em; text-transform:uppercase; font-weight:700;">
       ⚠ context pollution risk
     </div>
 
-    <!-- ===== Cue E (28-32s): 收尾金句 ===== -->
+    <!-- ===== Cue H (28-32s): 收尾金句 ===== -->
     <div id="closing-block"
          style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
                 display:flex; flex-direction:column; align-items:center; gap:20px;
@@ -135,7 +134,7 @@
       </div>
     </div>
 
-    <!-- ===== 全程 hero hold particles ===== -->
+    <!-- ===== particles drift ===== -->
     <div id="particles" style="position:absolute; inset:0; pointer-events:none; opacity:0;">
       <span class="particle" style="left:18%; top:30%;"></span>
       <span class="particle" style="left:32%; top:62%;"></span>
@@ -155,11 +154,8 @@
       const tl = gsap.timeline({ paused: true });
       const SLOT = 32.267;
 
-      // ===== 全程层呼吸（grid drift / vignette breathe / crosshair flicker） =====
-      tl.to(root + ' #grid', {
-        backgroundPositionY: '+=80px',
-        duration: SLOT, ease: 'none'
-      }, 0);
+      // ===== 全程层呼吸 =====
+      tl.to(root + ' #grid', { backgroundPositionY: '+=80px', duration: SLOT, ease: 'none' }, 0);
       tl.to(root + ' #vignette', {
         opacity: 0.95, duration: 5, repeat: 2, yoyo: true, ease: 'sine.inOut'
       }, 0);
@@ -169,73 +165,67 @@
       }, 0);
 
       // ============================================================
-      // Cue A (0-4.6s): "第一个 / 开启会对你帮助很大"
-      // 视觉：kicker + hero「自定义状态栏」整段标题立住
+      // Cue A (0-4.6s): hero 标题
       // ============================================================
       tl.fromTo(root + ' #hero-block',
         { opacity: 0, y: 16, filter: 'blur(14px)' },
         { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' },
         0.3);
-      // chrome sweep 从右扫到左
       tl.fromTo(root + ' #hero-block .chrome-text',
         { backgroundPosition: '100% 0' },
         { backgroundPosition: '0% 0', duration: 0.8, ease: 'power2.out' },
         0.5);
-      // 在 cue B 切入前，hero 整体淡出
       tl.to(root + ' #hero-block',
         { opacity: 0, y: -10, filter: 'blur(8px)', duration: 0.5, ease: 'power2.in' },
         4.1);
 
       // ============================================================
-      // Cue B (4.6-9.0s): "在终端输入 /statusline"
-      // 视觉：Claude Code 终端 + > /statusline 命令飞入
+      // Cue B (4.6-9s): 终端窗口出现 + /statusline 逐字打字
       // ============================================================
-      tl.fromTo(root + ' #term-stage',
-        { opacity: 0, scale: 0.96, y: 30, filter: 'blur(16px)' },
-        { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' },
+      tl.fromTo(root + ' #cc-stage',
+        { opacity: 0, scale: 0.94, y: 30, filter: 'blur(16px)' },
+        { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out' },
         4.6);
-      // 命令 /statusline 飞入（呼应"在终端输入"）
-      tl.fromTo(root + ' #cc-cmd',
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' },
-        6.0);
-      // cursor 闪烁（cue B 期间）
+
+      // 逐字打字 /statusline = 11 字符
+      const cmd = '/statusline';
+      const typeStart = 5.7;
+      const charDuration = 0.13;  // 每字 0.13s
+      cmd.split('').forEach((ch, i) => {
+        tl.call(() => {
+          const el = document.querySelector(root + ' #cc-cmd');
+          if (el) el.textContent = cmd.slice(0, i + 1);
+        }, [], typeStart + i * charDuration);
+      });
+
+      // cursor 闪烁（cue B 期间持续）
       tl.to(root + ' #cc-cursor',
-        { opacity: 0, duration: 0.4, repeat: 9, yoyo: true, ease: 'steps(1)' },
+        { opacity: 0, duration: 0.4, repeat: 13, yoyo: true, ease: 'steps(1)' },
         4.8);
-      // info 行 reveal（命令 enter 后的反馈）
+
+      // 命令打完后反馈行 reveal（约 7.2s）
       tl.fromTo(root + ' #cc-info',
         { opacity: 0, y: 8 },
-        { opacity: 0.85, y: 0, duration: 0.4, ease: 'power2.out' },
-        7.6);
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+        7.4);
 
       // ============================================================
-      // Cue C (9.0-12.0s): "自定义你看到的信息 / 模型类型 / 上下文占比"
-      // 视觉：底部 statusline 信息条出现，model + ctx 段先 reveal
+      // Cue C (9.0-12.0s): "自定义信息 / 模型 / 上下文占比"
+      // statusline 直接在终端底部填入 model + ctx 段
       // ============================================================
-      // 终端缩到上方让位
-      tl.to(root + ' #term-stage',
-        { y: -180, scale: 0.78, opacity: 0.7, duration: 0.7, ease: 'power3.inOut' },
-        9.0);
-      // statusline 出现
-      tl.fromTo(root + ' #sl-stage',
-        { opacity: 0, y: 60, scale: 0.94 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.4)' },
-        9.2);
       // model 段（口播"模型类型"约 11s）
       tl.fromTo(root + ' #sl-model',
         { opacity: 0, x: -10 },
         { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
         9.5);
-      // ctx 段（口播"上下文占比"约 11.5s）
+      // ctx 段（"上下文占比"约 11s）
       tl.fromTo(root + ' #sl-ctx',
         { opacity: 0, x: -10 },
         { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
         11.0);
 
       // ============================================================
-      // Cue D (12.0-15.0s): "成本等等"
-      // 视觉：cost + tokens 段补完整
+      // Cue D (12-15s): "成本等等"
       // ============================================================
       tl.fromTo(root + ' #sl-cost',
         { opacity: 0, x: -10 },
@@ -247,84 +237,78 @@
         13.4);
 
       // ============================================================
-      // Cue E (15.0-19.0s): "它会生成一个显示在终端底部的小脚本"
-      // 视觉：statusline 整体滑到屏幕底部（呼应"显示在终端底部"）
+      // Cue E (15-19s): "显示在终端底部的小脚本"
+      // 视觉：终端整体放大让 statusline 凸显（强调"底部"）
       // ============================================================
-      // sl-stage 从屏幕中央（top:50%）滑到屏幕底部（top:88%）
-      tl.to(root + ' #sl-stage',
-        { top: '88%', duration: 1.1, ease: 'power3.inOut' },
+      // 命令区淡化，statusline 高亮（呼应"底部的小脚本"）
+      tl.to([root + ' #cc-info', root + ' .cc-prompt-line'],
+        { opacity: 0.35, duration: 0.6, ease: 'power2.in' },
         15.5);
-      // 终端继续淡出（让 statusline 独占）
-      tl.to(root + ' #term-stage',
-        { opacity: 0.35, scale: 0.7, duration: 0.5, ease: 'power2.in' },
-        15.5);
-      // statusline 强调一下（轻微 pulse 表示"就是这个东西"）
       tl.to(root + ' #cc-sl',
-        { boxShadow: '0 16px 40px rgba(43,38,34,0.25), 0 0 0 2px rgba(217,119,87,0.5)',
-          duration: 0.4, yoyo: true, repeat: 1 },
-        17.0);
+        {
+          background: 'rgba(217, 119, 87, 0.18)',
+          duration: 0.5, yoyo: true, repeat: 1
+        },
+        16.5);
+      tl.to(root + ' #cc-window',
+        {
+          boxShadow: '0 36px 90px rgba(34,31,28,0.32), 0 0 0 2px rgba(217,119,87,0.55), inset 0 1px 0 rgba(255,255,255,0.08)',
+          duration: 0.5, yoyo: true, repeat: 1
+        },
+        16.5);
 
       // ============================================================
-      // Cue F (19.0-25.0s): "对话过程中随时通过仪表台监控指标"
+      // Cue F (19-25s): "对话过程中通过仪表台监控指标"
       // 视觉：metrics 数据动态变化（监控感）
       // ============================================================
-      // ctx 38% → 56% smooth（监控的"动态"感）
-      tl.to(root + ' #sl-ctx-val',
-        {
-          duration: 4, ease: 'power1.inOut',
-          onUpdate: function () {
-            const p = this.progress();
-            const val = Math.round(38 + (56 - 38) * p);
-            const el = document.querySelector(root + ' #sl-ctx-val');
-            if (el) el.textContent = val + '%';
-          }
-        },
-        19.5);
-      // cost 数字跳动（监控感）
-      tl.to(root + ' #sl-cost-val',
-        {
-          duration: 4, ease: 'none',
-          onUpdate: function () {
-            const p = this.progress();
-            const val = (0.74 + p * 0.42).toFixed(2);
-            const el = document.querySelector(root + ' #sl-cost-val');
-            if (el) el.textContent = '$' + val;
-          }
-        },
-        19.8);
-      // tokens 持续增长
-      tl.to(root + ' #sl-tok-val',
-        {
-          duration: 4.5, ease: 'none',
-          onUpdate: function () {
-            const p = this.progress();
-            const val = (12.4 + p * 9.6).toFixed(1);
-            const el = document.querySelector(root + ' #sl-tok-val');
-            if (el) el.textContent = val + 'k';
-          }
-        },
-        19.6);
-      // statusline 轻微"扫光"一次（强调"仪表台"）
-      tl.to(root + ' #cc-sl',
-        { backgroundColor: 'rgba(34,31,28,0.96)', duration: 0.5, yoyo: true, repeat: 1 },
-        21.5);
+      // 命令区恢复（继续显示）
+      tl.to([root + ' #cc-info', root + ' .cc-prompt-line'],
+        { opacity: 1, duration: 0.5 },
+        19.0);
+      // ctx 38% → 56%
+      tl.to({}, {
+        duration: 4, ease: 'power1.inOut',
+        onUpdate: function () {
+          const p = this.progress();
+          const val = Math.round(38 + (56 - 38) * p);
+          const el = document.querySelector(root + ' #sl-ctx-val');
+          if (el) el.textContent = val + '%';
+        }
+      }, 19.5);
+      // cost 0.74 → 1.16
+      tl.to({}, {
+        duration: 4, ease: 'none',
+        onUpdate: function () {
+          const p = this.progress();
+          const val = (0.74 + p * 0.42).toFixed(2);
+          const el = document.querySelector(root + ' #sl-cost-val');
+          if (el) el.textContent = '$' + val;
+        }
+      }, 19.8);
+      // tokens 12.4k → 22k
+      tl.to({}, {
+        duration: 4.5, ease: 'none',
+        onUpdate: function () {
+          const p = this.progress();
+          const val = (12.4 + p * 9.6).toFixed(1);
+          const el = document.querySelector(root + ' #sl-tok-val');
+          if (el) el.textContent = val + 'k';
+        }
+      }, 19.6);
 
       // ============================================================
-      // Cue G (25.0-28.0s): "从而有效地避免你的上下文污染"
-      // 视觉：ctx 涨到红区 + 警告 + glitch
+      // Cue G (25-28s): "避免你的上下文污染"
+      // ctx 飙红 + warning + glitch + 终端颤抖
       // ============================================================
-      // ctx 飙到 78%（红区）
-      tl.to(root + ' #sl-ctx-val',
-        {
-          duration: 1.4, ease: 'power2.in',
-          onUpdate: function () {
-            const p = this.progress();
-            const val = Math.round(56 + (84 - 56) * p);
-            const el = document.querySelector(root + ' #sl-ctx-val');
-            if (el) el.textContent = val + '%';
-          }
-        },
-        25.0);
+      tl.to({}, {
+        duration: 1.4, ease: 'power2.in',
+        onUpdate: function () {
+          const p = this.progress();
+          const val = Math.round(56 + (84 - 56) * p);
+          const el = document.querySelector(root + ' #sl-ctx-val');
+          if (el) el.textContent = val + '%';
+        }
+      }, 25.0);
       // ctx value 变红
       tl.call(() => {
         const el = document.querySelector(root + ' #sl-ctx-val');
@@ -337,8 +321,8 @@
         const f = document.querySelector(root + ' #glitch-frame');
         if (f) f.classList.add('active');
       }, [], 25.4);
-      // sl-stage 颤抖
-      tl.to(root + ' #sl-stage',
+      // 终端颤抖
+      tl.to(root + ' #cc-stage',
         { x: 6, duration: 0.05, repeat: 9, yoyo: true, ease: 'none' },
         25.4);
       // warning 出现
@@ -351,19 +335,15 @@
         25.8);
 
       // ============================================================
-      // Cue H (28.0-32.0s): "这个功能在最开始使用 CC 的时候对你帮助很大"
-      // 视觉：清场 + 收尾金句「必装第一招」hero hold
+      // Cue H (28-32s): 收尾金句
       // ============================================================
-      // statusline + warning + 终端淡出
-      tl.to([root + ' #sl-stage', root + ' #term-stage', root + ' #warning'],
+      tl.to([root + ' #cc-stage', root + ' #warning'],
         { opacity: 0, y: -20, duration: 0.6, ease: 'power2.in' },
         27.6);
-      // glitch 撤
       tl.call(() => {
         const f = document.querySelector(root + ' #glitch-frame');
         if (f) f.classList.remove('active');
       }, [], 28.0);
-      // 收尾金句飞入
       tl.fromTo(root + ' #closing-block',
         { opacity: 0, y: 24, filter: 'blur(14px)' },
         { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' },
@@ -372,7 +352,6 @@
         { backgroundPosition: '100% 0' },
         { backgroundPosition: '0% 0', duration: 0.7, ease: 'power2.out' },
         28.4);
-      // hero hold 期间 particles 飘
       tl.to(root + ' #particles', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 28.5);
       tl.to(root + ' .particle', {
         y: '-=24', duration: 3, repeat: 0, ease: 'sine.inOut',

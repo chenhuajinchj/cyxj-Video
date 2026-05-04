@@ -1683,9 +1683,10 @@ html, body {
       font-weight: 700;
     }
 
-    /* 金光 sweep（cue E 扫过计划面板）— Tip 4 + Tip 7 共享 */
+    /* 金光 sweep（cue E 扫过计划面板）— Tip 4 + Tip 7 + Tip 8 共享 */
     [data-composition-id="tip-04-plan-mode"] .gold-sweep,
-    [data-composition-id="tip-07-plan-reviewer"] .gold-sweep {
+    [data-composition-id="tip-07-plan-reviewer"] .gold-sweep,
+    [data-composition-id="tip-08-self-check"] .gold-sweep {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -2752,3 +2753,217 @@ html, body {
       color: var(--c-muted);
       font-weight: 700;
     }
+
+
+/* === Tip 08 self-check === */
+
+    /* Tip 08 质检写进 Todo — 16.267s — 7 cues + hero hold */
+
+    /* hero opener zh 大字 */
+    [data-composition-id="tip-08-self-check"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* 主舞台容器 */
+    [data-composition-id="tip-08-self-check"] .self-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+    }
+
+    /* 双卡片 row（左终端 + 右 Todo 面板） */
+    [data-composition-id="tip-08-self-check"] .self-cards-row {
+      display: flex;
+      align-items: stretch;
+      gap: 32px;
+    }
+
+    /* 终端窗口 — 复用顶层 .cc-window，这里调字号让它和 todo-panel 等高 */
+    [data-composition-id="tip-08-self-check"] .self-cc-window {
+      width: 540px;
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-08-self-check"] .self-cc-window .cc-cmd {
+      font-size: 22px;
+    }
+    [data-composition-id="tip-08-self-check"] .self-cc-window .cc-info {
+      margin-top: 14px;
+      font-size: 18px;
+    }
+    [data-composition-id="tip-08-self-check"] .self-cc-window .cc-statusline {
+      font-size: 18px;
+    }
+
+    /* todo-panel：模仿 Claude Code 真实 todo 输出格式 */
+    [data-composition-id="tip-08-self-check"] .todo-panel {
+      width: 720px;
+      background: var(--c-surface);
+      border: 1px solid var(--c-line);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-panel);
+      padding: 26px 30px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-panel-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--c-line);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-panel-title {
+      font-family: var(--f-mono);
+      font-size: 20px;
+      color: var(--c-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-panel-meta {
+      font-family: var(--f-mono);
+      font-size: 16px;
+      color: var(--c-muted);
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(255, 251, 245, 0.55);
+      border: 1px solid var(--c-line);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-text);
+      font-weight: 500;
+      opacity: 0;
+      position: relative;
+    }
+    /* todo-checkbox: [✓] [→] [ ] 三态 */
+    [data-composition-id="tip-08-self-check"] .todo-checkbox {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 2px solid var(--c-muted);
+      background: transparent;
+      font-family: var(--f-mono);
+      font-weight: 800;
+      font-size: 18px;
+      color: transparent;
+      flex-shrink: 0;
+      transition: none;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item.done .todo-checkbox {
+      background: var(--c-success);
+      border-color: var(--c-success);
+      color: #fff;
+      box-shadow: 0 0 14px rgba(115, 156, 86, 0.5);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item.running .todo-checkbox {
+      background: rgba(217, 119, 87, 0.16);
+      border-color: var(--c-orange);
+      color: var(--c-orange);
+      box-shadow: 0 0 14px var(--c-orange-glow);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item.pending .todo-checkbox {
+      border-color: rgba(109, 98, 89, 0.45);
+    }
+    /* qa 态：用户新增的"自我质检"项 — 橙 highlight ring */
+    [data-composition-id="tip-08-self-check"] .todo-item.qa {
+      background: rgba(217, 119, 87, 0.10);
+      border: 1px solid rgba(217, 119, 87, 0.55);
+      box-shadow: 0 0 0 1px rgba(217, 119, 87, 0.25),
+                  0 8px 22px rgba(217, 119, 87, 0.18);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item.qa .todo-checkbox {
+      border-color: var(--c-orange);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item.qa.done .todo-checkbox {
+      background: var(--c-orange);
+      border-color: var(--c-orange);
+      box-shadow: 0 0 14px var(--c-orange-glow);
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item-text {
+      flex: 1;
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-08-self-check"] .todo-item-tag {
+      font-family: var(--f-mono);
+      font-size: 14px;
+      color: var(--c-orange);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(217, 119, 87, 0.14);
+      border: 1px solid rgba(217, 119, 87, 0.42);
+      flex-shrink: 0;
+    }
+
+    /* spinner（running 态光圈） */
+    [data-composition-id="tip-08-self-check"] .todo-spinner {
+      position: absolute;
+      inset: -3px;
+      border-radius: 10px;
+      pointer-events: none;
+      box-shadow: 0 0 0 2px var(--c-orange), 0 0 24px rgba(217, 119, 87, 0.45);
+      opacity: 0;
+    }
+
+    /* cursor-glyph：用户介入的鼠标指针 */
+    [data-composition-id="tip-08-self-check"] .cursor-glyph {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 8px rgba(43, 38, 34, 0.35));
+      z-index: 6;
+      opacity: 0;
+    }
+
+    /* 收益 hint chip（边做边检查 / 验收） */
+    [data-composition-id="tip-08-self-check"] .verdict-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: rgba(115, 156, 86, 0.14);
+      border: 1px solid rgba(115, 156, 86, 0.55);
+      color: var(--c-success);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 6px 22px rgba(115, 156, 86, 0.18);
+      opacity: 0;
+    }
+
+    /* gold-sweep 复用：已在 Tip 4+7 共享 selector 里，这里加 Tip 8 共享 */
+

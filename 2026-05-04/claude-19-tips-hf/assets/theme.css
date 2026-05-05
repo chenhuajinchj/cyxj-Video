@@ -4541,6 +4541,540 @@ html, body {
     }
 
 
+/* === Tip 14 worktree — 43.1s — 8 cues — 世界树成长结构 === */
+
+    [data-composition-id="tip-14-worktree"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    /* hero 副标 chip（A 段尾） */
+    [data-composition-id="tip-14-worktree"] .opener-subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: var(--c-surface);
+      border: 1px solid var(--c-line);
+      font-family: var(--f-zh);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--c-text);
+      box-shadow: var(--shadow-soft);
+      opacity: 0;
+    }
+
+    /* Camera-pan stage — 1920×6480（6 scene × 1080）+ GSAP y tween */
+    [data-composition-id="tip-14-worktree"] .scene-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 6480px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene {
+      position: absolute;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="1"] { top: 5400px; }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="2"] { top: 4320px; }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="3"] { top: 3240px; }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="4"] { top: 2160px; }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="5"] { top: 1080px; }
+    [data-composition-id="tip-14-worktree"] .scene[data-scene="6"] { top: 0; }
+
+    /* Scene 上层 tag */
+    [data-composition-id="tip-14-worktree"] .scene-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 22px;
+      border-radius: 999px;
+      font-family: var(--f-mono);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      background: rgba(43, 38, 34, 0.05);
+      border: 1px solid rgba(43, 38, 34, 0.10);
+    }
+    [data-composition-id="tip-14-worktree"] .scene-tag.danger {
+      color: var(--c-danger);
+      background: rgba(184, 81, 56, 0.10);
+      border-color: rgba(184, 81, 56, 0.35);
+    }
+    [data-composition-id="tip-14-worktree"] .scene-tag.action {
+      color: var(--c-orange);
+      background: rgba(217, 119, 87, 0.12);
+      border-color: rgba(217, 119, 87, 0.40);
+    }
+    [data-composition-id="tip-14-worktree"] .scene-tag.success {
+      color: var(--c-success);
+      background: rgba(78, 143, 114, 0.12);
+      border-color: rgba(78, 143, 114, 0.45);
+    }
+
+    /* full-bleed 模式：放大 atom 尺寸（覆盖 base） */
+    [data-composition-id="tip-14-worktree"] .scene .repo-folder {
+      width: 220px;
+      height: 160px;
+      border-radius: 12px 12px 16px 16px;
+      border-width: 3px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .repo-folder::before {
+      width: 80px;
+      height: 22px;
+      top: -16px;
+      border-width: 3px;
+      border-radius: 6px 6px 0 0;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .repo-folder-label {
+      font-size: 22px;
+      margin-top: 14px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .agent-avatar {
+      width: 110px;
+      height: 110px;
+      font-size: 44px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .agent-label {
+      font-size: 22px;
+      margin-top: 12px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .conflict-flash {
+      font-size: 88px;
+    }
+
+    /* Logo 图（替代 letter avatar） */
+    [data-composition-id="tip-14-worktree"] .agent-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 6px 18px rgba(43, 38, 34, 0.25),
+                  0 0 0 1px rgba(43, 38, 34, 0.06);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .agent-logo.claude {
+      image-rendering: pixelated;
+      background: #2A2826;
+    }
+
+    /* 文件 icon（被反复覆盖）— Scene 2 用 */
+    [data-composition-id="tip-14-worktree"] .file-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      height: 140px;
+      border-radius: 12px;
+      background: rgba(255, 251, 245, 0.98);
+      border: 3px solid;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px;
+      box-shadow: 0 8px 22px rgba(43, 38, 34, 0.25);
+      opacity: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 0 0 0 8px;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      opacity: 0.30;
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon.claude-write {
+      border-color: var(--c-orange);
+      box-shadow: 0 8px 22px rgba(217, 119, 87, 0.45);
+      color: var(--c-orange);
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon.codex-write {
+      border-color: #7A6FCB;
+      box-shadow: 0 8px 22px rgba(122, 111, 203, 0.45);
+      color: #7A6FCB;
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon-name {
+      font-family: var(--f-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--c-text);
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon-version {
+      font-family: var(--f-mono);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon.claude-write .file-icon-version {
+      color: var(--c-orange);
+    }
+    [data-composition-id="tip-14-worktree"] .file-icon.codex-write .file-icon-version {
+      color: #7A6FCB;
+    }
+
+    /* 仓库文件夹 icon（CSS 画 tab + body） */
+    [data-composition-id="tip-14-worktree"] .repo-folder {
+      position: relative;
+      width: 110px;
+      height: 80px;
+      border-radius: 8px 8px 12px 12px;
+      background: linear-gradient(180deg, #E5DACA, #D8CEC2);
+      border: 2px solid rgba(43, 38, 34, 0.35);
+      box-shadow: 0 6px 16px rgba(43, 38, 34, 0.18);
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 8px;
+      width: 40px;
+      height: 14px;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, #E5DACA, #D8CEC2);
+      border: 2px solid rgba(43, 38, 34, 0.35);
+      border-bottom: none;
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 8px;
+      font-family: var(--f-mono);
+      font-size: 13px;
+      color: var(--c-text);
+      font-weight: 700;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder.main {
+      background: linear-gradient(180deg, #FAF6EE, #E5DACA);
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder.claude {
+      border-color: var(--c-orange);
+      box-shadow: 0 6px 16px rgba(43, 38, 34, 0.18), 0 0 22px rgba(217, 119, 87, 0.30);
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder.claude::before {
+      border-color: var(--c-orange);
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder.codex {
+      border-color: #7A6FCB;
+      box-shadow: 0 6px 16px rgba(43, 38, 34, 0.18), 0 0 22px rgba(122, 111, 203, 0.30);
+    }
+    [data-composition-id="tip-14-worktree"] .repo-folder.codex::before {
+      border-color: #7A6FCB;
+    }
+
+    /* Agent 头像（圆 + 字母） */
+    [data-composition-id="tip-14-worktree"] .agent-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-mono);
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(43, 38, 34, 0.20);
+    }
+    [data-composition-id="tip-14-worktree"] .agent-avatar.claude {
+      background: linear-gradient(180deg, var(--c-orange), #B85138);
+      box-shadow: 0 4px 14px rgba(217, 119, 87, 0.45);
+    }
+    [data-composition-id="tip-14-worktree"] .agent-avatar.codex {
+      background: linear-gradient(180deg, #7A6FCB, #4A4290);
+      box-shadow: 0 4px 14px rgba(122, 111, 203, 0.45);
+    }
+    [data-composition-id="tip-14-worktree"] .agent-label {
+      font-family: var(--f-mono);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--c-muted);
+      margin-top: 6px;
+      text-align: center;
+    }
+    [data-composition-id="tip-14-worktree"] .agent-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* 冲突 ⚡ flash badge */
+    [data-composition-id="tip-14-worktree"] .conflict-flash {
+      position: absolute;
+      font-family: var(--f-mono);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--c-danger);
+      filter: drop-shadow(0 0 14px rgba(184, 81, 56, 0.65));
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Card 2: 命令 + 3 worktree 横排 */
+    [data-composition-id="tip-14-worktree"] .worktree-cmd {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: var(--c-terminal);
+      color: var(--c-terminal-text);
+      font-family: var(--f-mono);
+      font-size: 18px;
+      letter-spacing: 0;
+      box-shadow: 0 6px 18px rgba(43, 38, 34, 0.22);
+      white-space: nowrap;
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-cmd .arrow {
+      color: var(--c-orange);
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-cmd .cmd-text {
+      color: rgba(248, 241, 231, 0.95);
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-row {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-row .repo-folder {
+      width: 72px;
+      height: 56px;
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-row .repo-folder::before {
+      width: 28px;
+      height: 10px;
+      top: -8px;
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-row .repo-folder-label {
+      font-size: 12px;
+    }
+    [data-composition-id="tip-14-worktree"] .worktree-fork-svg {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Card 3: parallel spinners + chip */
+    [data-composition-id="tip-14-worktree"] .parallel-spinner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: rgba(34, 31, 28, 0.94);
+      color: rgba(248, 241, 231, 0.92);
+      font-family: var(--f-mono);
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .parallel-spinner.claude {
+      border: 1px solid rgba(217, 119, 87, 0.55);
+      box-shadow: 0 0 22px rgba(217, 119, 87, 0.30);
+    }
+    [data-composition-id="tip-14-worktree"] .parallel-spinner.codex {
+      border: 1px solid rgba(122, 111, 203, 0.55);
+      box-shadow: 0 0 22px rgba(122, 111, 203, 0.30);
+    }
+    [data-composition-id="tip-14-worktree"] .parallel-spinner-ring {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(248, 241, 231, 0.20);
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-14-worktree"] .parallel-spinner.claude .parallel-spinner-ring {
+      border-top-color: var(--c-orange);
+    }
+    [data-composition-id="tip-14-worktree"] .parallel-spinner.codex .parallel-spinner-ring {
+      border-top-color: #A99FE2;
+    }
+    [data-composition-id="tip-14-worktree"] .no-conflict-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.14);
+      border: 1px solid rgba(78, 143, 114, 0.55);
+      color: var(--c-success);
+      font-family: var(--f-mono);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      box-shadow: 0 0 22px rgba(78, 143, 114, 0.20);
+    }
+
+    /* Card 4: merge arrows + ✓ + changes chip */
+    [data-composition-id="tip-14-worktree"] .merge-check {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.18);
+      border: 2px solid var(--c-success);
+      color: var(--c-success);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-mono);
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: 0 0 18px rgba(78, 143, 114, 0.40);
+    }
+    [data-composition-id="tip-14-worktree"] .merge-arrow {
+      font-family: var(--f-mono);
+      font-size: 28px;
+      color: var(--c-success);
+      font-weight: 800;
+      filter: drop-shadow(0 0 8px rgba(78, 143, 114, 0.55));
+    }
+    [data-composition-id="tip-14-worktree"] .changes-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.18);
+      border: 1px solid rgba(78, 143, 114, 0.65);
+      color: var(--c-success);
+      font-family: var(--f-mono);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 28px rgba(78, 143, 114, 0.35);
+    }
+    [data-composition-id="tip-14-worktree"] .merge-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    [data-composition-id="tip-14-worktree"] .merge-row .repo-folder {
+      width: 72px;
+      height: 56px;
+    }
+    [data-composition-id="tip-14-worktree"] .merge-row .repo-folder::before {
+      width: 28px;
+      height: 10px;
+      top: -8px;
+    }
+    [data-composition-id="tip-14-worktree"] .merge-row .repo-folder-label {
+      font-size: 12px;
+    }
+
+    /* full-bleed scale-up for Card 2/3/4/5 atoms */
+    [data-composition-id="tip-14-worktree"] .scene .worktree-cmd {
+      font-size: 30px;
+      padding: 16px 28px;
+      border-radius: 14px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .worktree-row {
+      gap: 110px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .worktree-row .repo-folder {
+      width: 220px;
+      height: 160px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .worktree-row .repo-folder::before {
+      width: 80px;
+      height: 22px;
+      top: -16px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .worktree-row .repo-folder-label {
+      font-size: 22px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .parallel-spinner {
+      font-size: 26px;
+      padding: 20px 32px;
+      border-radius: 16px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .parallel-spinner-ring {
+      width: 28px;
+      height: 28px;
+      border-width: 3px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .no-conflict-chip {
+      font-size: 22px;
+      padding: 14px 28px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-check {
+      width: 64px;
+      height: 64px;
+      font-size: 32px;
+      border-width: 3px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-arrow {
+      font-size: 56px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .changes-chip {
+      font-size: 26px;
+      padding: 16px 32px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .conflict-banner {
+      font-size: 22px;
+      padding: 14px 28px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-row {
+      gap: 32px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-row .repo-folder {
+      width: 180px;
+      height: 130px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-row .repo-folder::before {
+      width: 64px;
+      height: 18px;
+      top: -14px;
+    }
+    [data-composition-id="tip-14-worktree"] .scene .merge-row .repo-folder-label {
+      font-size: 18px;
+    }
+
+    /* 共享 ⚠ 警告 banner */
+    [data-composition-id="tip-14-worktree"] .conflict-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(184, 81, 56, 0.92);
+      color: #fff;
+      font-family: var(--f-mono);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      box-shadow: 0 0 22px rgba(184, 81, 56, 0.55);
+      opacity: 0;
+    }
+
+
 /* === Tip 11 复用：撞击 ripple + 白闪 === */
 
     [data-composition-id="tip-11-double-esc"] .impact-ripple {

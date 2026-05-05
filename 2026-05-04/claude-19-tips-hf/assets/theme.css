@@ -540,6 +540,91 @@ html, body {
   color: var(--c-success);
 }
 
+/* Claude 真实回应：statusline-setup agent 调用 + 问答 + bullet 列表 */
+.cc-response {
+  margin-top: 22px;
+  font-family: var(--f-mono);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cc-agent-call {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+}
+.cc-agent-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid var(--c-orange);
+  border-top-color: transparent;
+  position: relative;
+  flex-shrink: 0;
+}
+.cc-agent-dot.done {
+  border: none;
+  background: var(--c-success);
+}
+.cc-agent-dot.done::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border-right: 2px solid #14110a;
+  border-bottom: 2px solid #14110a;
+  transform: rotate(45deg);
+}
+.cc-agent-name {
+  color: var(--c-orange);
+  font-weight: 700;
+  background: rgba(217, 119, 87, 0.18);
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+.cc-agent-desc {
+  color: rgba(248, 241, 231, 0.45);
+  font-weight: 400;
+}
+.cc-agent-done {
+  display: flex;
+  gap: 10px;
+  font-size: 18px;
+  color: rgba(248, 241, 231, 0.45);
+  padding-left: 4px;
+}
+.cc-agent-pipe {
+  color: rgba(248, 241, 231, 0.3);
+  font-family: var(--f-mono);
+}
+.cc-question {
+  margin-top: 14px;
+  font-size: 22px;
+  color: rgba(248, 241, 231, 0.85);
+  font-weight: 500;
+}
+.cc-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+.cc-bullet {
+  font-size: 20px;
+  color: rgba(248, 241, 231, 0.55);
+  letter-spacing: 0;
+  transition: none;
+}
+.cc-bullet.active {
+  color: var(--c-orange);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(217, 119, 87, 0.5);
+}
+
 /* Claude Code 底部 statusline 信息条 —— 作为 .cc-window 的 footer 出现 */
 .cc-statusline {
   display: flex;
@@ -574,6 +659,7 @@ html, body {
 .cc-sl-icon.ctx   { background: var(--c-teal); }
 .cc-sl-icon.cost  { background: var(--c-warning); }
 .cc-sl-icon.tok   { background: rgba(248, 241, 231, 0.5); }
+.cc-sl-icon.rate  { background: var(--c-orange); }
 .cc-sl-label {
   color: rgba(248, 241, 231, 0.55);
   font-size: 18px;
@@ -1127,7 +1213,7 @@ html, body {
       display: flex;
       align-items: baseline;
       gap: 8px;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
       white-space: nowrap;
     }
@@ -1141,8 +1227,8 @@ html, body {
     }
     [data-composition-id="tip-02-commit"] .polaroid-term-cursor {
       display: inline-block;
-      width: 9px;
-      height: 22px;
+      width: 7px;
+      height: 17px;
       background: var(--c-orange);
       vertical-align: text-bottom;
       box-shadow: 0 0 8px rgba(217, 119, 87, 0.7);

@@ -56,9 +56,9 @@
     <div id="hero-block"
          style="position:absolute; inset:0;
                 display:flex; flex-direction:column; align-items:center; justify-content:center;
-                gap:32px;
-                opacity:0;">
-      <div class="kicker">
+                gap:24px;
+                opacity:1;">
+      <div class="kicker" id="hero-kicker" style="opacity:0;">
         <span class="kicker-num">第 01 招</span>
         <span style="opacity:.5">/</span>
         <span>CLAUDE CODE</span>
@@ -66,10 +66,19 @@
       <h1 class="chrome-text"
           style="font-family:var(--f-zh); font-weight:800;
                  font-size:144px; line-height:1.1; letter-spacing:0;
-                 white-space:nowrap; margin:0; padding:8px 0;">自定义状态栏</h1>
-      <div style="font-family:var(--f-en); font-size:32px; letter-spacing:0.18em;
-                  text-transform:uppercase; color:var(--c-muted); font-weight:600;">
+                 white-space:nowrap; margin:0; padding:8px 0;
+                 perspective:900px;"><span class="hc" style="display:inline-block;">自</span><span class="hc" style="display:inline-block;">定</span><span class="hc" style="display:inline-block;">义</span><span class="hc" style="display:inline-block;">状</span><span class="hc" style="display:inline-block;">态</span><span class="hc" style="display:inline-block;">栏</span></h1>
+      <div id="hero-en" style="font-family:var(--f-en); font-size:32px; letter-spacing:0.18em;
+                  text-transform:uppercase; color:var(--c-muted); font-weight:600; opacity:0;">
         Custom Statusline
+      </div>
+      <div id="hero-teaser"
+           style="display:inline-flex; align-items:center; gap:14px; margin-top:12px;
+                  font-family:var(--f-mono); font-size:26px;
+                  color:var(--c-muted); opacity:0;">
+        <span style="font-size:22px; opacity:0.5;">↓</span>
+        <span>在终端输入</span>
+        <span style="color:var(--c-orange); font-weight:700; font-size:30px;">/statusline</span>
       </div>
     </div>
 
@@ -94,8 +103,27 @@
             <span class="cc-cmd" id="cc-cmd"></span>
             <span class="cc-cursor" id="cc-cursor"></span>
           </div>
-          <div class="cc-info" id="cc-info" style="opacity:0;">
-            自定义你想看到的状态信息
+
+          <!-- Claude 真实回应：statusline-setup agent 调用 + 问答 + bullet -->
+          <div class="cc-response" id="cc-response">
+            <div class="cc-agent-call" id="cc-agent-call" style="opacity:0;">
+              <span class="cc-agent-dot" id="cc-agent-dot"></span>
+              <span class="cc-agent-name">statusline-setup</span>
+              <span class="cc-agent-desc">(Configure statusline from PS1)</span>
+            </div>
+            <div class="cc-agent-done" id="cc-agent-done" style="opacity:0;">
+              <span class="cc-agent-pipe">└</span>
+              <span>Done (5 tool uses · 11.4k tokens · 39s)</span>
+            </div>
+            <div class="cc-question" id="cc-question" style="opacity:0;">
+              你希望状态栏显示哪些信息？
+            </div>
+            <div class="cc-bullets">
+              <div class="cc-bullet" id="b-model" style="opacity:0;">- 模型名</div>
+              <div class="cc-bullet" id="b-ctx"   style="opacity:0;">- 上下文剩余百分比</div>
+              <div class="cc-bullet" id="b-cost"  style="opacity:0;">- 成本</div>
+              <div class="cc-bullet" id="b-git"   style="opacity:0;">- Git 分支</div>
+            </div>
           </div>
         </div>
 
@@ -120,6 +148,14 @@
             <span class="cc-sl-icon tok"></span>
             <span class="cc-sl-label">tokens</span>
             <span class="cc-sl-value" id="sl-tok-val">12.4k</span>
+          </span>
+          <span class="cc-sl-seg" id="sl-rate" style="opacity:0;">
+            <span class="cc-sl-icon rate"></span>
+            <span class="cc-sl-label">5h</span>
+            <span class="cc-sl-bar" id="sl-rate-bar"
+                  style="font-family:var(--f-mono); letter-spacing:1px;
+                         color:var(--c-orange); font-weight:700;">████░░░░░░</span>
+            <span class="cc-sl-value" id="sl-rate-val">42%</span>
           </span>
         </div>
       </div>
@@ -199,16 +235,49 @@
       }, 0);
 
       // ============================================================
-      // Cue A (0-4.6s): hero 标题
+      // Cue A (0-4.6s): hero 标题 — char-by-char stagger + 双 chrome sweep + teaser
       // ============================================================
-      tl.fromTo(root + ' #hero-block',
-        { opacity: 0, y: 16, filter: 'blur(14px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' },
-        0.3);
+      // kicker 顶部 slide in
+      tl.fromTo(root + ' #hero-kicker',
+        { opacity: 0, y: -24 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' },
+        0.2);
+
+      // hero 6 字 char stagger（y:60 + scale:0.85 + rotateX:-60 → back.out(2)）
+      tl.fromTo(root + ' #hero-block .hc',
+        { opacity: 0, y: 60, scale: 0.85, rotationX: -60 },
+        { opacity: 1, y: 0, scale: 1, rotationX: 0,
+          duration: 0.7, ease: 'back.out(2)',
+          stagger: 0.06,
+          immediateRender: false },
+        0.35);
+
+      // chrome sweep 第一次（伴随 hero 入场）
       tl.fromTo(root + ' #hero-block .chrome-text',
         { backgroundPosition: '100% 0' },
-        { backgroundPosition: '0% 0', duration: 0.8, ease: 'power2.out' },
-        0.5);
+        { backgroundPosition: '0% 0', duration: 0.85, ease: 'power2.out' },
+        0.7);
+
+      // chrome sweep 第二次（呼吸感，hold 阶段往返）
+      tl.fromTo(root + ' #hero-block .chrome-text',
+        { backgroundPosition: '0% 0' },
+        { backgroundPosition: '-100% 0', duration: 0.9, ease: 'power2.inOut',
+          yoyo: true, repeat: 1, immediateRender: false },
+        2.0);
+
+      // 英文 kicker 副标淡入
+      tl.fromTo(root + ' #hero-en',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' },
+        1.0);
+
+      // callback teaser「↓ 在终端输入 /statusline」（口播末尾"帮助很大"时一起淡入，避 spoiler）
+      tl.fromTo(root + ' #hero-teaser',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        3.6);
+
+      // hero 整块淡出
       tl.to(root + ' #hero-block',
         { opacity: 0, y: -10, filter: 'blur(8px)', duration: 0.5, ease: 'power2.in' },
         4.1);
@@ -237,38 +306,104 @@
         { opacity: 0, duration: 0.4, repeat: 13, yoyo: true, ease: 'steps(1)' },
         4.8);
 
-      // 命令打完后反馈行 reveal（约 7.2s）
-      tl.fromTo(root + ' #cc-info',
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
-        7.4);
+      // ============================================================
+      // Cue B 后段 (8.3-11.5s): Claude 真实回应流
+      // 对应口播 9.0-11.5「你就可以自定义你看到的信息」
+      //   - statusline-setup agent 调用条（dot 旋转 loading → 变绿勾）
+      //   - Done 行
+      //   - 问答「你希望状态栏显示哪些信息？」
+      //   - 4 bullets 依次淡入（reading time）
+      // ============================================================
+      // agent-call 入场
+      tl.fromTo(root + ' #cc-agent-call',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' },
+        8.6);
+      // dot loading 旋转 1.6s（2 圈）
+      tl.fromTo(root + ' #cc-agent-dot',
+        { rotation: 0 },
+        { rotation: 720, duration: 1.6, ease: 'none', immediateRender: false },
+        8.6);
+      // dot 完成：变绿勾（add .done class）
+      tl.call(function () {
+        const el = document.querySelector(root + ' #cc-agent-dot');
+        if (el) el.classList.add('done');
+      }, [], 9.4);
+      // 反向 callback：timeline 0 时清掉 done class（避免 seek 反向遗留）
+      tl.call(function () {
+        const el = document.querySelector(root + ' #cc-agent-dot');
+        if (el) el.classList.remove('done');
+      }, [], 0);
 
-      // ============================================================
-      // Cue C (9.0-12.0s): "自定义信息 / 模型 / 上下文占比"
-      // statusline 直接在终端底部填入 model + ctx 段
-      // ============================================================
-      // model 段（口播"模型类型"约 11s）
-      tl.fromTo(root + ' #sl-model',
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
+      // agent-done 行淡入
+      tl.fromTo(root + ' #cc-agent-done',
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' },
         9.5);
-      // ctx 段（"上下文占比"约 11s）
-      tl.fromTo(root + ' #sl-ctx',
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
-        11.0);
+
+      // question 行淡入
+      tl.fromTo(root + ' #cc-question',
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' },
+        9.9);
+
+      // 4 bullets stagger 淡入（reading time 10.2-11.3s）
+      const bulletDefs = [
+        { sel: '#b-model', at: 10.2 },
+        { sel: '#b-ctx',   at: 10.5 },
+        { sel: '#b-cost',  at: 10.8 },
+        { sel: '#b-git',   at: 11.1 },
+      ];
+      bulletDefs.forEach(function (b) {
+        tl.fromTo(root + ' ' + b.sel,
+          { opacity: 0, x: -12 },
+          { opacity: 0.55, x: 0, duration: 0.35, ease: 'power3.out',
+            immediateRender: false },
+          b.at);
+      });
 
       // ============================================================
-      // Cue D (12-15s): "成本等等"
+      // Cue C-D (12-15s): 5 chip 弹性 reveal + bullet 高亮联动
+      // 精确对齐口播：12.0「模型」/ 13.0「上下文」/ 14.3「成本」/ 14.6「等等」
+      // 视觉因果：bullet 高亮 → 底部 chip 同步飞入（"答了什么字段 → 状态栏出什么 chip"）
       // ============================================================
-      tl.fromTo(root + ' #sl-cost',
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
-        12.2);
-      tl.fromTo(root + ' #sl-tok',
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' },
-        13.4);
+      const chipDefs = [
+        { sel: '#sl-model', bullet: '#b-model', at: 12.0 },
+        { sel: '#sl-ctx',   bullet: '#b-ctx',   at: 13.0 },
+        { sel: '#sl-cost',  bullet: '#b-cost',  at: 14.3 },
+        { sel: '#sl-tok',   bullet: '#b-git',   at: 14.6 },
+        { sel: '#sl-rate',  bullet: null,       at: 14.9 },
+      ];
+      chipDefs.forEach(function (d) {
+        // chip 弹入
+        tl.fromTo(root + ' ' + d.sel,
+          { opacity: 0, y: 30, scale: 0.85 },
+          { opacity: 1, y: 0, scale: 1,
+            duration: 0.55, ease: 'back.out(1.7)',
+            immediateRender: false },
+          d.at);
+        // dot halo pulse
+        tl.fromTo(root + ' ' + d.sel + ' .cc-sl-icon',
+          { boxShadow: '0 0 0 0 rgba(217, 119, 87, 0)' },
+          { boxShadow: '0 0 0 8px rgba(217, 119, 87, 0.4)',
+            duration: 0.32, yoyo: true, repeat: 1, ease: 'power2.out',
+            immediateRender: false },
+          d.at + 0.15);
+        // bullet 高亮（与 chip 同步）
+        if (d.bullet) {
+          tl.call(function () {
+            const el = document.querySelector(root + ' ' + d.bullet);
+            if (el) el.classList.add('active');
+          }, [], d.at);
+        }
+      });
+      // 反向 callback：timeline 0 时清掉所有 bullet active（避免 seek 反向遗留）
+      tl.call(function () {
+        ['#b-model', '#b-ctx', '#b-cost', '#b-git'].forEach(function (s) {
+          const el = document.querySelector(root + ' ' + s);
+          if (el) el.classList.remove('active');
+        });
+      }, [], 0);
 
       // ============================================================
       // Cue E (15-19s): "显示在终端底部的小脚本"
@@ -307,6 +442,20 @@
           const val = Math.round(38 + (56 - 38) * p);
           const el = document.querySelector(root + ' #sl-ctx-val');
           if (el) el.textContent = val + '%';
+        }
+      }, 19.5);
+      // 5h 速率限制条 42% → 78%（同步 ctx 涨）
+      tl.to({}, {
+        duration: 4, ease: 'power1.inOut',
+        onUpdate: function () {
+          const p = this.progress();
+          const pct = Math.round(42 + (78 - 42) * p);
+          const filled = Math.round(pct / 10);
+          const bar = '█'.repeat(filled) + '░'.repeat(10 - filled);
+          const barEl = document.querySelector(root + ' #sl-rate-bar');
+          if (barEl) barEl.textContent = bar;
+          const pctEl = document.querySelector(root + ' #sl-rate-val');
+          if (pctEl) pctEl.textContent = pct + '%';
         }
       }, 19.5);
       // cost 0.74 → 1.16

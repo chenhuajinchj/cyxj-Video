@@ -674,6 +674,14 @@ html, body {
 
 /* === Tip 01 statusline === */
 
+    /* Wavy 透视网格覆盖：颜色加深 + 网格放稀 + SVG turbulence filter */
+    [data-composition-id="tip-01-statusline"] .perspective-grid.wavy {
+      background:
+        repeating-linear-gradient(0deg,  rgba(43, 38, 34, 0.11) 0 1px, transparent 1px 100px),
+        repeating-linear-gradient(90deg, rgba(43, 38, 34, 0.11) 0 1px, transparent 1px 100px);
+      filter: url(#wavy-distort-1);
+    }
+
     /* 样片 1: statusline 自定义状态栏 — 32.267s — 6 cues */
     [data-composition-id="tip-01-statusline"] .cue {
       position: absolute;

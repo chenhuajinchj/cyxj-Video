@@ -5527,3 +5527,300 @@ html, body {
       font-weight: 700;
     }
 
+/* === Tip 16 remote-control === */
+
+    [data-composition-id="tip-16-remote-control"] .opener-subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--f-en);
+      font-size: 32px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+    [data-composition-id="tip-16-remote-control"] .opener-subtitle .hot-tag {
+      color: var(--c-orange);
+      font-weight: 800;
+    }
+
+    /* === cue 2: 终端 + QR === */
+    [data-composition-id="tip-16-remote-control"] .term-wrap {
+      position: absolute;
+      left: 100px;
+      top: 220px;
+      width: 980px;
+      height: 580px;
+      opacity: 0;
+      z-index: 5;
+    }
+    [data-composition-id="tip-16-remote-control"] .term-wrap .cc-window {
+      width: 100%;
+      height: 100%;
+    }
+    [data-composition-id="tip-16-remote-control"] .term-wrap .cc-cmd {
+      font-size: 36px;
+    }
+    [data-composition-id="tip-16-remote-control"] .term-wrap .cc-info {
+      font-size: 26px;
+      margin-top: 28px;
+    }
+
+    [data-composition-id="tip-16-remote-control"] .term-spinner-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      font-family: var(--f-mono);
+      font-size: 26px;
+      color: rgba(248, 241, 231, 0.85);
+      opacity: 0;
+    }
+    [data-composition-id="tip-16-remote-control"] .term-spinner-ring {
+      width: 26px;
+      height: 26px;
+      border: 3px solid rgba(217, 119, 87, 0.20);
+      border-top-color: var(--c-orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* QR stage */
+    [data-composition-id="tip-16-remote-control"] .qr-stage {
+      position: absolute;
+      right: 120px;
+      top: 240px;
+      width: 460px;
+      height: 540px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      opacity: 0;
+      z-index: 6;
+    }
+    [data-composition-id="tip-16-remote-control"] .qr-frame {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background: #FFFCF6;
+      border-radius: 22px;
+      border: 2px solid var(--c-line);
+      padding: 28px;
+      box-shadow: 0 22px 50px rgba(43, 38, 34, 0.22),
+                  0 0 0 1px rgba(217, 119, 87, 0.10);
+      overflow: hidden;
+    }
+    [data-composition-id="tip-16-remote-control"] .qr-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    [data-composition-id="tip-16-remote-control"] .qr-scan-line {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      height: 4px;
+      top: 28px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(217, 119, 87, 0.85) 50%,
+        transparent 100%);
+      filter: blur(2px);
+      box-shadow: 0 0 18px rgba(217, 119, 87, 0.7);
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0;
+    }
+    [data-composition-id="tip-16-remote-control"] .qr-label {
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: center;
+    }
+    [data-composition-id="tip-16-remote-control"] .qr-label .hot {
+      color: var(--c-orange);
+      font-weight: 800;
+    }
+
+    /* === cue 3: 笔电 + 走开 === */
+    [data-composition-id="tip-16-remote-control"] .laptop-icon {
+      position: absolute;
+      font-size: 130px;
+      line-height: 1;
+      filter: drop-shadow(0 14px 28px rgba(43, 38, 34, 0.28));
+      z-index: 8;
+      opacity: 0;
+    }
+    [data-composition-id="tip-16-remote-control"] .leave-chip {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.14);
+      border: 1px solid rgba(78, 143, 114, 0.50);
+      color: var(--c-success);
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      box-shadow: 0 10px 24px rgba(78, 143, 114, 0.18);
+      z-index: 9;
+      opacity: 0;
+    }
+
+    /* === cue 4: 三端环绕 === */
+    [data-composition-id="tip-16-remote-control"] .device-stage {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 11;
+    }
+
+    [data-composition-id="tip-16-remote-control"] .central-bubble {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      /* 居中由 GSAP xPercent/yPercent: -50 控制（CLAUDE.md 硬约束 #6） */
+      width: 320px;
+      height: 320px;
+      background: var(--c-surface);
+      border: 3px solid var(--c-orange);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      box-shadow: 0 30px 70px rgba(43, 38, 34, 0.28),
+                  0 0 60px rgba(217, 119, 87, 0.30);
+      opacity: 0;
+      z-index: 12;
+    }
+    [data-composition-id="tip-16-remote-control"] .central-bubble .cb-logo {
+      font-size: 64px;
+      line-height: 1;
+    }
+    [data-composition-id="tip-16-remote-control"] .central-bubble .cb-title {
+      font-family: var(--f-zh);
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--c-text);
+      letter-spacing: 0.04em;
+    }
+    [data-composition-id="tip-16-remote-control"] .central-bubble .cb-spinner-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: var(--c-muted);
+      letter-spacing: 0.06em;
+    }
+    [data-composition-id="tip-16-remote-control"] .central-bubble .cb-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2.5px solid rgba(217, 119, 87, 0.20);
+      border-top-color: var(--c-orange);
+      border-radius: 50%;
+    }
+
+    /* 三个 device-icon */
+    [data-composition-id="tip-16-remote-control"] .device-icon {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      z-index: 11;
+      opacity: 0;
+    }
+    [data-composition-id="tip-16-remote-control"] .device-icon .device-emoji {
+      font-size: 110px;
+      line-height: 1;
+      filter: drop-shadow(0 10px 22px rgba(43, 38, 34, 0.26));
+    }
+    [data-composition-id="tip-16-remote-control"] .device-icon .device-label {
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-muted);
+      letter-spacing: 0.10em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    [data-composition-id="tip-16-remote-control"] .device-icon.phone {
+      left: 320px;
+      top: 50%;
+    }
+    [data-composition-id="tip-16-remote-control"] .device-icon.browser {
+      right: 320px;
+      top: 50%;
+    }
+    [data-composition-id="tip-16-remote-control"] .device-icon.laptop {
+      left: 50%;
+      top: 12%;
+    }
+
+    /* 三方 SVG 连接线 */
+    [data-composition-id="tip-16-remote-control"] .device-links {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+    [data-composition-id="tip-16-remote-control"] .device-link-path {
+      fill: none;
+      stroke: var(--c-orange);
+      stroke-width: 3;
+      stroke-dasharray: 10 8;
+      opacity: 0;
+    }
+
+    /* === cue 4: 落版 hero hold === */
+    [data-composition-id="tip-16-remote-control"] .closing-zh {
+      position: absolute;
+      left: 50%;
+      bottom: 130px;
+      /* 居中由 GSAP xPercent: -50 控制 */
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 130px;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+      opacity: 0;
+      z-index: 14;
+    }
+    [data-composition-id="tip-16-remote-control"] .closing-en {
+      position: absolute;
+      left: 50%;
+      bottom: 80px;
+      /* 居中由 GSAP xPercent: -50 控制 */
+      font-family: var(--f-en);
+      font-size: 24px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      z-index: 14;
+    }
+
+    [data-composition-id="tip-16-remote-control"] #closing-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 13;
+    }
+

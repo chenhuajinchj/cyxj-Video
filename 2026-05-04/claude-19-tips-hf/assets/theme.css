@@ -378,18 +378,17 @@ html, body {
 
 /* ========= MOTION PHILOSOPHY 适配（米色暖系版） ========= */
 
-/* 透视网格底层（米色背景上有"骨架"，全局 wavy filter 加微弱扭动呼吸） */
+/* 透视网格底层（米色背景上几乎不可见但有"骨架"） */
 .perspective-grid {
   position: absolute;
   inset: -10% -5%;
   transform: perspective(900px) rotateX(60deg) translateY(20%);
   transform-origin: center 100%;
   background:
-    repeating-linear-gradient(0deg,  rgba(43,38,34,0.11) 0 1px, transparent 1px 100px),
-    repeating-linear-gradient(90deg, rgba(43,38,34,0.11) 0 1px, transparent 1px 100px);
+    repeating-linear-gradient(0deg,  rgba(43,38,34,0.06) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(43,38,34,0.06) 0 1px, transparent 1px 80px);
   pointer-events: none;
   opacity: 0.85;
-  filter: url(#wavy-distort-global);
 }
 
 /* 4 个十字准星 + （registration marks） */
@@ -4543,6 +4542,14 @@ html, body {
 
 
 /* === Tip 14 worktree — 43.1s — 8 cues — 世界树成长结构 === */
+
+    /* Wavy 透视网格覆盖（prototype）：颜色加深 + 网格放稀 + SVG turbulence filter */
+    [data-composition-id="tip-14-worktree"] .perspective-grid.wavy {
+      background:
+        repeating-linear-gradient(0deg,  rgba(43, 38, 34, 0.11) 0 1px, transparent 1px 100px),
+        repeating-linear-gradient(90deg, rgba(43, 38, 34, 0.11) 0 1px, transparent 1px 100px);
+      filter: url(#wavy-distort-14);
+    }
 
     [data-composition-id="tip-14-worktree"] .hero-zh {
       font-family: var(--f-zh);

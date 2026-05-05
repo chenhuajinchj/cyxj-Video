@@ -140,43 +140,12 @@
     <!-- 全程纹理：grain + vignette，paste-and-go（不是 clip，不参与 timed 控制） -->
     <div class="global-grain"></div>
     <div class="global-vignette"></div>
-
-    <!-- 全局 wavy filter：让 19 招底部 grid 微弱扭动呼吸（Tip 14 自有强版覆盖） -->
-    <svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
-      <defs>
-        <filter id="wavy-distort-global" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise"
-                        baseFrequency="0.010 0.014"
-                        numOctaves="2"
-                        seed="7"
-                        id="wavy-turb-global"/>
-          <feDisplacementMap in="SourceGraphic" scale="22"/>
-        </filter>
-      </defs>
-    </svg>
   </div>
 
   <script>
     // GSAP timeline pad 到总时长（HF 硬规则：timeline 必须 ≥ data-duration）
     window.__timelines = window.__timelines || {};
     const tl = gsap.timeline({ paused: true });
-
-    // 全局 wavy 呼吸：feTurbulence baseFrequency 缓慢往返，覆盖整片 0-453s
-    const wavyProxy = { fx: 0.010, fy: 0.014 };
-    const wavyTurb = document.getElementById('wavy-turb-global');
-    if (wavyTurb) {
-      tl.to(wavyProxy, {
-        fx: 0.014, fy: 0.018,
-        duration: 6,
-        repeat: 75,           // 6s × 76 cycles ≈ 456s 覆盖整片（与 Tip 14 节奏一致）
-        yoyo: true,
-        ease: 'sine.inOut',
-        onUpdate: () => {
-          wavyTurb.setAttribute('baseFrequency', `${wavyProxy.fx} ${wavyProxy.fy}`);
-        }
-      }, 0);
-    }
-
     tl.set({}, {}, 453);
     window.__timelines["main"] = tl;
   </script>

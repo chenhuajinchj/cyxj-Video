@@ -47,7 +47,20 @@
     -->
 
     <!-- 全程层（在 stage 之外，不随 camera pan 移动） -->
-    <div class="perspective-grid" id="grid"></div>
+    <!-- Wavy turbulence filter（feTurbulence + feDisplacementMap）-->
+    <svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
+      <defs>
+        <filter id="wavy-distort-14" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise"
+                        baseFrequency="0.010 0.014"
+                        numOctaves="2"
+                        seed="3"
+                        id="wavy-turb-14"/>
+          <feDisplacementMap in="SourceGraphic" scale="22"/>
+        </filter>
+      </defs>
+    </svg>
+    <div class="perspective-grid wavy" id="grid"></div>
     <div class="crosshair-overlay">
       <span class="crosshair" style="left:340px; top:200px;">+</span>
       <span class="crosshair" style="right:340px; top:200px;">+</span>
@@ -357,6 +370,22 @@
       tl.to(root + ' #grid',
         { backgroundPositionY: '+=140px', duration: SLOT, ease: 'none' }, 0);
 
+      // Wavy turbulence 呼吸：baseFrequency 6s 一次（yoyo×8 → 48s 覆盖 SLOT 43.1s）
+      const wavyProxy = { freq: 0.010 };
+      tl.to(wavyProxy, {
+        freq: 0.014,
+        duration: 6,
+        repeat: 7,
+        yoyo: true,
+        ease: 'sine.inOut',
+        onUpdate: () => {
+          const turb = document.querySelector('#wavy-turb-14');
+          if (turb) {
+            turb.setAttribute('baseFrequency',
+              wavyProxy.freq.toFixed(4) + ' ' + (wavyProxy.freq * 1.4).toFixed(4));
+          }
+        }
+      }, 0);
       tl.to(root + ' #vignette',
         { opacity: 0.95, duration: 6, repeat: 5, yoyo: true, ease: 'sine.inOut' }, 0);
       tl.to(root + ' .crosshair',

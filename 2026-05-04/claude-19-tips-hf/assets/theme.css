@@ -4213,6 +4213,334 @@ html, body {
     }
 
 
+/* === Tip 13 screenshots — 22.6s — 6 cues === */
+
+    [data-composition-id="tip-13-screenshots"] .hero-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 132px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    [data-composition-id="tip-13-screenshots"] .demo-stage {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    /* 截图卡片（B-C 段） */
+    [data-composition-id="tip-13-screenshots"] .screenshot-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 460px;
+      height: 280px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255, 251, 245, 0.98);
+      border: 1px solid var(--c-line);
+      box-shadow: 0 28px 60px rgba(43, 38, 34, 0.22),
+                  0 0 0 1px rgba(43, 38, 34, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      z-index: 4;
+    }
+    [data-composition-id="tip-13-screenshots"] .screenshot-card.error {
+      border: 1px solid rgba(184, 81, 56, 0.50);
+      box-shadow: 0 28px 60px rgba(43, 38, 34, 0.22),
+                  0 0 0 1px rgba(184, 81, 56, 0.20),
+                  0 0 30px rgba(184, 81, 56, 0.18);
+    }
+    [data-composition-id="tip-13-screenshots"] .screenshot-card.inspo {
+      border: 1px solid rgba(78, 143, 114, 0.50);
+      box-shadow: 0 28px 60px rgba(43, 38, 34, 0.22),
+                  0 0 0 1px rgba(78, 143, 114, 0.20),
+                  0 0 30px rgba(78, 143, 114, 0.18);
+    }
+    [data-composition-id="tip-13-screenshots"] .screenshot-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: var(--f-mono);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+    [data-composition-id="tip-13-screenshots"] .screenshot-card.error .screenshot-tag {
+      background: rgba(184, 81, 56, 0.14);
+      color: var(--c-danger);
+      border: 1px solid rgba(184, 81, 56, 0.40);
+    }
+    [data-composition-id="tip-13-screenshots"] .screenshot-card.inspo .screenshot-tag {
+      background: rgba(78, 143, 114, 0.14);
+      color: var(--c-success);
+      border: 1px solid rgba(78, 143, 114, 0.40);
+    }
+
+    /* 错误堆栈预览（error 卡内容） */
+    [data-composition-id="tip-13-screenshots"] .error-stack {
+      flex: 1;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--c-terminal);
+      font-family: var(--f-mono);
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(248, 241, 231, 0.9);
+      white-space: pre;
+      overflow: hidden;
+    }
+    [data-composition-id="tip-13-screenshots"] .error-stack .err-msg {
+      color: #FF8A6E;
+      font-weight: 700;
+    }
+    [data-composition-id="tip-13-screenshots"] .error-stack .err-loc {
+      color: rgba(248, 241, 231, 0.5);
+    }
+    [data-composition-id="tip-13-screenshots"] .error-stack .err-trace {
+      color: rgba(248, 241, 231, 0.65);
+    }
+
+    /* 灵感网页 mock（inspo 卡内容） */
+    [data-composition-id="tip-13-screenshots"] .inspo-mock {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #F2EBE0, #E5DACA);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow: hidden;
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--c-orange), #B85138);
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-bar {
+      flex: 1;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(43, 38, 34, 0.14);
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-row {
+      display: flex;
+      gap: 8px;
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-block {
+      flex: 1;
+      height: 36px;
+      border-radius: 8px;
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-block.b1 { background: rgba(217, 119, 87, 0.55); }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-block.b2 { background: rgba(47, 125, 115, 0.50); }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-block.b3 { background: rgba(199, 138, 59, 0.45); }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-line {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(43, 38, 34, 0.10);
+    }
+    [data-composition-id="tip-13-screenshots"] .inspo-mock-line.short { width: 60%; }
+
+    /* 终端（D 段） */
+    [data-composition-id="tip-13-screenshots"] .demo-terminal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1180px;
+      max-width: 1180px;
+    }
+    [data-composition-id="tip-13-screenshots"] .demo-terminal .cc-body {
+      min-height: 380px;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 附件 chip「📎 2 images」 */
+    [data-composition-id="tip-13-screenshots"] .attachment-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 10px;
+      background: rgba(217, 119, 87, 0.12);
+      border: 1px solid rgba(217, 119, 87, 0.45);
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: rgba(248, 241, 231, 0.95);
+      letter-spacing: 0;
+      align-self: flex-start;
+      opacity: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .attachment-chip-icon {
+      font-size: 20px;
+      filter: hue-rotate(0deg);
+    }
+    [data-composition-id="tip-13-screenshots"] .attachment-chip-count {
+      color: var(--c-orange);
+      font-weight: 800;
+    }
+
+    /* Claude 回复气泡：显示 actionable items */
+    [data-composition-id="tip-13-screenshots"] .reply-bubble {
+      align-self: flex-start;
+      max-width: 1080px;
+      padding: 16px 22px;
+      border-radius: 14px;
+      background: rgba(255, 251, 245, 0.97);
+      border: 1px solid rgba(217, 119, 87, 0.35);
+      box-shadow: 0 8px 22px rgba(43, 38, 34, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .reply-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-text);
+      letter-spacing: 0;
+      opacity: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .reply-check {
+      color: var(--c-success);
+      font-weight: 800;
+      font-size: 22px;
+    }
+    /* 高亮"第 47 行" */
+    [data-composition-id="tip-13-screenshots"] .line-highlight {
+      position: relative;
+      padding: 0 6px;
+      color: var(--c-text);
+      font-weight: 800;
+    }
+    [data-composition-id="tip-13-screenshots"] .line-highlight::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(199, 138, 59, 0.30);
+      border: 1px solid rgba(199, 138, 59, 0.65);
+      border-radius: 6px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      z-index: -1;
+    }
+    [data-composition-id="tip-13-screenshots"] .line-highlight.lit::before {
+      transform: scaleX(1);
+      transition: transform 0.5s ease-out;
+    }
+
+    /* prompt 行（用户输入"这两张图看一下"） */
+    [data-composition-id="tip-13-screenshots"] .prompt-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-terminal-text);
+      letter-spacing: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .prompt-row .arrow {
+      color: var(--c-orange);
+    }
+
+    /* E 段对比：模糊 vs 截图 */
+    [data-composition-id="tip-13-screenshots"] .compare-row {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .compare-row .compare-card {
+      width: 560px;
+      min-height: 320px;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      opacity: 0;
+    }
+    [data-composition-id="tip-13-screenshots"] .compare-row .compare-label {
+      font-family: var(--f-mono);
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    [data-composition-id="tip-13-screenshots"] .fuzzy-quote {
+      font-family: var(--f-zh);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--c-text);
+      line-height: 1.2;
+    }
+    [data-composition-id="tip-13-screenshots"] .fuzzy-mark {
+      font-family: var(--f-mono);
+      font-size: 96px;
+      font-weight: 800;
+      color: var(--c-danger);
+      line-height: 1;
+      filter: drop-shadow(0 0 20px rgba(184, 81, 56, 0.45));
+    }
+    [data-composition-id="tip-13-screenshots"] .precise-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      align-self: stretch;
+    }
+    [data-composition-id="tip-13-screenshots"] .precise-line {
+      font-family: var(--f-mono);
+      font-size: 20px;
+      color: var(--c-text);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    [data-composition-id="tip-13-screenshots"] .precise-line .check {
+      color: var(--c-success);
+      font-weight: 800;
+    }
+    [data-composition-id="tip-13-screenshots"] .vs-text {
+      font-family: var(--f-en);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--c-muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+
+
 /* === Tip 11 复用：撞击 ripple + 白闪 === */
 
     [data-composition-id="tip-11-double-esc"] .impact-ripple {

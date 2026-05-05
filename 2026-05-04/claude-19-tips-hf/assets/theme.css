@@ -5100,3 +5100,430 @@ html, body {
     }
 
 
+
+/* === Tip 15 api-vs-mcp === */
+
+    /* hero opener subtitle "API · Not MCP" */
+    [data-composition-id="tip-15-api-vs-mcp"] .opener-subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--f-en);
+      font-size: 32px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .opener-subtitle .api-tag {
+      color: var(--c-orange);
+      font-weight: 800;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .opener-subtitle .not-tag {
+      color: var(--c-muted);
+      opacity: 0.55;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    /* === stage：左 MCP / 右 API 双卡对比 === */
+    [data-composition-id="tip-15-api-vs-mcp"] .api-mcp-stage {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* 双卡共享 */
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card {
+      position: absolute;
+      top: 160px;
+      width: 760px;
+      height: 760px;
+      padding: 32px 36px 28px;
+      border-radius: 24px;
+      background: var(--c-surface);
+      border: 1.5px solid var(--c-line);
+      box-shadow: var(--shadow-panel);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 5;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card.mcp {
+      left: 100px;
+      border-color: rgba(184, 81, 56, 0.32);
+      background: linear-gradient(180deg, rgba(184, 81, 56, 0.03) 0%, var(--c-surface) 60%);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card.api {
+      right: 100px;
+      border-color: rgba(78, 143, 114, 0.40);
+      background: linear-gradient(180deg, rgba(78, 143, 114, 0.04) 0%, var(--c-surface) 60%);
+    }
+
+    /* card header（icon + title + subtitle） */
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--c-line);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card-icon {
+      width: 64px;
+      height: 64px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-size: 36px;
+      font-weight: 800;
+      font-family: var(--f-mono);
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card.mcp .source-card-icon {
+      background: rgba(184, 81, 56, 0.12);
+      color: var(--c-danger);
+      border: 1.5px solid rgba(184, 81, 56, 0.45);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card.api .source-card-icon {
+      background: rgba(78, 143, 114, 0.14);
+      color: var(--c-success);
+      border: 1.5px solid rgba(78, 143, 114, 0.50);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card-title {
+      font-family: var(--f-zh);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--c-text);
+      line-height: 1.15;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .source-card-subtitle {
+      font-family: var(--f-mono);
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      color: var(--c-muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    /* tool list（MCP 卡的 5 行工具列表） */
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(43, 38, 34, 0.04);
+      border: 1px solid transparent;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      color: var(--c-text);
+      opacity: 0;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--c-muted);
+      flex-shrink: 0;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row-name {
+      flex: 1;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row-tail {
+      font-family: var(--f-en);
+      font-size: 16px;
+      color: var(--c-muted);
+      letter-spacing: 0.04em;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row.active {
+      background: rgba(217, 119, 87, 0.14);
+      border-color: rgba(217, 119, 87, 0.55);
+      color: var(--c-orange);
+      box-shadow: 0 0 24px rgba(217, 119, 87, 0.28);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row.active .tool-row-bullet {
+      background: var(--c-orange);
+      box-shadow: 0 0 12px rgba(217, 119, 87, 0.85);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row.active .tool-row-tail {
+      color: var(--c-orange);
+      font-weight: 800;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .tool-row.dim {
+      opacity: 0.32;
+      filter: grayscale(0.5);
+    }
+
+    /* curl 终端块（API 卡内嵌） */
+    [data-composition-id="tip-15-api-vs-mcp"] .curl-row {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .curl-terminal {
+      background: var(--c-terminal);
+      color: var(--c-terminal-text);
+      border-radius: 14px;
+      padding: 22px 26px;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      line-height: 1.5;
+      box-shadow: 0 12px 28px rgba(43, 38, 34, 0.22);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .curl-prompt {
+      color: var(--c-orange);
+      margin-right: 10px;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .curl-flag {
+      color: rgba(248, 241, 231, 0.55);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .curl-url {
+      color: #5EBFB0;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .api-key-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(78, 143, 114, 0.08);
+      border: 1px dashed rgba(78, 143, 114, 0.45);
+      font-family: var(--f-mono);
+      font-size: 18px;
+      color: var(--c-success);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .api-key-line .key-tag {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    /* card 内嵌 mini ctx-meter */
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter {
+      display: grid;
+      gap: 8px;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--f-mono);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-label-text {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 14px;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-pct {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--c-text);
+      font-family: var(--f-mono);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-pct.warn   { color: var(--c-warning); }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-pct.danger { color: var(--c-danger); }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-pct.safe   { color: var(--c-success); }
+
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-bar {
+      width: 100%;
+      height: 14px;
+      background: var(--c-surface-2);
+      border-radius: var(--r-chip);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--c-line), inset 0 2px 3px rgba(43, 38, 34, 0.08);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: var(--r-chip);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-fill.danger {
+      background: linear-gradient(90deg, var(--c-danger), #D97757);
+      box-shadow: 0 0 16px rgba(217, 119, 87, 0.55);
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .ctx-meter-fill.safe {
+      background: linear-gradient(90deg, var(--c-success), #76B594);
+      box-shadow: 0 0 16px rgba(78, 143, 114, 0.55);
+    }
+
+    /* 中央 vs 大字 */
+    [data-composition-id="tip-15-api-vs-mcp"] .vs-mark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--f-en);
+      font-size: 96px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--c-text);
+      opacity: 0.18;
+      z-index: 6;
+      text-shadow: 0 4px 18px rgba(43, 38, 34, 0.18);
+    }
+
+    /* 指向 tavily_search 那行的 chip "← 你只需要这个" */
+    [data-composition-id="tip-15-api-vs-mcp"] .pointer-chip {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--c-orange);
+      color: #fff;
+      font-family: var(--f-zh);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 10px 26px rgba(217, 119, 87, 0.45);
+      z-index: 12;
+      opacity: 0;
+    }
+
+    /* "方便" 短暂 chip（小绿） */
+    [data-composition-id="tip-15-api-vs-mcp"] .convenience-chip {
+      position: absolute;
+      left: 50%;
+      top: 130px;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.14);
+      border: 1px solid rgba(78, 143, 114, 0.50);
+      color: var(--c-success);
+      font-family: var(--f-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      z-index: 8;
+    }
+
+    /* "上下文吃多了" 红警告 chip（MCP 卡顶） */
+    [data-composition-id="tip-15-api-vs-mcp"] .danger-chip {
+      position: absolute;
+      left: 50%;
+      top: 130px;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(193, 75, 60, 0.94);
+      color: #fff;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      box-shadow: 0 12px 30px rgba(184, 81, 56, 0.45);
+      opacity: 0;
+      z-index: 8;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .danger-chip-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: #fff; opacity: 0.85;
+    }
+
+    /* "API key 就够了" 绿 chip（API 卡顶） */
+    [data-composition-id="tip-15-api-vs-mcp"] .api-saved-chip {
+      position: absolute;
+      left: 50%;
+      top: 130px;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(78, 143, 114, 0.94);
+      color: #fff;
+      font-family: var(--f-mono);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      box-shadow: 0 12px 30px rgba(78, 143, 114, 0.45);
+      opacity: 0;
+      z-index: 8;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .api-saved-chip-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: #fff; opacity: 0.85;
+    }
+
+    /* "未安装" stamp（cue 8 旋转盖在 MCP 卡上） */
+    [data-composition-id="tip-15-api-vs-mcp"] .uninstall-stamp {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      padding: 18px 36px;
+      border: 5px solid var(--c-danger);
+      border-radius: 14px;
+      background: rgba(255, 251, 245, 0.92);
+      color: var(--c-danger);
+      font-family: var(--f-mono);
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 50px rgba(184, 81, 56, 0.45);
+      z-index: 14;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* MCP 卡灰化覆盖层 */
+    [data-composition-id="tip-15-api-vs-mcp"] .mcp-grayout {
+      position: absolute;
+      inset: 0;
+      background: rgba(43, 38, 34, 0.18);
+      border-radius: 24px;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 11;
+    }
+
+    /* hero hold 「非必要不安装」 */
+    [data-composition-id="tip-15-api-vs-mcp"] .closing-hero {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+      z-index: 20;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .closing-hero .closing-zh {
+      font-family: var(--f-zh);
+      font-weight: 800;
+      font-size: 180px;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      margin: 0;
+      padding: 8px 0;
+    }
+    [data-composition-id="tip-15-api-vs-mcp"] .closing-hero .closing-en {
+      font-family: var(--f-en);
+      font-size: 30px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      font-weight: 700;
+    }
+

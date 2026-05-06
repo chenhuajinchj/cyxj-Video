@@ -16,25 +16,26 @@ based_on: 00-diagnosis.md + 00-gaps.md + DNA 重写后（commit 96eeb45）的优
 
 ## 优先级总表
 
-| Action | 缺口 | 优先级 | 时间 | 依赖 | 可派 sonnet？ |
-|---|---|---|---|---|---|
-| A1 cc-window 沉淀到 templates/components/ | G2 | 🔥 P0 | 1-1.5h | 无 | 部分（提取阶段）|
-| A2 11 个教训沉淀到 MY_MOTION_NOTES.md | G3 | 🔥 P0 | 1-2h | 无 | 否（需判断）|
-| A3 cyxj-new-video 加 URL 移交规则 | G1 | 🟧 P1 | 5min | 无 | 否 |
-| A4 12 协作开窍点写进 cyxj-new-video | G4 | 🟧 P1 | 30-45min | 无 | 否 |
-| A5 cyxj-new-video 阶段 D 显式 enforce DNA | G6 | 🟧 P1 | 10min | A4 | 否 |
-| A6 3 模板补 README | G9 | 🟧 P1 | 1.5-2h | 无 | ✅ 派 3 个 |
-| A7 CLAUDE.md 加 Claude/Codex 边界节 | G11 | 🟧 P1 | 5min | 无 | 否 |
-| A8 硬约束单源化到 HARD_CONSTRAINTS.md | G12 | 🟨 P2 | 1h | 无 | 否 |
-| A9 INDEX 零件用例回填脚本 | G13 | 🟨 P2 | 1-1.5h | 无 | 否 |
-| A10 docs 扫剩 41 页 catalog | G14 | 🟨 P2 | 1h | 无 | ✅ 派 1-2 个 |
-| A11 cyxj-new-video 加模板选择决策树 | G16 | 🟨 P2 | 30-45min | A6 | 否 |
-| A12 19-tips 归档（自动）| G5 | 🟦 P3 | 5min | 视频 final | 否 |
-| A13 INDEX 模板节加"对应形态"列 | G7 | 🟦 P3 | 10min | 无 | 否 |
-| A14 README.md 改"四个模板" | G10 | 🟦 P3 | 5min | 无 | 否 |
-| A15 tutorial-8beat 待下次教程验证 | G15 | 🟦 P3 | N/A | 用户下次主题 | 否 |
+| Action | 缺口 | 优先级 | 时间 | 依赖 | 可派 sonnet？ | 状态 |
+|---|---|---|---|---|---|---|
+| A1 cc-window 沉淀到 templates/components/ | G2 | 🔥 P0 | 1-1.5h | 无 | 部分（提取阶段）| ✅ 7ff7111 |
+| A2 11 个教训沉淀到 MY_MOTION_NOTES.md | G3 | 🔥 P0 | 1-2h | 无 | 否（需判断）| ✅ d118862 |
+| A3 cyxj-new-video 加 URL 移交规则 | G1 | 🟧 P1 | 5min | 无 | 否 | ✅ 6396cdb |
+| A4 12 协作开窍点写进 cyxj-new-video | G4 | 🟧 P1 | 30-45min | 无 | 否 | ✅ d4ab82b |
+| A5 cyxj-new-video 阶段 D 显式 enforce DNA | G6 | 🟧 P1 | 10min | A4 | 否 | ✅ d4ab82b |
+| A6 3 模板补 README | G9 | 🟧 P1 | 1.5-2h | 无 | ✅ 派 3 个 | ✅ 5edf40e |
+| A7 CLAUDE.md 加 Claude/Codex 边界节 | G11 | 🟧 P1 | 5min | 无 | 否 | ✅ 0ee2ac3 |
+| A8 硬约束单源化到 HARD_CONSTRAINTS.md | G12 | 🟨 P2 | 1h | 无 | 否 | ✅ 0793253 |
+| A9 INDEX 零件用例回填脚本 | G13 | 🟨 P2 | 1-1.5h | 无 | 否 | ✅ 71cf183 |
+| A10 docs 扫剩 41 页 catalog | G14 | 🟨 P2 | 1h | ✅ 派 1-2 个 | de03980（实扫 35 页，72/78）| ✅ |
+| A11 cyxj-new-video 加模板选择决策树 | G16 | 🟨 P2 | 30-45min | A6 | 否 | ✅ 479d737 |
+| A12 19-tips 归档（自动）| G5 | 🟦 P3 | 5min | 视频 final | 否 | ⏳ 等 final render |
+| A13 INDEX 模板节加"对应形态"列 | G7 | 🟦 P3 | 10min | 无 | 否 | ✅ 3852e45 |
+| A14 README.md 改"四个模板" | G10 | 🟦 P3 | 5min | 无 | 否 | ✅ 3989cb9 |
+| A15 tutorial-8beat 待下次教程验证 | G15 | 🟦 P3 | N/A | 用户下次主题 | 否 | ⏳ 等下次教程主题 |
 
-**总执行时间**：8.5-12.5 小时纯写代码。**推荐分 4 批做**，见末尾"路线图"。
+**总执行时间**：8.5-12.5 小时纯写代码。**实际执行**：13/15 done（仅 A12 / A15 被动等待触发）。
+**完成时间**：2026-05-06，3 批 13 commit，5 个 sonnet agent 平行调度。
 
 ---
 

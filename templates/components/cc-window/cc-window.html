@@ -1,0 +1,207 @@
+<!--
+  cc-window.html — Claude Code 终端 UI 复用骨架
+
+  这个文件本身不是一个 HyperFrames composition，是给你**复制 HTML 片段**用的。
+  下面 5 段每段都是一个完整可粘贴的 .cc-window，对应 5 种 body 变体。
+
+  使用方式：
+    1. 在你的 composition 顶部加：
+       <link rel="stylesheet" href="../components/cc-window/cc-window.css" />
+    2. 复制下方 5 个变体里你需要的那个，粘到你的 composition body 里
+    3. 改 .cc-cmd 里的命令 / .cc-agent-name 等具体文案
+    4. 用 GSAP 给 #cc-cursor / #cc-cmd / #cc-agent-dot 等 id 加动画
+
+  实战提示（19-tips 经验）：
+    - cc-cursor 用 yoyo 闪烁：tl.to('#cc-cursor', {opacity:0, duration:0.4, repeat:-1, yoyo:true, ease:'steps(1)'}, 0)
+    - char-by-char typing 用 helper：每帧给 #cc-cmd 的 textContent 追加一个字符
+    - cc-agent-dot 加旋转：tl.to('#cc-agent-dot', {rotation:360, duration:1, repeat:-1, ease:'none'}, start)
+    - cc-window 入场用 blur(14px) → blur(0) + power3.out 0.6s（DNA 第 6 条）
+-->
+
+<!-- ===================================================================
+     变体 A · 最基础：prompt-line + 闪烁 cursor（适合"用户输入命令"场景）
+     19-tips 用例：Tip 1 statusline 章节起手
+     =================================================================== -->
+<div class="cc-window" id="cc-window-a" style="width:1280px;">
+  <div class="cc-titlebar">
+    <span class="mac-dot r"></span>
+    <span class="mac-dot y"></span>
+    <span class="mac-dot g"></span>
+    <span class="cc-title">claude — ~/project</span>
+  </div>
+  <div class="cc-body">
+    <div class="cc-prompt-line">
+      <span class="cc-prompt-arrow">&gt;</span>
+      <span class="cc-cmd" id="cc-cmd-a">/statusline</span>
+      <span class="cc-cursor" id="cc-cursor-a"></span>
+    </div>
+  </div>
+  <!-- 不需要 statusline 时，直接省略 .cc-statusline，grid-template-rows 的 auto 自动适配 -->
+</div>
+
+
+<!-- ===================================================================
+     变体 B · prompt-line + cc-info（命令执行回显，绿色 ✓ + 状态文字）
+     19-tips 用例：Tip 6 ask-questions 左卡（callback Tip 4）
+     =================================================================== -->
+<div class="cc-window" id="cc-window-b" style="width:1280px;">
+  <div class="cc-titlebar">
+    <span class="mac-dot r"></span>
+    <span class="mac-dot y"></span>
+    <span class="mac-dot g"></span>
+    <span class="cc-title">claude — ~/project</span>
+  </div>
+  <div class="cc-body">
+    <div class="cc-prompt-line">
+      <span class="cc-prompt-arrow">&gt;</span>
+      <span class="cc-cmd">drafting plan…</span>
+      <span class="cc-cursor"></span>
+    </div>
+    <div class="cc-info">↳ Claude is asking 3 questions</div>
+  </div>
+</div>
+
+
+<!-- ===================================================================
+     变体 C · cc-response 含 agent 调用（旋转 dot → done check）
+     19-tips 用例：Tip 1 statusline 中段
+     时序：opacity 0→1 入场 → cc-agent-dot 旋转 1.5-3s → swap class .done → cc-agent-done 显示
+     =================================================================== -->
+<div class="cc-window" id="cc-window-c" style="width:1280px;">
+  <div class="cc-titlebar">
+    <span class="mac-dot r"></span>
+    <span class="mac-dot y"></span>
+    <span class="mac-dot g"></span>
+    <span class="cc-title">claude — ~/project</span>
+  </div>
+  <div class="cc-body">
+    <div class="cc-prompt-line">
+      <span class="cc-prompt-arrow">&gt;</span>
+      <span class="cc-cmd">/statusline</span>
+    </div>
+    <div class="cc-response" id="cc-response-c">
+      <div class="cc-agent-call" id="cc-agent-call-c" style="opacity:0;">
+        <span class="cc-agent-dot" id="cc-agent-dot-c"></span>
+        <span class="cc-agent-name">statusline-setup</span>
+        <span class="cc-agent-desc">(Configure statusline from PS1)</span>
+      </div>
+      <div class="cc-agent-done" id="cc-agent-done-c" style="opacity:0;">
+        <span class="cc-agent-pipe">└</span>
+        <span>statusline ready · 5 segments wired</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================================
+     变体 D · cc-question（Claude 反问气泡）
+     ⚠ 19-tips 12 章节 0 实际引用（CSS 定义但项目场景下用了别的实现 questions-panel）
+     如果你做的视频是"Claude 在终端里直接抛出问题"场景可用此变体
+     =================================================================== -->
+<div class="cc-window" id="cc-window-d" style="width:1280px;">
+  <div class="cc-titlebar">
+    <span class="mac-dot r"></span>
+    <span class="mac-dot y"></span>
+    <span class="mac-dot g"></span>
+    <span class="cc-title">claude — ~/project</span>
+  </div>
+  <div class="cc-body">
+    <div class="cc-prompt-line">
+      <span class="cc-prompt-arrow">&gt;</span>
+      <span class="cc-cmd">implement search feature</span>
+    </div>
+    <div class="cc-question">
+      Before I start, a few questions:
+    </div>
+    <div class="cc-question" style="font-size:18px; color:rgba(248,241,231,0.55);">
+      ① Should results be paginated?
+    </div>
+    <div class="cc-question" style="font-size:18px; color:rgba(248,241,231,0.55);">
+      ② Sort by relevance or recency?
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================================
+     变体 E · cc-bullets（Claude 列表回应，含 active 高亮项）
+     ⚠ 19-tips 12 章节 0 实际引用（CSS 定义但项目场景用了别的实现 todo-panel）
+     适合"Claude 在终端里给出步骤列表 / TODO 列表"场景，active 项做 stagger 高亮
+     =================================================================== -->
+<div class="cc-window" id="cc-window-e" style="width:1280px;">
+  <div class="cc-titlebar">
+    <span class="mac-dot r"></span>
+    <span class="mac-dot y"></span>
+    <span class="mac-dot g"></span>
+    <span class="cc-title">claude — ~/project</span>
+  </div>
+  <div class="cc-body">
+    <div class="cc-prompt-line">
+      <span class="cc-prompt-arrow">&gt;</span>
+      <span class="cc-cmd">refactor auth module</span>
+    </div>
+    <div class="cc-info">↳ Plan ready · 4 steps</div>
+    <div class="cc-bullets">
+      <div class="cc-bullet active" id="cc-bullet-1">① Extract token validator into helper</div>
+      <div class="cc-bullet" id="cc-bullet-2">② Move session store to Redis</div>
+      <div class="cc-bullet" id="cc-bullet-3">③ Add migration script</div>
+      <div class="cc-bullet" id="cc-bullet-4">④ Update integration tests</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================================
+     statusline 完整 5-segment 模板（最常用 + 第 6 个 mode 段可选）
+     19-tips 用例：Tip 1 完整 5 段（model/ctx/cost/tokens/rate）
+                  + Tip 6 用了 model/mode 2 段（callback 简化版）
+     拼装规则：把下面任意 segment 段落复制到一个 .cc-statusline 容器内
+     =================================================================== -->
+<div class="cc-statusline" id="cc-sl-full">
+
+  <!-- segment 1: model -->
+  <span class="cc-sl-seg" id="sl-model">
+    <span class="cc-sl-icon model"></span>
+    <span class="cc-sl-label">model</span>
+    <span class="cc-sl-value">opus-4.7</span>
+  </span>
+
+  <!-- segment 2: context usage （%，可改 .warn / .danger 染色）-->
+  <span class="cc-sl-seg" id="sl-ctx">
+    <span class="cc-sl-icon ctx"></span>
+    <span class="cc-sl-label">ctx</span>
+    <span class="cc-sl-value" id="sl-ctx-val">38%</span>
+  </span>
+
+  <!-- segment 3: cost -->
+  <span class="cc-sl-seg" id="sl-cost">
+    <span class="cc-sl-icon cost"></span>
+    <span class="cc-sl-label">cost</span>
+    <span class="cc-sl-value" id="sl-cost-val">$0.74</span>
+  </span>
+
+  <!-- segment 4: tokens (k) -->
+  <span class="cc-sl-seg" id="sl-tok">
+    <span class="cc-sl-icon tok"></span>
+    <span class="cc-sl-label">tokens</span>
+    <span class="cc-sl-value" id="sl-tok-val">12.4k</span>
+  </span>
+
+  <!-- segment 5: rate (含进度条 cc-sl-bar；用 --cc-sl-bar-fill 控制宽度) -->
+  <span class="cc-sl-seg" id="sl-rate">
+    <span class="cc-sl-icon rate"></span>
+    <span class="cc-sl-label">5h</span>
+    <span class="cc-sl-bar" id="sl-rate-bar" style="--cc-sl-bar-fill: 42%;"></span>
+    <span class="cc-sl-value" id="sl-rate-val">42%</span>
+  </span>
+
+  <!-- segment 6 (可选): mode（plan / build / 任意自定字 + inline color override）-->
+  <!--
+  <span class="cc-sl-seg" id="sl-mode">
+    <span class="cc-sl-icon mode"></span>
+    <span class="cc-sl-label">mode</span>
+    <span class="cc-sl-value" style="color:var(--cc-orange);">plan</span>
+  </span>
+  -->
+</div>

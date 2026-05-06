@@ -138,14 +138,39 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 - `shimmer-sweep` — 闪烁扫光（强调文字时用）
 - `grid-pixelate-wipe` — 像素网格擦除转场
 
-### 真实工程里用过哪些零件（持续补充）
+### 真实工程里用过哪些零件（自动扫描）
 
-> 这部分由你做新视频时手动补充。归档进 `我的作品/` 时记得在这里加一行"我用了 X、Y、Z"。
+<!-- AUTO:zero-usage:start -->
+> 由 `scripts/refresh-zero-usage.sh` 自动扫描 `参考库/` 下所有工程的 `compositions/*.html` 和 `compositions/components/*.html` 文件名 vs catalog.json 反查得出。重跑：`bash scripts/refresh-zero-usage.sh --write`。手动编辑会被下次重跑覆盖。
 
-- `nate-demos/clickup-demo/` 用了：`macos-notification`、`app-showcase`、`cinematic-zoom`
-- `nate-demos/linear-promo-30s/` 用了：`whip-pan`、`flowchart`、`logo-outro`
-- `nate-demos/aisoc-app-release/` 用了：`flash-through-white`、`grain-overlay`
-- _（做完后续工程时持续补充）_
+**nate-demos/**
+
+- `nate-demos/aisoc-app-release/` 用了：`instagram-follow`、`x-post`、`grain-overlay`、`shimmer-sweep`
+- `nate-demos/aisoc-hype/` 用了：`grain-overlay`、`shimmer-sweep`
+- `nate-demos/aisoc-lesson-5-1/` 用了：_（未引用 catalog 零件，全部自制）_
+- `nate-demos/claude-edit-intro/` 用了：`grain-overlay`、`shimmer-sweep`
+- `nate-demos/clickup-demo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
+- `nate-demos/first-agent-promo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
+- `nate-demos/golden-ratio-demo/` 用了：`grain-overlay`
+- `nate-demos/hyperframes-sizzle/` 用了：`app-showcase`、`chromatic-radial-split`、`cinematic-zoom`、`cross-warp-morph`、`data-chart`、`domain-warp-dissolve`、`flash-through-white`、`glitch`、`gravitational-lens`、`instagram-follow`、`light-leak`、`logo-outro`、`ridged-burn`、`sdf-iris`、`swirl-vortex`、`thermal-distortion`、`tiktok-follow`、`whip-pan`、`x-post`、`yt-lower-third`、`grain-overlay`、`grid-pixelate-wipe`、`shimmer-sweep`
+- `nate-demos/linear-promo-30s/` 用了：_（未引用 catalog 零件，全部自制）_
+- `nate-demos/may-shorts-18/` 用了：_（未引用 catalog 零件，全部自制）_
+- `nate-demos/may-shorts-19/` 用了：_（未引用 catalog 零件，全部自制）_
+- `nate-demos/may-shorts-6/` 用了：_（未引用 catalog 零件，全部自制）_
+
+**heygen-launches/**
+
+- `heygen-launches/hyperframes-launch/` 用了：_（未引用 catalog 零件，全部自制）_
+- `heygen-launches/timeline-launch/` 用了：_（未引用 catalog 零件，全部自制）_
+- `heygen-launches/website-to-hyperframes/` 用了：_（未引用 catalog 零件，全部自制）_
+
+**我的作品/**
+
+- `我的作品/2026-05-02-claude-demo-v2/` 用了：`grain-overlay`、`shimmer-sweep`
+- `我的作品/2026-05-02-claude-overlays-only/` 用了：`grain-overlay`、`shimmer-sweep`
+- `我的作品/2026-05-02-codex-claude-intro/` 用了：_（未引用 catalog 零件，全部自制）_
+
+<!-- AUTO:zero-usage:end -->
 
 ---
 

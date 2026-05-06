@@ -6,17 +6,19 @@
 
 ---
 
-## 三个模板
+## 四个模板
 
 | 模板 | 适合的视频类型 | 拓扑 | 输出 |
 |---|---|---|---|
 | [`templates/host-overlay`](templates/host-overlay) | 主播口播为主，旁边浮一些动效辅助讲解 | 录屏铺满 + 4 个 beat overlay | 整片 MP4（含录屏 + overlay） |
 | [`templates/host-overlay-alpha`](templates/host-overlay-alpha) | 同上，但希望在达芬奇里精修录屏 | 仅 overlay，背景透明 | ProRes 4444 alpha MOV |
 | [`templates/demo-fullscreen`](templates/demo-fullscreen) | 含中文文字的"虚构 demo" 整片，配音后期加 | 7 beat 串联，无录屏 | 整片 MP4 |
+| [`templates/tutorial-8beat`](templates/tutorial-8beat) | 5-10min 教程的片头 / 中段过渡 / 结构化讲解 | 8 beat 串联（hook→pain→punchline→concept→flow→outro）| 整片 MP4 |
 
 **选哪个**：
 - 主体是真人 → `host-overlay` (整片) 或 `host-overlay-alpha` (达芬奇精修)
-- 主体是 hyperframes 画面 → `demo-fullscreen`
+- 主体是 hyperframes 画面、单段演示 → `demo-fullscreen`
+- 教程类、需要"hook + 痛点 + 解决方案 + 流程"完整结构 → `tutorial-8beat`
 - 一个视频里多种段落 → 都用，达芬奇里串联
 
 详细复用指南见 [`TEMPLATE_USAGE.md`](TEMPLATE_USAGE.md)。
@@ -33,10 +35,12 @@
 ├── CLAUDE.md                  ← Claude Code 工作边界
 ├── .agents/skills/            ← Codex wrapper skills
 ├── .claude/skills/            ← Claude Code skills
-├── templates/                 ← 三个可复用模板（git 跟踪）
+├── templates/                 ← 四个可复用模板（git 跟踪）
 │   ├── host-overlay/          ← 主播 + overlay（v2 风格）
 │   ├── host-overlay-alpha/    ← 主播 + overlay 的 alpha 变体
-│   └── demo-fullscreen/       ← 演示风格整片
+│   ├── demo-fullscreen/       ← 演示风格整片（7 beat）
+│   ├── tutorial-8beat/        ← 教程结构化片头/过渡（8 beat）
+│   └── components/            ← 可复用零件（cc-window 等）
 ├── examples/                  ← 已经做过的视频的脚本/文案
 │   └── codex-intro/
 │       └── script.md          ← Codex × Claude Code 教程片头文案

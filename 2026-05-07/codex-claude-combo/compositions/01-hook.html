@@ -1,0 +1,161 @@
+<!-- Beat 1 hook (0→9s) — "最近 Codex 和 Claude Code 的组合热度极高"
+     视觉：英文产品名 vs 产品名 + "×" 碰撞 hero。
+     蓝（Codex）/ 橙（Claude Code）/ 黑（×）三色组合呼应主题"两家组合"。 -->
+
+<template id="beat-1-hook-template">
+  <div
+    data-composition-id="beat-1-hook"
+    data-start="0"
+    data-duration="9"
+    data-width="1920"
+    data-height="1080"
+  >
+    <style>
+      [data-composition-id="beat-1-hook"] .b1-hero {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        z-index: 12;
+      }
+      [data-composition-id="beat-1-hook"] .b1-codex {
+        height: 180px;
+        width: auto;
+        display: block;
+      }
+      [data-composition-id="beat-1-hook"] .b1-claude {
+        height: 220px;
+        width: auto;
+        display: block;
+      }
+      [data-composition-id="beat-1-hook"] .b1-x {
+        font-family: var(--f-en);
+        font-weight: 700;
+        font-size: 200px;
+        line-height: 1;
+        color: #1a1614;
+        opacity: 0;
+        transform: scale(0);
+      }
+      [data-composition-id="beat-1-hook"] .b1-halo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1400px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(217, 119, 87, 0.18) 0%,
+          rgba(91, 169, 255, 0.12) 40%,
+          transparent 70%
+        );
+        z-index: 11;
+        opacity: 0;
+        filter: blur(20px);
+      }
+      [data-composition-id="beat-1-hook"] .b1-kicker {
+        position: absolute;
+        top: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-mono);
+        font-size: var(--fs-kicker);
+        font-weight: 500;
+        color: rgba(26, 22, 20, 0.45);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        z-index: 12;
+      }
+    </style>
+
+    <div class="b1-kicker">01 · HOOK</div>
+
+    <div class="b1-halo"></div>
+
+    <div class="b1-hero">
+      <img class="b1-codex" src="assets/codex-logo.png" alt="Codex" />
+      <span class="b1-x">×</span>
+      <img class="b1-claude" src="assets/claude-code-logo.png" alt="Claude Code" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        const root = '[data-composition-id="beat-1-hook"]';
+
+        // Kicker 顶部章节标签淡入
+        tl.from(root + ' .b1-kicker', {
+          opacity: 0,
+          y: -10,
+          duration: 0.5,
+          ease: 'power2.out',
+        }, 0);
+
+        // Codex 从左滑入 + blur 解锁
+        tl.fromTo(root + ' .b1-codex',
+          { opacity: 0, x: -120, filter: 'blur(14px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' },
+          0.4
+        );
+
+        // Claude Code 从右滑入 + blur 解锁
+        tl.fromTo(root + ' .b1-claude',
+          { opacity: 0, x: 120, filter: 'blur(14px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' },
+          0.7
+        );
+
+        // × 中心 pop（碰撞感）
+        tl.to(root + ' .b1-x', {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: 'back.out(2.4)',
+        }, 1.7);
+
+        // halo 呼吸光晕
+        tl.to(root + ' .b1-halo', {
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+        }, 1.9);
+
+        tl.to(root + ' .b1-halo', {
+          opacity: 0.65,
+          duration: 2.2,
+          ease: 'sine.inOut',
+          repeat: 1,
+          yoyo: true,
+        }, 2.7);
+
+        // hero 微微浮动（呼吸感）
+        tl.to(root + ' .b1-hero', {
+          y: -8,
+          duration: 2.5,
+          ease: 'sine.inOut',
+          repeat: 1,
+          yoyo: true,
+        }, 2.5);
+
+        // 出场：整体 blur + fade（衔接 beat 2）
+        tl.to([root + ' .b1-hero', root + ' .b1-halo', root + ' .b1-kicker'], {
+          opacity: 0,
+          filter: 'blur(10px)',
+          duration: 0.5,
+          ease: 'power2.in',
+        }, 8.4);
+
+        window.__timelines['beat-1-hook'] = tl;
+      })();
+    </script>
+  </div>
+</template>

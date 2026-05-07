@@ -1,0 +1,195 @@
+<!-- Beat 5 涵盖范围 (37→53s, 16s) — "下期保姆级教程涵盖 9 大主题"
+     视觉：3×3 grid 列出 9 项，stagger 入场 -->
+
+<template id="beat-5-roadmap-template">
+  <div
+    data-composition-id="beat-5-roadmap"
+    data-start="0"
+    data-duration="16"
+    data-width="1920"
+    data-height="1080"
+  >
+    <style>
+      [data-composition-id="beat-5-roadmap"] .b5-kicker {
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-mono);
+        font-size: var(--fs-kicker);
+        font-weight: 500;
+        color: rgba(26, 22, 20, 0.45);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        z-index: 12;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-title {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-zh);
+        font-weight: 700;
+        font-size: 56px;
+        color: #1a1614;
+        text-align: center;
+        z-index: 12;
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-title .b5-hot {
+        color: var(--c-hot);
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-grid {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translateY(40px);
+        display: grid;
+        grid-template-columns: repeat(3, 380px);
+        grid-template-rows: repeat(3, auto);
+        column-gap: 36px;
+        row-gap: 28px;
+        z-index: 12;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-card {
+        background: rgba(255, 255, 255, 0.4);
+        border: 1.5px solid rgba(26, 22, 20, 0.12);
+        border-radius: 16px;
+        padding: 24px 28px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-num {
+        font-family: var(--f-mono);
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--c-hot);
+        min-width: 48px;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-zh {
+        font-family: var(--f-zh);
+        font-weight: 600;
+        font-size: 30px;
+        color: #1a1614;
+        line-height: 1.1;
+      }
+      [data-composition-id="beat-5-roadmap"] .b5-en {
+        font-family: var(--f-en);
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(26, 22, 20, 0.45);
+        letter-spacing: 0.5px;
+      }
+    </style>
+
+    <div class="b5-kicker">05 · ROADMAP</div>
+
+    <div class="b5-title">
+      下期完整<span class="b5-hot">保姆级</span>教程，涵盖：
+    </div>
+
+    <div class="b5-grid">
+      <div class="b5-card b5-card-1">
+        <span class="b5-num">01</span>
+        <span class="b5-text">
+          <span class="b5-zh">安装</span>
+          <span class="b5-en">Installation</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-2">
+        <span class="b5-num">02</span>
+        <span class="b5-text">
+          <span class="b5-zh">基础用法</span>
+          <span class="b5-en">Basics</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-3">
+        <span class="b5-num">03</span>
+        <span class="b5-text">
+          <span class="b5-zh">代码管理</span>
+          <span class="b5-en">Code workflow</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-4">
+        <span class="b5-num">04</span>
+        <span class="b5-text">
+          <span class="b5-zh">云端模式</span>
+          <span class="b5-en">Cloud mode</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-5">
+        <span class="b5-num">05</span>
+        <span class="b5-text">
+          <span class="b5-zh">记忆功能</span>
+          <span class="b5-en">Memory</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-6">
+        <span class="b5-num">06</span>
+        <span class="b5-text">
+          <span class="b5-zh">自动化</span>
+          <span class="b5-en">Automation</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-7">
+        <span class="b5-num">07</span>
+        <span class="b5-text">
+          <span class="b5-zh">技能库</span>
+          <span class="b5-en">Skills</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-8">
+        <span class="b5-num">08</span>
+        <span class="b5-text">
+          <span class="b5-zh">MCP</span>
+          <span class="b5-en">Model Context Protocol</span>
+        </span>
+      </div>
+      <div class="b5-card b5-card-9">
+        <span class="b5-num">09</span>
+        <span class="b5-text">
+          <span class="b5-zh">计算机控制</span>
+          <span class="b5-en">Computer use</span>
+        </span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const root = '[data-composition-id="beat-5-roadmap"]';
+
+        tl.from(root + ' .b5-kicker', { opacity: 0, y: -10, duration: 0.4, ease: 'power2.out' }, 0);
+
+        tl.from(root + ' .b5-title', {
+          opacity: 0, y: 18, filter: 'blur(8px)', duration: 0.6, ease: 'power3.out'
+        }, 0.2);
+
+        // 9 卡片 stagger 入场（每项 0.4s 间隔，总 3.6s）
+        const cardSel = [];
+        for (let i = 1; i <= 9; i++) cardSel.push(root + ' .b5-card-' + i);
+        cardSel.forEach((sel, idx) => {
+          tl.fromTo(sel,
+            { opacity: 0, y: 20, scale: 0.92 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.4)' },
+            1.0 + idx * 0.4);
+        });
+
+        // 出场
+        tl.to([root + ' .b5-grid', root + ' .b5-title', root + ' .b5-kicker'], {
+          opacity: 0, filter: 'blur(8px)', duration: 0.5, ease: 'power2.in'
+        }, 15.3);
+
+        window.__timelines['beat-5-roadmap'] = tl;
+      })();
+    </script>
+  </div>
+</template>

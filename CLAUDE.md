@@ -14,7 +14,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 ~/项目/参考仓库/hyperframes/
 ├── .claude/skills/                       # 9 个 skill（7 软链 + 2 自写）
 ├── MOTION_PHILOSOPHY.md                  # 软链 → student-kit 的美学准则
-├── templates/                            # 4 个精简骨架 + components 零件（直接 cp 起步用）
+├── templates/                            # 1 个真模板（tutorial-8beat）+ components 零件（cc-window / xcyj-tokens）
 ├── 参考库/
 │   ├── INDEX.md                          # ⭐ 入口索引（每次做新视频先扫这里）
 │   ├── catalog.json                      # 46 个 catalog 零件 metadata

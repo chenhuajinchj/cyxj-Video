@@ -1,0 +1,132 @@
+<!-- Beat 3 转折 (17→23s, 6s) — "为什么不利用 Codex 插件，把两者结合起来用"
+     视觉：转折大字 + 两个 logo + 中央"+"号 + 插件徽章 -->
+
+<template id="beat-3-pivot-template">
+  <div
+    data-composition-id="beat-3-pivot"
+    data-start="0"
+    data-duration="6"
+    data-width="1920"
+    data-height="1080"
+  >
+    <style>
+      [data-composition-id="beat-3-pivot"] .b3-kicker {
+        position: absolute;
+        top: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-mono);
+        font-size: var(--fs-kicker);
+        font-weight: 500;
+        color: rgba(26, 22, 20, 0.45);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        z-index: 12;
+      }
+      [data-composition-id="beat-3-pivot"] .b3-headline {
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--f-zh);
+        font-weight: 800;
+        font-size: 92px;
+        line-height: 1.2;
+        color: #1a1614;
+        white-space: nowrap;
+        z-index: 12;
+      }
+      [data-composition-id="beat-3-pivot"] .b3-headline .b3-hot {
+        color: var(--c-hot);
+      }
+      [data-composition-id="beat-3-pivot"] .b3-combo {
+        position: absolute;
+        top: 64%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        z-index: 12;
+      }
+      [data-composition-id="beat-3-pivot"] .b3-combo img {
+        height: 130px;
+        width: auto;
+        display: block;
+      }
+      [data-composition-id="beat-3-pivot"] .b3-plus {
+        font-family: var(--f-en);
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 1;
+        color: var(--c-hot);
+        text-shadow: 0 0 30px rgba(217, 119, 87, 0.4);
+      }
+      [data-composition-id="beat-3-pivot"] .b3-badge {
+        position: absolute;
+        top: 64%;
+        left: 50%;
+        transform: translate(-50%, -50%) translateY(160px);
+        padding: 14px 32px;
+        background: var(--c-hot);
+        color: #fff;
+        font-family: var(--f-mono);
+        font-weight: 600;
+        font-size: 24px;
+        border-radius: 999px;
+        letter-spacing: 2px;
+        box-shadow: 0 0 30px rgba(217, 119, 87, 0.4);
+        z-index: 12;
+      }
+    </style>
+
+    <div class="b3-kicker">03 · PIVOT</div>
+
+    <div class="b3-headline">
+      为什么不<span class="b3-hot">结合</span>起来用？
+    </div>
+
+    <div class="b3-combo">
+      <img class="b3-codex" src="assets/codex-logo.png" alt="Codex" />
+      <span class="b3-plus">+</span>
+      <img class="b3-claude" src="assets/claude-code-logo.png" alt="Claude Code" />
+    </div>
+
+    <div class="b3-badge">CODEX 插件</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const root = '[data-composition-id="beat-3-pivot"]';
+
+        tl.from(root + ' .b3-kicker', { opacity: 0, y: -10, duration: 0.4, ease: 'power2.out' }, 0);
+
+        tl.from(root + ' .b3-headline', {
+          opacity: 0, y: 30, filter: 'blur(10px)', duration: 0.7, ease: 'power3.out'
+        }, 0.3);
+
+        tl.fromTo(root + ' .b3-codex',
+          { opacity: 0, x: -60, scale: 0.7 },
+          { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 1.2);
+        tl.fromTo(root + ' .b3-claude',
+          { opacity: 0, x: 60, scale: 0.7 },
+          { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 1.4);
+        tl.fromTo(root + ' .b3-plus',
+          { opacity: 0, scale: 0.3, rotate: -90 },
+          { opacity: 1, scale: 1, rotate: 0, duration: 0.5, ease: 'back.out(2.4)' }, 1.9);
+
+        tl.from(root + ' .b3-badge', {
+          opacity: 0, y: 30, scale: 0.8, duration: 0.5, ease: 'back.out(1.6)'
+        }, 2.5);
+
+        tl.to([root + ' .b3-headline', root + ' .b3-combo', root + ' .b3-badge', root + ' .b3-kicker'], {
+          opacity: 0, filter: 'blur(8px)', duration: 0.4, ease: 'power2.in'
+        }, 5.5);
+
+        window.__timelines['beat-3-pivot'] = tl;
+      })();
+    </script>
+  </div>
+</template>

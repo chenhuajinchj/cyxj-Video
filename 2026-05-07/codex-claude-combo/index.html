@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Codex × Claude Code · 1+1>2</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/xcyj-tokens.css" />
+    <link rel="stylesheet" href="assets/cc-window.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--c-bg);
+        font-family: var(--f-zh);
+        color: #1a1614;
+      }
+
+      /* ── 全屏透视网格（暖米底子上压浅蓝细线）── */
+      #global-grid {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        background-image:
+          linear-gradient(to right, rgba(91, 169, 255, 0.13) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(91, 169, 255, 0.13) 1px, transparent 1px);
+        background-size: 80px 80px;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* ── 暗角 vignette（极淡）── */
+      #vignette {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.18) 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      /* ── 颗粒 grain（极淡 SVG noise）── */
+      #grain {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+        background-size: 200px 200px;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      /* ── 字幕条 ── */
+      .caption {
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        transform: translateX(-50%);
+        padding: 18px 36px;
+        background: rgba(20, 16, 12, 0.88);
+        color: #F8F1E7;
+        font-family: var(--f-zh);
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 1.4;
+        border-radius: 14px;
+        z-index: 50;
+        max-width: 1500px;
+        text-align: center;
+      }
+
+      /* ── beat 容器：所有 beat 内容居中且层叠在中央 ── */
+      .beat {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1920px;
+        height: 1080px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="root"
+      data-composition-id="codex-claude-combo"
+      data-start="0"
+      data-duration="60"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- ── 全局装饰层（透视网格 + 暗角 + 颗粒），永久背景，不参与 timing ── -->
+      <div id="global-grid"></div>
+      <div id="vignette"></div>
+      <div id="grain"></div>
+
+      <!-- ── Beat 1: hook (0→9s) ── -->
+      <div
+        id="beat-1-hook-host"
+        class="beat clip"
+        data-composition-id="beat-1-hook"
+        data-composition-src="compositions/01-hook.html"
+        data-start="0"
+        data-duration="9"
+        data-track-index="1"
+      ></div>
+
+      <!-- ── Beat 2: vs争论 (9→17s) ── -->
+      <div
+        id="beat-2-vs-debate-host"
+        class="beat clip"
+        data-composition-id="beat-2-vs-debate"
+        data-composition-src="compositions/02-vs-debate.html"
+        data-start="9"
+        data-duration="8"
+        data-track-index="2"
+      ></div>
+
+      <!-- ── Beat 3: 转折 (17→23s) ── -->
+      <div
+        id="beat-3-pivot-host"
+        class="beat clip"
+        data-composition-id="beat-3-pivot"
+        data-composition-src="compositions/03-pivot.html"
+        data-start="17"
+        data-duration="6"
+        data-track-index="3"
+      ></div>
+
+      <!-- ── Beat 4: 终端实演 (23→37s) ── -->
+      <div
+        id="beat-4-terminal-demo-host"
+        class="beat clip"
+        data-composition-id="beat-4-terminal-demo"
+        data-composition-src="compositions/04-terminal-demo.html"
+        data-start="23"
+        data-duration="14"
+        data-track-index="4"
+      ></div>
+
+      <!-- ── Beat 5: 涵盖范围 (37→53s) ── -->
+      <div
+        id="beat-5-roadmap-host"
+        class="beat clip"
+        data-composition-id="beat-5-roadmap"
+        data-composition-src="compositions/05-roadmap.html"
+        data-start="37"
+        data-duration="16"
+        data-track-index="5"
+      ></div>
+
+      <!-- ── Beat 6: outro (53→60s) ── -->
+      <div
+        id="beat-6-outro-host"
+        class="beat clip"
+        data-composition-id="beat-6-outro"
+        data-composition-src="compositions/06-outro.html"
+        data-start="53"
+        data-duration="7"
+        data-track-index="6"
+      ></div>
+
+      <!-- ── 字幕（贴口播节奏切）── -->
+      <div
+        id="caption-1"
+        class="caption clip"
+        data-start="0.4"
+        data-duration="8.6"
+        data-track-index="9"
+      >
+        最近 Codex 和 Claude Code 的组合热度极高
+      </div>
+      <div
+        id="caption-2"
+        class="caption clip"
+        data-start="9"
+        data-duration="8"
+        data-track-index="9"
+      >
+        关于该用 GPT 5.5 还是 Opus 4.7 的争论不绝于耳
+      </div>
+      <div
+        id="caption-3"
+        class="caption clip"
+        data-start="17"
+        data-duration="6"
+        data-track-index="9"
+      >
+        既然如此，我们为什么不利用 Codex 插件，把两者结合起来用
+      </div>
+      <div
+        id="caption-4"
+        class="caption clip"
+        data-start="23"
+        data-duration="7"
+        data-track-index="9"
+      >
+        在 Claude Code 会话中引入 Codex 来审查代码、分派任务
+      </div>
+      <div
+        id="caption-5"
+        class="caption clip"
+        data-start="30"
+        data-duration="7"
+        data-track-index="9"
+      >
+        把它当作你的"第二双眼睛"
+      </div>
+      <div
+        id="caption-6"
+        class="caption clip"
+        data-start="37"
+        data-duration="7"
+        data-track-index="9"
+      >
+        别忘了订阅频道，下期保姆级教程
+      </div>
+      <div
+        id="caption-7"
+        class="caption clip"
+        data-start="44"
+        data-duration="9"
+        data-track-index="9"
+      >
+        涵盖 9 大主题
+      </div>
+      <div
+        id="caption-8"
+        class="caption clip"
+        data-start="53"
+        data-duration="7"
+        data-track-index="9"
+      >
+        发挥 1+1>2 的威力，直接进入正题
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // 全局装饰层 fade in（前 0.5s）
+      tl.from('#global-grid', { opacity: 0, duration: 0.5, ease: 'power2.out' }, 0);
+      tl.from('#vignette', { opacity: 0, duration: 0.5, ease: 'power2.out' }, 0);
+
+      // 主 timeline 占位 60s；具体 beat 动画在各自 composition 内
+      tl.to({}, { duration: 60 }, 0);
+
+      window.__timelines["codex-claude-combo"] = tl;
+    </script>
+  </body>
+</html>

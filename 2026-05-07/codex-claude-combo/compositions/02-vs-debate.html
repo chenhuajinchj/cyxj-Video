@@ -1,0 +1,124 @@
+<!-- Beat 2 vs争论 (9→17s, 8s) — "关于该用 GPT 5.5 还是 Opus 4.7 的争论不绝于耳"
+     视觉：左右两个版本号 + 中央 vs 字 + 下方争论碎片 -->
+
+<template id="beat-2-vs-debate-template">
+  <div
+    data-composition-id="beat-2-vs-debate"
+    data-start="0"
+    data-duration="8"
+    data-width="1920"
+    data-height="1080"
+  >
+    <style>
+      [data-composition-id="beat-2-vs-debate"] .b2-kicker {
+        position: absolute;
+        top: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-mono);
+        font-size: var(--fs-kicker);
+        font-weight: 500;
+        color: rgba(26, 22, 20, 0.45);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        z-index: 12;
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-row {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        z-index: 12;
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-side {
+        font-family: var(--f-en);
+        font-weight: 800;
+        font-size: 140px;
+        letter-spacing: -2px;
+        line-height: 1;
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-left {
+        color: var(--c-blue);
+        text-shadow: 0 0 30px rgba(91, 169, 255, 0.30);
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-right {
+        color: var(--c-hot);
+        text-shadow: 0 0 30px rgba(217, 119, 87, 0.30);
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-vs {
+        font-family: var(--f-en);
+        font-weight: 700;
+        font-style: italic;
+        font-size: 80px;
+        color: rgba(26, 22, 20, 0.35);
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-fragments {
+        position: absolute;
+        bottom: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        z-index: 12;
+      }
+      [data-composition-id="beat-2-vs-debate"] .b2-frag {
+        font-family: var(--f-zh);
+        font-size: 28px;
+        color: rgba(26, 22, 20, 0.55);
+        text-decoration: line-through;
+        text-decoration-color: rgba(217, 119, 87, 0.6);
+        text-decoration-thickness: 2px;
+      }
+    </style>
+
+    <div class="b2-kicker">02 · DEBATE</div>
+
+    <div class="b2-row">
+      <span class="b2-side b2-left">GPT 5.5</span>
+      <span class="b2-vs">vs</span>
+      <span class="b2-side b2-right">Opus 4.7</span>
+    </div>
+
+    <div class="b2-fragments">
+      <span class="b2-frag b2-frag-1">"哪个更准？"</span>
+      <span class="b2-frag b2-frag-2">"哪个更便宜？"</span>
+      <span class="b2-frag b2-frag-3">"哪个更适合代码？"</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const root = '[data-composition-id="beat-2-vs-debate"]';
+
+        tl.from(root + ' .b2-kicker', { opacity: 0, y: -10, duration: 0.5, ease: 'power2.out' }, 0);
+
+        tl.fromTo(root + ' .b2-left',
+          { opacity: 0, x: -100, filter: 'blur(10px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, 0.3);
+        tl.fromTo(root + ' .b2-right',
+          { opacity: 0, x: 100, filter: 'blur(10px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, 0.5);
+        tl.fromTo(root + ' .b2-vs',
+          { opacity: 0, scale: 0.4 },
+          { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)' }, 1.1);
+
+        tl.from(root + ' .b2-frag-1', { opacity: 0, y: 16, duration: 0.4, ease: 'power2.out' }, 1.8);
+        tl.from(root + ' .b2-frag-2', { opacity: 0, y: 16, duration: 0.4, ease: 'power2.out' }, 2.4);
+        tl.from(root + ' .b2-frag-3', { opacity: 0, y: 16, duration: 0.4, ease: 'power2.out' }, 3.0);
+
+        tl.to([root + ' .b2-row', root + ' .b2-fragments', root + ' .b2-kicker'], {
+          opacity: 0, filter: 'blur(8px)', duration: 0.5, ease: 'power2.in'
+        }, 7.4);
+
+        window.__timelines['beat-2-vs-debate'] = tl;
+      })();
+    </script>
+  </div>
+</template>

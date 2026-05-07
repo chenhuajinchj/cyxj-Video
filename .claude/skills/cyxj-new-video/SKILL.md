@@ -100,8 +100,9 @@ DATE=$(date +%Y-%m-%d)
 mkdir -p $DATE
 ```
 
-- **形态 D（tutorial-8beat）**：`cp -R templates/tutorial-8beat $DATE/<slug>/`
-- **形态 B/C/E（从 0 写）**：`mkdir $DATE/<slug>/ && cd $DATE/<slug>/`，照 `docs/hyperframes-official/getting-started/quickstart.md` 的最小骨架（meta.json + hyperframes.json + index.html + compositions/*.html + assets/）一步步建。可参考 `参考库/历史模板/<对应拓扑>/` 看旧形态怎么拼，但**不要直接 cp**——那些目录的 id 没抽净、底色还是旧 DNA 深蓝。
+- **形态 D（tutorial-8beat）**：`cp -R templates/tutorial-8beat $DATE/<slug>/`（DNA token mirror `assets/xcyj-tokens.css` 自动带过去）
+- **形态 B/C/E（从 0 写）**：`mkdir -p $DATE/<slug>/assets && cd $DATE/<slug>/`，照 `docs/hyperframes-official/getting-started/quickstart.md` 的最小骨架（meta.json + hyperframes.json + index.html + compositions/*.html + assets/）一步步建。可参考 `参考库/历史模板/<对应拓扑>/` 看旧形态怎么拼，但**不要直接 cp**——那些目录的 id 没抽净、底色还是旧 DNA 深蓝。
+  - DNA token 接入：`cp templates/components/xcyj-tokens/xcyj-tokens.css $DATE/<slug>/assets/xcyj-tokens.css`，然后 `index.html` 顶部加 `<link rel="stylesheet" href="assets/xcyj-tokens.css" />`，所有 beat 直接 `var(--c-bg)` / `var(--c-hot)` 等。详见 `templates/components/xcyj-tokens/README.md`。
 
 ### A4. 改 meta.json 和 index.html
 

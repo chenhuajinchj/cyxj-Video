@@ -10,60 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=block"
       rel="stylesheet"
     />
+    <!-- DNA token 单源（颜色/字体/字号/halo）。
+         本工程内 assets/xcyj-tokens.css 是单源 templates/components/xcyj-tokens/xcyj-tokens.css 的副本。
+         DNA 修订时改单源 → 跑 bash scripts/sync-tokens.sh 同步到所有用此 token 的工程。 -->
+    <link rel="stylesheet" href="assets/xcyj-tokens.css" />
     <style>
-      :root {
-        /* ── 底色（暖米，DNA 修订 2026-05-06）── */
-        --c-bg:        #F7F2EA;
-        --c-bg-2:      #0d172e;
-        --c-bg-3:      #142042;
-        --c-grid:      rgba(91, 180, 255, 0.08);
-
-        /* ── hot 色：默认 Claude 橙，改此变量即可全局换色 ──
-           注意：每个 beat 只允许有一个 hot 色出现（最饱和最亮），其余素材用 dim/text/grid
-           按主题调整此变量，例如绿色主题改为 #8DD891 */
-        --c-hot:       #d97757;
-        --c-hot-glow:  rgba(217, 119, 87, 0.55);
-
-        /* ── 教程语义色（5 个，单 beat 只主用一个）── */
-        --c-blue:      #5BA9FF;
-        --c-blue-glow: rgba(91, 169, 255, 0.55);
-        --c-green:     #8DD891;
-        --c-red:       #F05F6E;
-        --c-purple:    #B891E4;
-        --c-yellow:    #F0C75E;
-        --c-orange:    #d97757;  /* Claude 品牌色，PiP halo 专用 */
-        --c-orange-glow: rgba(217, 119, 87, 0.55);
-
-        /* ── chrome 渐变（大字填充）── */
-        --c-chrome-1:  #ffffff;
-        --c-chrome-2:  #c8d3e0;
-
-        /* ── 字色 ── */
-        --c-text:      #ffffff;
-        --c-text-dim:  #96a2b6;
-        --c-text-mute: rgba(255, 255, 255, 0.5);
-
-        /* ── 字体 ── */
-        --f-zh:   "Noto Sans SC", "Inter", sans-serif;
-        --f-en:   "Inter", system-ui, sans-serif;
-        --f-mono: "JetBrains Mono", ui-monospace, monospace;
-
-        /* ── 字号（按主题调整）── */
-        --fs-headline:      88px;
-        --fs-headline-hero: 120px;
-        --fs-card-title:    56px;
-        --fs-body:          32px;
-        --fs-kicker:        22px;
-        --fs-mono:          26px;
-
-        /* ── halo ── */
-        --halo-hot:    0 0 60px var(--c-hot-glow), 0 0 0 2px var(--c-hot);
-        --halo-orange: 0 0 60px rgba(217, 119, 87, 0.55), 0 0 0 2px var(--c-orange);
-        --halo-blue:   0 0 60px rgba(91, 169, 255, 0.5), 0 0 0 2px var(--c-blue);
-        --halo-card:   0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
-        --halo-soft:   0 20px 60px rgba(0, 0, 0, 0.5);
-      }
-
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body {
         width: 1920px;

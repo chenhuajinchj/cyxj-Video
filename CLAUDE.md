@@ -8,35 +8,58 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 
 ## 顶层架构（2026-05 重构后）
 
-仓库根 = 一站式工作台。在仓库根开 Claude Code，所有 9 个 skill、18 个参考工程、46 个 catalog 零件都直接可用。
+仓库根 = 一站式工作台。在仓库根开 Claude Code，所有 9 个 skill、19 个参考工程、46 个 catalog 零件都直接可用。
 
 ```
 ~/项目/参考仓库/hyperframes/
-├── .claude/skills/                       # 9 个 skill（7 软链 + 2 自写）
-├── MOTION_PHILOSOPHY.md                  # 软链 → student-kit 的美学准则
+├── .claude/skills/                       # 9 个 skill（7 软链 + 2 自写：cyxj-new-video, cyxj-add-block）
+├── .agents/skills/                       # 同上结构（Codex 镜像，软链 + 2 自写）
+├── MOTION_PHILOSOPHY.md                  # 软链 → student-kit 的美学准则（Nate 10 法则）
+├── MY_MOTION_NOTES.md                    # 19-tips 实战沉淀的 10 项实操教训
+├── MY_VISUAL_DNA.md                      # 你自己的视觉 DNA 基线（按形态分支）
+├── TEMPLATE_USAGE.md                     # 模板复用 checklist
+├── README.md                             # 仓库门面
 ├── templates/                            # 4 个精简骨架 + components 零件（直接 cp 起步用）
+│   ├── host-overlay/                     # 录屏铺底 + overlay
+│   ├── host-overlay-alpha/               # alpha 变体（达芬奇精修用）
+│   ├── demo-fullscreen/                  # 7 beat 串联无录屏
+│   ├── tutorial-8beat/                   # 8 beat 教程结构
+│   └── components/cc-window/             # Claude Code 终端 UI 零件
 ├── 参考库/
 │   ├── INDEX.md                          # ⭐ 入口索引（每次做新视频先扫这里）
 │   ├── catalog.json                      # 46 个 catalog 零件 metadata
-│   ├── nate-demos/                       # 软链 12 个 Nate 工程
-│   ├── heygen-launches/                  # 软链 3 个 HeyGen 官方工程
-│   └── 我的作品/                          # 真存的 3 个旧项目（按日期前缀命名）
+│   ├── nate-demos/                       # 软链 12 个 Nate 工程（gitignored）
+│   ├── heygen-launches/                  # 软链 3 个 HeyGen 官方工程（gitignored）
+│   └── 我的作品/                          # 真存的 4 个已发布项目（按日期前缀命名）
+├── 归档/                                  # 已废弃 / 不再迭代的工程 + 散乱参考素材
+│   ├── README.md                         # 归档判定标准 + 当前归档清单
+│   ├── 2026-05-03/                       # 早期失败的 4 个视频实验
+│   ├── 2026-05-03-参考截图/              # 散乱风格图（无标签，待整理或删）
+│   └── 2026-05-04-开发问题截图/          # AI 沟通时报错截图
+├── examples/codex-intro/                 # Codex × Claude Code 教程实际配音文案
+├── 录屏/                                  # 个人录屏（gitignored，含 transcript.json 入 git）
 ├── scripts/
 │   ├── refresh-catalog.sh                # 刷新 catalog.json
-│   └── refresh-docs.sh                   # 刷新 docs/hyperframes-official/ 官方文档镜像
+│   ├── refresh-docs.sh                   # 刷新 docs/hyperframes-official/ 官方文档镜像
+│   └── refresh-zero-usage.sh             # 反查工程↔零件 + 回填 INDEX 零使用率统计
 ├── 2026-MM-DD/                           # 新视频按日期建工作区
 ├── docs/
+│   ├── HARD_CONSTRAINTS.md               # 硬约束单源（CLAUDE/AGENTS 都引用这里）
+│   ├── OFFICIAL_DOCS_VALUE_INDEX.md      # 78 页官方文档价值索引（扫读后筛出能用的）
+│   ├── STYLE_BORROW_PLAYBOOK.md          # 风格借鉴 SOP
 │   ├── hyperframes-official/             # 78 页官方文档本地镜像（mintlify .md 全集）
-│   └── lottie-davinci-experiment/        # 自建实验记录
+│   ├── lottie-davinci-experiment/        # DaVinci 21 Lottie 兼容性实验记录
+│   └── 装备库诊断/                        # 装备库盘点过程档（round-1 系列）
 ├── hyperframes-student-kit/              # 上游 (gitignored，可 git pull 跟进)
 └── hyperframes-launches/                 # 上游 (gitignored，可 git pull 跟进)
 ```
 
 **关键架构区分**：
 - `templates/` —— git 跟踪的精简骨架（**只读参考**，不在这里编辑活工程）
-- `参考库/我的作品/` —— git 跟踪的你的旧作品（含 final.mp4 但 mp4 gitignored）
+- `参考库/我的作品/` —— git 跟踪的你的旧作品（含源工程，但 mp4 gitignored）
 - `参考库/nate-demos/` 和 `参考库/heygen-launches/` —— **软链**指向 gitignored 的上游，所以本身也 gitignored
 - `2026-MM-DD/<slug>/` —— 当前在做的工作区（git 跟踪源工程，mp4 gitignored）
+- `归档/` —— 不再活跃维护的工程或素材，`/cyxj-new-video` skill **不会**推荐它们当参考
 - `hyperframes-student-kit/` 和 `hyperframes-launches/` —— **gitignored**，是 Nate 和 HeyGen 的独立 git 仓库，需要时 `git pull` 更新
 
 ## 标准工作流（一句话开始）
@@ -123,6 +146,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 | 周期 | 命令 |
 |---|---|
 | 每月 | `bash scripts/refresh-catalog.sh` 刷新 `参考库/catalog.json` |
+| 每月 | `bash scripts/refresh-zero-usage.sh` 反查工程↔零件，回填 `INDEX.md` 零使用率统计 |
 | 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像（动态读 llms.txt，自动跟进新增页面） |
 | 每 1-2 月 | `cd hyperframes-student-kit && git pull && cd ../hyperframes-launches && git pull` |
 | 每条新视频做完 | 让 `/cyxj-new-video` 阶段 B 自动归档 + 询问是否抽模板 |
@@ -131,7 +155,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 
 | 路径 | 内容 |
 |---|---|
-| `参考库/INDEX.md` | ⭐ 一切入口：18 工程 + 46 catalog 零件 + 9 skill 索引 |
+| `参考库/INDEX.md` | ⭐ 一切入口：19 工程 + 46 catalog 零件 + 9 skill 索引 |
 | `templates/host-overlay/` | 录屏铺底 + 4 overlay 模板 |
 | `templates/host-overlay-alpha/` | 同上 alpha 变体（达芬奇用） |
 | `templates/demo-fullscreen/` | 7 beat 串联无录屏 |
@@ -139,5 +163,11 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 | `templates/components/cc-window/` | Claude Code 终端 UI 零件（19-tips 沉淀） |
 | `TEMPLATE_USAGE.md` | 模板复用 checklist |
 | `MOTION_PHILOSOPHY.md` | Nate 的动效美学 10 法则 + Infinite 拆解 |
+| `MY_MOTION_NOTES.md` | 19-tips 实战沉淀的 10 项实操教训 |
+| `MY_VISUAL_DNA.md` | 你自己的视觉 DNA 基线（按形态分支：教程片头 / 整片演示 / 数据动画 等） |
 | `examples/codex-intro/script.md` | Codex × Claude Code 教程实际配音文案 |
+| `docs/HARD_CONSTRAINTS.md` | 硬约束单源（必读，CLAUDE/AGENTS 都引用） |
+| `docs/OFFICIAL_DOCS_VALUE_INDEX.md` | 78 页官方文档扫读后的价值索引（哪些页能用、怎么用） |
+| `docs/STYLE_BORROW_PLAYBOOK.md` | 风格借鉴 SOP |
 | `docs/lottie-davinci-experiment/` | DaVinci 21 Lottie 兼容性实验记录 |
+| `归档/README.md` | 归档判定标准 + 当前归档清单（年终清理时回头翻） |

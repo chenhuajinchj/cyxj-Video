@@ -1,0 +1,56 @@
+<!--
+  orbit-dots.html — 8 点圆环 spinner
+
+  用法：
+    1. <link rel="stylesheet" href="../components/orbit-dots/orbit-dots.css" />
+    2. 复制下方变体粘到 composition body
+    3. 用 GSAP timeline 驱动 .od-dot 的 scale/opacity（见 README 最小用法）
+
+  HARD_CONSTRAINTS 第 1 条：GSAP selector 必须硬编码字符串。
+-->
+
+<!-- ===================================================================
+     变体 A · 标准 8 点圆环（每个 slot 用 style="--i:n" 控制角度）
+     stagger 扫一圈产生"彗星追尾"感
+     =================================================================== -->
+<div class="orbit-dots" id="orbit-a">
+  <span class="od-slot" style="--i: 0;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 1;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 2;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 3;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 4;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 5;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 6;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 7;"><span class="od-dot"></span></span>
+</div>
+
+
+<!-- ===================================================================
+     变体 B · 6 点圆环（更稀疏，节奏感更强）
+     需要把 CSS 里 calc(45deg * var(--i)) 改为 calc(60deg * var(--i))
+     或在组件内嵌 style 覆盖；最简单的做法是直接给 6 个 slot 写死 transform。
+     =================================================================== -->
+<div class="orbit-dots" id="orbit-b" style="--od-radius:42px;">
+  <span class="od-slot" style="transform:rotate(0deg)   translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+  <span class="od-slot" style="transform:rotate(60deg)  translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+  <span class="od-slot" style="transform:rotate(120deg) translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+  <span class="od-slot" style="transform:rotate(180deg) translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+  <span class="od-slot" style="transform:rotate(240deg) translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+  <span class="od-slot" style="transform:rotate(300deg) translateY(calc(var(--od-radius) * -1));"><span class="od-dot"></span></span>
+</div>
+
+
+<!-- ===================================================================
+     变体 C · 大尺寸"门户" spinner（150px 直径，做场景中央点缀）
+     用 token override 改尺寸，不需要改结构
+     =================================================================== -->
+<div class="orbit-dots" id="orbit-c" style="--od-radius:90px; --od-dot-size:18px;">
+  <span class="od-slot" style="--i: 0;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 1;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 2;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 3;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 4;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 5;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 6;"><span class="od-dot"></span></span>
+  <span class="od-slot" style="--i: 7;"><span class="od-dot"></span></span>
+</div>

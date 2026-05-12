@@ -1,0 +1,48 @@
+<!--
+  shake-error.html — 错误/拒绝/失败抖动效果
+
+  用法：
+    1. <link rel="stylesheet" href="../components/shake-error/shake-error.css" />
+    2. 把要抖的元素套进 .shake-error wrapper（粘下方变体）
+    3. GSAP timeline 在指定时间 add/remove `.is-shaking` class
+
+  HARD_CONSTRAINTS 第 1 条：selector 硬编码。
+-->
+
+<!-- ===================================================================
+     变体 A · 单个红色错误卡片"错误：API 调用失败"
+     抖动 + 同时染 danger 色（se-flash）
+     =================================================================== -->
+<div class="shake-error se-flash" id="err-card-a"
+     style="display:inline-block; padding:18px 24px; border:2px solid currentColor;
+            border-radius:8px; font:600 22px var(--f-mono, monospace);
+            color:rgba(40,30,20,0.85); background:rgba(184,81,56,0.06);">
+  ✕ ERROR · API call failed (401)
+</div>
+
+
+<!-- ===================================================================
+     变体 B · 按钮"提交失败"，只抖按钮本体
+     无 se-flash，按钮自带颜色
+     =================================================================== -->
+<button class="shake-error" id="btn-fail-b"
+        style="padding:14px 28px; border:none; border-radius:8px;
+               background:#B85138; color:#fff; font:600 18px var(--f-mono, monospace);
+               cursor:pointer;">
+  Submit
+</button>
+
+
+<!-- ===================================================================
+     变体 C · 行内 inline 元素抖动（一行文字里某个 token 抖）
+     注意必须 display:inline-block，否则 transform 不生效
+     =================================================================== -->
+<p style="font:400 26px var(--f-display, serif); color:rgba(40,30,20,0.85);">
+  Found
+  <span class="shake-error se-flash" id="bad-token-c"
+        style="display:inline-block; font-family:var(--f-mono, monospace);
+               padding:2px 8px; border:1px dashed currentColor; border-radius:4px;">
+    invalid_token
+  </span>
+  in request body.
+</p>

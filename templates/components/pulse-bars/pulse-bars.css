@@ -1,0 +1,39 @@
+/*
+  pulse-bars.css — 3-bar equalizer / "agent thinking" indicator
+
+  来源：lukehaas/css-loaders load1（MIT，commit c7fdf5ac）
+  重做：原版用 CSS @keyframes 自走动画，这里改为 GSAP timeline 驱动，
+        让 HyperFrames preview 的 1080p Chromium 渲染时序更确定。
+
+  覆盖 token：
+    --pb-color      条柱颜色（默认 Claude 橙，fallback brand --c-orange）
+    --pb-bar-w      单条宽度（默认 8px）
+    --pb-bar-h      静止高度（默认 36px）
+    --pb-gap        条间距（默认 8px）
+    --pb-radius     圆角（默认 2px）
+*/
+
+:where(:root) {
+  --pb-color: var(--c-orange, #D97757);
+  --pb-bar-w: 8px;
+  --pb-bar-h: 36px;
+  --pb-gap: 8px;
+  --pb-radius: 2px;
+}
+
+.pulse-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pb-gap);
+  vertical-align: middle;
+}
+
+.pulse-bars .pb-bar {
+  display: inline-block;
+  width: var(--pb-bar-w);
+  height: var(--pb-bar-h);
+  background: var(--pb-color);
+  border-radius: var(--pb-radius);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}

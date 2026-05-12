@@ -84,6 +84,18 @@
     ]
   },
   {
+    "name": "texture-mask-text",
+    "type": "component",
+    "title": "Texture Mask Text",
+    "description": "CSS luminance masks that cut holes through letterforms - 66 pre-built texture masks from ambientCG PBR color maps",
+    "tags": [
+      "text",
+      "texture",
+      "mask",
+      "effect"
+    ]
+  },
+  {
     "name": "instagram-follow",
     "type": "block",
     "title": "Instagram Follow",
@@ -248,10 +260,10 @@
     "duration": 5
   },
   {
-    "name": "goonvpn-youtube-spot",
+    "name": "vpn-youtube-spot",
     "type": "block",
-    "title": "GoonVPN YouTube Spot",
-    "description": "Snappy Apple-style YouTube insert showing a phone finding and installing a fictional VPN app with sound effects.",
+    "title": "VPN YouTube Spot",
+    "description": "Snappy Apple-style YouTube insert showing a phone finding and installing a friendly VPN app with sound effects.",
     "tags": [
       "app",
       "showcase",
@@ -263,6 +275,23 @@
       "height": 1080
     },
     "duration": 7
+  },
+  {
+    "name": "blue-sweater-intro-video",
+    "type": "block",
+    "title": "Blue Sweater Intro Video",
+    "description": "Warm AI creator intro sequence that resolves into an X follow card for @_blue_sweater_.",
+    "tags": [
+      "showcase",
+      "ai",
+      "creator",
+      "sfx"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 12
   },
   {
     "name": "nyc-paris-flight",
@@ -702,5 +731,120 @@
       "height": 1080
     },
     "duration": 15
+  },
+  {
+    "name": "vfx-text-cursor",
+    "type": "block",
+    "title": "VFX Text Cursor",
+    "description": "Dramatic text reveal with cursor glow, chromatic shadow rays, and directional lighting on a black stage. Canvas-based shader post-processing with spectral color edges.",
+    "tags": [
+      "html-in-canvas",
+      "text",
+      "shader",
+      "cursor",
+      "chromatic"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 8
+  },
+  {
+    "name": "vfx-liquid-background",
+    "type": "block",
+    "title": "Liquid Background",
+    "description": "Organic liquid simulation with vertex displacement on a subdivided plane. HTML content floats above rippling fluid surface with real-time wave dynamics.",
+    "tags": [
+      "html-in-canvas",
+      "liquid",
+      "webgl",
+      "displacement",
+      "background"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 12
+  },
+  {
+    "name": "vfx-iphone-device",
+    "type": "block",
+    "title": "iPhone & MacBook 3D Showcase",
+    "description": "Real GLTF iPhone 15 Pro Max and MacBook Pro models with live HTML-in-Canvas screen content, morphing glass lens, product review camera choreography, and 360° turntable.",
+    "tags": [
+      "html-in-canvas",
+      "3d",
+      "device",
+      "iphone",
+      "macbook",
+      "gltf"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 15
+  },
+  {
+    "name": "vfx-magnetic",
+    "type": "block",
+    "title": "Magnetic",
+    "description": "VFX composition block",
+    "tags": [
+      "html-in-canvas",
+      "webgl"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 15
+  },
+  {
+    "name": "vfx-portal",
+    "type": "block",
+    "title": "Portal",
+    "description": "VFX composition block",
+    "tags": [
+      "html-in-canvas",
+      "webgl"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 10
+  },
+  {
+    "name": "vfx-liquid-glass",
+    "type": "block",
+    "title": "Liquid Glass",
+    "description": "VFX composition block",
+    "tags": [
+      "html-in-canvas",
+      "webgl"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 20
+  },
+  {
+    "name": "vfx-shatter",
+    "type": "block",
+    "title": "Shatter",
+    "description": "VFX composition block",
+    "tags": [
+      "html-in-canvas",
+      "webgl"
+    ],
+    "dimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "duration": 12
   }
 ]

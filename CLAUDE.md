@@ -56,6 +56,10 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 
 **装零件**：在某个工程目录下说 "加个转场" / "加 macos 通知" / "Logo 落版"，`/cyxj-add-block` 会从 catalog 推荐 + 安装 + 给引用代码。
 
+**插 AI 品牌 / 工具 logo**：不要用 emoji 凑数，也不要现去 Google 图片搜。统一从 `参考库/assets/logos/` 拿 SVG（33 个常用品牌已固化，覆盖 Claude / Anthropic / OpenAI / Codex / Cursor / GitHub / Gemini / DeepSeek / Grok / Meta / Mistral / Perplexity / MCP / Obsidian 等）。文件名规则：全小写、无分隔符（`claudecode.svg`、`geminicli.svg`）。用法、染色、添加新 logo 见 [`参考库/assets/logos/LOGOS.md`](参考库/assets/logos/LOGOS.md)。
+
+> 注意：`claude-code-logo.png`（像素拟人头像，memory `feedback_use_claude_logo`）**不在这个库里**，是各视频工程自己保存的，做"Claude 在说话"的拟人形象时仍用它；本库的 `claudecode.svg` 是官方品牌 mark，用于工具栏 / 横向 logo 列。
+
 ## Claude / Codex 边界
 
 这两个 AI 可以共用同一个视频工作台，但边界必须按目录和指令文件分开：
@@ -132,6 +136,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 | 路径 | 内容 |
 |---|---|
 | `参考库/INDEX.md` | ⭐ 一切入口：18 工程 + 46 catalog 零件 + 9 skill 索引 |
+| `参考库/assets/logos/` | ⭐ 33 个常用 AI 厂商 / 工具 SVG logo（Claude / Anthropic / OpenAI / Codex / Cursor / GitHub / Gemini / DeepSeek / Grok / MCP …）。见 `参考库/assets/logos/LOGOS.md` |
 | `templates/tutorial-8beat/` | 8 beat 教程结构（hook→pain→punchline→concept→flow→outro）—— **当前唯一从 0 设计的真模板** |
 | `templates/components/cc-window/` | Claude Code 终端 UI 零件（19-tips 沉淀） |
 | `参考库/历史模板/` | 3 个伪模板档案（demo-fullscreen / host-overlay / host-overlay-alpha）—— ⚠️ **不要 cp 起步**，仅供回查旧形态 |

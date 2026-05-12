@@ -1,0 +1,51 @@
+/*
+  orbit-dots.css — 8 点圆环 spinner
+
+  来源：lukehaas/css-loaders load4（MIT，commit c7fdf5ac）
+  重做：原版用单元素 + 8 段 box-shadow + 12 帧 @keyframes 实现旋转点。
+        这里改为 8 个独立 .od-slot 元素 + GSAP timeline 驱动 .od-dot 的
+        scale/opacity，让 HyperFrames 渲染时序确定且可暂停。
+
+  覆盖 token：
+    --od-color      点颜色（默认 brand teal）
+    --od-dot-size   单点直径
+    --od-radius     圆环半径（圆心到点心）
+    --od-active     "亮点"颜色（高光）
+*/
+
+:where(:root) {
+  --od-color: var(--c-teal, #2F7D73);
+  --od-active: var(--c-orange, #D97757);
+  --od-dot-size: 14px;
+  --od-radius: 56px;
+}
+
+.orbit-dots {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--od-radius) * 2 + var(--od-dot-size));
+  height: calc(var(--od-radius) * 2 + var(--od-dot-size));
+  vertical-align: middle;
+}
+
+/* slot 是位置占位（CSS 静态 transform），dot 是 GSAP 操作目标。
+   分离是为了避免 GSAP 改 .dot 的 transform 时覆盖掉 CSS 摆位 transform。 */
+.orbit-dots .od-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  /* --i: 0..7  CSS variable 控制角度，模板每个 slot 自带 style="--i:n" */
+  transform: rotate(calc(45deg * var(--i))) translateY(calc(var(--od-radius) * -1));
+}
+
+.orbit-dots .od-dot {
+  display: block;
+  width: var(--od-dot-size);
+  height: var(--od-dot-size);
+  margin: calc(var(--od-dot-size) * -0.5) 0 0 calc(var(--od-dot-size) * -0.5);
+  background: var(--od-color);
+  border-radius: 50%;
+  will-change: transform, opacity;
+}

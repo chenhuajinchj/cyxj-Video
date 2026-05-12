@@ -1,0 +1,260 @@
+<!-- Beat 3 · shake-error · 来源 elrumordelaluz/csshake (MIT) -->
+<template id="beat-3-shake-error-template">
+  <div
+    data-composition-id="beat-3-shake-error"
+    data-start="0"
+    data-duration="5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- 顶部章节标签 -->
+    <div class="b3-kicker">
+      <span class="b3-kicker-num">03</span>
+      <span class="b3-kicker-sep">/</span>
+      <span class="b3-kicker-label">SHAKE-ERROR</span>
+    </div>
+
+    <!-- 三个变体并列 -->
+    <div class="b3-main">
+      <!-- 变体 A · 错误卡片 + flash -->
+      <div class="b3-cell">
+        <div class="shake-error se-flash b3-card" id="b3-card">
+          ✕ ERROR · API call failed (401)
+        </div>
+        <div class="b3-label">A · 错误卡片 + flash</div>
+      </div>
+
+      <!-- 变体 B · 按钮失败 -->
+      <div class="b3-cell">
+        <button class="shake-error b3-btn" id="b3-btn">Submit</button>
+        <div class="b3-label">B · 按钮失败</div>
+      </div>
+
+      <!-- 变体 C · 行内 token -->
+      <div class="b3-cell">
+        <div class="b3-line">
+          Found
+          <span class="shake-error se-flash b3-token" id="b3-token">invalid_token</span>
+          in request body.
+        </div>
+        <div class="b3-label">C · 行内 token</div>
+      </div>
+    </div>
+
+    <div class="b3-credit">elrumordelaluz/csshake · MIT · commit 4b9caede · 33 步随机帧 1:1 移植</div>
+
+    <style>
+      /* ── 组件 CSS（shake-error.css 内联，scope 到 beat） ── */
+      [data-composition-id="beat-3-shake-error"] {
+        --se-duration: 0.82s;
+        position: absolute;
+        inset: 0;
+        font-family: var(--f-zh);
+      }
+      [data-composition-id="beat-3-shake-error"] .shake-error {
+        display: inline-block;
+        transform-origin: center center;
+      }
+      [data-composition-id="beat-3-shake-error"] .shake-error.is-shaking {
+        animation: shake-error var(--se-duration) ease-in-out both;
+      }
+      [data-composition-id="beat-3-shake-error"] .shake-error.se-flash.is-shaking {
+        color: var(--c-danger, #B85138);
+      }
+      @keyframes shake-error {
+        2%   { transform: translate(1.5px, 2.5px) rotate(1.5deg); }
+        4%   { transform: translate(-0.5px, 2.5px) rotate(0.5deg); }
+        6%   { transform: translate(1.5px, 0.5px) rotate(1.5deg); }
+        8%   { transform: translate(1.5px, -0.5px) rotate(1.5deg); }
+        10%  { transform: translate(-0.5px, 1.5px) rotate(1.5deg); }
+        12%  { transform: translate(0.5px, -1.5px) rotate(0.5deg); }
+        14%  { transform: translate(2.5px, -1.5px) rotate(0.5deg); }
+        16%  { transform: translate(-1.5px, 2.5px) rotate(-0.5deg); }
+        18%  { transform: translate(2.5px, 1.5px) rotate(0.5deg); }
+        20%  { transform: translate(1.5px, 0.5px) rotate(-0.5deg); }
+        22%  { transform: translate(-1.5px, 0.5px) rotate(-0.5deg); }
+        24%  { transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+        26%  { transform: translate(1.5px, -0.5px) rotate(1.5deg); }
+        28%  { transform: translate(2.5px, 1.5px) rotate(0.5deg); }
+        30%  { transform: translate(-1.5px, -0.5px) rotate(1.5deg); }
+        32%  { transform: translate(1.5px, -1.5px) rotate(1.5deg); }
+        34%  { transform: translate(-0.5px, 0.5px) rotate(0.5deg); }
+        36%  { transform: translate(-1.5px, 2.5px) rotate(-0.5deg); }
+        38%  { transform: translate(0.5px, 1.5px) rotate(-0.5deg); }
+        40%  { transform: translate(0.5px, 1.5px) rotate(1.5deg); }
+        42%  { transform: translate(2.5px, 1.5px) rotate(-0.5deg); }
+        44%  { transform: translate(-1.5px, -0.5px) rotate(-0.5deg); }
+        46%  { transform: translate(-1.5px, 0.5px) rotate(0.5deg); }
+        48%  { transform: translate(2.5px, 2.5px) rotate(-0.5deg); }
+        50%  { transform: translate(2.5px, -1.5px) rotate(0.5deg); }
+        52%  { transform: translate(0.5px, 2.5px) rotate(-0.5deg); }
+        54%  { transform: translate(-0.5px, -0.5px) rotate(-0.5deg); }
+        56%  { transform: translate(1.5px, -0.5px) rotate(-0.5deg); }
+        58%  { transform: translate(2.5px, 2.5px) rotate(0.5deg); }
+        60%  { transform: translate(2.5px, 1.5px) rotate(1.5deg); }
+        62%  { transform: translate(1.5px, -1.5px) rotate(-0.5deg); }
+        64%  { transform: translate(0.5px, -1.5px) rotate(1.5deg); }
+        66%  { transform: translate(1.5px, 2.5px) rotate(1.5deg); }
+        68%  { transform: translate(2.5px, -1.5px) rotate(1.5deg); }
+        70%  { transform: translate(2.5px, 1.5px) rotate(1.5deg); }
+        72%  { transform: translate(2.5px, -1.5px) rotate(1.5deg); }
+        74%  { transform: translate(1.5px, 2.5px) rotate(-0.5deg); }
+        76%  { transform: translate(0.5px, -0.5px) rotate(1.5deg); }
+        78%  { transform: translate(-0.5px, 2.5px) rotate(0.5deg); }
+        80%  { transform: translate(2.5px, -1.5px) rotate(-0.5deg); }
+        82%  { transform: translate(-0.5px, -1.5px) rotate(-0.5deg); }
+        84%  { transform: translate(-0.5px, -0.5px) rotate(1.5deg); }
+        86%  { transform: translate(1.5px, -1.5px) rotate(1.5deg); }
+        88%  { transform: translate(0.5px, 1.5px) rotate(1.5deg); }
+        90%  { transform: translate(-0.5px, 1.5px) rotate(-0.5deg); }
+        92%  { transform: translate(2.5px, -1.5px) rotate(-0.5deg); }
+        94%  { transform: translate(-0.5px, -0.5px) rotate(0.5deg); }
+        96%  { transform: translate(2.5px, -0.5px) rotate(1.5deg); }
+        98%  { transform: translate(1.5px, 1.5px) rotate(1.5deg); }
+        0%, 100% { transform: translate(0, 0) rotate(0); }
+      }
+
+      /* beat 本地样式 */
+      [data-composition-id="beat-3-shake-error"] .b3-kicker {
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        display: flex;
+        gap: 12px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-shake-error"] .b3-kicker-num {
+        font-family: var(--f-mono);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--c-danger);
+        text-shadow: 0 0 16px rgba(184, 81, 56, 0.65);
+      }
+      [data-composition-id="beat-3-shake-error"] .b3-kicker-sep,
+      [data-composition-id="beat-3-shake-error"] .b3-kicker-label {
+        font-family: var(--f-mono);
+        font-size: 22px;
+        color: var(--c-text-dim);
+        letter-spacing: 0.18em;
+      }
+
+      [data-composition-id="beat-3-shake-error"] .b3-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+        align-items: flex-start;
+      }
+      [data-composition-id="beat-3-shake-error"] .b3-cell {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+      }
+      [data-composition-id="beat-3-shake-error"] .b3-label {
+        font-family: var(--f-mono);
+        font-size: 22px;
+        color: var(--c-text-dim);
+        letter-spacing: 0.05em;
+      }
+
+      /* 错误卡片 */
+      [data-composition-id="beat-3-shake-error"] .b3-card {
+        padding: 18px 28px;
+        border: 2px solid currentColor;
+        border-radius: 8px;
+        font-family: var(--f-mono);
+        font-size: 28px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(184, 81, 56, 0.12);
+        min-width: 480px;
+      }
+      /* 按钮 */
+      [data-composition-id="beat-3-shake-error"] .b3-btn {
+        padding: 16px 32px;
+        border: none;
+        border-radius: 8px;
+        background: var(--c-danger);
+        color: #fff;
+        font-family: var(--f-mono);
+        font-size: 24px;
+        font-weight: 600;
+        cursor: pointer;
+        min-width: 200px;
+      }
+      /* 行内 */
+      [data-composition-id="beat-3-shake-error"] .b3-line {
+        font-family: var(--f-zh);
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      [data-composition-id="beat-3-shake-error"] .b3-token {
+        font-family: var(--f-mono);
+        padding: 4px 12px;
+        border: 1px dashed currentColor;
+        border-radius: 4px;
+        margin: 0 6px;
+      }
+
+      [data-composition-id="beat-3-shake-error"] .b3-credit {
+        position: absolute;
+        bottom: 48px;
+        left: 56px;
+        font-family: var(--f-mono);
+        font-size: 18px;
+        color: rgba(150, 162, 182, 0.45);
+        letter-spacing: 0.05em;
+        opacity: 0;
+      }
+    </style>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var root = '[data-composition-id="beat-3-shake-error"]';
+        var BEAT = 5; // data-duration
+
+        // 入场
+        tl.to(root + ' .b3-kicker', { opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.1);
+        tl.fromTo(root + ' .b3-main',
+          { opacity: 0, y: 16, filter: 'blur(14px)' },
+          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }, 0.25);
+        tl.to(root + ' .b3-credit', { opacity: 1, duration: 0.4 }, 0.7);
+
+        // 触发三次抖动（错峰），让观众分别看清
+        // A · 错误卡片：1.0s 触发，0.82s 后停
+        tl.call(function () {
+          document.querySelector(root + ' #b3-card').classList.add('is-shaking');
+        }, null, 1.0);
+        tl.call(function () {
+          document.querySelector(root + ' #b3-card').classList.remove('is-shaking');
+        }, null, 1.82);
+
+        // B · 按钮：2.3s 触发
+        tl.call(function () {
+          document.querySelector(root + ' #b3-btn').classList.add('is-shaking');
+        }, null, 2.3);
+        tl.call(function () {
+          document.querySelector(root + ' #b3-btn').classList.remove('is-shaking');
+        }, null, 3.12);
+
+        // C · 行内 token：3.5s 触发
+        tl.call(function () {
+          document.querySelector(root + ' #b3-token').classList.add('is-shaking');
+        }, null, 3.5);
+        tl.call(function () {
+          document.querySelector(root + ' #b3-token').classList.remove('is-shaking');
+        }, null, 4.32);
+
+        // 锚点
+        tl.to({}, { duration: BEAT }, 0);
+        window.__timelines['beat-3-shake-error'] = tl;
+      })();
+    </script>
+  </div>
+</template>

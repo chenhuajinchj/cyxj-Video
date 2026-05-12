@@ -1,0 +1,207 @@
+<!-- Beat 1 · pulse-bars · 来源 lukehaas/css-loaders (MIT) -->
+<template id="beat-1-pulse-bars-template">
+  <div
+    data-composition-id="beat-1-pulse-bars"
+    data-start="0"
+    data-duration="4"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- 顶部章节标签 -->
+    <div class="b1-kicker">
+      <span class="b1-kicker-num">01</span>
+      <span class="b1-kicker-sep">/</span>
+      <span class="b1-kicker-label">PULSE-BARS</span>
+    </div>
+
+    <!-- 中央：3 条 pulse-bars 主展示 -->
+    <div class="b1-main">
+      <div class="b1-row">
+        <div class="b1-label">3 条（默认）</div>
+        <div class="pulse-bars b1-pb3">
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+        </div>
+      </div>
+
+      <div class="b1-row">
+        <div class="b1-label">5 条（密集）</div>
+        <div class="pulse-bars b1-pb5">
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+          <span class="pb-bar"></span>
+        </div>
+      </div>
+
+      <div class="b1-row">
+        <div class="b1-label">inline（行内）</div>
+        <div class="b1-inline-wrap">
+          <span class="b1-inline-text">Claude is thinking</span>
+          <span class="pulse-bars b1-pb-inline">
+            <span class="pb-bar"></span>
+            <span class="pb-bar"></span>
+            <span class="pb-bar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部来源 -->
+    <div class="b1-credit">lukehaas/css-loaders · MIT · commit c7fdf5ac</div>
+
+    <style>
+      /* ── 组件 CSS（pulse-bars.css 内联） ── */
+      [data-composition-id="beat-1-pulse-bars"] {
+        --pb-color: var(--c-orange, #D97757);
+        --pb-bar-w: 8px;
+        --pb-bar-h: 36px;
+        --pb-gap: 8px;
+        --pb-radius: 2px;
+        position: absolute;
+        inset: 0;
+        font-family: var(--f-zh);
+      }
+      [data-composition-id="beat-1-pulse-bars"] .pulse-bars {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--pb-gap);
+        vertical-align: middle;
+      }
+      [data-composition-id="beat-1-pulse-bars"] .pulse-bars .pb-bar {
+        display: inline-block;
+        width: var(--pb-bar-w);
+        height: var(--pb-bar-h);
+        background: var(--pb-color);
+        border-radius: var(--pb-radius);
+        transform-origin: center center;
+        will-change: transform, opacity;
+      }
+
+      /* ── beat 本地样式 ── */
+      [data-composition-id="beat-1-pulse-bars"] .b1-kicker {
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        display: flex;
+        gap: 12px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-1-pulse-bars"] .b1-kicker-num {
+        font-family: var(--f-mono);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--c-orange);
+        text-shadow: 0 0 16px rgba(217, 119, 87, 0.65);
+      }
+      [data-composition-id="beat-1-pulse-bars"] .b1-kicker-sep,
+      [data-composition-id="beat-1-pulse-bars"] .b1-kicker-label {
+        font-family: var(--f-mono);
+        font-size: 22px;
+        color: var(--c-text-dim);
+        letter-spacing: 0.18em;
+      }
+
+      [data-composition-id="beat-1-pulse-bars"] .b1-main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        align-items: flex-start;
+      }
+      [data-composition-id="beat-1-pulse-bars"] .b1-row {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+      }
+      [data-composition-id="beat-1-pulse-bars"] .b1-label {
+        width: 220px;
+        font-family: var(--f-mono);
+        font-size: 26px;
+        color: var(--c-text-dim);
+      }
+
+      /* 第 3 行：行内 inline */
+      [data-composition-id="beat-1-pulse-bars"] .b1-inline-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--f-zh);
+        font-size: 36px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      [data-composition-id="beat-1-pulse-bars"] .b1-pb-inline {
+        --pb-bar-w: 5px;
+        --pb-bar-h: 18px;
+        --pb-gap: 4px;
+      }
+
+      [data-composition-id="beat-1-pulse-bars"] .b1-credit {
+        position: absolute;
+        bottom: 48px;
+        left: 56px;
+        font-family: var(--f-mono);
+        font-size: 18px;
+        color: rgba(150, 162, 182, 0.45);
+        letter-spacing: 0.05em;
+        opacity: 0;
+      }
+    </style>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var root = '[data-composition-id="beat-1-pulse-bars"]';
+        var BEAT = 4; // data-duration
+
+        // 入场（章节标签 + 主区 + credit）
+        tl.to(root + ' .b1-kicker', { opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.1);
+        tl.fromTo(root + ' .b1-main',
+          { opacity: 0, y: 16, filter: 'blur(14px)' },
+          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }, 0.25);
+        tl.to(root + ' .b1-credit', { opacity: 1, duration: 0.4 }, 0.7);
+
+        // 3 条脉冲（标准节奏） cycle = 0.42 * 2 = 0.84s
+        tl.to(root + ' .b1-pb3 .pb-bar', {
+          scaleY: 1.6,
+          duration: 0.42,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: Math.floor(BEAT / 0.84) - 1,
+          stagger: { each: 0.13, from: 'start' }
+        }, 0.5);
+
+        // 5 条脉冲（密集，center 扩散） cycle = 0.5 * 2 = 1.0s
+        tl.to(root + ' .b1-pb5 .pb-bar', {
+          scaleY: 1.5,
+          duration: 0.5,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: Math.floor(BEAT / 1.0) - 1,
+          stagger: { each: 0.1, from: 'center' }
+        }, 0.6);
+
+        // inline 脉冲（紧凑） cycle = 0.3 * 2 = 0.6s
+        tl.to(root + ' .b1-pb-inline .pb-bar', {
+          scaleY: 1.7,
+          duration: 0.3,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: Math.floor(BEAT / 0.6) - 1,
+          stagger: { each: 0.1, from: 'start' }
+        }, 0.7);
+
+        // 锚点：保证 timeline.duration() >= data-duration
+        tl.to({}, { duration: BEAT }, 0);
+        window.__timelines['beat-1-pulse-bars'] = tl;
+      })();
+    </script>
+  </div>
+</template>

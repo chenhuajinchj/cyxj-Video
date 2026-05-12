@@ -1,0 +1,47 @@
+<!--
+  pulse-bars.html — 3-bar 脉冲/均衡器指示器
+
+  用法：
+    1. <link rel="stylesheet" href="../components/pulse-bars/pulse-bars.css" />
+    2. 粘下方变体到 composition body
+    3. 用 GSAP timeline 驱动 .pb-bar 的 scaleY（见 README 最小用法）
+
+  HARD_CONSTRAINTS 第 1 条：GSAP selector 必须硬编码字符串，不用 template literal。
+-->
+
+<!-- ===================================================================
+     变体 A · 经典 3 条（默认 Claude 橙，适合"agent thinking"）
+     =================================================================== -->
+<div class="pulse-bars" id="pulse-bars-a">
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+</div>
+
+
+<!-- ===================================================================
+     变体 B · 5 条（更密集，适合"audio processing" / "voice in"）
+     CSS 中 .pulse-bars 是 inline-flex + gap，加条数即可
+     =================================================================== -->
+<div class="pulse-bars" id="pulse-bars-b">
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+  <span class="pb-bar"></span>
+</div>
+
+
+<!-- ===================================================================
+     变体 C · inline 跟随文字（"Claude is thinking ▮▮▮"风格）
+     用 style 覆盖 token 即可缩小到与文字基线齐
+     =================================================================== -->
+<span style="font-family: var(--f-mono, monospace); font-size:22px; color:rgba(40,30,20,0.7);">
+  Claude is thinking
+  <span class="pulse-bars" id="pulse-bars-c"
+        style="--pb-bar-w:4px; --pb-bar-h:14px; --pb-gap:3px;">
+    <span class="pb-bar"></span>
+    <span class="pb-bar"></span>
+    <span class="pb-bar"></span>
+  </span>
+</span>

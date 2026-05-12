@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>preview · aceternity / typewriter-effect</title>
+<style>
+  /* ============ CSS START · 晋级时整段切到 typewriter.css ============ */
+  :root {
+    /* 颜色 */
+    --tw-text: #f8f1e7;
+    --tw-accent: #3b82f6;     /* 蓝色光标 + 高亮词颜色（原版默认 blue-500）*/
+
+    /* 时序 */
+    --tw-char-stagger: 100ms; /* 每个字符出现的间隔 */
+    --tw-char-fade: 300ms;    /* 单字符淡入持续 */
+    --tw-cursor-blink: 800ms; /* 光标闪烁周期 */
+
+    /* 排版 */
+    --tw-size: 48px;          /* 主字号（原版 text-5xl ≈ 48px） */
+    --tw-cursor-w: 4px;
+    --tw-cursor-h: 40px;
+    --tw-word-gap: 0.4em;     /* 单词间距 */
+  }
+
+  .tw-root {
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: var(--tw-size);
+    color: var(--tw-text);
+    line-height: 1.1;
+    font-family: -apple-system, "Helvetica Neue", "Noto Sans SC", sans-serif;
+  }
+
+  .tw-word {
+    display: inline-block;
+    margin-right: var(--tw-word-gap);
+    white-space: nowrap;
+  }
+
+  .tw-char {
+    display: inline-block;
+    opacity: 0;
+    /* 初始宽度 0 + overflow hidden = "等待出场" */
+    width: 0;
+    overflow: hidden;
+    transform: translateY(2px);
+  }
+
+  /* 高亮词（原版 word.className 的 emulation） */
+  .tw-word.accent .tw-char {
+    color: var(--tw-accent);
+  }
+
+  .tw-cursor {
+    display: inline-block;
+    width: var(--tw-cursor-w);
+    height: var(--tw-cursor-h);
+    background: var(--tw-accent);
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: text-bottom;
+  }
+  /* ============ CSS END ============ */
+
+  /* —— 仅 preview 框架样式，晋级时丢弃 —— */
+  body {
+    background: #0e0e10;
+    color: #eee;
+    margin: 0;
+    padding: 60px 40px;
+    min-height: 100vh;
+    font-family: -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .label { font-size: 13px; opacity: 0.4; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .replay { margin-top: 60px; padding: 8px 16px; background: #222; color: #888; border: 1px solid #333; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .replay:hover { background: #2a2a2a; color: #ddd; }
+</style>
+</head>
+<body>
+  <div class="label">preview · aceternity / typewriter-effect</div>
+
+  <!-- ============ HTML 片段 START · 晋级时整段切到 typewriter.html ============ -->
+  <div class="tw-root" id="tw-instance-1">
+    <span class="tw-word"><span class="tw-char">T</span><span class="tw-char">h</span><span class="tw-char">e</span></span>
+    <span class="tw-word"><span class="tw-char">r</span><span class="tw-char">o</span><span class="tw-char">a</span><span class="tw-char">d</span></span>
+    <span class="tw-word"><span class="tw-char">t</span><span class="tw-char">o</span></span>
+    <span class="tw-word accent"><span class="tw-char">f</span><span class="tw-char">r</span><span class="tw-char">e</span><span class="tw-char">e</span><span class="tw-char">d</span><span class="tw-char">o</span><span class="tw-char">m</span></span>
+    <span class="tw-cursor" id="tw-cursor-1"></span>
+  </div>
+  <!-- ============ HTML 片段 END ============ -->
+
+  <button class="replay" onclick="play()">↻ replay</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+  <script>
+    // ============ GSAP timeline START · 晋级时摘到 composition JS ============
+    function play() {
+      const root = document.getElementById('tw-instance-1');
+      const cursor = document.getElementById('tw-cursor-1');
+      const chars = root.querySelectorAll('.tw-char');
+
+      // 读 CSS 变量获取时序参数（让 :root 暴露的变量真正生效）
+      const css = getComputedStyle(document.documentElement);
+      const stagger = parseFloat(css.getPropertyValue('--tw-char-stagger')) / 1000;
+      const fade = parseFloat(css.getPropertyValue('--tw-char-fade')) / 1000;
+      const blink = parseFloat(css.getPropertyValue('--tw-cursor-blink')) / 1000;
+
+      // 重置
+      gsap.set(chars, { opacity: 0, width: 0 });
+      gsap.set(cursor, { opacity: 1 });
+
+      const tl = gsap.timeline();
+
+      // 字符 stagger 入场：width 0 → auto + opacity + 微 Y 位移
+      tl.to(chars, {
+        opacity: 1,
+        width: 'auto',
+        y: 0,
+        duration: fade,
+        stagger: stagger,
+        ease: 'power2.out',
+      }, 0);
+
+      // 光标 step-blink（晋级时常用 yoyo + steps(1) 模拟硬切换）
+      tl.to(cursor, {
+        opacity: 0,
+        duration: blink / 2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'steps(1)',
+      }, 0);
+
+      return tl;
+    }
+
+    // 自动播放一次
+    play();
+    // ============ GSAP timeline END ============
+  </script>
+</body>
+</html>

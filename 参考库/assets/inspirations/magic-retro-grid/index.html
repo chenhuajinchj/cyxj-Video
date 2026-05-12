@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>preview · magic-ui / retro-grid</title>
+<style>
+  /* ============ CSS START · 晋级时整段切到 retro-grid.css ============ */
+  :root {
+    /* 网格几何 */
+    --rg-angle: 65deg;            /* 透视倾角；原版 1-89，最像 80s 是 60-70 */
+    --rg-cell-size: 60px;         /* 网格单元尺寸 */
+    --rg-perspective: 200px;      /* CSS perspective 距离 */
+
+    /* 颜色 */
+    --rg-line-color: rgba(255, 255, 255, 0.45);  /* 网格线颜色 */
+    --rg-opacity: 0.5;             /* 整体不透明度 */
+    --rg-line-width: 1px;          /* 线宽 */
+
+    /* 动画 */
+    --rg-scroll-duration: 15s;     /* 一轮滚动周期 */
+  }
+
+  .rg-root {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    perspective: var(--rg-perspective);
+    pointer-events: none;
+    opacity: var(--rg-opacity);
+  }
+
+  .rg-plane {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 100%;
+    transform: rotateX(var(--rg-angle));
+  }
+
+  .rg-grid {
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -50%;
+    height: 300%;
+    background-image:
+      linear-gradient(to right, var(--rg-line-color) var(--rg-line-width), transparent 0),
+      linear-gradient(to bottom, var(--rg-line-color) var(--rg-line-width), transparent 0);
+    background-size: var(--rg-cell-size) var(--rg-cell-size);
+    background-repeat: repeat;
+    animation: rg-scroll var(--rg-scroll-duration) linear infinite;
+    transform: translateY(-50%);
+  }
+
+  @keyframes rg-scroll {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+
+  /* 让顶部网格慢慢淡出（仿原版上方的 fade-out 视觉边界）*/
+  .rg-root::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+      transparent 0%,
+      transparent 40%,
+      rgba(0,0,0,0.4) 70%,
+      rgba(0,0,0,0.95) 95%,
+      #000 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rg-grid {
+      animation: none;
+      transform: translateY(-50%);
+    }
+  }
+  /* ============ CSS END ============ */
+
+  /* —— 仅 preview 框架样式，晋级时丢弃 —— */
+  body {
+    background: #000;
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .demo-bg {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(236, 72, 153, 0.18), transparent 60%),
+      linear-gradient(180deg, #0a0010 0%, #1a0020 50%, #200428 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .demo-title {
+    position: relative;
+    z-index: 3;
+    font-size: 60px;
+    font-weight: 900;
+    background: linear-gradient(180deg, #fef3c7 0%, #f59e0b 50%, #db2777 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+    text-align: center;
+    text-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+    margin: 0;
+  }
+  .demo-sub {
+    position: relative;
+    z-index: 3;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 12px;
+  }
+  .label { position: fixed; top: 20px; left: 20px; font-size: 12px; opacity: 0.3; text-transform: uppercase; letter-spacing: 0.1em; z-index: 5; }
+</style>
+</head>
+<body>
+  <div class="label">preview · magic-ui / retro-grid</div>
+
+  <div class="demo-bg">
+    <!-- ============ HTML 片段 START · 晋级时整段切到 retro-grid.html ============ -->
+    <div class="rg-root">
+      <div class="rg-plane">
+        <div class="rg-grid"></div>
+      </div>
+    </div>
+    <!-- ============ HTML 片段 END ============ -->
+
+    <h1 class="demo-title">80s VIBE</h1>
+    <p class="demo-sub">retro-grid · CSS fallback rendering</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+  <script>
+    // ============ GSAP timeline START · 晋级时摘到 composition JS ============
+    // 本组件**纯 CSS 驱动**——background-image + linear gradient + CSS keyframes 滚动
+    // GSAP 用不上。晋级时直接挂在背景层即可（hyperframes 里作为 beat 的 background div）
+    // 如果要做"入场亮起"效果，给 .rg-root 加 GSAP fade-in:
+    //
+    //   gsap.from('.rg-root', { opacity: 0, duration: 1.2, ease: 'power2.out' });
+    //
+    // 想让网格从远处推近，给 .rg-plane 加 perspective 动画：
+    //
+    //   gsap.from('.rg-plane', { '--rg-angle': '85deg', duration: 2, ease: 'power3.out' });
+    //
+    // （注意 GSAP 改 CSS 变量要 3.13+，旧版要用 ease 钩子）
+    // ============ GSAP timeline END ============
+  </script>
+</body>
+</html>

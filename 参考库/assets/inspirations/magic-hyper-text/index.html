@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>preview · magic-ui / hyper-text</title>
+<style>
+  /* ============ CSS START · 晋级时整段切到 hyper-text.css ============ */
+  :root {
+    --ht-color: #f8f1e7;
+    --ht-size: 48px;          /* 字号 */
+    --ht-duration: 800ms;     /* 整段动画时长 */
+    --ht-charset: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  /* 仅给文档查阅；JS 里读硬编码常量 */
+  }
+
+  .ht-root {
+    display: inline-block;
+    overflow: hidden;
+    padding: 8px 0;
+    font-family: "JetBrains Mono", "Menlo", monospace; /* 原版 font-mono */
+    font-weight: 700;
+    font-size: var(--ht-size);
+    color: var(--ht-color);
+    line-height: 1.2;
+    cursor: pointer;          /* hover 触发 */
+    user-select: none;
+  }
+
+  .ht-char {
+    display: inline-block;
+    min-width: 0.6em;         /* 等宽对齐，scramble 时不抖 */
+    text-align: center;
+  }
+
+  .ht-char.space {
+    width: 0.4em;
+  }
+  /* ============ CSS END ============ */
+
+  /* —— 仅 preview 框架样式，晋级时丢弃 —— */
+  body {
+    background: #0e0e10;
+    color: #eee;
+    margin: 0;
+    padding: 60px 40px;
+    min-height: 100vh;
+    font-family: -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .label { font-size: 13px; opacity: 0.4; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .hint { font-size: 12px; opacity: 0.3; margin-top: 40px; }
+  .replay { margin-top: 20px; padding: 8px 16px; background: #222; color: #888; border: 1px solid #333; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .replay:hover { background: #2a2a2a; color: #ddd; }
+</style>
+</head>
+<body>
+  <div class="label">preview · magic-ui / hyper-text</div>
+
+  <!-- ============ HTML 片段 START · 晋级时整段切到 hyper-text.html ============ -->
+  <div class="ht-root" id="ht-instance-1" data-final="CLAUDE CODE">
+    <!-- chars 由 JS 注入。也可以预填，JS 会重置 -->
+  </div>
+  <!-- ============ HTML 片段 END ============ -->
+
+  <div class="hint">悬停文字 / 点 replay 重播</div>
+  <button class="replay" onclick="play()">↻ replay</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+  <script>
+    // ============ GSAP timeline START · 晋级时摘到 composition JS ============
+    // 注：本组件**不用 GSAP timeline**，用 requestAnimationFrame 做 scramble
+    // 是因为原版逻辑就是逐帧改字符内容，不是 GSAP 擅长的"属性插值"
+    // 但触发时机可以塞进 GSAP timeline 用 .call() 调度
+
+    const CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+    const randChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)];
+
+    function buildChars(root, finalText) {
+      // 清空既有子节点（不用 innerHTML，安全）
+      while (root.firstChild) root.removeChild(root.firstChild);
+      const arr = finalText.split('');
+      arr.forEach((ch) => {
+        const span = document.createElement('span');
+        span.className = ch === ' ' ? 'ht-char space' : 'ht-char';
+        span.textContent = ch === ' ' ? ' ' : randChar();
+        root.appendChild(span);
+      });
+      return arr;
+    }
+
+    function scramble(root, finalText, duration) {
+      const finalArr = buildChars(root, finalText);
+      const spans = root.querySelectorAll('.ht-char');
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const settled = progress * finalArr.length;
+
+        spans.forEach((span, idx) => {
+          const ch = finalArr[idx];
+          if (ch === ' ') return;          // 空格不动
+          if (idx <= settled) {
+            span.textContent = ch.toUpperCase();
+          } else {
+            span.textContent = randChar();
+          }
+        });
+
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function play() {
+      const root = document.getElementById('ht-instance-1');
+      const finalText = root.dataset.final || 'HELLO';
+      const duration = parseFloat(getComputedStyle(document.documentElement)
+        .getPropertyValue('--ht-duration'));
+      scramble(root, finalText, duration);
+    }
+
+    // hover 重触发（原版默认 animateOnHover = true）
+    document.getElementById('ht-instance-1').addEventListener('mouseenter', play);
+
+    // 自动播放一次
+    play();
+    // ============ GSAP timeline END ============
+  </script>
+</body>
+</html>

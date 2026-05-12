@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>preview · eldora-ui / terminal</title>
+<style>
+  /* ============ CSS START · 晋级时整段切到 et-terminal.css ============ */
+  :root {
+    /* 整体 */
+    --et-width: 600px;
+    --et-font-size: 13px;
+    --et-radius: 12px;
+
+    /* 颜色（明亮 muted 风） */
+    --et-bg: #fafafa;
+    --et-fg: #18181b;
+    --et-fg-muted: #71717a;
+    --et-border: #e4e4e7;
+    --et-muted-bg: #f4f4f5;
+
+    /* 渐变区（terminal body） */
+    --et-body-bg-from: #ffffff;
+    --et-body-bg-to: #f4f4f5;
+
+    /* mac dot 颜色 */
+    --et-dot-red: #ef4444;
+    --et-dot-yellow: #eab308;
+    --et-dot-green: #22c55e;
+
+    /* 时序 */
+    --et-pulse-interval: 100ms;   /* 每步推进的节拍（数字越大越慢）*/
+  }
+
+  .et-root {
+    position: relative;
+    width: var(--et-width);
+    max-width: 92vw;
+    font-family: "JetBrains Mono", "Menlo", "Monaco", monospace;
+  }
+
+  .et-pre {
+    margin: 0;
+    background: var(--et-bg);
+    color: var(--et-fg);
+    border: 1px solid var(--et-border);
+    border-radius: var(--et-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    font-size: var(--et-font-size);
+  }
+
+  .et-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--et-muted-bg);
+    border-bottom: 1px solid var(--et-border);
+    padding: 10px 16px;
+    color: var(--et-fg-muted);
+  }
+  .et-titlebar svg { width: 14px; height: 14px; opacity: 0.7; margin-right: 4px; }
+  .et-mac-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .et-mac-dot.red { background: var(--et-dot-red); }
+  .et-mac-dot.yellow { background: var(--et-dot-yellow); }
+  .et-mac-dot.green { background: var(--et-dot-green); }
+
+  .et-body {
+    background: linear-gradient(to bottom, var(--et-body-bg-from), var(--et-body-bg-to));
+    min-height: 200px;
+    padding: 16px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+
+  .et-line { display: block; }
+  .et-line.bold { font-weight: 700; }
+  .et-cursor {
+    display: inline-block;
+    width: 5px;
+    height: 14px;
+    background: var(--et-fg);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: et-blink 1s steps(1) infinite;
+  }
+  @keyframes et-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+  /* localhost 通知气泡 */
+  .et-localhost {
+    position: absolute;
+    right: 16px;
+    bottom: 20px;
+    background: var(--et-bg);
+    border: 1px solid var(--et-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+    z-index: 10;
+    min-width: 200px;
+  }
+  .et-localhost.show {
+    animation: et-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes et-slide-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .et-localhost-bar {
+    background: var(--et-muted-bg);
+    color: var(--et-fg-muted);
+    border-bottom: 1px solid var(--et-border);
+    font-size: 11px;
+    padding: 6px 12px;
+    position: relative;
+    text-align: center;
+  }
+  .et-localhost-bar svg { width: 10px; height: 10px; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); }
+  .et-localhost-msg {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--et-fg);
+  }
+  /* ============ CSS END ============ */
+
+  /* —— 仅 preview 框架样式，晋级时丢弃 —— */
+  body {
+    background: #0e0e10;
+    margin: 0;
+    padding: 60px 40px;
+    min-height: 100vh;
+    font-family: -apple-system, sans-serif;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .label { font-size: 13px; opacity: 0.4; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .hint { font-size: 12px; opacity: 0.3; margin-top: 30px; }
+  .replay { margin-top: 14px; padding: 8px 16px; background: #222; color: #888; border: 1px solid #333; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .replay:hover { background: #2a2a2a; color: #ddd; }
+</style>
+</head>
+<body>
+  <div class="label">preview · eldora-ui / terminal</div>
+
+  <!-- ============ HTML 片段 START · 晋级时整段切到 et-terminal.html ============ -->
+  <!--
+    用法：
+      - 改 data-command 决定打字内容
+      - <span class="et-step" data-bold="true|false">…</span> 是 reveal 的逐行内容
+      - <div class="et-localhost"> 控制是否显示底部通知气泡（不要就删）
+  -->
+  <div class="et-root" id="et-instance-1" data-command="npx shadcn@latest add @eldoraui/terminal">
+    <pre class="et-pre">
+      <div class="et-titlebar">
+        <!-- terminal icon svg（避免依赖外部 lucide） -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        <span class="et-mac-dot red"></span>
+        <span class="et-mac-dot yellow"></span>
+        <span class="et-mac-dot green"></span>
+      </div>
+      <div class="et-body" id="et-body-1"><!-- JS 注入 --></div>
+    </pre>
+    <!-- 用 template 存 steps 数据，JS 读取后驱动 reveal -->
+    <template id="et-steps-1">
+      <span class="et-step" data-bold="true">~ Project name</span>
+      <span class="et-step"> | terminal-demo</span>
+      <span class="et-step"> | cd terminal-demo</span>
+      <span class="et-step" data-bold="true">~ Installing UI components</span>
+      <span class="et-step"> | ✓ eldoraui/terminal</span>
+    </template>
+    <!-- localhost 通知气泡 -->
+    <div class="et-localhost" id="et-localhost-1">
+      <div class="et-localhost-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        localhost:3000
+      </div>
+      <div class="et-localhost-msg">New App Created!</div>
+    </div>
+  </div>
+  <!-- ============ HTML 片段 END ============ -->
+
+  <div class="hint">悬停终端 / 点 replay 重播</div>
+  <button class="replay" onclick="play()">↻ replay</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+  <script>
+    // ============ GSAP timeline START · 晋级时摘到 composition JS ============
+    // 本组件是"逐拍推进"的状态机，不适合纯属性插值；用 setInterval + DOM 操作
+    // GSAP 价值在调度（如：把 play() 调用挂到 timeline 的某个时间点）
+
+    function play() {
+      const root = document.getElementById('et-instance-1');
+      const body = document.getElementById('et-body-1');
+      const localhost = document.getElementById('et-localhost-1');
+      const command = root.dataset.command || 'echo hello';
+      const stepsTmpl = document.getElementById('et-steps-1');
+      const stepNodes = stepsTmpl.content.querySelectorAll('.et-step');
+
+      const pulse = parseFloat(getComputedStyle(document.documentElement)
+        .getPropertyValue('--et-pulse-interval'));
+
+      // 重置
+      while (body.firstChild) body.removeChild(body.firstChild);
+      localhost.classList.remove('show');
+
+      const typingLen = command.length;
+      const revealLen = stepNodes.length;
+      const finalCount = typingLen + revealLen + 1;
+      let counter = 0;
+
+      // 建初始 command span + cursor
+      const cmdSpan = document.createElement('span');
+      cmdSpan.className = 'et-line';
+      body.appendChild(cmdSpan);
+      const cursor = document.createElement('span');
+      cursor.className = 'et-cursor';
+      cmdSpan.appendChild(cursor);
+
+      const interval = setInterval(() => {
+        counter++;
+
+        if (counter <= typingLen) {
+          // 打字阶段：累加字符
+          cmdSpan.textContent = command.substring(0, counter);
+          cmdSpan.appendChild(cursor);
+        } else if (counter === typingLen + 1) {
+          // 打字完，移除 cursor
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          // 加一个空行（原版的 <span key="space"> </span>）
+          const sp = document.createElement('span');
+          sp.className = 'et-line';
+          sp.textContent = ' ';
+          body.appendChild(sp);
+        } else if (counter > typingLen + 1 && counter <= typingLen + revealLen + 1) {
+          // reveal 阶段：每拍多一行
+          const stepIdx = counter - typingLen - 2;
+          if (stepIdx >= 0 && stepIdx < stepNodes.length) {
+            const src = stepNodes[stepIdx];
+            const line = document.createElement('span');
+            line.className = 'et-line' + (src.dataset.bold === 'true' ? ' bold' : '');
+            line.textContent = src.textContent;
+            body.appendChild(line);
+          }
+        }
+
+        if (counter > typingLen + revealLen) {
+          // 全部完成，弹通知气泡
+          localhost.classList.add('show');
+          clearInterval(interval);
+        }
+      }, pulse);
+    }
+
+    // hover 重播（原版 onMouseEnter）
+    document.getElementById('et-instance-1').addEventListener('mouseenter', () => {
+      play();
+    });
+
+    // 自动播一次
+    play();
+    // ============ GSAP timeline END ============
+  </script>
+</body>
+</html>

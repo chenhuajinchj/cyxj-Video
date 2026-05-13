@@ -1,0 +1,687 @@
+<!-- BEAT 4 · S1-FLOW · 20.0s（绝对 23.0 → 43.0）
+     SRT 切分（10 句，相对 beat 起点）：
+       0.066–2.266   "因为我最近在做即梦Agent的拆解"        即梦 chip + AGENT pulse
+       2.300–3.900   "所以我想要这篇文章"                   article chip "想配图"
+       4.000–5.633   "以即梦的风格去配图"                   "即梦 风格" 强调
+       5.633–7.733   "所以我就截了即梦的一张界面"           STEP 1 screen capture 卡
+       7.733–10.666  "它直接能够反推出整套的设计规范"       STEP 1 → STEP 2 connector draw + token 卡浮出
+       10.700–12.933 "颜色字号排版留白全部都到位"           4 token chip 依次填入
+       13.100–14.933 "接着让他用写代码的形式"               STEP 2 → STEP 3 connector draw + code 卡浮出
+       14.933–17.133 "把html就是网页啊"                    code 卡显 <html> snippet
+       17.133–18.466 "把图给写出来"                        STEP 3 上方 mock 网页渲出
+       18.533–19.933 "那效果是真的好"                      lime ✓ + 整体 pulse
+     视觉锚点：3 step workflow horizontal — capture → tokens → html
+     hot 色：lime 仅用于 connector 线条 + step 完成 ✓
+-->
+
+<template id="beat-4-s1flow-template">
+  <div
+    data-composition-id="beat-4-s1flow"
+    data-start="0"
+    data-duration="20.0"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b4-kicker">
+      <span class="b4-kicker-num">PHASE 01</span>
+      <span class="b4-kicker-sep">·</span>
+      <span class="b4-kicker-label">HTML WORKFLOW</span>
+    </div>
+
+    <!-- Stage A: 引子 - 即梦 Agent 拆解 -->
+    <div class="b4-stageA">
+      <div class="b4-stageA-row">
+        <span class="b4-jimeng-chip">
+          <span class="b4-jimeng-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="36" height="36" aria-label="Jimeng"><path d="M5.257 1.808C8.768 6.74 14.431 9.45 20.064 8.403a7.398 7.398 0 001.281-.38c.855-.33 1.975 1.01 1.326 1.658-.43.428-.84.82-1.208 1.147a51.149 51.149 0 01-8.389 6.044 51.146 51.146 0 01-9.49 4.263c-.453.15-.98.304-1.546.457-.885.238-1.484-1.4-.77-1.975.378-.306.713-.617.978-.927C5.969 14.336 6.299 8.174 3.717 2.697a18.2 18.2 0 01-.364-.84C2.995.98 4.042.335 4.656 1.055c.243.284.453.545.601.753zM19.53 13.695c-2.324 2.863-2.816 5.944-2.378 8.583l.024.16c.117.79-.816 1.277-1.448.788a12.813 12.813 0 00-.093-.072c-2.12-1.614-4.62-2.828-7.948-2.446a27.95 27.95 0 006.086-2.627c2.21-1.275 4.147-2.774 5.756-4.386z"/></svg>
+          </span>
+          <span class="b4-jimeng-label text-cn">即 梦</span>
+        </span>
+        <span class="b4-stageA-glyph">×</span>
+        <span class="b4-agent-chip">AGENT 拆 解</span>
+      </div>
+      <div class="b4-stageA-target text-cn">
+        想 给 文 章 配 一 套 <span class="b4-stageA-hl">即 梦 风 格</span> 的 图
+      </div>
+    </div>
+
+    <!-- Stage B: 三步工作流 -->
+    <div class="b4-flow">
+      <!-- Step 1: 截屏即梦界面 -->
+      <div class="b4-step" data-step="1">
+        <div class="b4-step-head">
+          <span class="b4-step-num">01</span>
+          <span class="b4-step-title text-cn">截 即 梦 界 面</span>
+        </div>
+        <div class="b4-step-body b4-step-capture card">
+          <div class="b4-capture-bar">
+            <span class="b4-dot b4-dot-r"></span>
+            <span class="b4-dot b4-dot-y"></span>
+            <span class="b4-dot b4-dot-g"></span>
+            <span class="b4-capture-url">jimeng.com</span>
+          </div>
+          <div class="b4-capture-canvas">
+            <div class="b4-capture-block b4-capture-b1"></div>
+            <div class="b4-capture-block b4-capture-b2"></div>
+            <div class="b4-capture-block b4-capture-b3"></div>
+            <div class="b4-capture-block b4-capture-b4"></div>
+            <div class="b4-capture-block b4-capture-b5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connector 1 -->
+      <div class="b4-connector" data-conn="1">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <line class="b4-conn-line" x1="0" y1="8" x2="60" y2="8"></line>
+          <polyline class="b4-conn-arrow" points="56,3 66,8 56,13" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </div>
+
+      <!-- Step 2: 反推设计规范 -->
+      <div class="b4-step" data-step="2">
+        <div class="b4-step-head">
+          <span class="b4-step-num">02</span>
+          <span class="b4-step-title text-cn">反 推 规 范</span>
+        </div>
+        <div class="b4-step-body b4-step-tokens card">
+          <div class="b4-token-row">
+            <span class="pill b4-token b4-token-color">颜 色</span>
+            <span class="pill b4-token b4-token-type">字 号</span>
+          </div>
+          <div class="b4-token-row">
+            <span class="pill b4-token b4-token-layout">排 版</span>
+            <span class="pill b4-token b4-token-space">留 白</span>
+          </div>
+          <div class="b4-token-caption text-cn">全 部 都 到 位</div>
+        </div>
+      </div>
+
+      <!-- Connector 2 -->
+      <div class="b4-connector" data-conn="2">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <line class="b4-conn-line" x1="0" y1="8" x2="60" y2="8"></line>
+          <polyline class="b4-conn-arrow" points="56,3 66,8 56,13" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </div>
+
+      <!-- Step 3: 写 HTML 出图 -->
+      <div class="b4-step" data-step="3">
+        <div class="b4-step-head">
+          <span class="b4-step-num">03</span>
+          <span class="b4-step-title text-cn">写 HTML 出 图</span>
+        </div>
+        <div class="b4-step-body b4-step-code card">
+          <div class="b4-code-bar">
+            <span class="b4-dot b4-dot-r"></span>
+            <span class="b4-dot b4-dot-y"></span>
+            <span class="b4-dot b4-dot-g"></span>
+            <span class="b4-code-filename">page.html</span>
+          </div>
+          <div class="b4-code-body">
+            <div class="b4-code-line">&lt;<span class="b4-tag-name">section</span>&gt;</div>
+            <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">h1</span>&gt;...&lt;/<span class="b4-tag-name">h1</span>&gt;</div>
+            <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">img</span> ... /&gt;</div>
+            <div class="b4-code-line">&lt;/<span class="b4-tag-name">section</span>&gt;</div>
+          </div>
+          <!-- 渲出网页 mock -->
+          <div class="b4-render-mock">
+            <div class="b4-render-bar"></div>
+            <div class="b4-render-blob"></div>
+            <div class="b4-render-line"></div>
+            <div class="b4-render-line b4-render-line-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "效果真的好" lime ✓ -->
+    <div class="b4-final">
+      <span class="b4-final-check">
+        <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+          <polyline points="5,12 10,17 19,7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </span>
+      <span class="b4-final-text text-cn">效 果 真 的 好</span>
+    </div>
+
+    <style>
+      [data-composition-id="beat-4-s1flow"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-4-s1flow"] .b4-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: 即梦 Agent 拆解 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-stageA {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-row {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 30px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: 0 8px 18px rgba(11, 11, 8, 0.05);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-label {
+        font-family: var(--sans);
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-glyph {
+        font-family: var(--serif);
+        font-size: 48px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-agent-chip {
+        font-family: var(--sans);
+        font-size: 30px;
+        font-weight: 800;
+        color: #fff;
+        background: var(--ink);
+        padding: 16px 30px;
+        border-radius: 999px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-target {
+        font-family: var(--serif);
+        font-size: 56px;
+        font-weight: 500;
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl {
+        position: relative;
+        display: inline-block;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        right: -4px;
+        bottom: 6px;
+        height: 14px;
+        background: var(--lime);
+        z-index: -1;
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: none;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl.is-lit::after {
+        transform: scaleX(1);
+        transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      /* ── Stage B: 三步工作流 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-flow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-step {
+        width: 380px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-step-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+        padding-left: 6px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-step-num {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-step-title {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-step-body {
+        width: 100%;
+        height: 360px;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* ── Step 1: capture 卡 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-capture-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 28px;
+        margin-bottom: 14px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-dot-r { background: #ff6b5b; }
+      [data-composition-id="beat-4-s1flow"] .b4-dot-y { background: #ffc24c; }
+      [data-composition-id="beat-4-s1flow"] .b4-dot-g { background: #34c759; }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-url {
+        margin-left: 12px;
+        font-family: var(--sans);
+        font-size: 14px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-canvas {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 56px;
+        bottom: 20px;
+        background: var(--soft);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-block {
+        position: absolute;
+        background: var(--ink);
+        border-radius: 6px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-b1 { left: 8%; top: 10%; width: 38%; height: 32%; }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-b2 { left: 52%; top: 10%; width: 40%; height: 32%; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-b3 { left: 8%; top: 50%; width: 84%; height: 6%; }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-b4 { left: 8%; top: 62%; width: 60%; height: 6%; background: var(--muted); }
+      [data-composition-id="beat-4-s1flow"] .b4-capture-b5 { left: 8%; top: 76%; width: 84%; height: 14%; background: var(--lime); }
+
+      /* ── Step 2: tokens 卡 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-step-tokens {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-token-row {
+        display: flex;
+        gap: 18px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-token {
+        font-size: 28px;
+        font-weight: 800;
+        padding: 14px 28px;
+        height: auto;
+        opacity: 0;
+        transform: translateY(10px);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-token-color { border-color: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-token-type { border-color: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-token-layout { border-color: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-token-space { border-color: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-token.is-filled {
+        background: var(--ink);
+        color: #fff;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-token-caption {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        margin-top: 8px;
+        opacity: 0;
+      }
+
+      /* ── Step 3: code 卡 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-code-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 28px;
+        margin-bottom: 14px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-code-filename {
+        margin-left: 12px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-code-body {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 56px;
+        background: var(--soft);
+        border-radius: 12px;
+        padding: 18px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-code-line {
+        opacity: 0;
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-tag-name {
+        color: #5a6cff;
+        font-weight: 600;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-render-mock {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        height: 130px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        opacity: 0;
+        transform: scale(0.9);
+        transform-origin: bottom center;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-render-bar {
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        border-radius: 6px;
+        margin-bottom: 10px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-render-blob {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--lime);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-render-line {
+        width: 80%;
+        height: 8px;
+        background: var(--ink);
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-render-line-2 {
+        width: 60%;
+        background: var(--muted);
+      }
+
+      /* ── Connector arrows ── */
+      [data-composition-id="beat-4-s1flow"] .b4-connector {
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-conn-line {
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        stroke-linecap: round;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-conn-arrow {
+        stroke: currentColor;
+        opacity: 0;
+      }
+
+      /* ── Final ✓ ── */
+      [data-composition-id="beat-4-s1flow"] .b4-final {
+        position: absolute;
+        left: 50%;
+        bottom: 90px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-final-check {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--lime);
+        color: var(--ink);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-final-text {
+        font-family: var(--serif);
+        font-size: 44px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A 引子（0.0–4.0s）──
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-stageA',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          0.0);
+
+        // 0.4s — 即梦 chip 弹一下
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-jimeng-chip',
+          { scale: 0.85 },
+          { scale: 1, duration: 0.4, ease: "back.out(1.6)" },
+          0.4);
+
+        // 0.6s — agent chip 弹入
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-agent-chip',
+          { scale: 0.85, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" },
+          0.6);
+
+        // 2.3s — 目标句滑入 "想给文章配一套即梦风格的图"
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-stageA-target',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          2.3);
+
+        // 4.0s — "即梦风格" lime 横划线
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-stageA-hl');
+          if (el) el.classList.add("is-lit");
+        }, [], 4.0);
+
+        // 5.0s — Stage A fade out
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-stageA',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          5.0);
+
+        // ── Stage B 三步工作流（5.5s 起）──
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-flow',
+          { opacity: 1, duration: 0.01 },
+          5.4);
+
+        // 5.5s — Step 1 入场
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="1"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          5.5);
+
+        // 5.9s — Step 1 内部 5 块截图占位逐个浮现
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-capture-block',
+          { opacity: 0 },
+          { opacity: 1, stagger: 0.18, duration: 0.3, ease: "power2.out" },
+          5.9);
+
+        // 7.7s — Connector 1 draw
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"]',
+          { opacity: 1, duration: 0.01 },
+          7.7);
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"] .b4-conn-line',
+          { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" },
+          7.7);
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"] .b4-conn-arrow',
+          { opacity: 1, duration: 0.15, ease: "power2.out" },
+          8.2);
+
+        // 8.0s — Step 2 入场（容器，token 还没填）
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="2"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          8.0);
+
+        // 8.5s — 4 个空 token chip 显示（灰底）
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-token',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.12, duration: 0.35, ease: "power3.out" },
+          8.5);
+
+        // 10.7s–12.9s — 4 个 token 依次"填入"（变 ink 实色，硬编码 selector 避免 template literal）
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-color');
+          if (el) el.classList.add("is-filled");
+        }, [], 10.70);
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-type');
+          if (el) el.classList.add("is-filled");
+        }, [], 11.25);
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-layout');
+          if (el) el.classList.add("is-filled");
+        }, [], 11.80);
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-space');
+          if (el) el.classList.add("is-filled");
+        }, [], 12.35);
+
+        // 12.6s — "全部都到位" caption
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-token-caption',
+          { y: 8, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
+          12.6);
+
+        // 13.1s — Connector 2 draw
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"]',
+          { opacity: 1, duration: 0.01 },
+          13.1);
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"] .b4-conn-line',
+          { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" },
+          13.1);
+        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"] .b4-conn-arrow',
+          { opacity: 1, duration: 0.15, ease: "power2.out" },
+          13.6);
+
+        // 13.5s — Step 3 入场
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="3"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          13.5);
+
+        // 14.5s — code 行依次浮现
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-code-line',
+          { opacity: 0, x: -8 },
+          { opacity: 1, x: 0, stagger: 0.22, duration: 0.3, ease: "power2.out" },
+          14.5);
+
+        // 17.0s — 网页 mock 渲出（从 code 卡底部展开）
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-render-mock',
+          { opacity: 0, scale: 0.85 },
+          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" },
+          17.0);
+
+        // 18.5s — final ✓ "效果真的好"
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-final',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          18.5);
+        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-final-check',
+          { scale: 0.6, rotate: -20 },
+          { scale: 1, rotate: 0, duration: 0.45, ease: "back.out(1.8)" },
+          18.55);
+
+        // 时长锚点
+        tl.to({}, { duration: 20.0 }, 0);
+        window.__timelines["beat-4-s1flow"] = tl;
+      })();
+    </script>
+  </div>
+</template>

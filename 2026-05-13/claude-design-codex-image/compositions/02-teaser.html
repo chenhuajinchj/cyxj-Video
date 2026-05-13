@@ -1,0 +1,286 @@
+<!-- BEAT 2 · TEASER · 2.9s（绝对 8.3 → 11.2）
+     SRT 切分（2 句）：
+       0.00–0.566  "这条视频"                      小 hero 一闪
+       0.566–2.800 "也来复盘一下我AI生图的三个阶段"  双层 hero（副+主）+ 三圆 stage marker 错开入场
+     视觉锚点：双层 hero（"也来复盘一下" + "AI 生图 三个阶段"）+ 01/02/03 三圆
+     hot 色：lime 仅用于「三个」横划线 + stage 圆 03 的顶部 inset
+-->
+
+<template id="beat-2-teaser-template">
+  <div
+    data-composition-id="beat-2-teaser"
+    data-start="0"
+    data-duration="2.9"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b2-kicker">
+      <span class="b2-kicker-num">02</span>
+      <span class="b2-kicker-sep">·</span>
+      <span class="b2-kicker-label">ROADMAP</span>
+    </div>
+
+    <!-- 句 1（短闪） -->
+    <h2 class="b2-line b2-line-1 text-cn">
+      <span class="b2-char">这</span><span class="b2-char">条</span><span class="b2-char">视</span><span class="b2-char">频</span>
+    </h2>
+
+    <!-- 句 2 双层 hero -->
+    <div class="b2-hero-block">
+      <div class="b2-sub text-cn">
+        <span class="b2-sub-char">也</span><span class="b2-sub-char">来</span><span class="b2-sub-char">复</span><span class="b2-sub-char">盘</span><span class="b2-sub-char">一</span><span class="b2-sub-char">下</span><span class="b2-sub-char">我</span>
+      </div>
+      <h1 class="b2-main text-cn">
+        <span class="b2-main-char">A</span><span class="b2-main-char">I</span>
+        <span class="b2-main-space"> </span>
+        <span class="b2-main-char">生</span><span class="b2-main-char">图</span>
+        <span class="b2-main-hl">
+          <span class="b2-main-char">三</span><span class="b2-main-char">个</span><span class="b2-main-char">阶</span><span class="b2-main-char">段</span>
+          <span class="b2-main-hl-underline"></span>
+        </span>
+      </h1>
+    </div>
+
+    <!-- 三圆 stage marker -->
+    <div class="b2-stages">
+      <div class="b2-stage" data-idx="0">
+        <div class="b2-stage-disc">
+          <span class="b2-stage-num">01</span>
+        </div>
+        <div class="b2-stage-label">直 接 调</div>
+      </div>
+      <div class="b2-stage" data-idx="1">
+        <div class="b2-stage-disc">
+          <span class="b2-stage-num">02</span>
+        </div>
+        <div class="b2-stage-label">Claude × Codex</div>
+      </div>
+      <div class="b2-stage b2-stage-hot" data-idx="2">
+        <div class="b2-stage-disc">
+          <span class="b2-stage-num">03</span>
+        </div>
+        <div class="b2-stage-label">直 出 图</div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-2-teaser"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-2-teaser"] .b2-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-2-teaser"] .b2-kicker-num { color: var(--ink); }
+      [data-composition-id="beat-2-teaser"] .b2-kicker-sep { opacity: 0.5; }
+
+      /* ── 句 1: "这条视频" 一闪 ── */
+      [data-composition-id="beat-2-teaser"] .b2-line-1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 88px;
+        color: var(--ink);
+        white-space: nowrap;
+        opacity: 0;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      /* ── 双层 hero ── */
+      [data-composition-id="beat-2-teaser"] .b2-hero-block {
+        position: absolute;
+        top: 36%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-sub {
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        margin-bottom: 22px;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-sub-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      [data-composition-id="beat-2-teaser"] .b2-main {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 132px;
+        line-height: 1.04;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-main-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      [data-composition-id="beat-2-teaser"] .b2-main-space {
+        display: inline-block;
+        width: 0.3em;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-main-hl {
+        position: relative;
+        display: inline-block;
+        margin-left: 14px;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-main-hl-underline {
+        position: absolute;
+        left: -4px;
+        right: -4px;
+        bottom: 4px;
+        height: 16px;
+        background: var(--lime);
+        border-radius: 999px;
+        z-index: -1;
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+
+      /* ── 三圆 stage marker ── */
+      [data-composition-id="beat-2-teaser"] .b2-stages {
+        position: absolute;
+        left: 50%;
+        bottom: 130px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 96px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      [data-composition-id="beat-2-teaser"] .b2-stage-disc {
+        position: relative;
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: 0 12px 28px rgba(11, 11, 8, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-stage-hot .b2-stage-disc {
+        border-color: var(--lime);
+        box-shadow: inset 0 8px 0 var(--lime),
+                    0 12px 28px rgba(11, 11, 8, 0.05);
+      }
+      [data-composition-id="beat-2-teaser"] .b2-stage-num {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 78px;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+      }
+      [data-composition-id="beat-2-teaser"] .b2-stage-label {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker 滑入
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
+          0.0);
+
+        // ── 句 1（0.00–0.50s）"这条视频" 短闪 ──
+        tl.set('[data-composition-id="beat-2-teaser"] .b2-line-1', { opacity: 1 }, 0.02);
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-line-1 .b2-char',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.05, duration: 0.3, ease: "power3.out" },
+          0.02);
+
+        // 0.45s — 句 1 fade + 上飘退场
+        tl.to('[data-composition-id="beat-2-teaser"] .b2-line-1',
+          { y: -40, opacity: 0, duration: 0.22, ease: "power2.in" },
+          0.45);
+
+        // ── 句 2（0.65s 起）双层 hero ──
+        tl.set('[data-composition-id="beat-2-teaser"] .b2-hero-block', { opacity: 1 }, 0.65);
+
+        // 0.65s — 上层 "也来复盘一下我" 字符 stagger
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-sub-char',
+          { y: 12, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.04, duration: 0.28, ease: "power3.out" },
+          0.65);
+
+        // 0.95s — 下层 "AI 生图 三个阶段" 字符 stagger
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-main-char',
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "power3.out" },
+          0.95);
+
+        // 1.55s — "三个阶段" 下方 lime 横划线展开
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-main-hl-underline',
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.4, ease: "expo.out" },
+          1.55);
+
+        // ── 三圆 stage marker（1.65s 起，错开 0.18s）──
+        tl.set('[data-composition-id="beat-2-teaser"] .b2-stages', { opacity: 1 }, 1.65);
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-stage',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.18, duration: 0.5, ease: "back.out(1.3)" },
+          1.65);
+
+        // 2.4s — stage 03 lime 圆 pulse 一下
+        tl.fromTo('[data-composition-id="beat-2-teaser"] .b2-stage-hot .b2-stage-disc',
+          { scale: 1 },
+          { scale: 1.05, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          2.4);
+
+        // 时长锚点
+        tl.to({}, { duration: 2.9 }, 0);
+        window.__timelines["beat-2-teaser"] = tl;
+      })();
+    </script>
+  </div>
+</template>

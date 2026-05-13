@@ -1,0 +1,446 @@
+<!-- BEAT 8 · S2-RESULT · 10.0s（绝对 80.0 → 90.0）
+     SRT 切分（6 句，相对 beat 起点）：
+       0.000–1.300  "那最后的结果也不错"
+       1.300–2.933  "我那天拆lovart的文章"            Lovart chip
+       2.933–4.200  "配图就是这么做出来的"            article mock 浮起
+       4.300–6.333  "整体的排版样式呀"                3 张配图 stagger
+       6.333–7.700  "还有一些重点啊"                  highlight chip
+       7.733–9.533  "都是我非常喜欢的样子"            lime ❤ pulse
+     视觉锚点：Lovart 拆解 mock — article cover + 3 衍生图 + design highlight chips
+     ⚠ 等用户提供真截图替换 mock
+-->
+
+<template id="beat-8-s2result-template">
+  <div
+    data-composition-id="beat-8-s2result"
+    data-start="0"
+    data-duration="10.0"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b8-kicker">
+      <span class="b8-kicker-num">PHASE 02</span>
+      <span class="b8-kicker-sep">·</span>
+      <span class="b8-kicker-label">REAL OUTPUT</span>
+    </div>
+
+    <!-- 顶部小标 -->
+    <div class="b8-top-meta">
+      <span class="b8-lovart-chip">
+        <span class="b8-lovart-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="28" height="28" aria-label="Lovart"><path d="M11.86-.14c6.622 0 12 5.377 12 12 0 6.622-5.378 12-12 12-6.623 0-12-5.378-12-12 0-6.623 5.377-12 12-12zM7.831 18.006l4.892.034.01-1.523-3.375-.025.018-6.023-1.523-.004-.022 7.54zm7.533-12.229a3.794 3.794 0 000 7.585 3.794 3.794 0 000-7.585zM2.533 10.446l.002 1.524 3.508-.004-.002-1.524-3.508.004zm12.832-3.221a2.349 2.349 0 012.346 2.346 2.348 2.348 0 01-2.346 2.346 2.349 2.349 0 01-2.346-2.346 2.35 2.35 0 012.346-2.346z"/></svg>
+        </span>
+        <span class="b8-lovart-name">Lovart 拆 解</span>
+      </span>
+      <span class="b8-arrow text-cn">→</span>
+      <span class="b8-result-label text-cn">配 图 出 自 Codex</span>
+    </div>
+
+    <!-- 主舞台 -->
+    <div class="b8-stage">
+      <!-- 左：文章封面卡 -->
+      <div class="b8-cover card">
+        <div class="b8-cover-tag">ARTICLE</div>
+        <div class="b8-cover-art">
+          <div class="b8-cover-shape b8-cover-shape-1"></div>
+          <div class="b8-cover-shape b8-cover-shape-2"></div>
+          <div class="b8-cover-shape b8-cover-shape-3"></div>
+        </div>
+        <div class="b8-cover-title text-cn">拆 解 Lovart Agent</div>
+        <div class="b8-cover-meta">
+          <span class="b8-cover-meta-pill">XCYJ</span>
+          <span class="b8-cover-meta-date">2026-05</span>
+        </div>
+      </div>
+
+      <!-- 右：3 张衍生配图 -->
+      <div class="b8-gallery">
+        <div class="b8-thumb card" data-thumb="1">
+          <div class="b8-thumb-body b8-thumb-body-1">
+            <div class="b8-thumb-bar"></div>
+            <div class="b8-thumb-line"></div>
+            <div class="b8-thumb-line b8-thumb-line-2"></div>
+          </div>
+        </div>
+        <div class="b8-thumb card" data-thumb="2">
+          <div class="b8-thumb-body b8-thumb-body-2">
+            <div class="b8-thumb-blob"></div>
+            <div class="b8-thumb-blob b8-thumb-blob-2"></div>
+          </div>
+        </div>
+        <div class="b8-thumb card" data-thumb="3">
+          <div class="b8-thumb-body b8-thumb-body-3">
+            <div class="b8-thumb-grid"></div>
+          </div>
+        </div>
+
+        <!-- design highlight chips（绑在 gallery 右侧）-->
+        <div class="b8-highlights">
+          <span class="pill b8-h-pill" data-hi="1">排 版</span>
+          <span class="pill b8-h-pill" data-hi="2">配 色</span>
+          <span class="pill b8-h-pill" data-hi="3">留 白</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部 "非常喜欢" lime heart -->
+    <div class="b8-final">
+      <span class="b8-final-heart">
+        <svg viewBox="0 0 24 22" width="40" height="36" aria-hidden="true">
+          <path d="M12 21s-7-4.5-9.5-9.2C0.7 8.2 2.5 4 6.5 4c2 0 3.4 1.1 5.5 3 2.1-1.9 3.5-3 5.5-3 4 0 5.8 4.2 4 7.8C19 16.5 12 21 12 21z" fill="currentColor"></path>
+        </svg>
+      </span>
+      <span class="b8-final-text text-cn">非 常 喜 欢 的 样 子</span>
+    </div>
+
+    <style>
+      [data-composition-id="beat-8-s2result"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-8-s2result"] .b8-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-kicker-sep { opacity: 0.5; }
+
+      /* ── 顶部小标 ── */
+      [data-composition-id="beat-8-s2result"] .b8-top-meta {
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-lovart-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 22px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        box-shadow: 0 8px 16px rgba(11, 11, 8, 0.04);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-lovart-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-lovart-name {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-arrow {
+        font-family: var(--sans);
+        font-size: 32px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-result-label {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── 主舞台 ── */
+      [data-composition-id="beat-8-s2result"] .b8-stage {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 60px;
+        align-items: stretch;
+      }
+
+      /* 文章封面卡 */
+      [data-composition-id="beat-8-s2result"] .b8-cover {
+        width: 560px;
+        height: 580px;
+        padding: 28px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-tag {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-art {
+        position: relative;
+        flex: 1;
+        background: linear-gradient(135deg, var(--ink) 0%, #1a1a14 100%);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-shape {
+        position: absolute;
+        border-radius: 18px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-shape-1 {
+        left: 14%;
+        top: 14%;
+        width: 36%;
+        height: 36%;
+        background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-shape-2 {
+        right: 14%;
+        top: 14%;
+        width: 30%;
+        height: 30%;
+        background: var(--lime);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-shape-3 {
+        left: 14%;
+        bottom: 14%;
+        width: 72%;
+        height: 18%;
+        background: var(--panel);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-title {
+        font-family: var(--serif);
+        font-size: 40px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.15;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-meta-pill {
+        font-family: var(--sans);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: #fff;
+        background: var(--ink);
+        padding: 6px 12px;
+        border-radius: 6px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-cover-meta-date {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 18px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      /* 3 张衍生图 */
+      [data-composition-id="beat-8-s2result"] .b8-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 280px);
+        grid-template-rows: 270px 270px;
+        gap: 30px;
+        align-content: center;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb {
+        padding: 16px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-body-1 {
+        background: var(--soft);
+        padding: 18px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-bar {
+        width: 60%;
+        height: 16px;
+        background: var(--ink);
+        border-radius: 5px;
+        margin-bottom: 14px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-line {
+        height: 8px;
+        background: var(--muted);
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-line-2 { width: 70%; }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-body-2 {
+        background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-blob {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background: var(--lime);
+        left: -10%;
+        top: 18%;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-blob-2 {
+        background: rgba(255, 255, 255, 0.6);
+        left: auto;
+        right: -10%;
+        top: 45%;
+        width: 38%;
+        height: 38%;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-body-3 {
+        background: var(--ink);
+        padding: 20px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-thumb-grid {
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+        background-size: 24px 24px;
+        border-radius: 8px;
+      }
+
+      /* highlight chips */
+      [data-composition-id="beat-8-s2result"] .b8-highlights {
+        grid-column: span 2;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 4px;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-h-pill {
+        font-size: 22px;
+        height: 52px;
+        padding: 0 24px;
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+        font-weight: 800;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      /* 底部 final ❤ */
+      [data-composition-id="beat-8-s2result"] .b8-final {
+        position: absolute;
+        left: 50%;
+        bottom: 70px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-final-heart {
+        color: var(--lime);
+        display: inline-flex;
+        align-items: center;
+      }
+      [data-composition-id="beat-8-s2result"] .b8-final-text {
+        font-family: var(--serif);
+        font-size: 40px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // 0.0s — top meta（"那最后的结果也不错"对应区铺底）
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-top-meta',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          0.0);
+
+        // 1.3s — Lovart chip pulse "拆 lovart 的文章"
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-lovart-chip',
+          { scale: 1 },
+          { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          1.3);
+
+        // 2.9s — 文章封面卡入场 "配图就是这么做出来的"
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-cover',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          2.9);
+
+        // 4.3s — 3 thumb 错开 stagger（"排版样式"）
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-thumb',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.28, duration: 0.45, ease: "power3.out" },
+          4.3);
+
+        // 6.3s — highlight chips（"还有一些重点啊"）
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-h-pill',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.16, duration: 0.35, ease: "back.out(1.3)" },
+          6.3);
+
+        // 7.7s — final ❤ "非常喜欢的样子"
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-final',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          7.7);
+        tl.fromTo('[data-composition-id="beat-8-s2result"] .b8-final-heart',
+          { scale: 0.6 },
+          { scale: 1.1, duration: 0.25, ease: "back.out(1.8)", yoyo: true, repeat: 1 },
+          7.8);
+
+        // 时长锚点
+        tl.to({}, { duration: 10.0 }, 0);
+        window.__timelines["beat-8-s2result"] = tl;
+      })();
+    </script>
+  </div>
+</template>

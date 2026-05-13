@@ -1,0 +1,490 @@
+<!-- BEAT 13 · OUTRO · 20.5s（绝对 173.0 → 193.5）
+     SRT 切分（11 句，相对 beat 起点）：
+       0.400–2.600  "当然啊AI肯定还会进化"          AI 进化 chip
+       2.666–6.133  "目前是我实践下来比较好的一个点" 最佳实践 chip
+       6.133–7.866  "那整套的一些操作流程啊以及提示词"
+       7.866–8.566  "我已经整理成SOP文档了"          SOP 文档卡
+       8.566–10.666 "让AI去给你做一些好看的图"
+       10.700–12.566 "你可以尝试一下我这个工作流"
+       12.666–14.800 "等下一个视频我大概就会分享"    下集预告
+       14.800–15.600 "AI做视频啊"                    NEXT: AI 做视频
+       15.733–16.966 "简单效果就是这样子"
+       17.000–18.000 "如果你感兴趣的话"               CTA
+       18.000–20.400 "也可以聊聊看最想要哪种形式的"   button-primary
+     视觉锚点：SOP 文档卡 + button-primary "下集预告" + lime 提示 chip
+-->
+
+<template id="beat-13-outro-template">
+  <div
+    data-composition-id="beat-13-outro"
+    data-start="0"
+    data-duration="20.5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b13-kicker">
+      <span class="b13-kicker-num">OUTRO</span>
+      <span class="b13-kicker-sep">·</span>
+      <span class="b13-kicker-label">SHARE & NEXT</span>
+    </div>
+
+    <!-- Stage A: AI 进化 + 最佳实践 -->
+    <div class="b13-stageA">
+      <div class="b13-evo-line text-cn">
+        <span class="b13-evo-chip">A I 还 会 进 化</span>
+        <span class="b13-evo-sep">·</span>
+        <span class="b13-evo-text">目 前 最 佳 实 践</span>
+      </div>
+    </div>
+
+    <!-- Stage B: SOP 文档卡 -->
+    <div class="b13-stageB">
+      <div class="b13-sop-card card">
+        <div class="b13-sop-bar">
+          <span class="b13-dot b13-dot-r"></span>
+          <span class="b13-dot b13-dot-y"></span>
+          <span class="b13-dot b13-dot-g"></span>
+          <span class="b13-sop-filename">image-workflow-sop.md</span>
+        </div>
+        <div class="b13-sop-body">
+          <div class="b13-sop-title">
+            <span class="b13-sop-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+                <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                <polyline points="14,2 14,8 20,8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></polyline>
+              </svg>
+            </span>
+            <span class="b13-sop-title-text text-cn">A I 生 图 · S O P 文 档</span>
+          </div>
+          <div class="b13-sop-line" data-line="1">
+            <span class="b13-sop-bullet">01</span>
+            <span class="b13-sop-line-text text-cn">收 集 参 考 图</span>
+          </div>
+          <div class="b13-sop-line" data-line="2">
+            <span class="b13-sop-bullet">02</span>
+            <span class="b13-sop-line-text text-cn">Codex 反 推 设 计 规 范</span>
+          </div>
+          <div class="b13-sop-line" data-line="3">
+            <span class="b13-sop-bullet">03</span>
+            <span class="b13-sop-line-text text-cn">规 范 + 文 案 → gpt-image 生 图</span>
+          </div>
+          <div class="b13-sop-line" data-line="4">
+            <span class="b13-sop-bullet">04</span>
+            <span class="b13-sop-line-text text-cn">微 调 · 导 出 · 发 布</span>
+          </div>
+          <div class="b13-sop-cta">
+            <span class="pill hot b13-sop-cta-pill text-cn">完 整 提 示 词 都 在 里 面</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage C: 下集预告 -->
+    <div class="b13-stageC">
+      <div class="b13-next-tag">
+        <span class="b13-next-tag-num">NEXT</span>
+        <span class="b13-next-tag-arrow">→</span>
+      </div>
+      <h1 class="b13-next-title text-cn">
+        <span class="b13-next-pre">A I &nbsp; 做</span>
+        <span class="b13-next-hl">视 频</span>
+      </h1>
+      <div class="b13-next-sub text-cn">下 一 集 见</div>
+    </div>
+
+    <!-- Stage D: CTA -->
+    <div class="b13-stageD">
+      <div class="b13-cta-text text-cn">
+        感 兴 趣 的 话
+      </div>
+      <button class="button-primary b13-cta-btn">
+        <span class="b13-cta-btn-text text-cn">评 论 区 聊 聊 你 想 看 哪 种</span>
+        <span class="b13-cta-btn-arrow">→</span>
+      </button>
+      <div class="b13-cta-handle text-cn">— XCYJ ·&nbsp;陈 与 小 金 —</div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-13-outro"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-13-outro"] .b13-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-13-outro"] .b13-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-13-outro"] .b13-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: AI 进化 + 最佳实践 ── */
+      [data-composition-id="beat-13-outro"] .b13-stageA {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-evo-line {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      [data-composition-id="beat-13-outro"] .b13-evo-chip {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 800;
+        color: #fff;
+        background: var(--ink);
+        padding: 14px 26px;
+        border-radius: 999px;
+        letter-spacing: 0.08em;
+      }
+      [data-composition-id="beat-13-outro"] .b13-evo-sep {
+        font-family: var(--serif);
+        font-size: 40px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      [data-composition-id="beat-13-outro"] .b13-evo-text {
+        font-family: var(--serif);
+        font-size: 56px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      /* ── Stage B: SOP 文档卡 ── */
+      [data-composition-id="beat-13-outro"] .b13-stageB {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1080px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-card {
+        padding: 0;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 44px;
+        padding: 0 22px;
+        background: var(--soft);
+        border-bottom: 1px solid var(--line);
+      }
+      [data-composition-id="beat-13-outro"] .b13-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      [data-composition-id="beat-13-outro"] .b13-dot-r { background: #ff6b5b; }
+      [data-composition-id="beat-13-outro"] .b13-dot-y { background: #ffc24c; }
+      [data-composition-id="beat-13-outro"] .b13-dot-g { background: #34c759; }
+      [data-composition-id="beat-13-outro"] .b13-sop-filename {
+        margin-left: 14px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 18px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-body {
+        padding: 32px 40px 36px;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-icon {
+        color: var(--ink);
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-title-text {
+        font-family: var(--serif);
+        font-size: 40px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-line {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 14px;
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-bullet {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        background: var(--lime);
+        padding: 6px 12px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        letter-spacing: 0.1em;
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-line-text {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-cta {
+        margin-top: 24px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      [data-composition-id="beat-13-outro"] .b13-sop-cta-pill {
+        font-size: 24px;
+        height: 60px;
+        padding: 0 30px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Stage C: 下集预告 ── */
+      [data-composition-id="beat-13-outro"] .b13-stageC {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        background: var(--ink);
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-tag-num {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--lime);
+        letter-spacing: 0.32em;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-tag-arrow {
+        font-family: var(--sans);
+        font-size: 18px;
+        color: #fff;
+        font-weight: 800;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-title {
+        font-family: var(--serif);
+        font-size: 168px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.02;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-hl {
+        position: relative;
+        display: inline-block;
+        margin-left: 14px;
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-hl::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        right: -4px;
+        bottom: 12px;
+        height: 18px;
+        background: var(--lime);
+        z-index: -1;
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-hl.is-lit::after {
+        transform: scaleX(1);
+      }
+      [data-composition-id="beat-13-outro"] .b13-next-sub {
+        margin-top: 22px;
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.16em;
+      }
+
+      /* ── Stage D: CTA ── */
+      [data-composition-id="beat-13-outro"] .b13-stageD {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-cta-text {
+        font-family: var(--serif);
+        font-size: 56px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 32px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-13-outro"] .b13-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        padding: 0 38px;
+        height: 76px;
+        font-size: 28px;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      [data-composition-id="beat-13-outro"] .b13-cta-btn-arrow {
+        font-size: 32px;
+        font-weight: 700;
+      }
+      [data-composition-id="beat-13-outro"] .b13-cta-handle {
+        margin-top: 38px;
+        font-family: var(--sans);
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0.24em;
+        color: var(--muted);
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A: AI 进化 + 最佳实践（0.4–5.8s）──
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-stageA',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          0.4);
+
+        // 5.8s — Stage A fade-out
+        tl.to('[data-composition-id="beat-13-outro"] .b13-stageA',
+          { y: -30, opacity: 0, duration: 0.35, ease: "power2.in" },
+          5.8);
+
+        // ── Stage B: SOP 文档卡（6.1s 起）──
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-stageB',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          6.1);
+
+        // 6.4s — title
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-sop-title',
+          { opacity: 0 },
+          { opacity: 1, duration: 0.4, ease: "power3.out" },
+          6.4);
+
+        // 6.9s — 4 SOP 行依次入场
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-sop-line',
+          { x: -10, opacity: 0 },
+          { x: 0, opacity: 1, stagger: 0.32, duration: 0.35, ease: "power3.out" },
+          6.9);
+
+        // 10.0s — "完整提示词都在里面" lime pill
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-sop-cta',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" },
+          10.0);
+
+        // 12.4s — Stage B fade-out
+        tl.to('[data-composition-id="beat-13-outro"] .b13-stageB',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          12.4);
+
+        // ── Stage C: 下集预告（12.6s 起）──
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-stageC',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "back.out(1.3)" },
+          12.6);
+
+        // 13.5s — "视频" lime 横划线
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-13-outro"] .b13-next-hl');
+          if (el) el.classList.add("is-lit");
+        }, [], 13.5);
+
+        // 16.4s — Stage C fade-out
+        tl.to('[data-composition-id="beat-13-outro"] .b13-stageC',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          16.4);
+
+        // ── Stage D: CTA（16.8s 起）──
+        tl.to('[data-composition-id="beat-13-outro"] .b13-stageD',
+          { opacity: 1, duration: 0.01 },
+          16.8);
+
+        // 16.9s — 文字 "感兴趣的话"
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-cta-text',
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+          16.9);
+
+        // 17.8s — button-primary 入场
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-cta-btn',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          17.8);
+
+        // 18.3s — button pulse
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-cta-btn',
+          { scale: 1 },
+          { scale: 1.05, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 },
+          18.3);
+
+        // 19.0s — handle "XCYJ · 陈与小金"
+        tl.fromTo('[data-composition-id="beat-13-outro"] .b13-cta-handle',
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          19.0);
+
+        // 时长锚点
+        tl.to({}, { duration: 20.5 }, 0);
+        window.__timelines["beat-13-outro"] = tl;
+      })();
+    </script>
+  </div>
+</template>

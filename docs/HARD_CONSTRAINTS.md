@@ -99,6 +99,78 @@ Google Fonts CDN 偶尔超时，`Noto Sans SC` 加载失败会回退系统默认
 
 ---
 
+## 9. hyperframes bundler 会吃掉 sub-composition 的内层 wrapper
+
+`<template>` 里 `<div id="X" data-composition-id="X">` 这个内层 wrapper 在 bundle 时**会被 strip**，content 直接 inline 进父级 `.scene-layer`。
+
+**结果**：CSS / JS 里写 `#X .child` 永远 match 不到（那个元素不存在）。
+
+```css
+/* ❌ bundler strip 后没有 #beat-1-hook 元素 */
+#beat-1-hook .b1-kicker { ... }
+
+/* ✅ 父级 scene-layer 自己带 data-composition-id 属性 */
+[data-composition-id="beat-1-hook"] .b1-kicker { ... }
+```
+
+```js
+// ❌ 字符串选择器同理
+tl.fromTo("#beat-1-hook .b1-kicker", ...)
+
+// ✅ 注意外层切单引号避免和内层属性双引号冲突
+tl.fromTo('[data-composition-id="beat-1-hook"] .b1-kicker', ...)
+```
+
+**为什么**：bundler 给 CSS 自动加 `[data-composition-id="..."]` scope 前缀；inline 时认这个属性，不认 `id`。
+**lint 警告**：`composition_self_attribute_selector` 推荐用 `#X` 是误报（在多 beat 主合成里），480 个 warning 可忽略。
+**首次踩坑**：2026-05-13 AI 生图工作流复盘视频 13 beat，新加 beat 2-13 后全部不渲染，逐个 inspect bundle 才看出 wrapper 被 strip。
+
+---
+
+## 10. 关闭 hyperframes preview ≠ 只 kill server，必须同时关浏览器 tab
+
+`npx hyperframes preview` 开了两个独立东西：
+- **node server**（监听 3002 端口，处理 API 和 bundle）
+- **浏览器 tab**（localhost:3002，跑 React studio + 加载 bundle + 渲缩略图 + 抓帧 scrub cache）
+
+只 `kill <node pid>` 把 server 关掉了，**浏览器 tab 还在内存里跑**：
+- 13 个 GSAP timeline 仍 paused 持有所有 DOM/tween 引用
+- Studio 的渲染管线仍在跑（scrub cache、frame thumbnail）
+- 没有 server 它也会持续重试、不会自动释放
+
+**实测翻车**：2026-05-13 一个 193.5s × 13 sub-composition 的工程，server 关了之后 Chrome renderer 进程一度涨到 **12.64 GB**（单进程！PID 77521）。
+
+**正确关闭顺序**：
+1. 浏览器 tab `Cmd+W` 先关（释放抓帧缓存 + JS 引用，几秒后内存归还）
+2. 再 `kill <node pid>` 关 server
+3. 顺序反过来也行，但**两步都要做**
+
+**Claude / Codex 关闭 preview 的指令模板**：
+> "kill 了 PID X 的 preview server。**请同时在浏览器里关掉 localhost:3002 那个 tab**——不然 renderer 进程会继续吃几 GB 内存。"
+
+---
+
+## 11. 8+ sub-composition 的大工程要预防 preview 内存膨胀
+
+hyperframes preview studio 给**每个 sub-composition** 注入了 3 个 Proxy（window / document / gsap）+ 一套 `__hf*` 运行时 helper（约 25 个局部变量）+ tween method shim。**13 个 beat 就是 39 个 Proxy + ~325 个 `__hf` 变量**。
+
+叠加 studio 的逐帧 thumbnail / scrub cache（193.5s × 30fps × 1920×1080 ≈ 5800 帧），renderer 进程能轻松吃几 GB。**composition 越多放大越狠**，比单大 composition + 长时长更费内存。
+
+**预防**：
+- 长时间挂着 preview tab（>30 min）时偶尔 `Cmd+R` 刷新一次清缓存
+- 看完一段就 `Cmd+W` 关 tab，不要常驻
+- 不要用 `onUpdate` 在每帧里搞重活：
+  - ❌ `onUpdate() { document.getElementById("x").textContent = ... }`（30fps × 几秒 = 几十次 lookup）
+  - ✅ `const el = document.getElementById("x"); tl.to({...}, { onUpdate() { el.textContent = ... } });`（外面 cache 引用）
+- 不要在 `onUpdate` 里每帧 new closure：
+  - ❌ `onUpdate() { const rng = mulberry32(seed); ... }`
+  - ✅ 外面 `const rng = mulberry32(seed)`，`onUpdate` 里复用
+- **超过 8 个 sub-composition 时**：渲染前先 stop preview，render 完再 preview 看（render 走另一条路，不走 studio scrub cache）
+
+**首次踩坑**：2026-05-13 13 beat × 193.5s 工程触发 12.64 GB renderer 进程。
+
+---
+
 ## 维护
 
 新增/修改硬约束时：

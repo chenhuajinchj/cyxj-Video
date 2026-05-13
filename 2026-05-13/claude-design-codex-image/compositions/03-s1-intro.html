@@ -1,0 +1,537 @@
+<!-- BEAT 3 · S1-INTRO · 11.8s（绝对 11.2 → 23.0）
+     SRT 切分（8 句，相对 beat 起点）：
+       0.00–0.633   "第一个阶段"                        section 标题 + PHASE 01 chip
+       0.633–3.066  "是Anthropic上个月发了一个新产品"    hero 区切到 "Anthropic" → 副标题
+       3.066–4.066  "叫Claude Design"                  Claude Design 产品 hero + Claude 橙圆形 logo
+       4.100–5.433  "专门干设计这件事情"                 副 chip "DESIGN"
+       5.433–8.366  "那他是把Figma的副总裁挖过来"        挖角卡：Figma → Claude 箭头 + 副总裁 chip
+       8.400–9.600  "那这个产品一出啊"                  保持 + Figma 卡上方加 "after launch" 标
+       9.600–10.933 "Figma的股价嗯"                    切到 sparkline：Figma 股价折线
+       11.000–11.800 "持续下跌"                        sparkline 末段下落 + "下跌" ink chip
+     视觉锚点：Claude 橙圆形 logo 在产品卡 + Figma sparkline 下落
+     hot 色：lime 仅用于 "PHASE 01" kicker num（克制）
+-->
+
+<template id="beat-3-s1intro-template">
+  <div
+    data-composition-id="beat-3-s1intro"
+    data-start="0"
+    data-duration="11.8"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b3-kicker">
+      <span class="b3-kicker-num">PHASE 01</span>
+      <span class="b3-kicker-sep">·</span>
+      <span class="b3-kicker-label">FIRST APPROACH</span>
+    </div>
+
+    <!-- Stage A: "第一个阶段" 章节标题 -->
+    <h2 class="b3-stage-title b3-stageA text-cn">
+      <span class="b3-char">第</span><span class="b3-char">一</span><span class="b3-char">个</span><span class="b3-char">阶</span><span class="b3-char">段</span>
+    </h2>
+
+    <!-- Stage B: 主舞台 -->
+    <div class="b3-main-stage">
+      <!-- 上方副标 "Anthropic 上月发布的新产品" -->
+      <div class="b3-anthropic-line text-cn">
+        <span class="b3-tag">Anthropic</span>
+        <span class="b3-sub">上 月 发 布 的 新 产 品</span>
+      </div>
+
+      <!-- Claude Design 产品卡 -->
+      <div class="b3-product-card card">
+        <div class="b3-product-card-top">
+          <span class="b3-claude-logo">
+            <!-- Claude 简笔 logo（mono 橙圆 + ink 字母） -->
+            <span class="b3-claude-logo-inner">C</span>
+          </span>
+          <div class="b3-product-card-titles">
+            <div class="b3-product-card-title text-cn">Claude Design</div>
+            <div class="b3-product-card-sub text-cn">专 门 干 设 计 这 件 事 情</div>
+          </div>
+        </div>
+        <div class="b3-product-card-tags">
+          <span class="pill b3-pill-ink">NEW</span>
+          <span class="pill b3-pill-soft">2026-04</span>
+        </div>
+      </div>
+
+      <!-- 挖角卡（Stage C 滑入） -->
+      <div class="b3-hire-card card">
+        <div class="b3-hire-row">
+          <div class="b3-hire-from">
+            <div class="b3-hire-logo b3-figma-logo">F</div>
+            <div class="b3-hire-label">Figma VP</div>
+          </div>
+          <div class="b3-hire-arrow">
+            <svg viewBox="0 0 100 24" width="120" height="24" aria-hidden="true">
+              <line x1="0" y1="12" x2="86" y2="12" stroke="currentColor" stroke-width="2"></line>
+              <polyline points="80,5 92,12 80,19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+            </svg>
+          </div>
+          <div class="b3-hire-to">
+            <div class="b3-hire-logo b3-hire-claude">A</div>
+            <div class="b3-hire-label">Anthropic</div>
+          </div>
+        </div>
+        <div class="b3-hire-caption text-cn">把 副 总 裁 挖 过 来</div>
+      </div>
+    </div>
+
+    <!-- Stage D: Figma 股价下跌 sparkline -->
+    <div class="b3-stock-stage">
+      <div class="b3-stock-card card">
+        <div class="b3-stock-header">
+          <div class="b3-stock-label">
+            <span class="b3-stock-tick">FIG</span>
+            <span class="b3-stock-name text-cn">Figma 股价</span>
+          </div>
+          <div class="b3-stock-delta b3-stock-down">
+            <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true">
+              <polyline points="3,5 8,11 13,5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"></polyline>
+            </svg>
+            <span class="b3-stock-delta-num">−14.2%</span>
+          </div>
+        </div>
+        <svg class="b3-stock-svg" viewBox="0 0 720 220" preserveAspectRatio="none">
+          <!-- 基线网格 -->
+          <line class="b3-grid" x1="0" y1="50" x2="720" y2="50"></line>
+          <line class="b3-grid" x1="0" y1="110" x2="720" y2="110"></line>
+          <line class="b3-grid" x1="0" y1="170" x2="720" y2="170"></line>
+          <!-- 主折线（下行） -->
+          <polyline
+            class="b3-stock-line"
+            points="0,80 60,68 120,86 180,72 240,90 300,82 360,98 420,110 480,128 540,150 600,168 660,190 720,206"
+            fill="none"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></polyline>
+          <!-- 末段点 -->
+          <circle class="b3-stock-dot" cx="720" cy="206" r="6"></circle>
+        </svg>
+        <div class="b3-stock-down-tag">
+          <span class="pill b3-pill-ink">持 续 下 跌</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-3-s1intro"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-3-s1intro"] .b3-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: 章节标题 ── */
+      [data-composition-id="beat-3-s1intro"] .b3-stage-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 132px;
+        color: var(--ink);
+        white-space: nowrap;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      /* ── Stage B: 主舞台 ── */
+      [data-composition-id="beat-3-s1intro"] .b3-main-stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      [data-composition-id="beat-3-s1intro"] .b3-anthropic-line {
+        position: absolute;
+        top: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-tag {
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+        padding: 8px 22px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 999px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-sub {
+        font-family: var(--sans);
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Claude Design 产品卡 ── */
+      [data-composition-id="beat-3-s1intro"] .b3-product-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 880px;
+        padding: 40px 44px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-product-card-top {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-claude-logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #D97757 0%, #C25E3B 100%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(217, 119, 87, 0.25);
+        flex-shrink: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-claude-logo-inner {
+        font-family: var(--serif);
+        font-size: 72px;
+        font-weight: 500;
+        color: #fff;
+        letter-spacing: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-product-card-titles {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-product-card-title {
+        font-family: var(--serif);
+        font-size: 64px;
+        font-weight: 500;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-product-card-sub {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--muted);
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-product-card-tags {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+        margin-left: 152px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-pill-ink {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+        font-size: 18px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-pill-soft {
+        background: var(--soft);
+        color: var(--muted);
+        font-size: 18px;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+
+      /* ── 挖角卡 ── */
+      [data-composition-id="beat-3-s1intro"] .b3-hire-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% + 240px));
+        width: 720px;
+        padding: 32px 36px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-from,
+      [data-composition-id="beat-3-s1intro"] .b3-hire-to {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-logo {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 38px;
+        color: #fff;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-figma-logo {
+        background: var(--ink);
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-claude {
+        background: linear-gradient(135deg, #D97757 0%, #C25E3B 100%);
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-label {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-arrow {
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-hire-caption {
+        margin-top: 18px;
+        text-align: center;
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Stage D: 股价 sparkline ── */
+      [data-composition-id="beat-3-s1intro"] .b3-stock-stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 880px;
+        padding: 36px 40px 44px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-tick {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: var(--ink);
+        background: var(--soft);
+        padding: 6px 12px;
+        border-radius: 8px;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-name {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-delta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-svg {
+        width: 100%;
+        height: 220px;
+        display: block;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-grid {
+        stroke: var(--line);
+        stroke-width: 1;
+        stroke-dasharray: 3 6;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-line {
+        stroke: var(--ink);
+        stroke-dasharray: 1800;
+        stroke-dashoffset: 1800;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-dot {
+        fill: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-3-s1intro"] .b3-stock-down-tag {
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A（0.00–0.55s）"第一个阶段" 章节标题 ──
+        tl.set('[data-composition-id="beat-3-s1intro"] .b3-stage-title', { opacity: 1 }, 0.05);
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-stage-title .b3-char',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.05, duration: 0.32, ease: "power3.out" },
+          0.05);
+
+        // 0.50s — 章节标题上飘 fade
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-stage-title',
+          { y: -50, opacity: 0, duration: 0.3, ease: "power2.in" },
+          0.55);
+
+        // ── Stage B（0.7s 起）主舞台浮现 ──
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-main-stage',
+          { opacity: 1, duration: 0.01 },
+          0.7);
+
+        // 0.7s — Anthropic 副标线（"Anthropic 上月发布的新产品"）
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-anthropic-line',
+          { y: 18, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          0.7);
+
+        // 1.65s — Claude Design 产品卡 fade-up 入场
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-product-card',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          1.65);
+
+        // 2.0s — Claude 橙 logo 弹一下
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-claude-logo',
+          { scale: 0.7, rotate: -8 },
+          { scale: 1, rotate: 0, duration: 0.5, ease: "back.out(1.6)" },
+          2.0);
+
+        // 2.9s — "专门干设计这件事情" 副 sub 显示
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-product-card-sub',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          2.9);
+
+        // ── 挖角卡（5.0s 起）──
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-hire-card',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          5.0);
+
+        // 5.5s — 箭头浮现
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-hire-arrow',
+          { x: -10, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          5.5);
+
+        // ── Stage D 切换（8.0s）：主舞台 fade，股价卡 fade-in ──
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-main-stage',
+          { opacity: 0, duration: 0.55, ease: "power2.in" },
+          7.95);
+
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-stock-stage',
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+          8.05);
+
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-stock-card',
+          { y: 30, scale: 0.96 },
+          { y: 0, scale: 1, duration: 0.55, ease: "power3.out" },
+          8.05);
+
+        // 8.5s — stock 折线 draw（dashoffset 1800 → 0）
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-stock-line',
+          { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut" },
+          8.5);
+
+        // 10.5s — 末段点 fade + delta 显示
+        tl.to('[data-composition-id="beat-3-s1intro"] .b3-stock-dot',
+          { opacity: 1, duration: 0.25, ease: "power2.out" },
+          10.5);
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-stock-delta',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          10.55);
+
+        // 11.0s — "持续下跌" pill 滑入
+        tl.fromTo('[data-composition-id="beat-3-s1intro"] .b3-stock-down-tag',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.3)" },
+          11.0);
+
+        // 时长锚点
+        tl.to({}, { duration: 11.8 }, 0);
+        window.__timelines["beat-3-s1intro"] = tl;
+      })();
+    </script>
+  </div>
+</template>

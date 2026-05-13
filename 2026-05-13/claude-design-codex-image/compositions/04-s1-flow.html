@@ -38,6 +38,8 @@
     <div class="b4-stageA">
       <!-- 即梦 hero 圆盘 + 工具围绕 -->
       <div class="b4-jimeng-hero">
+        <!-- lime 光圈（放大镜扫到时闪起） -->
+        <div class="b4-jimeng-ring"></div>
         <div class="b4-jimeng-disc">
           <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="120" height="120" aria-label="Jimeng"><path d="M5.257 1.808C8.768 6.74 14.431 9.45 20.064 8.403a7.398 7.398 0 001.281-.38c.855-.33 1.975 1.01 1.326 1.658-.43.428-.84.82-1.208 1.147a51.149 51.149 0 01-8.389 6.044 51.146 51.146 0 01-9.49 4.263c-.453.15-.98.304-1.546.457-.885.238-1.484-1.4-.77-1.975.378-.306.713-.617.978-.927C5.969 14.336 6.299 8.174 3.717 2.697a18.2 18.2 0 01-.364-.84C2.995.98 4.042.335 4.656 1.055c.243.284.453.545.601.753zM19.53 13.695c-2.324 2.863-2.816 5.944-2.378 8.583l.024.16c.117.79-.816 1.277-1.448.788a12.813 12.813 0 00-.093-.072c-2.12-1.614-4.62-2.828-7.948-2.446a27.95 27.95 0 006.086-2.627c2.21-1.275 4.147-2.774 5.756-4.386z"/></svg>
         </div>
@@ -64,6 +66,29 @@
           <line x1="9" y1="14.5" x2="16" y2="14.5"></line>
           <line x1="9" y1="18" x2="13" y2="18"></line>
         </svg>
+      </div>
+
+      <!-- 铅笔划的标注线（在圆盘右侧画出） -->
+      <svg class="b4-annotations" viewBox="0 0 200 100" width="200" height="100" aria-hidden="true">
+        <line class="b4-ann-line b4-ann-1" x1="0" y1="14" x2="120" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        <line class="b4-ann-line b4-ann-2" x1="0" y1="48" x2="150" y2="48" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        <line class="b4-ann-line b4-ann-3" x1="0" y1="82" x2="90" y2="82" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+      </svg>
+
+      <!-- 笔记本旁的迷你 spec chip（笔记本"记下"的内容） -->
+      <div class="b4-doc-notes">
+        <div class="b4-note b4-note-1">
+          <span class="b4-note-icon b4-note-color"></span>
+          <span class="b4-note-label">COLOR</span>
+        </div>
+        <div class="b4-note b4-note-2">
+          <span class="b4-note-icon b4-note-type">Aa</span>
+          <span class="b4-note-label">TYPE</span>
+        </div>
+        <div class="b4-note b4-note-3">
+          <span class="b4-note-icon b4-note-layout"></span>
+          <span class="b4-note-label">LAYOUT</span>
+        </div>
       </div>
 
       <!-- Article 稿（左下） -->
@@ -332,6 +357,105 @@
       [data-composition-id="beat-4-s1flow"] .b4-tool-doc {
         bottom: 26%;
         left: 36%;
+      }
+
+      /* lime 光圈（放大镜扫到 jimeng 圆盘时一闪） */
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-ring {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 244px;
+        height: 244px;
+        border-radius: 50%;
+        border: 4px solid var(--lime);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* 铅笔划的标注线（圆盘右侧画出） */
+      [data-composition-id="beat-4-s1flow"] .b4-annotations {
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% + 130px);
+        color: var(--ink);
+        opacity: 0;
+        pointer-events: none;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-ann-1 { stroke-dasharray: 120; stroke-dashoffset: 120; }
+      [data-composition-id="beat-4-s1flow"] .b4-ann-2 { stroke-dasharray: 150; stroke-dashoffset: 150; }
+      [data-composition-id="beat-4-s1flow"] .b4-ann-3 { stroke-dasharray: 90; stroke-dashoffset: 90; }
+
+      /* 笔记本旁的 spec chip（笔记本"记下"的内容） */
+      [data-composition-id="beat-4-s1flow"] .b4-doc-notes {
+        position: absolute;
+        bottom: calc(26% + 14px);
+        left: calc(36% + 110px);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        opacity: 0;
+        transform: translateX(-12px);
+        box-shadow: 0 6px 14px rgba(11, 11, 8, 0.05);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 13px;
+        font-weight: 500;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-color {
+        background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-type {
+        background: var(--ink);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-layout {
+        background: var(--panel);
+        border: 1px solid var(--ink);
+        position: relative;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-layout::before,
+      [data-composition-id="beat-4-s1flow"] .b4-note-layout::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 1px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-layout::before {
+        top: 5px;
+        right: 3px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-layout::after {
+        bottom: 5px;
+        width: 9px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-note-label {
+        font-family: var(--sans);
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.16em;
       }
 
       /* article 稿 */
@@ -853,22 +977,48 @@
           { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.4)" },
           0.1);
 
-        // 0.6s — 3 工具围绕（stagger from center 弹出）
+        // 0.7s — 3 工具围绕入场（stagger 弹出）
         tl.fromTo(ROOT + ' .b4-tool',
           { scale: 0.5, opacity: 0 },
           { scale: 1, opacity: 1, duration: 0.45, stagger: { each: 0.12, from: "random" }, ease: "back.out(1.6)" },
           0.7);
 
-        // 工具持续微动（idle drift）
+        // ═══ 工具真在工作（拟人化"拆解"动作） ═══
+
+        // 0.95s — 放大镜飞到 jimeng 圆盘上方扫描
         tl.to(ROOT + ' .b4-tool-magnify',
-          { y: -8, duration: 1.6, repeat: 2, yoyo: true, ease: "sine.inOut" },
-          1.2);
-        tl.to(ROOT + ' .b4-tool-pencil',
-          { y: 10, duration: 1.8, repeat: 1, yoyo: true, ease: "sine.inOut" },
+          { x: 336, y: -48, scale: 1.05, duration: 0.5, ease: "power2.inOut" },
+          0.95);
+
+        // 1.15s — 圆盘 lime 光圈一闪（被放大镜"看穿"）
+        tl.fromTo(ROOT + ' .b4-jimeng-ring',
+          { opacity: 0, scale: 0.85 },
+          { opacity: 1, scale: 1, duration: 0.22, ease: "power2.out" },
+          1.15);
+        tl.to(ROOT + ' .b4-jimeng-ring',
+          { opacity: 0, scale: 1.18, duration: 0.55, ease: "power2.in" },
           1.4);
-        tl.to(ROOT + ' .b4-tool-doc',
-          { y: -6, duration: 2.0, repeat: 1, yoyo: true, ease: "sine.inOut" },
-          1.0);
+
+        // 1.05s — 铅笔飞到圆盘右侧（同步动 — 3 工具一起工作）
+        tl.to(ROOT + ' .b4-tool-pencil',
+          { x: -206, y: 116, rotate: -25, duration: 0.55, ease: "power2.inOut" },
+          1.05);
+
+        // 1.35s — 标注线 stagger draw（铅笔"划重点"）
+        tl.to(ROOT + ' .b4-annotations',
+          { opacity: 1, duration: 0.1 },
+          1.30);
+        tl.to(ROOT + ' .b4-ann-line',
+          { strokeDashoffset: 0, stagger: 0.18, duration: 0.42, ease: "power2.inOut" },
+          1.35);
+
+        // 1.45s — 笔记本旁 spec chip stagger 浮出（笔记本"记下"内容）
+        tl.to(ROOT + ' .b4-doc-notes',
+          { opacity: 1, duration: 0.1 },
+          1.40);
+        tl.to(ROOT + ' .b4-note',
+          { opacity: 1, x: 0, stagger: 0.14, duration: 0.42, ease: "back.out(1.6)" },
+          1.45);
 
         // 2.300s SRT — article 稿浮起（右下）
         tl.fromTo(ROOT + ' .b4-article',

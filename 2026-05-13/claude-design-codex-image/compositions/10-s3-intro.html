@@ -1,0 +1,498 @@
+<!-- BEAT 10 · S3-INTRO · 22.0s（绝对 115.0 → 137.0）
+     SRT 切分（10 句，相对 beat 起点）：
+       0.366–1.700  "Markdown是给AI读的"          MD = for AI 提示
+       1.733–3.666  "那人读的东西是HTML"           HTML = for human
+       3.700–5.133  "在对于我现在目前身份"
+       5.133–8.600  "我自己在做AI+IP流量操盘的"     角色 chip "AI+IP 流量操盘"
+       8.600–9.700  "这件事情来说"
+       9.700–11.066 "我最终想要的是一张图"          图片 hero
+       11.066–13.133 "我要发到各种的平台上面去"     多平台 icon
+       13.166–16.366 "那为什么不直接让Codex调image2出图呢"  关键 hero
+       16.466–17.900 "image2它的中文能力"          image2 chip
+       18.333–20.466 "所以我就跳过了HTML这一步"     旧流程 HTML 划掉
+       20.500–22.000 "直接发几张参考给到Codex"     新流程：参考图 → Codex → gpt-image
+     视觉锚点：新工作流图：参考图 → Codex → gpt-image，旧 HTML 划掉
+-->
+
+<template id="beat-10-s3intro-template">
+  <div
+    data-composition-id="beat-10-s3intro"
+    data-start="0"
+    data-duration="22.0"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b10-kicker">
+      <span class="b10-kicker-num">PHASE 03</span>
+      <span class="b10-kicker-sep">·</span>
+      <span class="b10-kicker-label">DIRECT TO IMAGE</span>
+    </div>
+
+    <!-- Stage A: 角色卡 -->
+    <div class="b10-stageA">
+      <div class="b10-role-frame">
+        <div class="b10-role-label">MY ROLE</div>
+        <div class="b10-role-title text-cn">A I &nbsp; + &nbsp; I P</div>
+        <div class="b10-role-sub text-cn">流 量 操 盘</div>
+        <div class="b10-role-platforms">
+          <span class="b10-pf-chip">小红书</span>
+          <span class="b10-pf-chip">视频号</span>
+          <span class="b10-pf-chip">YouTube</span>
+          <span class="b10-pf-chip">X</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage B: "最终想要的是一张图" -->
+    <div class="b10-stageB">
+      <div class="b10-want-row">
+        <span class="b10-want-pre text-cn">最 终 想 要 的 是</span>
+        <span class="b10-want-target">
+          <span class="b10-want-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <polyline points="3,16 9,10 14,15 17,12 21,16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></polyline>
+              <circle cx="16" cy="9" r="1.4" fill="currentColor"></circle>
+            </svg>
+          </span>
+          <span class="b10-want-text text-cn">一 张 图</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Stage C: "为什么不直接调 image2 出图?" 关键提问 -->
+    <div class="b10-stageC">
+      <div class="b10-question-mark">？</div>
+      <h1 class="b10-question text-cn">
+        为 什 么 不 直 接 调
+        <span class="b10-image2-chip">
+          <span class="b10-image2-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="32" height="32" aria-label="OpenAI"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></svg>
+          </span>
+          gpt-image
+        </span>
+        出 图
+      </h1>
+
+      <!-- 中文能力 chip -->
+      <div class="b10-zh-cap">
+        <span class="pill hot b10-zh-cap-pill text-cn">中 文 能 力 在 线</span>
+      </div>
+    </div>
+
+    <!-- Stage D: 新旧流程对比 -->
+    <div class="b10-stageD">
+      <!-- 旧流程（划掉） -->
+      <div class="b10-flow b10-flow-old">
+        <div class="b10-flow-label text-cn">旧 流 程</div>
+        <div class="b10-flow-row">
+          <span class="b10-flow-chip">参 考 图</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip b10-flow-codex">Codex</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip b10-flow-html">HTML</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip">截 图</span>
+        </div>
+        <div class="b10-flow-strike"></div>
+      </div>
+
+      <!-- 新流程 -->
+      <div class="b10-flow b10-flow-new">
+        <div class="b10-flow-label text-cn">新 流 程</div>
+        <div class="b10-flow-row">
+          <span class="b10-flow-chip">参 考 图</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip b10-flow-codex">Codex</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip b10-flow-img">gpt-image</span>
+          <span class="b10-flow-conn">→</span>
+          <span class="b10-flow-chip b10-flow-result">成 品</span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-10-s3intro"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-10-s3intro"] .b10-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: 角色卡 ── */
+      [data-composition-id="beat-10-s3intro"] .b10-stageA {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-role-frame {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 32px;
+        padding: 44px 60px 38px;
+        box-shadow: 0 16px 36px rgba(11, 11, 8, 0.05);
+        text-align: center;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-role-label {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.4em;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-role-title {
+        font-family: var(--serif);
+        font-size: 132px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-role-sub {
+        font-family: var(--sans);
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.08em;
+        margin-bottom: 28px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-role-platforms {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-pf-chip {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--soft);
+        padding: 10px 20px;
+        border-radius: 999px;
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      /* ── Stage B: 一张图 ── */
+      [data-composition-id="beat-10-s3intro"] .b10-stageB {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-want-row {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-want-pre {
+        font-family: var(--serif);
+        font-size: 64px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-want-target {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 28px;
+        background: var(--lime);
+        border-radius: 22px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-want-icon {
+        color: var(--ink);
+        display: inline-flex;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-want-text {
+        font-family: var(--serif);
+        font-size: 72px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      /* ── Stage C: 关键提问 ── */
+      [data-composition-id="beat-10-s3intro"] .b10-stageC {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+        width: 1700px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-question-mark {
+        font-family: var(--serif);
+        font-size: 200px;
+        font-weight: 500;
+        color: var(--lime);
+        line-height: 0.8;
+        opacity: 0;
+        transform: scale(0.6);
+        margin-bottom: 20px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-question {
+        font-family: var(--serif);
+        font-size: 76px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-image2-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 8px;
+        padding: 12px 22px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 18px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 48px;
+        font-weight: 700;
+        vertical-align: middle;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-image2-icon {
+        color: #fff;
+        display: inline-flex;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-zh-cap {
+        margin-top: 32px;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-zh-cap-pill {
+        font-size: 28px;
+        height: 60px;
+        padding: 0 32px;
+        letter-spacing: 0.08em;
+        font-weight: 800;
+      }
+
+      /* ── Stage D: 新旧流程 ── */
+      [data-composition-id="beat-10-s3intro"] .b10-stageD {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow {
+        position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-label {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-chip {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        padding: 16px 28px;
+        border-radius: 18px;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-codex {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-html {
+        background: var(--soft);
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-img {
+        background: linear-gradient(135deg, #5a6cff 0%, #7c5cff 100%);
+        color: #fff;
+        border-color: transparent;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-result {
+        background: var(--lime);
+        border-color: var(--lime);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-conn {
+        font-family: var(--sans);
+        font-size: 30px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-strike {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60%;
+        height: 4px;
+        background: var(--ink);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: none;
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-strike.is-lit {
+        transform: scaleX(1);
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      [data-composition-id="beat-10-s3intro"] .b10-flow-old.is-faded .b10-flow-row {
+        opacity: 0.35;
+        transition: opacity 0.4s ease;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A: 角色卡（0.0–9.0s）"我做 AI+IP 流量操盘" ──
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-stageA',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          0.0);
+        // 1.7s — 4 个平台 chip 错开滑入（"AI+IP 流量操盘"对应）
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-pf-chip',
+          { y: 8, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.14, duration: 0.32, ease: "power3.out" },
+          1.7);
+
+        // 9.2s — Stage A fade-out
+        tl.to('[data-composition-id="beat-10-s3intro"] .b10-stageA',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          9.2);
+
+        // ── Stage B: 一张图（9.6s 起）──
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-stageB',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          9.6);
+
+        // 12.9s — Stage B fade-out
+        tl.to('[data-composition-id="beat-10-s3intro"] .b10-stageB',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          12.9);
+
+        // ── Stage C: 关键提问（13.2s 起）──
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-stageC',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          13.2);
+
+        // 13.3s — ?  big mark pulse in
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-question-mark',
+          { opacity: 0, scale: 0.6 },
+          { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" },
+          13.3);
+
+        // 14.2s — image2 chip 显示
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-image2-chip',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" },
+          14.2);
+
+        // 16.4s — 中文能力 pill
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-zh-cap',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.3)" },
+          16.4);
+
+        // 18.0s — Stage C fade-out
+        tl.to('[data-composition-id="beat-10-s3intro"] .b10-stageC',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          17.95);
+
+        // ── Stage D: 新旧流程（18.3s 起）──
+        tl.to('[data-composition-id="beat-10-s3intro"] .b10-stageD',
+          { opacity: 1, duration: 0.01 },
+          18.3);
+
+        // 18.3s — 旧流程入场
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-flow-old',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          18.3);
+
+        // 19.4s — 旧流程划掉（HTML 这一步被跳过）
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-10-s3intro"] .b10-flow-old');
+          if (el) el.classList.add("is-faded");
+        }, [], 19.4);
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-10-s3intro"] .b10-flow-strike');
+          if (el) el.classList.add("is-lit");
+        }, [], 19.45);
+
+        // 20.5s — 新流程入场
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-flow-new',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.3)" },
+          20.5);
+
+        // 21.4s — 新流程"成品" chip pulse
+        tl.fromTo('[data-composition-id="beat-10-s3intro"] .b10-flow-result',
+          { scale: 1 },
+          { scale: 1.08, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 },
+          21.4);
+
+        // 时长锚点
+        tl.to({}, { duration: 22.0 }, 0);
+        window.__timelines["beat-10-s3intro"] = tl;
+      })();
+    </script>
+  </div>
+</template>

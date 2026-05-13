@@ -46,7 +46,7 @@
       id="root"
       data-composition-id="ai-image-workflow-3stages"
       data-start="0"
-      data-duration="8.3"
+      data-duration="193.5"
       data-width="1920"
       data-height="1080"
     >
@@ -75,6 +75,224 @@
         data-width="1920"
         data-height="1080"
       ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 2 [8.3 → 11.2s] TEASER · 2.9s
+           SRT 切分（2 句）：
+             8.30–8.866   "这条视频"                       小 hero 一闪
+             8.866–11.10  "也来复盘一下我AI生图的三个阶段"   双层 hero + 三圆 stage marker 01/02/03
+           视觉锚点：上半 hero + 下半三圆
+           hot 色：lime 仅用于「三个阶段」横划线 + stage 圆 03 顶部 inset
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-2"
+        class="scene-layer"
+        data-composition-id="beat-2-teaser"
+        data-composition-src="compositions/02-teaser.html"
+        data-start="8.3"
+        data-duration="2.89"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 3 [11.2 → 23.0s] S1-INTRO · 11.8s
+           SRT 切分（8 句，相对 beat 起点）：
+             0.00–0.633   "第一个阶段"
+             0.633–3.066  "是Anthropic上个月发了一个新产品"
+             3.066–4.066  "叫Claude Design"
+             4.100–5.433  "专门干设计这件事情"
+             5.433–8.366  "那他是把Figma的副总裁挖过来"
+             8.400–9.600  "那这个产品一出啊"
+             9.600–10.933 "Figma的股价嗯"
+             11.000–11.800 "持续下跌"
+           视觉锚点：Claude 橙 logo 在产品卡 + Figma sparkline 下落
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-3"
+        class="scene-layer"
+        data-composition-id="beat-3-s1intro"
+        data-composition-src="compositions/03-s1-intro.html"
+        data-start="11.2"
+        data-duration="11.8"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 4 [23.0 → 43.0s] S1-FLOW · 20.0s
+           SRT 切分（10 句，相对 beat 起点）：
+             0.066–2.266   "因为我最近在做即梦Agent的拆解"
+             2.300–3.900   "所以我想要这篇文章"
+             4.000–5.633   "以即梦的风格去配图"
+             5.633–7.733   "所以我就截了即梦的一张界面"     STEP 1 capture
+             7.733–10.666  "它直接能够反推出整套的设计规范"  STEP 2 token 卡
+             10.700–12.933 "颜色字号排版留白全部都到位"      4 token chip 填入
+             13.100–14.933 "接着让他用写代码的形式"          STEP 3 code 卡
+             14.933–17.133 "把html就是网页啊"               <html> snippet
+             17.133–18.466 "把图给写出来"                   网页 mock 渲出
+             18.533–19.933 "那效果是真的好"                 lime ✓
+           视觉锚点：3 step workflow — capture → tokens → html
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-4"
+        class="scene-layer"
+        data-composition-id="beat-4-s1flow"
+        data-composition-src="compositions/04-s1-flow.html"
+        data-start="23.0"
+        data-duration="20.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 5 [43.0 → 57.5s] S1-PAIN · 14.5s
+           视觉锚点：usage 条触顶 + 冷却倒计时 + X 气泡墙
+           hot 色：本 beat **不用 lime**（pain 段语义冲突）
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-5"
+        class="scene-layer"
+        data-composition-id="beat-5-s1pain"
+        data-composition-src="compositions/05-s1-pain.html"
+        data-start="43.0"
+        data-duration="14.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 6 [57.5 → 67.0s] S2-INTRO · 9.5s
+           视觉锚点：horizontal pipeline — Claude(BRAIN) → SPEC → Codex(EXEC)
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-6"
+        class="scene-layer"
+        data-composition-id="beat-6-s2intro"
+        data-composition-src="compositions/06-s2-intro.html"
+        data-start="57.5"
+        data-duration="9.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 7 [67.0 → 80.0s] S2-DETAIL · 13.0s
+           视觉锚点：两列能力对比卡 + 中央汇合 + lime 天选打工
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-7"
+        class="scene-layer"
+        data-composition-id="beat-7-s2detail"
+        data-composition-src="compositions/07-s2-detail.html"
+        data-start="67.0"
+        data-duration="13.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 8 [80.0 → 90.0s] S2-RESULT · 10.0s
+           视觉锚点：Lovart 拆解 mock — article cover + 3 衍生图 + design chip
+           ⚠ 等用户提供真截图替换 mock
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-8"
+        class="scene-layer"
+        data-composition-id="beat-8-s2result"
+        data-composition-src="compositions/08-s2-result.html"
+        data-start="80.0"
+        data-duration="10.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 9 [90.0 → 115.0s] REFLECTION · 25.0s
+           视觉锚点：reflective hero "HTML = 中间产物" + 千万浏览 lime stat + Markdown/HTML 二元
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-9"
+        class="scene-layer"
+        data-composition-id="beat-9-reflection"
+        data-composition-src="compositions/09-reflection.html"
+        data-start="90.0"
+        data-duration="25.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 10 [115.0 → 137.0s] S3-INTRO · 22.0s
+           视觉锚点：新工作流图：参考图 → Codex → gpt-image → 成品；旧 HTML 划掉
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-10"
+        class="scene-layer"
+        data-composition-id="beat-10-s3intro"
+        data-composition-src="compositions/10-s3-intro.html"
+        data-start="115.0"
+        data-duration="22.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 11 [137.0 → 161.0s] S3-KEY · 24.0s
+           视觉锚点：hero "先规范 → 再生图" + 三 ✗ 卡 + lime "最重要"
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-11"
+        class="scene-layer"
+        data-composition-id="beat-11-s3key"
+        data-composition-src="compositions/11-s3-key.html"
+        data-start="137.0"
+        data-duration="24.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 12 [161.0 → 173.0s] S3-RESULT · 12.0s
+           视觉锚点：四 stat 卡：时间↓ / 丰富↑ / 美↑ / TOKEN↓（lime 数字）
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-12"
+        class="scene-layer"
+        data-composition-id="beat-12-s3result"
+        data-composition-src="compositions/12-s3-result.html"
+        data-start="161.0"
+        data-duration="12.0"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- ─────────────────────────────────────────────────────────
+           BEAT 13 [173.0 → 193.5s] OUTRO · 20.5s
+           视觉锚点：SOP 文档卡 + 下集预告 + CTA button-primary + lime "完整提示词" pill
+           ───────────────────────────────────────────────────────── -->
+      <div
+        id="beat-13"
+        class="scene-layer"
+        data-composition-id="beat-13-outro"
+        data-composition-src="compositions/13-outro.html"
+        data-start="173.0"
+        data-duration="20.5"
+        data-track-index="4"
+        data-width="1920"
+        data-height="1080"
+      ></div>
     </div>
 
     <script>
@@ -87,7 +305,7 @@
         0.5);
 
       // 时长锚点
-      mainTl.to({}, { duration: 8.3 }, 0);
+      mainTl.to({}, { duration: 193.5 }, 0);
       window.__timelines["ai-image-workflow-3stages"] = mainTl;
     </script>
   </body>

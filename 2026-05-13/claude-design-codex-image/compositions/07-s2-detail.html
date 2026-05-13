@@ -1,0 +1,380 @@
+<!-- BEAT 7 · S2-DETAIL · 13.0s（绝对 67.0 → 80.0）
+     SRT 切分（8 句，相对 beat 起点）：
+       0.000–1.100   "那Codex擅长的"
+       1.100–3.733   "就是按系统快速的去干活啊"      Codex 列 + speed/cost 星
+       3.733–4.800   "毕竟便宜嘛"                    cost 星亮起 pulse
+       4.866–6.733   "还有个点就是在代码能力上"
+       6.800–9.766   "Claude肯定是要比那个Codex更擅长的"  Claude 列 + code 星
+       9.766–11.866  "所以两个工具各司其职啊"          中央 "各司其职" 标
+       11.866–12.733 "天选的打工"                    lime "天选打工" pill
+       12.733–13.000 "哎"                            轻 pulse
+     视觉锚点：两列能力对比卡 + 中央汇合 + lime pill
+-->
+
+<template id="beat-7-s2detail-template">
+  <div
+    data-composition-id="beat-7-s2detail"
+    data-start="0"
+    data-duration="13.0"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b7-kicker">
+      <span class="b7-kicker-num">PHASE 02</span>
+      <span class="b7-kicker-sep">·</span>
+      <span class="b7-kicker-label">DIVISION OF LABOR</span>
+    </div>
+
+    <!-- 两列对比卡 -->
+    <div class="b7-compare">
+      <!-- 左：Codex -->
+      <div class="b7-col b7-col-codex card" data-col="codex">
+        <div class="b7-col-head">
+          <div class="b7-col-logo b7-col-logo-codex">
+            <span class="b7-col-logo-letter">&gt;_</span>
+          </div>
+          <div class="b7-col-titles">
+            <div class="b7-col-name">Codex</div>
+            <div class="b7-col-role text-cn">系 统 快 速 执 行</div>
+          </div>
+        </div>
+        <div class="b7-trait">
+          <span class="b7-trait-label text-cn">速 度</span>
+          <span class="b7-stars" data-trait="codex-speed">
+            <span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span>
+          </span>
+        </div>
+        <div class="b7-trait">
+          <span class="b7-trait-label text-cn">价 格</span>
+          <span class="b7-stars" data-trait="codex-cost">
+            <span class="b7-star">$</span><span class="b7-star">$</span><span class="b7-star muted">$</span><span class="b7-star muted">$</span><span class="b7-star muted">$</span>
+          </span>
+        </div>
+        <div class="b7-tagline text-cn">便 宜 · 按 系 统 干 活</div>
+      </div>
+
+      <!-- 右：Claude -->
+      <div class="b7-col b7-col-claude card" data-col="claude">
+        <div class="b7-col-head">
+          <div class="b7-col-logo b7-col-logo-claude">
+            <span class="b7-col-logo-letter">C</span>
+          </div>
+          <div class="b7-col-titles">
+            <div class="b7-col-name">Claude</div>
+            <div class="b7-col-role text-cn">代 码 能 力 王 者</div>
+          </div>
+        </div>
+        <div class="b7-trait">
+          <span class="b7-trait-label text-cn">代 码</span>
+          <span class="b7-stars" data-trait="claude-code">
+            <span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span><span class="b7-star">★</span>
+          </span>
+        </div>
+        <div class="b7-trait">
+          <span class="b7-trait-label text-cn">价 格</span>
+          <span class="b7-stars" data-trait="claude-cost">
+            <span class="b7-star">$</span><span class="b7-star">$</span><span class="b7-star">$</span><span class="b7-star">$</span><span class="b7-star muted">$</span>
+          </span>
+        </div>
+        <div class="b7-tagline text-cn">代 码 能 力 · 强</div>
+      </div>
+    </div>
+
+    <!-- 中央 "各司其职" 横标 -->
+    <div class="b7-merge">
+      <span class="b7-merge-arrow b7-merge-arrow-left">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <polyline class="b7-merge-line" points="0,8 60,8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></polyline>
+          <polyline points="58,3 68,8 58,13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </span>
+      <span class="b7-merge-label text-cn">各 司 其 职</span>
+      <span class="b7-merge-arrow b7-merge-arrow-right">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <polyline points="80,8 20,8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></polyline>
+          <polyline points="22,3 12,8 22,13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </span>
+    </div>
+
+    <!-- "天选的打工" lime pill -->
+    <div class="b7-final-pill">
+      <span class="pill hot b7-final-pill-inner text-cn">天 选 的 打 工</span>
+    </div>
+
+    <style>
+      [data-composition-id="beat-7-s2detail"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-7-s2detail"] .b7-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-kicker-sep { opacity: 0.5; }
+
+      /* ── 两列 ── */
+      [data-composition-id="beat-7-s2detail"] .b7-compare {
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 80px;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col {
+        width: 520px;
+        padding: 36px 40px 30px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-head {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-bottom: 26px;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo {
+        width: 84px;
+        height: 84px;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo-codex {
+        background: var(--ink);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo-claude {
+        background: linear-gradient(135deg, #D97757 0%, #C25E3B 100%);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo-letter {
+        color: #fff;
+        font-weight: 700;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo-codex .b7-col-logo-letter {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 38px;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-logo-claude .b7-col-logo-letter {
+        font-family: var(--serif);
+        font-size: 56px;
+        font-weight: 500;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-name {
+        font-family: var(--sans);
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--ink);
+        line-height: 1.1;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-col-role {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-trait {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-trait-label {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-stars {
+        display: inline-flex;
+        gap: 4px;
+        font-family: var(--sans);
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-star {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-star.muted {
+        color: var(--line);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-star.is-on {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-tagline {
+        margin-top: 22px;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--soft);
+        padding: 12px 18px;
+        border-radius: 14px;
+        text-align: center;
+        letter-spacing: 0.04em;
+        opacity: 0;
+      }
+
+      /* ── 中央汇合 ── */
+      [data-composition-id="beat-7-s2detail"] .b7-merge {
+        position: absolute;
+        left: 50%;
+        bottom: 200px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-merge-arrow {
+        color: var(--ink);
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-merge-label {
+        font-family: var(--serif);
+        font-size: 56px;
+        font-weight: 500;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+      }
+
+      /* ── 天选打工 pill ── */
+      [data-composition-id="beat-7-s2detail"] .b7-final-pill {
+        position: absolute;
+        left: 50%;
+        bottom: 110px;
+        transform: translateX(-50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-7-s2detail"] .b7-final-pill-inner {
+        font-size: 30px;
+        height: 64px;
+        padding: 0 36px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── 0.0s — Codex 列入场 ──
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-col-codex',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          0.0);
+
+        // —— Codex speed 5 ★（1.2s 起）—— 硬编码 selector（不能用 template literal）
+        [0, 1, 2, 3, 4].forEach((i) => {
+          tl.call(() => {
+            const stars = document.querySelectorAll('[data-composition-id="beat-7-s2detail"] .b7-stars[data-trait="codex-speed"] .b7-star');
+            if (stars[i]) stars[i].classList.add("is-on");
+          }, [], 1.2 + i * 0.16);
+        });
+
+        // —— Codex cost 2 $（3.8s 起，只前 2 个亮，后 3 muted 保持灰）——
+        [0, 1].forEach((i) => {
+          tl.call(() => {
+            const stars = document.querySelectorAll('[data-composition-id="beat-7-s2detail"] .b7-stars[data-trait="codex-cost"] .b7-star');
+            if (stars[i]) stars[i].classList.add("is-on");
+          }, [], 3.8 + i * 0.16);
+        });
+
+        // 4.2s — Codex tagline "便宜 · 按系统干活"
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-col-codex .b7-tagline',
+          { y: 8, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          4.2);
+
+        // ── 4.9s — Claude 列入场 ──
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-col-claude',
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          4.9);
+
+        // 6.4s — Claude code 5 ★
+        [0, 1, 2, 3, 4].forEach((i) => {
+          tl.call(() => {
+            const stars = document.querySelectorAll('[data-composition-id="beat-7-s2detail"] .b7-stars[data-trait="claude-code"] .b7-star');
+            if (stars[i]) stars[i].classList.add("is-on");
+          }, [], 6.4 + i * 0.16);
+        });
+
+        // 8.2s — Claude cost 4 $ (后 1 muted)
+        [0, 1, 2, 3].forEach((i) => {
+          tl.call(() => {
+            const stars = document.querySelectorAll('[data-composition-id="beat-7-s2detail"] .b7-stars[data-trait="claude-cost"] .b7-star');
+            if (stars[i]) stars[i].classList.add("is-on");
+          }, [], 8.2 + i * 0.14);
+        });
+
+        // 9.0s — Claude tagline
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-col-claude .b7-tagline',
+          { y: 8, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          9.0);
+
+        // ── 9.8s — 中央 "各司其职" ──
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-merge',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          9.8);
+
+        // ── 11.85s — 天选打工 lime pill ──
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-final-pill',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" },
+          11.85);
+        tl.fromTo('[data-composition-id="beat-7-s2detail"] .b7-final-pill-inner',
+          { scale: 1 },
+          { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          12.2);
+
+        // 时长锚点
+        tl.to({}, { duration: 13.0 }, 0);
+        window.__timelines["beat-7-s2detail"] = tl;
+      })();
+    </script>
+  </div>
+</template>

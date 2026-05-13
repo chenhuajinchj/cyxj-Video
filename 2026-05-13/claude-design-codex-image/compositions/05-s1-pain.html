@@ -1,0 +1,577 @@
+<!-- BEAT 5 · S1-PAIN · 14.5s（绝对 43.0 → 57.5）
+     SRT 切分（9 句，相对 beat 起点）：
+       0.033–1.066  "但有个大坑啊"                          warning 大字 + ⚠ 弹入
+       1.266–3.033  "Claude 一旦它的周限额特别低"            usage 条上升
+       3.066–4.566  "我当时跑了一个小时"                    "1H" timer 浮入
+       4.600–6.000  "它冷却就要冷却一周"                    "7 days" 倒计时
+       6.066–7.733  "而且Pro的会员也救不了"                  Pro pill + ❌ 划掉
+       7.733–9.066  "那限额就是限死的"                      lock icon + usage 撞顶
+       9.133–11.400 "嗯那推上也是一堆人在吐槽啊"             X / Twitter 气泡涌入
+       11.400–12.966 "Anthropic团队说在优化"                官方回应 chip
+       13.000–14.466 "但我当时是等不了了"                   收尾 "等不了" 大字
+     视觉锚点：usage 条触顶 + 冷却倒计时 + X 气泡墙
+     hot 色：本 beat **全程不用 lime** — pain 段用 ink 高对比表达；
+              lime 与 pain 语义冲突，留给 reflection / result 段
+-->
+
+<template id="beat-5-s1pain-template">
+  <div
+    data-composition-id="beat-5-s1pain"
+    data-start="0"
+    data-duration="14.5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b5-kicker">
+      <span class="b5-kicker-num">PHASE 01</span>
+      <span class="b5-kicker-sep">·</span>
+      <span class="b5-kicker-label">THE WALL</span>
+    </div>
+
+    <!-- Stage A: 大坑警示 -->
+    <h2 class="b5-warning text-cn">
+      <span class="b5-warning-icon">
+        <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true">
+          <polygon points="12,2 22,22 2,22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"></polygon>
+          <line x1="12" y1="9" x2="12" y2="14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></line>
+          <circle cx="12" cy="17.5" r="1.3" fill="currentColor"></circle>
+        </svg>
+      </span>
+      <span class="b5-warning-text">
+        <span class="b5-char">但</span><span class="b5-char">有</span><span class="b5-char">个</span><span class="b5-char">大</span><span class="b5-char">坑</span>
+      </span>
+    </h2>
+
+    <!-- Stage B: 限额仪表 -->
+    <div class="b5-meter-stage">
+      <div class="b5-meter-card card">
+        <div class="b5-meter-head">
+          <span class="b5-meter-title text-cn">Claude · 周 限 额</span>
+          <span class="b5-meter-status">USAGE</span>
+        </div>
+
+        <!-- usage bar -->
+        <div class="b5-meter-bar">
+          <div class="b5-meter-fill"></div>
+          <div class="b5-meter-ceiling"></div>
+          <div class="b5-meter-lock">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+              <rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <path d="M8 11 V8 a4 4 0 0 1 8 0 V11" fill="none" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- side facts row -->
+        <div class="b5-meter-facts">
+          <div class="b5-fact b5-fact-time">
+            <div class="b5-fact-num">1 H</div>
+            <div class="b5-fact-label text-cn">用 完 只 需 一 小 时</div>
+          </div>
+          <div class="b5-fact-sep"></div>
+          <div class="b5-fact b5-fact-cool">
+            <div class="b5-fact-num"><span class="b5-fact-num-big">7</span><span class="b5-fact-num-unit">DAYS</span></div>
+            <div class="b5-fact-label text-cn">冷 却 整 整 一 周</div>
+          </div>
+          <div class="b5-fact-sep"></div>
+          <div class="b5-fact b5-fact-pro">
+            <div class="b5-fact-pro-row">
+              <span class="b5-fact-pro-pill">Pro 会 员</span>
+              <span class="b5-fact-pro-cross">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                  <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
+                  <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="3" stroke-linecap="round"></line>
+                </svg>
+              </span>
+            </div>
+            <div class="b5-fact-label text-cn">救 不 了</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage C: X 吐槽气泡墙 -->
+    <div class="b5-x-stage">
+      <div class="b5-x-bubble b5-x-b1">
+        <div class="b5-x-handle">
+          <span class="b5-x-avatar"></span>
+          <span class="b5-x-name">@dev_aki</span>
+        </div>
+        <div class="b5-x-body text-cn">"周限额刚开就用完了..."</div>
+      </div>
+      <div class="b5-x-bubble b5-x-b2">
+        <div class="b5-x-handle">
+          <span class="b5-x-avatar"></span>
+          <span class="b5-x-name">@lee.codes</span>
+        </div>
+        <div class="b5-x-body text-cn">"Pro 也救不了 😩"</div>
+      </div>
+      <div class="b5-x-bubble b5-x-b3">
+        <div class="b5-x-handle">
+          <span class="b5-x-avatar"></span>
+          <span class="b5-x-name">@mira_dev</span>
+        </div>
+        <div class="b5-x-body text-cn">"等了三天才回血"</div>
+      </div>
+
+      <!-- Anthropic 官方回应 -->
+      <div class="b5-anthropic-reply">
+        <span class="b5-ar-tag">ANTHROPIC</span>
+        <span class="b5-ar-body text-cn">团 队 说 — 在 优 化</span>
+      </div>
+    </div>
+
+    <!-- Stage D: 收尾 "等不了" 大字 -->
+    <h2 class="b5-final text-cn">
+      <span class="b5-final-char">等</span><span class="b5-final-char">不</span><span class="b5-final-char">了</span>
+    </h2>
+
+    <style>
+      [data-composition-id="beat-5-s1pain"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-5-s1pain"] .b5-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-kicker-num {
+        color: var(--ink);
+        background: var(--ink);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: 大坑警示 ── */
+      [data-composition-id="beat-5-s1pain"] .b5-warning {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 132px;
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-warning-icon {
+        color: var(--ink);
+        opacity: 0;
+        transform: rotate(-12deg) scale(0.7);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      /* ── Stage B: 限额仪表 ── */
+      [data-composition-id="beat-5-s1pain"] .b5-meter-stage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1300px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-card {
+        width: 100%;
+        padding: 40px 50px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-title {
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-status {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: var(--ink);
+        background: var(--soft);
+        padding: 8px 14px;
+        border-radius: 8px;
+      }
+
+      /* usage bar */
+      [data-composition-id="beat-5-s1pain"] .b5-meter-bar {
+        position: relative;
+        height: 56px;
+        background: var(--soft);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-fill {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 0%;
+        background: var(--ink);
+        border-radius: 14px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-ceiling {
+        position: absolute;
+        right: 4px;
+        top: 6px;
+        bottom: 6px;
+        width: 6px;
+        border-radius: 3px;
+        background: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-meter-lock {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%) scale(0.6);
+        opacity: 0;
+        color: #fff;
+        z-index: 2;
+      }
+
+      /* meter facts */
+      [data-composition-id="beat-5-s1pain"] .b5-meter-facts {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-top: 36px;
+        gap: 28px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-num {
+        font-family: var(--serif);
+        font-size: 80px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-num-big {
+        font-size: 100px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-num-unit {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--ink);
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-label {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-sep {
+        width: 1px;
+        background: var(--line);
+        align-self: stretch;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-pro-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-pro-pill {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--soft);
+        padding: 12px 22px;
+        border-radius: 999px;
+        position: relative;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-pro-pill.is-crossed::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 3px;
+        background: var(--ink);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-pro-pill.is-crossed.is-lit::after {
+        transform: scaleX(1);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-fact-pro-cross {
+        color: var(--ink);
+        opacity: 0;
+      }
+
+      /* ── Stage C: X 气泡墙 ── */
+      [data-composition-id="beat-5-s1pain"] .b5-x-stage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1400px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-x-bubble {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 20px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: 0 12px 28px rgba(11, 11, 8, 0.05);
+        opacity: 0;
+        transform: translateY(20px);
+        width: 540px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-x-b1 { align-self: flex-start; }
+      [data-composition-id="beat-5-s1pain"] .b5-x-b2 { align-self: center; }
+      [data-composition-id="beat-5-s1pain"] .b5-x-b3 { align-self: flex-end; }
+      [data-composition-id="beat-5-s1pain"] .b5-x-handle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-x-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--soft);
+        display: inline-block;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-x-name {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-x-body {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-anthropic-reply {
+        align-self: center;
+        margin-top: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 26px;
+        background: var(--ink);
+        border-radius: 999px;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-ar-tag {
+        font-family: var(--sans);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: var(--lime);
+        background: rgba(220, 255, 69, 0.18);
+        padding: 4px 10px;
+        border-radius: 6px;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-ar-body {
+        font-family: var(--sans);
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Stage D: 收尾 "等不了" ── */
+      [data-composition-id="beat-5-s1pain"] .b5-final {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 168px;
+        color: var(--ink);
+        opacity: 0;
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-5-s1pain"] .b5-final-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(28px);
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A 大坑（0.0–1.4s）──
+        tl.set('[data-composition-id="beat-5-s1pain"] .b5-warning', { opacity: 1 }, 0.0);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-warning-icon',
+          { opacity: 0, rotate: -12, scale: 0.7 },
+          { opacity: 1, rotate: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" },
+          0.0);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-warning .b5-char',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.07, duration: 0.35, ease: "power3.out" },
+          0.1);
+
+        // 1.0s — Stage A fade-out
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-warning',
+          { y: -40, opacity: 0, duration: 0.35, ease: "power2.in" },
+          1.0);
+
+        // ── Stage B 限额仪表（1.35s 起）──
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-meter-stage',
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          1.35);
+
+        // 1.85s — usage 条上升到 95%
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-meter-fill',
+          { width: "95%", duration: 1.0, ease: "power2.inOut" },
+          1.85);
+
+        // 3.0s — fact 1: "1H"
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-fact-time',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          3.0);
+
+        // 4.6s — fact 2: "7 DAYS"
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-fact-cool',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          4.6);
+        // 4.8s — "7" digit pulse
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-fact-num-big',
+          { scale: 0.7 },
+          { scale: 1, duration: 0.4, ease: "back.out(1.6)" },
+          4.8);
+
+        // 6.0s — fact 3: Pro pill + ❌
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-fact-pro',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          6.0);
+        // 6.6s — Pro pill 划掉（两步：先挂 .is-crossed 准备 transition，再挂 .is-lit 触发 scaleX）
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-5-s1pain"] .b5-fact-pro-pill');
+          if (el) el.classList.add("is-crossed");
+        }, [], 6.6);
+        tl.call(() => {
+          const el = document.querySelector('[data-composition-id="beat-5-s1pain"] .b5-fact-pro-pill');
+          if (el) el.classList.add("is-lit");
+        }, [], 6.65);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-fact-pro-cross',
+          { opacity: 0, scale: 0.6 },
+          { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" },
+          6.7);
+
+        // 7.7s — usage 撞顶（push 到 100%）+ 顶部 ceiling 闪 + lock 显
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-meter-fill',
+          { width: "100%", duration: 0.45, ease: "power2.out" },
+          7.7);
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-meter-ceiling',
+          { opacity: 1, duration: 0.2 },
+          8.05);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-meter-lock',
+          { opacity: 0, scale: 0.6 },
+          { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" },
+          8.1);
+
+        // 8.7s — 限额卡 shake-error 模拟（小幅）
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-meter-card',
+          { x: -6, duration: 0.06, yoyo: true, repeat: 5, ease: "power1.inOut" },
+          8.7);
+
+        // 9.1s — Stage B fade-out
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-meter-stage',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          9.1);
+
+        // ── Stage C X 气泡墙（9.4s 起）──
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-x-stage',
+          { opacity: 1, duration: 0.01 },
+          9.3);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-x-bubble',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.32, duration: 0.45, ease: "power3.out" },
+          9.4);
+
+        // 11.4s — Anthropic 回应
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-anthropic-reply',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          11.4);
+
+        // 12.9s — Stage C fade-out
+        tl.to('[data-composition-id="beat-5-s1pain"] .b5-x-stage',
+          { y: -20, opacity: 0, duration: 0.4, ease: "power2.in" },
+          12.85);
+
+        // ── Stage D "等不了" 大字（13.0s 起）──
+        tl.set('[data-composition-id="beat-5-s1pain"] .b5-final', { opacity: 1 }, 13.0);
+        tl.fromTo('[data-composition-id="beat-5-s1pain"] .b5-final-char',
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.12, duration: 0.4, ease: "power3.out" },
+          13.0);
+
+        // 时长锚点
+        tl.to({}, { duration: 14.5 }, 0);
+        window.__timelines["beat-5-s1pain"] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -11,7 +11,6 @@
 
 <template id="beat-1-hook-template">
   <div
-    id="beat-1-hook"
     data-composition-id="beat-1-hook"
     data-start="0"
     data-duration="8.3"
@@ -93,7 +92,7 @@
     </div>
 
     <style>
-      #beat-1-hook {
+      [data-composition-id="beat-1-hook"] {
         position: absolute;
         inset: 0;
         overflow: hidden;
@@ -102,7 +101,7 @@
       }
 
       /* ── Kicker ── */
-      #beat-1-hook .b1-kicker {
+      [data-composition-id="beat-1-hook"] .b1-kicker {
         position: absolute;
         top: 56px;
         left: 88px;
@@ -116,15 +115,15 @@
         letter-spacing: 0.32em;
         color: var(--muted);
       }
-      #beat-1-hook .b1-kicker-num {
+      [data-composition-id="beat-1-hook"] .b1-kicker-num {
         color: var(--ink);
       }
-      #beat-1-hook .b1-kicker-sep {
+      [data-composition-id="beat-1-hook"] .b1-kicker-sep {
         opacity: 0.5;
       }
 
       /* ── Hero 容器 ── */
-      #beat-1-hook .b1-hero-stack {
+      [data-composition-id="beat-1-hook"] .b1-hero-stack {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -132,7 +131,7 @@
         width: 1700px;
         text-align: center;
       }
-      #beat-1-hook .b1-line {
+      [data-composition-id="beat-1-hook"] .b1-line {
         font-family: var(--serif);
         font-weight: 500;
         letter-spacing: 0;
@@ -144,39 +143,39 @@
         transform: translate(-50%, -50%);
         white-space: nowrap;
       }
-      #beat-1-hook .b1-line-1,
-      #beat-1-hook .b1-line-2 {
+      [data-composition-id="beat-1-hook"] .b1-line-1,
+      [data-composition-id="beat-1-hook"] .b1-line-2 {
         font-size: 88px;
       }
-      #beat-1-hook .b1-line-3 {
+      [data-composition-id="beat-1-hook"] .b1-line-3 {
         font-size: 56px;
         font-weight: 400;
         color: var(--ink);
       }
 
-      #beat-1-hook .b1-char {
+      [data-composition-id="beat-1-hook"] .b1-char {
         display: inline-block;
         opacity: 0;
         transform: translateY(28px);
       }
-      #beat-1-hook .b1-line-3 .b1-char {
+      [data-composition-id="beat-1-hook"] .b1-line-3 .b1-char {
         transform: translateY(18px);
       }
 
-      #beat-1-hook .b1-line-2 {
+      [data-composition-id="beat-1-hook"] .b1-line-2 {
         opacity: 0;
       }
-      #beat-1-hook .b1-line-3 {
+      [data-composition-id="beat-1-hook"] .b1-line-3 {
         opacity: 0;
       }
 
       /* ── Scramble "零容忍" ── */
-      #beat-1-hook .b1-scramble-wrap {
+      [data-composition-id="beat-1-hook"] .b1-scramble-wrap {
         display: inline-block;
         position: relative;
         margin-left: 8px;
       }
-      #beat-1-hook .b1-scramble {
+      [data-composition-id="beat-1-hook"] .b1-scramble {
         display: inline-block;
         font-family: var(--serif);
         font-size: 88px;
@@ -184,12 +183,12 @@
         color: var(--ink);
         transform-origin: center center;
       }
-      #beat-1-hook .b1-sch {
+      [data-composition-id="beat-1-hook"] .b1-sch {
         display: inline-block;
         min-width: 1.05em;
         text-align: center;
       }
-      #beat-1-hook .b1-scramble-underline {
+      [data-composition-id="beat-1-hook"] .b1-scramble-underline {
         position: absolute;
         left: 4px;
         right: 4px;
@@ -203,7 +202,7 @@
       }
 
       /* ── shake-error 抖动（移植 main commit 7ad93ef 的 33 步随机帧，幅度压低适配大字） ── */
-      #beat-1-hook .b1-scramble.is-shaking {
+      [data-composition-id="beat-1-hook"] .b1-scramble.is-shaking {
         animation: b1-shake-error 0.6s ease-in-out both;
       }
       @keyframes b1-shake-error {
@@ -236,7 +235,7 @@
       }
 
       /* ── 3 张作品占位卡 ── */
-      #beat-1-hook .b1-gallery {
+      [data-composition-id="beat-1-hook"] .b1-gallery {
         position: absolute;
         left: 50%;
         bottom: 140px;
@@ -245,7 +244,7 @@
         gap: 40px;
         opacity: 0;
       }
-      #beat-1-hook .b1-card {
+      [data-composition-id="beat-1-hook"] .b1-card {
         position: relative;
         width: 420px;
         height: 420px;
@@ -257,7 +256,7 @@
         transform: translateY(60px);
         background: var(--panel);
       }
-      #beat-1-hook .b1-card-tag {
+      [data-composition-id="beat-1-hook"] .b1-card-tag {
         font-family: var(--sans);
         font-size: 22px;
         font-weight: 700;
@@ -265,14 +264,14 @@
         color: var(--muted);
         text-transform: uppercase;
       }
-      #beat-1-hook .b1-card-meta {
+      [data-composition-id="beat-1-hook"] .b1-card-meta {
         display: flex;
         align-items: center;
         gap: 14px;
       }
 
       /* ── App icon 容器（jimeng/lovart 用 lobe-icons 真 SVG，image2 仍占位） ── */
-      #beat-1-hook .b1-appicon {
+      [data-composition-id="beat-1-hook"] .b1-appicon {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -287,26 +286,26 @@
         flex-shrink: 0;
         box-shadow: 0 4px 12px rgba(11, 11, 8, 0.12);
       }
-      #beat-1-hook .b1-appicon svg {
+      [data-composition-id="beat-1-hook"] .b1-appicon svg {
         width: 32px;
         height: 32px;
         color: #fff;  /* fill="currentColor" → 白色 */
       }
-      #beat-1-hook .b1-appicon sup {
+      [data-composition-id="beat-1-hook"] .b1-appicon sup {
         font-size: 0.6em;
         margin-left: 1px;
         vertical-align: super;
       }
-      #beat-1-hook .b1-appicon-jimeng {
+      [data-composition-id="beat-1-hook"] .b1-appicon-jimeng {
         background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
       }
-      #beat-1-hook .b1-appicon-lovart {
+      [data-composition-id="beat-1-hook"] .b1-appicon-lovart {
         background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
       }
-      #beat-1-hook .b1-appicon-image2 {
+      [data-composition-id="beat-1-hook"] .b1-appicon-image2 {
         background: var(--ink);
       }
-      #beat-1-hook .b1-appicon-name {
+      [data-composition-id="beat-1-hook"] .b1-appicon-name {
         font-family: var(--sans);
         font-size: 22px;
         font-weight: 700;
@@ -315,7 +314,7 @@
       }
 
       /* ── 卡内 mock 图（纯 CSS）── */
-      #beat-1-hook .b1-card-mock {
+      [data-composition-id="beat-1-hook"] .b1-card-mock {
         position: absolute;
         left: 30px;
         right: 30px;
@@ -326,14 +325,14 @@
         overflow: hidden;
       }
       /* mock 1: 9 格设计稿网格 */
-      #beat-1-hook .b1-mock-grid {
+      [data-composition-id="beat-1-hook"] .b1-mock-grid {
         background:
           linear-gradient(var(--line) 1px, transparent 1px),
           linear-gradient(90deg, var(--line) 1px, transparent 1px),
           var(--soft);
         background-size: 33.33% 33.33%;
       }
-      #beat-1-hook .b1-mock-grid::before {
+      [data-composition-id="beat-1-hook"] .b1-mock-grid::before {
         content: "";
         position: absolute;
         left: 12%; top: 14%;
@@ -341,7 +340,7 @@
         background: var(--ink);
         border-radius: 8px;
       }
-      #beat-1-hook .b1-mock-grid::after {
+      [data-composition-id="beat-1-hook"] .b1-mock-grid::after {
         content: "";
         position: absolute;
         right: 14%; bottom: 16%;
@@ -350,10 +349,10 @@
         border-radius: 999px;
       }
       /* mock 2: 三卡片堆叠 */
-      #beat-1-hook .b1-mock-cards {
+      [data-composition-id="beat-1-hook"] .b1-mock-cards {
         background: var(--soft);
       }
-      #beat-1-hook .b1-mock-cards::before {
+      [data-composition-id="beat-1-hook"] .b1-mock-cards::before {
         content: "";
         position: absolute;
         left: 12%; right: 12%; top: 12%;
@@ -363,7 +362,7 @@
         border-radius: 14px;
         box-shadow: 0 8px 16px rgba(11, 11, 8, 0.06);
       }
-      #beat-1-hook .b1-mock-cards::after {
+      [data-composition-id="beat-1-hook"] .b1-mock-cards::after {
         content: "";
         position: absolute;
         left: 12%; right: 12%; top: 38%;
@@ -372,10 +371,10 @@
         border-radius: 14px;
       }
       /* mock 3: 杂志排版 */
-      #beat-1-hook .b1-mock-magazine {
+      [data-composition-id="beat-1-hook"] .b1-mock-magazine {
         background: var(--ink);
       }
-      #beat-1-hook .b1-mock-magazine::before {
+      [data-composition-id="beat-1-hook"] .b1-mock-magazine::before {
         content: "";
         position: absolute;
         left: 14%; top: 14%;
@@ -383,7 +382,7 @@
         background: #fff;
         border-radius: 4px;
       }
-      #beat-1-hook .b1-mock-magazine::after {
+      [data-composition-id="beat-1-hook"] .b1-mock-magazine::after {
         content: "";
         position: absolute;
         left: 14%; top: 30%;
@@ -394,7 +393,7 @@
       }
 
       /* ── 底部 chip ── */
-      #beat-1-hook .b1-chips {
+      [data-composition-id="beat-1-hook"] .b1-chips {
         position: absolute;
         left: 50%;
         bottom: 50px;
@@ -403,7 +402,7 @@
         gap: 40px;
         align-items: center;
       }
-      #beat-1-hook .b1-chip {
+      [data-composition-id="beat-1-hook"] .b1-chip {
         font-family: var(--sans);
         height: 56px;
         padding: 0 28px;
@@ -411,12 +410,12 @@
         opacity: 0;
         transform: translateY(20px);
       }
-      #beat-1-hook .b1-chip-1 {
+      [data-composition-id="beat-1-hook"] .b1-chip-1 {
         background: var(--ink);
         color: #fff;
         border-color: var(--ink);
       }
-      #beat-1-hook .b1-chip-2 {
+      [data-composition-id="beat-1-hook"] .b1-chip-2 {
         background: var(--lime);
         color: var(--ink);
         border-color: var(--lime);
@@ -464,25 +463,25 @@
         // ============ TIMELINE ============
 
         // 0.00s — Kicker 滑入
-        tl.fromTo("#beat-1-hook .b1-kicker",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-kicker',
           { x: -20, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
           0.0);
 
         // ── 句 1（0.05s–1.30s）"作为设计师出身的我" ──
-        tl.fromTo("#beat-1-hook .b1-line-1 .b1-char",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-line-1 .b1-char',
           { y: 28, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.07, duration: 0.45, ease: "power3.out" },
           0.05);
 
         // 1.30s — 句 1 fade + 上飘
-        tl.to("#beat-1-hook .b1-line-1",
+        tl.to('[data-composition-id="beat-1-hook"] .b1-line-1',
           { y: -40, opacity: 0, duration: 0.35, ease: "power2.in" },
           1.30);
 
         // ── 句 2（1.55s–3.55s）"对这种 AI 默认的审美" + "零容忍" scramble ──
-        tl.set("#beat-1-hook .b1-line-2", { opacity: 1 }, 1.55);
-        tl.fromTo("#beat-1-hook .b1-line-2 .b1-line-2-prefix .b1-char",
+        tl.set('[data-composition-id="beat-1-hook"] .b1-line-2', { opacity: 1 }, 1.55);
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-line-2 .b1-line-2-prefix .b1-char',
           { y: 28, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.06, duration: 0.42, ease: "power3.out" },
           1.55);
@@ -510,7 +509,7 @@
         }, 2.25);
 
         // 3.10s — "零容忍" 下方 lime 横划线展开
-        tl.fromTo("#beat-1-hook .b1-scramble-underline",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-scramble-underline',
           { scaleX: 0 },
           { scaleX: 1, duration: 0.45, ease: "expo.out" },
           3.10);
@@ -520,53 +519,53 @@
         tl.to({}, {
           duration: 0.6,
           onStart() {
-            const el = document.querySelector("#beat-1-hook .b1-scramble");
+            const el = document.querySelector('[data-composition-id="beat-1-hook"] .b1-scramble');
             if (el) el.classList.add("is-shaking");
           },
           onComplete() {
-            const el = document.querySelector("#beat-1-hook .b1-scramble");
+            const el = document.querySelector('[data-composition-id="beat-1-hook"] .b1-scramble');
             if (el) el.classList.remove("is-shaking");
           }
         }, 3.10);
 
         // 3.55s — 句 2 整体 fade + 上飘
-        tl.to("#beat-1-hook .b1-line-2",
+        tl.to('[data-composition-id="beat-1-hook"] .b1-line-2',
           { y: -50, opacity: 0, duration: 0.3, ease: "power2.in" },
           3.55);
 
         // ── 句 3（3.85s 起）"而这些是我通过工作流跑出来的" ──
         // y: -260 把 hero 完全推到画布上半（中心 ~280px），给卡片让出 200px+ 空白
-        tl.set("#beat-1-hook .b1-line-3", { opacity: 1 }, 3.85);
-        tl.fromTo("#beat-1-hook .b1-line-3",
+        tl.set('[data-composition-id="beat-1-hook"] .b1-line-3', { opacity: 1 }, 3.85);
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-line-3',
           { y: 20 },
           { y: -260, duration: 0.7, ease: "power3.out" },
           3.85);
-        tl.fromTo("#beat-1-hook .b1-line-3 .b1-char",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-line-3 .b1-char',
           { y: 18, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "power3.out" },
           3.85);
 
         // ── 3 张作品占位卡（4.0s 起，错开 0.25s）──
-        tl.to("#beat-1-hook .b1-gallery",
+        tl.to('[data-composition-id="beat-1-hook"] .b1-gallery',
           { opacity: 1, duration: 0.01 },
           4.0);
-        tl.fromTo("#beat-1-hook .b1-card",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-card',
           { y: 60, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.25, duration: 0.6, ease: "power3.out" },
           4.0);
 
         // ── chip 1（6.10s）"一个比一个简单" ──
-        tl.fromTo("#beat-1-hook .b1-chip-1",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-chip-1',
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" },
           6.10);
 
         // ── chip 2（7.15s）"一个比一个好看" + pulse ──
-        tl.fromTo("#beat-1-hook .b1-chip-2",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-chip-2',
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" },
           7.15);
-        tl.fromTo("#beat-1-hook .b1-chip-2",
+        tl.fromTo('[data-composition-id="beat-1-hook"] .b1-chip-2',
           { scale: 1 },
           { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
           7.55);

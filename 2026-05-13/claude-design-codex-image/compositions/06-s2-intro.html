@@ -1,0 +1,388 @@
+<!-- BEAT 6 · S2-INTRO · 9.5s（绝对 57.5 → 67.0）
+     SRT 切分（7 句，相对 beat 起点）：
+       0.033–1.266  "所以我就换了一个思路啊"        switch icon + chip "换思路"
+       1.266–2.666  "就到了我们的第二阶段"          PHASE 02 大字
+       2.700–4.433  "让Claude Design做大脑"         Claude 圆 logo + "BRAIN" 标
+       4.433–5.500  "出设计规范"                    SPEC doc 卡 emit
+       5.500–7.400  "那把设计规范我怎么呢/丢给Codex" connector + Codex 圆 logo 出现
+       7.400–8.500  "丢给Codex"                    SPEC → Codex 流向
+       8.500–9.466  "让他去执行"                    Codex "EXEC" pulse
+     视觉锚点：horizontal pipeline — Claude(BRAIN) → SPEC → Codex(EXEC)
+-->
+
+<template id="beat-6-s2intro-template">
+  <div
+    data-composition-id="beat-6-s2intro"
+    data-start="0"
+    data-duration="9.5"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b6-kicker">
+      <span class="b6-kicker-num">PHASE 02</span>
+      <span class="b6-kicker-sep">·</span>
+      <span class="b6-kicker-label">SPLIT THE BRAIN</span>
+    </div>
+
+    <!-- Stage A: 换思路 + PHASE 02 标题 -->
+    <div class="b6-stageA">
+      <div class="b6-stageA-switch">
+        <span class="b6-switch-icon">
+          <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+            <polyline points="4,8 8,4 12,8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <line x1="8" y1="4" x2="8" y2="20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></line>
+            <polyline points="20,16 16,20 12,16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <line x1="16" y1="20" x2="16" y2="4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></line>
+          </svg>
+        </span>
+        <span class="b6-switch-label text-cn">换 思 路</span>
+      </div>
+      <h1 class="b6-stageA-title text-cn">
+        <span class="b6-char">第</span><span class="b6-char">二</span><span class="b6-char">阶</span><span class="b6-char">段</span>
+      </h1>
+    </div>
+
+    <!-- Stage B: Brain → Spec → Exec pipeline -->
+    <div class="b6-pipeline">
+      <!-- Brain (Claude) -->
+      <div class="b6-node b6-node-brain">
+        <div class="b6-node-role text-cn">大 脑</div>
+        <div class="b6-node-disc b6-disc-claude">
+          <span class="b6-disc-letter">C</span>
+        </div>
+        <div class="b6-node-name">Claude Design</div>
+      </div>
+
+      <!-- Connector 1 -->
+      <div class="b6-conn" data-conn="1">
+        <svg viewBox="0 0 120 24" width="120" height="24" aria-hidden="true">
+          <line class="b6-conn-line" x1="0" y1="12" x2="100" y2="12"></line>
+          <polyline class="b6-conn-arrow" points="92,5 108,12 92,19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </div>
+
+      <!-- Spec doc -->
+      <div class="b6-node b6-node-spec">
+        <div class="b6-node-role text-cn">设 计 规 范</div>
+        <div class="b6-spec-doc card">
+          <div class="b6-spec-row">
+            <span class="b6-spec-key">颜色</span>
+            <span class="b6-spec-val">#0b0b08</span>
+          </div>
+          <div class="b6-spec-row">
+            <span class="b6-spec-key">字号</span>
+            <span class="b6-spec-val">88 / 56 / 28</span>
+          </div>
+          <div class="b6-spec-row">
+            <span class="b6-spec-key">圆角</span>
+            <span class="b6-spec-val">28 / 22 / 12</span>
+          </div>
+          <div class="b6-spec-row">
+            <span class="b6-spec-key">间距</span>
+            <span class="b6-spec-val">8 / 16 / 24</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connector 2 -->
+      <div class="b6-conn" data-conn="2">
+        <svg viewBox="0 0 120 24" width="120" height="24" aria-hidden="true">
+          <line class="b6-conn-line" x1="0" y1="12" x2="100" y2="12"></line>
+          <polyline class="b6-conn-arrow" points="92,5 108,12 92,19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg>
+      </div>
+
+      <!-- Exec (Codex) -->
+      <div class="b6-node b6-node-exec">
+        <div class="b6-node-role text-cn">执 行</div>
+        <div class="b6-node-disc b6-disc-codex">
+          <span class="b6-disc-letter">&gt;_</span>
+        </div>
+        <div class="b6-node-name">Codex</div>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-6-s2intro"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-6-s2intro"] .b6-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A ── */
+      [data-composition-id="beat-6-s2intro"] .b6-stageA {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-stageA-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 26px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 999px;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-switch-icon {
+        color: var(--lime);
+        display: inline-flex;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-switch-label {
+        font-family: var(--sans);
+        font-size: 24px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 0.06em;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-stageA-title {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 168px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      /* ── Stage B Pipeline ── */
+      [data-composition-id="beat-6-s2intro"] .b6-pipeline {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-node-role {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-node-disc {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(11, 11, 8, 0.08);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-disc-claude {
+        background: linear-gradient(135deg, #D97757 0%, #C25E3B 100%);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-disc-codex {
+        background: var(--ink);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-disc-letter {
+        font-family: var(--serif);
+        font-size: 120px;
+        font-weight: 500;
+        color: #fff;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-disc-codex .b6-disc-letter {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 80px;
+        font-weight: 700;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-node-name {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+
+      /* spec doc */
+      [data-composition-id="beat-6-s2intro"] .b6-node-spec {
+        gap: 14px;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-spec-doc {
+        width: 380px;
+        padding: 28px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-spec-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-spec-key {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-spec-val {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      /* connectors */
+      [data-composition-id="beat-6-s2intro"] .b6-conn {
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-conn-line {
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        stroke-linecap: round;
+      }
+      [data-composition-id="beat-6-s2intro"] .b6-conn-arrow {
+        opacity: 0;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A 换思路 + 第二阶段（0.0–2.5s）──
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-stageA',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          0.0);
+        // 0.2s — switch chip 入场
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-stageA-switch',
+          { scale: 0.85 },
+          { scale: 1, duration: 0.35, ease: "back.out(1.6)" },
+          0.2);
+        // 1.0s — "第二阶段" stagger
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-stageA-title .b6-char',
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.4, ease: "power3.out" },
+          1.0);
+
+        // 2.4s — Stage A fade-out
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-stageA',
+          { y: -40, opacity: 0, duration: 0.4, ease: "power2.in" },
+          2.4);
+
+        // ── Stage B Pipeline（2.7s 起）──
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-pipeline',
+          { opacity: 1, duration: 0.01 },
+          2.7);
+
+        // 2.7s — Brain (Claude) 入场
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-node-brain',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          2.7);
+
+        // 4.3s — Spec doc 容器
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-node-spec',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          4.3);
+
+        // 4.4s — Connector 1 draw
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="1"]',
+          { opacity: 1, duration: 0.01 },
+          4.4);
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="1"] .b6-conn-line',
+          { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" },
+          4.4);
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="1"] .b6-conn-arrow',
+          { opacity: 1, duration: 0.15, ease: "power2.out" },
+          4.9);
+
+        // 4.6s — spec doc 4 行依次浮现
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-spec-row',
+          { y: 8, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.18, duration: 0.3, ease: "power3.out" },
+          4.6);
+
+        // 6.8s — Exec (Codex) 入场
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-node-exec',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          6.8);
+
+        // 7.4s — Connector 2 draw
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="2"]',
+          { opacity: 1, duration: 0.01 },
+          7.4);
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="2"] .b6-conn-line',
+          { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" },
+          7.4);
+        tl.to('[data-composition-id="beat-6-s2intro"] .b6-conn[data-conn="2"] .b6-conn-arrow',
+          { opacity: 1, duration: 0.15, ease: "power2.out" },
+          7.9);
+
+        // 8.5s — Codex disc pulse "执行"
+        tl.fromTo('[data-composition-id="beat-6-s2intro"] .b6-disc-codex',
+          { scale: 1 },
+          { scale: 1.08, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 },
+          8.5);
+
+        // 时长锚点
+        tl.to({}, { duration: 9.5 }, 0);
+        window.__timelines["beat-6-s2intro"] = tl;
+      })();
+    </script>
+  </div>
+</template>

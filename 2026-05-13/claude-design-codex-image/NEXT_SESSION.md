@@ -1,6 +1,6 @@
 # NEXT_SESSION · AI 生图工作流复盘视频 · 2026-05-13
 
-> 新对话接手这条视频时**先读这个文件**，再读 `compositions/01-hook.html` 看当前实现。
+> 新对话接手这条视频时**先读这个文件**，再读相应 beat html。
 
 ## 快速重启
 
@@ -9,92 +9,108 @@ cd "/Users/chenhuajin/项目/参考仓库/hyperframes/.claude/worktrees/ai-image
 npx hyperframes preview    # http://localhost:3002
 ```
 
-- worktree branch：`worktree-ai-image-workflow-video`（基于 `402f050`，比 main 落后 9 个 commit）
-- 不要 merge main 进 worktree——保持隔离；最后一次性 merge worktree branch → main 即可
+- worktree branch：`worktree-ai-image-workflow-video`
+- 不要 merge main 进 worktree — 保持隔离；最后一次性 merge worktree branch → main
 
-## 项目状态（截至 commit 当下）
+## 项目状态（2026-05-13 第二次会话后）
 
 - **总时长**：193.5s（3 分 13 秒），SRT 在 `../AI生图(1).srt`
-- **已完成**：仅 **beat 1 (hook, 8.3s)**
-- **未做**：beat 2-13（见下方"beat 切分表"）
-- **`index.html` 当前 `data-duration` = 8.3s**——加新 beat 时要同步改成新总时长
+- **13 个 beat 全部 code-complete**，0 error 通过 lint
+- **下一步**：用户在 preview 浏览器里反复看，挑出需要打磨的 beat 局部 → 回来一条一条迭代
 
-## 视觉风格（用户当面给的 tokens）
+## Beat 完成清单（全部 ✓ lint 通过）
 
-- **底色**：极浅米 `--bg: #fafaf8`（不是旧 DNA 的暖米 `#F7F2EA`）
+| # | 时间 (绝对) | 时长 | 内容 | 文件 |
+|---|---|---|---|---|
+| 1 hook | 0 → 8.3 | 8.3s | 设计师 / 零容忍 scramble / 3 卡 / chip | `01-hook.html` |
+| 2 teaser | 8.3 → 11.19 | 2.89s | "AI 生图三阶段" hero + 3 圆 01/02/03 | `02-teaser.html` |
+| 3 s1-intro | 11.2 → 23.0 | 11.8s | PHASE 01 / Claude Design 卡 / Figma 挖角 / 股价 sparkline | `03-s1-intro.html` |
+| 4 s1-flow | 23.0 → 43.0 | 20.0s | 即梦 chip → 3 step（截图 → token 4 chip → HTML code → 网页 mock）→ ✓ | `04-s1-flow.html` |
+| 5 s1-pain | 43.0 → 57.5 | 14.5s | warning / usage 撞顶 / 7 days / Pro ❌ / X 气泡墙 / Anthropic 回应 / "等不了" | `05-s1-pain.html` |
+| 6 s2-intro | 57.5 → 67.0 | 9.5s | 换思路 → 第二阶段 → Claude(BRAIN) → SPEC → Codex(EXEC) pipeline | `06-s2-intro.html` |
+| 7 s2-detail | 67.0 → 80.0 | 13.0s | 两列对比（Codex speed/$ vs Claude code/$）+ 各司其职 + lime "天选打工" | `07-s2-detail.html` |
+| 8 s2-result | 80.0 → 90.0 | 10.0s | Lovart chip + 文章封面 + 3 衍生 thumb + 设计 chip + ❤ | `08-s2-result.html` ⚠ |
+| 9 reflection | 90.0 → 115.0 | 25.0s | 💡思考 → 流程 → "HTML = 中间产物" lime 删除线 → Anthropic 文章 + 10M lime counter → Markdown/HTML 二元 | `09-reflection.html` |
+| 10 s3-intro | 115.0 → 137.0 | 22.0s | 角色卡 "AI+IP 流量操盘" + 4 平台 chip → "一张图" → "为什么不直接 gpt-image" + 中文 chip → 旧流程划掉/新流程 | `10-s3-intro.html` |
+| 11 s3-key | 137.0 → 161.0 | 24.0s | KEY 警示 → "先规范 → 再生图" hero → 3 ✗ 卡（样式/间距/状态）→ "Codex 自己想" 警告 → lime "最重要" pill | `11-s3-key.html` |
+| 12 s3-result | 161.0 → 173.0 | 12.0s | 4 stat 卡（时间↓ 5-6分钟 / 丰富↑ ×3 / 美↑ ★★★★★ / TOKEN↓ −70%） + ❤ | `12-s3-result.html` |
+| 13 outro | 173.0 → 193.5 | 20.5s | AI 进化 chip → SOP 文档卡（4 步 + lime "完整提示词"）→ "AI 做视频" 下集预告 + lime 横划 → CTA button-primary | `13-outro.html` |
+
+## 视觉风格（用户当面给的 tokens，全 13 beat 严格执行）
+
+- **底色**：极浅米 `--bg: #fafaf8`
 - **墨黑**：`--ink: #0b0b08`
 - **跳色**：荧光柠檬 `--lime: #dcff45`（替代 Claude 橙的角色，稀缺使用）
 - **字体**：`--sans` SF Pro / PingFang SC（正文）+ `--serif` Songti SC（hero）
 - **卡片**：白底 + 28/22/12px 圆角 + 极淡阴影 + `featured` 顶部 lime inset 横条
-- **规则**：用户明确说**只参考方向不严格照搬**——可灵活调
 
 tokens 文件：`assets/tokens.css`
 
-## Beat 1 现状（v3）
+**lime 使用规则**：仅用于「关键肯定/强调/数字 stat/CTA」；
+**不用于** beat 5 pain（语义冲突 — pain 段用 ink 实色高对比表达）。
 
-- 字号：hero 88px / 副 hero 56px / chip 24px（用户反馈 144 太大，已降）
-- 句 3 `y: -260` 上移到画布上半，跟下半 3 张卡片完全分离
-- "零容忍"：scramble 解密（中文 14 字池）+ lime 横划线 + shake-error 抖动 0.6s
-- 3 卡：参考一 即梦 / 参考二 Lovart / 参考三 gpt-image，底部都是 52×52 圆角 app icon + 应用名
+## 已用 main 最近组件（来自 commit a0d1545 + 7ad93ef）
 
-## 已用 main 最近组件（commit a0d1545 + 7ad93ef，8 个里的 3 个）
+- **aceternity-typewriter 思路** → beat 1 字符 stagger fade+y 入场
+- **magic-hyper-text scramble** → beat 1 "零容忍" 中文字符解密（确定性 PRNG + GSAP onUpdate）
+- **shake-error** → beat 1 "零容忍" 抖动 + beat 5 usage 撞顶卡 shake
 
-- **aceternity-typewriter** 思路 → 字符 stagger fade+y 入场（去掉光标和打字感）
-- **magic-hyper-text** scramble → "零容忍" 中文字符解密（charset 改成中文，`Math.random` → mulberry32 PRNG，`requestAnimationFrame` → GSAP onUpdate，满足确定性渲染）
-- **shake-error** 抖动 → "零容忍" 强调情绪（CSS @keyframes 33 步随机帧，幅度压低）
-
-剩余 5 个组件给后续 beat 用：`eldora-terminal` / `magic-terminal`（Codex / Claude Code 阶段）/ `magic-retro-grid`（不太适配新风格，跳过）/ `pulse-bars` / `orbit-dots`（loading / 活力指示）
-
-## Logo 资产（lobe-icons 拉取）
+## Logo 资产（已内联到 01-hook.html / 04-s1-flow.html / 10-s3-intro.html）
 
 工程内 `assets/logos/`：
-- `jimeng.svg` — 即梦（lobe-icons `packages/static-svg/icons/jimeng.svg`）
-- `lovart.svg` — Lovart（同上）
-- `openai.svg` — OpenAI gpt-image（同上）—— 用户确认 SRT 里"image-2"= OpenAI gpt-image
+- `jimeng.svg`（lobe-icons jimeng）
+- `lovart.svg`（lobe-icons lovart）
+- `openai.svg`（lobe-icons openai → gpt-image）
 
-3 个都是 mono SVG（`fill="currentColor"`），**已内联到 `01-hook.html`**，CSS 染白色叠在品牌色圆角方块上。
+### ⚠ TODO（worktree merge 回 main 后再做）
 
-### ⚠️ TODO（worktree merge 回 main 后再做）
-
-把 3 个 SVG 也加进总库 `参考库/assets/logos/`，并在 `LOGOS.md` 加一节"AI 图像生成"，避免下次别的视频重复拉：
+把 3 个 SVG 加进总库 `参考库/assets/logos/`，在 `LOGOS.md` 加一节"AI 图像生成"：
 
 ```bash
 # merge 后
 cp 2026-05-13/claude-design-codex-image/assets/logos/{jimeng,lovart,openai}.svg \
    参考库/assets/logos/
-# 然后编辑 参考库/assets/logos/LOGOS.md：
-#   - 清单从"33 个"改"36 个"（openai 可能已存在，先 ls 一下）
-#   - 在"### 工具 / 协议"后加"### AI 图像生成"小节
-# 或者跑 bash scripts/refresh-catalog.sh 同款方式
+# 编辑 参考库/assets/logos/LOGOS.md：加"### AI 图像生成"小节
 ```
 
-## Beat 切分表（13 beat，时间码硬编码）
+## 已知未定项 / 等真素材
 
-| # | 时间 | 时长 | 内容 | 视觉锚点 |
-|---|---|---|---|---|
-| 1 hook | 0.0–8.3 | 8.3s | "设计师出身/默认审美零容忍/工作流跑出来的/一个比一个简单/好看" | **已完成** |
-| 2 teaser | 8.3–11.2 | 2.9s | "复盘 AI 生图三阶段" | 三个圆 stage chip 横排 01/02/03 |
-| 3 s1-intro | 11.2–23.0 | 11.8s | Claude Design / Anthropic 上月发 / 挖 Figma 副总裁 / Figma 股价下跌 | Claude 橙 logo + 产品 hero + Figma 下落 sparkline |
-| 4 s1-flow | 23.0–43.0 | 20.0s | 即梦 Agent 拆解 / 截界面 / 反推设计规范 / 写 HTML 出图 / 效果真好 | 三步流程卡：截图 → token 板（颜色/字号/排版/留白 4 chip）→ HTML 出图 |
-| 5 s1-pain | 43.0–57.5 | 14.5s | 大坑：周限额 / 冷却一周 / Pro 救不了 / 推上吐槽 / 等不了 | warning 卡：限额条触顶变红 + 倒计时 + Twitter 气泡 |
-| 6 s2-intro | 57.5–67.0 | 9.5s | 第二阶段：Claude Design 做大脑 + Codex 执行 | Claude logo "大脑" + 箭头 → Codex logo "执行" |
-| 7 s2-detail | 67.0–80.0 | 13.0s | Codex 便宜按系统快 / Claude 代码能力强 / 各司其职 / 天选打工 | 两列能力对比卡（★/价格） |
-| 8 s2-result | 80.0–90.0 | 10.0s | 拆 lovart 的文章配图就是这么做 | Lovart 拆解成品图（mock，等真截图） |
-| 9 reflection | 90.0–115.0 | 25.0s | HTML 是中间产物 / Anthropic 千万浏览文章 / Markdown 给 AI / HTML 给人 | hero "HTML = 中间产物" + 文章卡 + 千万浏览 lime stat |
-| 10 s3-intro | 115.0–137.0 | 22.0s | AI+IP 操盘 / 要一张图 / 为何不直接 Codex 调 image2 / 中文能力 / 跳过 HTML | 新工作流图：参考图 → Codex → gpt-image → 成品；旧"HTML"划掉 |
-| 11 s3-key | 137.0–161.0 | 24.0s | 关键：先规范再生图 / 不框死 Codex 自己想 / 非设计师最易省 / 最重要 | hero "先规范 → 再生图" + 三 ✗ 卡（卡片样式/间距/状态）+ lime "最重要" pill |
-| 12 s3-result | 161.0–173.0 | 12.0s | 5-6 分钟出一套 / 比 HTML 快丰富好看 / TOKEN 还少 | 四 stat 卡：时间↓ / 丰富↑ / 美↑ / TOKEN↓（lime 数字） |
-| 13 outro | 173.0–193.5 | 20.5s | AI 还会进化 / SOP 文档已整理 / 想要可以尝试 / 下集 AI 做视频 / 感兴趣聊聊 | SOP 文档卡 + button-primary "下集预告" + lime 提示 chip |
+- **beat 8 lovart 拆解成品图**：当前是 mock 卡片，等用户提供真截图替换 → 文件标 `⚠`
+- **beat 9 Anthropic 千万浏览文章**：只用文字引用 + 占位 line（避免侵权）
+- **beat 3 Figma 股价**：示意 sparkline，−14.2% 是虚拟数字
+- **beat 12 TOKEN −70%**：示意，等用户给真实对比数字
+- **静音输出**：本工程不挂音频，最终在达芬奇里合配音 + 加字幕
+
+## 硬约束遵守情况
+
+| # | 约束 | 检查 |
+|---|---|---|
+| 1 | GSAP querySelector 不用 template literal | ✓ 全 13 beat 通过 lint |
+| 2 | beat html 全局换 id | ✓ b1-* / b2-* / .../ b13-* 全部隔离 |
+| 3 | DaVinci 21 不渲染含中文文字的手写 Lottie | ✓ 本工程没用 Lottie |
+| 4 | 中文 Whisper transcribe 绕 hyperframes CLI | ✓ SRT 已有，未用 transcribe |
+| 5 | `npx hyperframes` 在工程目录跑 | ✓ |
 
 ## 节奏纪律（用户 memory 已强调）
 
-- **绝不主动 render**，除非用户明确说"渲一版"（memory: `feedback_workflow_polish_in_browser`）
-- **lint 0 error 后唯一动作**：保持 preview 跑着 + 等用户在浏览器里反馈
-- **每个 SRT 关键词必须对应一个视觉变化**，不能空窗（memory: `feedback_visual_sync_to_srt`）
+- **绝不主动 render**，除非用户明确说"渲一版"
+- **lint 0 error 后唯一动作**：保持 preview 跑着 + 等用户在浏览器里反馈 + 局部迭代
+- **每个 SRT 关键词必须对应一个视觉变化**（13 beat 都按 SRT 句切分，timeline 注释逐句标注）
 
-## 已知未定项
+## 接手后第一步
 
-- **beat 8 lovart 拆解成品图**：当前会用 mock 卡片，等用户提供真截图替换
-- **beat 9 Anthropic 千万浏览文章**：只用文字引用不放截图（避免侵权）
-- **beat 3 Figma 股价**：示意性虚拟 sparkline，不用真实数据
-- **静音输出**：本工程不挂音频，最终在达芬奇里合配音 + 加字幕
+```bash
+cd "/Users/chenhuajin/项目/参考仓库/hyperframes/.claude/worktrees/ai-image-workflow-video/2026-05-13/claude-design-codex-image"
+# preview 仍在 3002 端口跑（PID 70580 检查）；不在的话：
+npx hyperframes preview
+# 然后用户在浏览器里看：
+# - 从头到尾扫一遍 0:00 → 3:13
+# - 标出哪些 beat / 哪个时间点要打磨
+# - 回来告诉 AI 具体改哪里
+```
+
+`.thumbnails/` 已清空。下次 preview 启动会重新生成。
+
+## File-size warning
+
+`04-s1-flow.html` 是 688 行（lint warning，非 error）。这是因为它要承载完整 3 step workflow（截图卡 / token 4 chip / code 卡 / 网页 mock）。如果未来想拆分，可以把 capture/token/code 三个 step 各自抽成独立 sub-composition，但目前不必。

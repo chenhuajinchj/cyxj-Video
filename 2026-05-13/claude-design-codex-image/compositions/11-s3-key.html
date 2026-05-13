@@ -1,0 +1,532 @@
+<!-- BEAT 11 · S3-KEY · 24.0s（绝对 137.0 → 161.0）
+     SRT 切分（13 句，相对 beat 起点）：
+       0.000–2.933  "这里有个非常关键的点啊"        KEY 警示标
+       2.933–4.900  "一定要让Codex先去规范"         hero step 1
+       4.900–5.700  "再生成图"                      hero step 2
+       5.733–7.933  "不能够直接丢个参考图就让它生成"
+       7.966–9.500  "它不一定有卡片的样式"          ✗ 卡 1: 卡片样式
+       9.500–11.000 "不定有间距的规则"              ✗ 卡 2: 间距
+       11.000–12.600 "不一定有各种状态"             ✗ 卡 3: 状态
+       12.733–14.133 "如果你不框死规范"
+       14.133–15.366 "Codex就会自己想"              "AI 自己想" 警告
+       15.500–16.533 "那这一步"
+       16.533–19.100 "不是设计师出身的人最容易省掉"
+       19.133–19.866 "但他才是这套工作流程"
+       20.933–21.900 "最重要的一个点"               lime "最重要" pill
+       21.933–24.000 "这样子整体的效果才不会跑偏"   "不跑偏" 收尾
+     视觉锚点：hero "先规范 → 再生图" + 三 ✗ 卡 + lime "最重要" pill
+-->
+
+<template id="beat-11-s3key-template">
+  <div
+    data-composition-id="beat-11-s3key"
+    data-start="0"
+    data-duration="24.0"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker -->
+    <div class="b11-kicker">
+      <span class="b11-kicker-num">PHASE 03</span>
+      <span class="b11-kicker-sep">·</span>
+      <span class="b11-kicker-label">THE KEY POINT</span>
+    </div>
+
+    <!-- Stage A: KEY 警示 -->
+    <div class="b11-stageA">
+      <div class="b11-key-banner">
+        <span class="b11-key-tag">KEY</span>
+        <span class="b11-key-text text-cn">非 常 关 键 的 点</span>
+      </div>
+    </div>
+
+    <!-- Stage B: hero "先规范 → 再生图" -->
+    <div class="b11-stageB">
+      <div class="b11-flow">
+        <div class="b11-flow-step b11-flow-step-1">
+          <div class="b11-flow-step-num">01</div>
+          <div class="b11-flow-step-text text-cn">先 规 范</div>
+        </div>
+        <div class="b11-flow-arrow">
+          <svg viewBox="0 0 80 24" width="80" height="24" aria-hidden="true">
+            <line class="b11-arrow-line" x1="0" y1="12" x2="60" y2="12" stroke-width="3" stroke-linecap="round"></line>
+            <polyline class="b11-arrow-head" points="56,5 68,12 56,19" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          </svg>
+        </div>
+        <div class="b11-flow-step b11-flow-step-2">
+          <div class="b11-flow-step-num">02</div>
+          <div class="b11-flow-step-text text-cn">再 生 图</div>
+        </div>
+      </div>
+      <div class="b11-cautious text-cn">
+        不 能 直 接 丢 参 考 图 就 让 Codex 生 成
+      </div>
+    </div>
+
+    <!-- Stage C: 三 ✗ 卡 -->
+    <div class="b11-stageC">
+      <div class="b11-x-grid">
+        <div class="b11-x-card" data-x="1">
+          <div class="b11-x-mark">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+              <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+            </svg>
+          </div>
+          <div class="b11-x-title text-cn">卡 片 样 式</div>
+          <div class="b11-x-mock b11-x-mock-1">
+            <div class="b11-x-mock-card"></div>
+            <div class="b11-x-mock-card b11-x-mock-card-2"></div>
+          </div>
+        </div>
+        <div class="b11-x-card" data-x="2">
+          <div class="b11-x-mark">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+              <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+            </svg>
+          </div>
+          <div class="b11-x-title text-cn">间 距 规 则</div>
+          <div class="b11-x-mock b11-x-mock-2">
+            <div class="b11-x-mock-bar"></div>
+            <div class="b11-x-mock-bar b11-x-mock-bar-2"></div>
+            <div class="b11-x-mock-bar b11-x-mock-bar-3"></div>
+          </div>
+        </div>
+        <div class="b11-x-card" data-x="3">
+          <div class="b11-x-mark">
+            <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+              <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+              <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></line>
+            </svg>
+          </div>
+          <div class="b11-x-title text-cn">各 种 状 态</div>
+          <div class="b11-x-mock b11-x-mock-3">
+            <div class="b11-x-state b11-x-state-1">default</div>
+            <div class="b11-x-state b11-x-state-2">hover</div>
+            <div class="b11-x-state b11-x-state-3">disabled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage D: AI 自己想 警告 + 最重要 -->
+    <div class="b11-stageD">
+      <div class="b11-warn-row">
+        <span class="b11-warn-icon">
+          <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+            <polygon points="12,2 22,22 2,22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"></polygon>
+            <line x1="12" y1="9" x2="12" y2="14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></line>
+            <circle cx="12" cy="17.5" r="1.3" fill="currentColor"></circle>
+          </svg>
+        </span>
+        <span class="b11-warn-text text-cn">不 框 死 — Codex 就 会 自 己 想</span>
+      </div>
+      <div class="b11-easy-skip text-cn">
+        非 设 计 师 最 容 易 省 掉 的 一 步
+      </div>
+      <div class="b11-most-important">
+        <span class="pill hot b11-most-pill text-cn">⭐ 最 重 要 的 一 个 点</span>
+      </div>
+    </div>
+
+    <style>
+      [data-composition-id="beat-11-s3key"] {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      [data-composition-id="beat-11-s3key"] .b11-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      [data-composition-id="beat-11-s3key"] .b11-kicker-num {
+        color: var(--ink);
+        background: var(--lime);
+        padding: 4px 12px;
+        border-radius: 8px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-kicker-sep { opacity: 0.5; }
+
+      /* ── Stage A: KEY 警示 ── */
+      [data-composition-id="beat-11-s3key"] .b11-stageA {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-key-banner {
+        display: inline-flex;
+        align-items: center;
+        gap: 26px;
+        padding: 26px 44px;
+        background: var(--ink);
+        border-radius: 26px;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-key-tag {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--ink);
+        background: var(--lime);
+        padding: 8px 18px;
+        border-radius: 12px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-key-text {
+        font-family: var(--serif);
+        font-size: 72px;
+        font-weight: 500;
+        color: #fff;
+      }
+
+      /* ── Stage B: hero "先规范 → 再生图" ── */
+      [data-composition-id="beat-11-s3key"] .b11-stageB {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-flow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        margin-bottom: 50px;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-flow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      [data-composition-id="beat-11-s3key"] .b11-flow-step-num {
+        font-family: var(--sans);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--lime);
+        padding: 6px 16px;
+        border-radius: 12px;
+        letter-spacing: 0.16em;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-flow-step-text {
+        font-family: var(--serif);
+        font-size: 132px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-flow-arrow {
+        color: var(--ink);
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-arrow-line {
+        stroke: currentColor;
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-arrow-head {
+        stroke: currentColor;
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-cautious {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+        opacity: 0;
+      }
+
+      /* ── Stage C: 三 ✗ 卡 ── */
+      [data-composition-id="beat-11-s3key"] .b11-stageC {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-grid {
+        display: flex;
+        gap: 40px;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-card {
+        width: 380px;
+        height: 460px;
+        padding: 30px 30px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 12px 28px rgba(11, 11, 8, 0.04);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        opacity: 0;
+        transform: translateY(20px);
+        position: relative;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mark {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-title {
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock {
+        flex: 1;
+        background: var(--soft);
+        border-radius: 18px;
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock-card {
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        width: 56%;
+        height: 30%;
+        background: var(--ink);
+        border-radius: 12px;
+        opacity: 0.4;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock-card-2 {
+        left: auto;
+        right: 14px;
+        top: 36%;
+        width: 50%;
+        height: 26%;
+        border-radius: 4px;
+        background: var(--muted);
+        opacity: 0.7;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock-bar {
+        height: 16px;
+        background: var(--muted);
+        border-radius: 4px;
+        margin-bottom: 24px;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock-bar-2 {
+        margin-bottom: 4px;
+        width: 80%;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-mock-bar-3 {
+        width: 60%;
+        margin-top: 40px;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-state {
+        display: inline-block;
+        padding: 8px 14px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 16px;
+        color: var(--muted);
+        margin: 6px 6px 0 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-x-state-1 { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+      /* ── Stage D: 警告 + 最重要 ── */
+      [data-composition-id="beat-11-s3key"] .b11-stageD {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-warn-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 22px;
+        padding: 22px 36px;
+        background: var(--ink);
+        border-radius: 22px;
+        margin-bottom: 32px;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      [data-composition-id="beat-11-s3key"] .b11-warn-icon {
+        color: var(--lime);
+        display: inline-flex;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-warn-text {
+        font-family: var(--sans);
+        font-size: 36px;
+        font-weight: 800;
+        color: #fff;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-easy-skip {
+        font-family: var(--serif);
+        font-size: 48px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 38px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-11-s3key"] .b11-most-important {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      [data-composition-id="beat-11-s3key"] .b11-most-pill {
+        font-size: 36px;
+        height: 76px;
+        padding: 0 40px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // 0.00s — Kicker
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-kicker',
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          0.0);
+
+        // ── Stage A: KEY 警示（0.0–2.7s）──
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-stageA',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" },
+          0.0);
+
+        // 2.7s — Stage A fade-out
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-stageA',
+          { y: -30, opacity: 0, duration: 0.35, ease: "power2.in" },
+          2.7);
+
+        // ── Stage B: hero "先规范 → 再生图"（2.9s 起）──
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-stageB',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          2.9);
+        // 2.95s — step 1 "先规范"
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-flow-step-1',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          2.95);
+        // 4.4s — arrow draw
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-flow-arrow',
+          { opacity: 1, duration: 0.01 },
+          4.4);
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-arrow-line',
+          { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" },
+          4.4);
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-arrow-head',
+          { opacity: 1, duration: 0.15, ease: "power2.out" },
+          4.75);
+        // 4.85s — step 2 "再生图"
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-flow-step-2',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          4.85);
+
+        // 5.8s — caution line "不能直接丢..."
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-cautious',
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+          5.8);
+
+        // 7.6s — Stage B fade-out
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-stageB',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          7.6);
+
+        // ── Stage C: 三 ✗ 卡（7.95s 起）──
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-stageC',
+          { opacity: 1, duration: 0.01 },
+          7.95);
+        // 卡 1: 卡片样式（7.97s）
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-x-card[data-x="1"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          7.97);
+        // 卡 2: 间距（9.5s）
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-x-card[data-x="2"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          9.5);
+        // 卡 3: 状态（11.0s）
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-x-card[data-x="3"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          11.0);
+
+        // 12.6s — Stage C fade-out
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-stageC',
+          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+          12.6);
+
+        // ── Stage D: 警告 + 最重要（13.0s 起）──
+        tl.to('[data-composition-id="beat-11-s3key"] .b11-stageD',
+          { opacity: 1, duration: 0.01 },
+          13.0);
+
+        // 13.0s — 警告条
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-warn-row',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          13.0);
+
+        // 16.5s — "非设计师最容易省掉"
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-easy-skip',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          16.5);
+
+        // 20.9s — "最重要" lime pill
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-most-important',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.6)" },
+          20.9);
+        tl.fromTo('[data-composition-id="beat-11-s3key"] .b11-most-pill',
+          { scale: 1 },
+          { scale: 1.06, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 },
+          21.4);
+
+        // 时长锚点
+        tl.to({}, { duration: 24.0 }, 0);
+        window.__timelines["beat-11-s3key"] = tl;
+      })();
+    </script>
+  </div>
+</template>

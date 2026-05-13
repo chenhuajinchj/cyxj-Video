@@ -1,0 +1,580 @@
+<!-- BEAT 1 · HOOK · 8.3s
+     SRT 切分（5 句）：
+       0.00–1.43  "作为设计师出身的我"             宋体 hero 字符 stagger 入场
+       1.43–3.70  "对这种 AI 默认的审美零容忍"     stagger 入场 + "零容忍" hyper-text scramble + lime 横划线
+       3.73–6.00  "而这些是我通过工作流跑出来的"   hero 上移变小 + 3 张作品占位卡入场
+       6.03–7.13  "一个比一个简单"                  卡 1 下方 ink pill chip 滑入
+       7.13–8.23  "一个比一个好看"                  卡 2 下方 lime pill chip 滑入
+     视觉锚点：宋体 144px hero / 浅米底 / 稀缺 lime / 中性大圆角卡
+     hot 色：lime 仅用于「零容忍」高亮 + 「一个比一个好看」chip
+-->
+
+<template id="beat-1-hook-template">
+  <div
+    id="beat-1-hook"
+    data-composition-id="beat-1-hook"
+    data-start="0"
+    data-duration="8.3"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Kicker 左上 -->
+    <div class="b1-kicker">
+      <span class="b1-kicker-num">01</span>
+      <span class="b1-kicker-sep">·</span>
+      <span class="b1-kicker-label">DESIGN INTUITION</span>
+    </div>
+
+    <!-- Hero 区（5 句话切换的容器，绝对定位居中）-->
+    <div class="b1-hero-stack">
+      <!-- 句 1: 作为设计师出身的我 -->
+      <h1 class="b1-line b1-line-1 text-cn">
+        <span class="b1-char">作</span><span class="b1-char">为</span><span class="b1-char">设</span><span class="b1-char">计</span><span class="b1-char">师</span><span class="b1-char">出</span><span class="b1-char">身</span><span class="b1-char">的</span><span class="b1-char">我</span>
+      </h1>
+
+      <!-- 句 2: 对这种 AI 默认的审美 + (scramble) 零容忍 -->
+      <h1 class="b1-line b1-line-2 text-cn">
+        <span class="b1-line-2-prefix">
+          <span class="b1-char">对</span><span class="b1-char">这</span><span class="b1-char">种</span><span class="b1-char">A</span><span class="b1-char">I</span><span class="b1-char">默</span><span class="b1-char">认</span><span class="b1-char">的</span><span class="b1-char">审</span><span class="b1-char">美</span>
+        </span>
+        <span class="b1-scramble-wrap">
+          <span class="b1-scramble" id="b1-scramble-target" data-final="零容忍"></span>
+          <span class="b1-scramble-underline"></span>
+        </span>
+      </h1>
+
+      <!-- 句 3: 而这些是我通过工作流跑出来的（最终态：上移变小） -->
+      <h2 class="b1-line b1-line-3 text-cn">
+        <span class="b1-char">而</span><span class="b1-char">这</span><span class="b1-char">些</span><span class="b1-char">是</span><span class="b1-char">我</span><span class="b1-char">通</span><span class="b1-char">过</span><span class="b1-char">工</span><span class="b1-char">作</span><span class="b1-char">流</span><span class="b1-char">跑</span><span class="b1-char">出</span><span class="b1-char">来</span><span class="b1-char">的</span>
+      </h2>
+    </div>
+
+    <!-- 3 张作品占位卡（下半屏） -->
+    <div class="b1-gallery">
+      <div class="b1-card card featured" data-idx="0">
+        <div class="b1-card-tag">参考一</div>
+        <div class="b1-card-mock b1-mock-grid"></div>
+        <div class="b1-card-meta">
+          <span class="b1-appicon b1-appicon-jimeng">
+            <!-- jimeng.svg 来自 lobe-icons packages/static-svg/icons/jimeng.svg（2026-05-13 拉取） -->
+            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="32" height="32" aria-label="Jimeng"><path d="M5.257 1.808C8.768 6.74 14.431 9.45 20.064 8.403a7.398 7.398 0 001.281-.38c.855-.33 1.975 1.01 1.326 1.658-.43.428-.84.82-1.208 1.147a51.149 51.149 0 01-8.389 6.044 51.146 51.146 0 01-9.49 4.263c-.453.15-.98.304-1.546.457-.885.238-1.484-1.4-.77-1.975.378-.306.713-.617.978-.927C5.969 14.336 6.299 8.174 3.717 2.697a18.2 18.2 0 01-.364-.84C2.995.98 4.042.335 4.656 1.055c.243.284.453.545.601.753zM19.53 13.695c-2.324 2.863-2.816 5.944-2.378 8.583l.024.16c.117.79-.816 1.277-1.448.788a12.813 12.813 0 00-.093-.072c-2.12-1.614-4.62-2.828-7.948-2.446a27.95 27.95 0 006.086-2.627c2.21-1.275 4.147-2.774 5.756-4.386z"/></svg>
+          </span>
+          <span class="b1-appicon-name">即梦</span>
+        </div>
+      </div>
+      <div class="b1-card card featured" data-idx="1">
+        <div class="b1-card-tag">参考二</div>
+        <div class="b1-card-mock b1-mock-cards"></div>
+        <div class="b1-card-meta">
+          <span class="b1-appicon b1-appicon-lovart">
+            <!-- lovart.svg 来自 lobe-icons packages/static-svg/icons/lovart.svg（2026-05-13 拉取） -->
+            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="32" height="32" aria-label="Lovart"><path d="M11.86-.14c6.622 0 12 5.377 12 12 0 6.622-5.378 12-12 12-6.623 0-12-5.378-12-12 0-6.623 5.377-12 12-12zM7.831 18.006l4.892.034.01-1.523-3.375-.025.018-6.023-1.523-.004-.022 7.54zm7.533-12.229a3.794 3.794 0 000 7.585 3.794 3.794 0 000-7.585zM2.533 10.446l.002 1.524 3.508-.004-.002-1.524-3.508.004zm12.832-3.221a2.349 2.349 0 012.346 2.346 2.348 2.348 0 01-2.346 2.346 2.349 2.349 0 01-2.346-2.346 2.35 2.35 0 012.346-2.346z"/></svg>
+          </span>
+          <span class="b1-appicon-name">Lovart</span>
+        </div>
+      </div>
+      <div class="b1-card card featured" data-idx="2">
+        <div class="b1-card-tag">参考三</div>
+        <div class="b1-card-mock b1-mock-magazine"></div>
+        <div class="b1-card-meta">
+          <span class="b1-appicon b1-appicon-image2">
+            <!-- openai.svg 来自 lobe-icons packages/static-svg/icons/openai.svg（2026-05-13 拉取）—— Image-2 = OpenAI gpt-image -->
+            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="32" height="32" aria-label="OpenAI"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></svg>
+          </span>
+          <span class="b1-appicon-name">gpt-image</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 两个 pill chip（卡片下方）-->
+    <div class="b1-chips">
+      <span class="pill b1-chip b1-chip-1">一个比一个简单</span>
+      <span class="pill hot b1-chip b1-chip-2">一个比一个好看</span>
+    </div>
+
+    <style>
+      #beat-1-hook {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ── Kicker ── */
+      #beat-1-hook .b1-kicker {
+        position: absolute;
+        top: 56px;
+        left: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        opacity: 0;
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+      }
+      #beat-1-hook .b1-kicker-num {
+        color: var(--ink);
+      }
+      #beat-1-hook .b1-kicker-sep {
+        opacity: 0.5;
+      }
+
+      /* ── Hero 容器 ── */
+      #beat-1-hook .b1-hero-stack {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1700px;
+        text-align: center;
+      }
+      #beat-1-hook .b1-line {
+        font-family: var(--serif);
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1.06;
+        color: var(--ink);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+      }
+      #beat-1-hook .b1-line-1,
+      #beat-1-hook .b1-line-2 {
+        font-size: 88px;
+      }
+      #beat-1-hook .b1-line-3 {
+        font-size: 56px;
+        font-weight: 400;
+        color: var(--ink);
+      }
+
+      #beat-1-hook .b1-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      #beat-1-hook .b1-line-3 .b1-char {
+        transform: translateY(18px);
+      }
+
+      #beat-1-hook .b1-line-2 {
+        opacity: 0;
+      }
+      #beat-1-hook .b1-line-3 {
+        opacity: 0;
+      }
+
+      /* ── Scramble "零容忍" ── */
+      #beat-1-hook .b1-scramble-wrap {
+        display: inline-block;
+        position: relative;
+        margin-left: 8px;
+      }
+      #beat-1-hook .b1-scramble {
+        display: inline-block;
+        font-family: var(--serif);
+        font-size: 88px;
+        font-weight: 500;
+        color: var(--ink);
+        transform-origin: center center;
+      }
+      #beat-1-hook .b1-sch {
+        display: inline-block;
+        min-width: 1.05em;
+        text-align: center;
+      }
+      #beat-1-hook .b1-scramble-underline {
+        position: absolute;
+        left: 4px;
+        right: 4px;
+        bottom: -4px;
+        height: 12px;
+        background: var(--lime);
+        border-radius: 999px;
+        z-index: -1;
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+
+      /* ── shake-error 抖动（移植 main commit 7ad93ef 的 33 步随机帧，幅度压低适配大字） ── */
+      #beat-1-hook .b1-scramble.is-shaking {
+        animation: b1-shake-error 0.6s ease-in-out both;
+      }
+      @keyframes b1-shake-error {
+        2%   { transform: translate(2px, 3px) rotate(0.6deg); }
+        6%   { transform: translate(2px, 0px) rotate(0.6deg); }
+        10%  { transform: translate(-1px, 2px) rotate(0.4deg); }
+        14%  { transform: translate(3px, -2px) rotate(0.3deg); }
+        18%  { transform: translate(2px, 2px) rotate(0.3deg); }
+        22%  { transform: translate(-2px, 1px) rotate(-0.4deg); }
+        26%  { transform: translate(2px, -1px) rotate(0.6deg); }
+        30%  { transform: translate(2px, 1px) rotate(-0.4deg); }
+        34%  { transform: translate(-1px, 2px) rotate(0.4deg); }
+        38%  { transform: translate(2px, 1px) rotate(-0.6deg); }
+        42%  { transform: translate(-2px, 1px) rotate(0.4deg); }
+        46%  { transform: translate(3px, -1px) rotate(-0.3deg); }
+        50%  { transform: translate(-1px, 0px) rotate(0.6deg); }
+        54%  { transform: translate(2px, -2px) rotate(-0.3deg); }
+        58%  { transform: translate(-2px, 2px) rotate(0.4deg); }
+        62%  { transform: translate(2px, 0px) rotate(-0.4deg); }
+        66%  { transform: translate(-1px, 2px) rotate(0.6deg); }
+        70%  { transform: translate(2px, -1px) rotate(0.3deg); }
+        74%  { transform: translate(-2px, 0px) rotate(-0.6deg); }
+        78%  { transform: translate(1px, 2px) rotate(0.4deg); }
+        82%  { transform: translate(-1px, -1px) rotate(0.4deg); }
+        86%  { transform: translate(2px, 1px) rotate(-0.3deg); }
+        90%  { transform: translate(-1px, 2px) rotate(0.4deg); }
+        94%  { transform: translate(0px, -1px) rotate(0.6deg); }
+        98%  { transform: translate(1px, 0px) rotate(-0.4deg); }
+        0%, 100% { transform: translate(0, 0) rotate(0); }
+      }
+
+      /* ── 3 张作品占位卡 ── */
+      #beat-1-hook .b1-gallery {
+        position: absolute;
+        left: 50%;
+        bottom: 140px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 40px;
+        opacity: 0;
+      }
+      #beat-1-hook .b1-card {
+        position: relative;
+        width: 420px;
+        height: 420px;
+        padding: 32px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 0;
+        transform: translateY(60px);
+        background: var(--panel);
+      }
+      #beat-1-hook .b1-card-tag {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      #beat-1-hook .b1-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      /* ── App icon 容器（jimeng/lovart 用 lobe-icons 真 SVG，image2 仍占位） ── */
+      #beat-1-hook .b1-appicon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 26px;
+        color: #fff;
+        letter-spacing: 0;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(11, 11, 8, 0.12);
+      }
+      #beat-1-hook .b1-appicon svg {
+        width: 32px;
+        height: 32px;
+        color: #fff;  /* fill="currentColor" → 白色 */
+      }
+      #beat-1-hook .b1-appicon sup {
+        font-size: 0.6em;
+        margin-left: 1px;
+        vertical-align: super;
+      }
+      #beat-1-hook .b1-appicon-jimeng {
+        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+      }
+      #beat-1-hook .b1-appicon-lovart {
+        background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      }
+      #beat-1-hook .b1-appicon-image2 {
+        background: var(--ink);
+      }
+      #beat-1-hook .b1-appicon-name {
+        font-family: var(--sans);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+      }
+
+      /* ── 卡内 mock 图（纯 CSS）── */
+      #beat-1-hook .b1-card-mock {
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        top: 84px;
+        bottom: 96px;
+        border-radius: var(--radius-md);
+        background: var(--soft);
+        overflow: hidden;
+      }
+      /* mock 1: 9 格设计稿网格 */
+      #beat-1-hook .b1-mock-grid {
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px),
+          var(--soft);
+        background-size: 33.33% 33.33%;
+      }
+      #beat-1-hook .b1-mock-grid::before {
+        content: "";
+        position: absolute;
+        left: 12%; top: 14%;
+        width: 24%; height: 24%;
+        background: var(--ink);
+        border-radius: 8px;
+      }
+      #beat-1-hook .b1-mock-grid::after {
+        content: "";
+        position: absolute;
+        right: 14%; bottom: 16%;
+        width: 28%; height: 12%;
+        background: var(--lime);
+        border-radius: 999px;
+      }
+      /* mock 2: 三卡片堆叠 */
+      #beat-1-hook .b1-mock-cards {
+        background: var(--soft);
+      }
+      #beat-1-hook .b1-mock-cards::before {
+        content: "";
+        position: absolute;
+        left: 12%; right: 12%; top: 12%;
+        height: 20%;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 8px 16px rgba(11, 11, 8, 0.06);
+      }
+      #beat-1-hook .b1-mock-cards::after {
+        content: "";
+        position: absolute;
+        left: 12%; right: 12%; top: 38%;
+        height: 50%;
+        background: var(--ink);
+        border-radius: 14px;
+      }
+      /* mock 3: 杂志排版 */
+      #beat-1-hook .b1-mock-magazine {
+        background: var(--ink);
+      }
+      #beat-1-hook .b1-mock-magazine::before {
+        content: "";
+        position: absolute;
+        left: 14%; top: 14%;
+        width: 58%; height: 8%;
+        background: #fff;
+        border-radius: 4px;
+      }
+      #beat-1-hook .b1-mock-magazine::after {
+        content: "";
+        position: absolute;
+        left: 14%; top: 30%;
+        width: 72%; height: 56%;
+        background:
+          linear-gradient(135deg, var(--lime) 0%, var(--lime) 18%, #ffffff 18%, #ffffff 100%);
+        border-radius: 10px;
+      }
+
+      /* ── 底部 chip ── */
+      #beat-1-hook .b1-chips {
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      #beat-1-hook .b1-chip {
+        font-family: var(--sans);
+        height: 56px;
+        padding: 0 28px;
+        font-size: 24px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      #beat-1-hook .b1-chip-1 {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+      }
+      #beat-1-hook .b1-chip-2 {
+        background: var(--lime);
+        color: var(--ink);
+        border-color: var(--lime);
+        font-weight: 800;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // ── Seeded PRNG（mulberry32）替代 Math.random，确保确定性渲染 ──
+        function mulberry32(seed) {
+          let s = seed >>> 0;
+          return function () {
+            s = (s + 0x6D2B79F5) >>> 0;
+            let t = s;
+            t = Math.imul(t ^ (t >>> 15), t | 1);
+            t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+          };
+        }
+
+        // 中文 scramble 池
+        const SCRAMBLE_POOL = "审美设计颜色排版字号间距圆角阴影留白形态克制".split("");
+
+        // ── 准备 scramble target：填充随机初始字符（seed=42） ──
+        const scrambleEl = document.getElementById("b1-scramble-target");
+        const finalText = (scrambleEl && scrambleEl.dataset.final) || "零容忍";
+        const finalArr = finalText.split("");
+        if (scrambleEl) {
+          const initRng = mulberry32(42);
+          while (scrambleEl.firstChild) scrambleEl.removeChild(scrambleEl.firstChild);
+          finalArr.forEach(() => {
+            const span = document.createElement("span");
+            span.className = "b1-sch";
+            span.textContent = SCRAMBLE_POOL[Math.floor(initRng() * SCRAMBLE_POOL.length)];
+            scrambleEl.appendChild(span);
+          });
+        }
+        const scrambleSpans = scrambleEl ? scrambleEl.querySelectorAll(".b1-sch") : [];
+
+        // ============ TIMELINE ============
+
+        // 0.00s — Kicker 滑入
+        tl.fromTo("#beat-1-hook .b1-kicker",
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+          0.0);
+
+        // ── 句 1（0.05s–1.30s）"作为设计师出身的我" ──
+        tl.fromTo("#beat-1-hook .b1-line-1 .b1-char",
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.07, duration: 0.45, ease: "power3.out" },
+          0.05);
+
+        // 1.30s — 句 1 fade + 上飘
+        tl.to("#beat-1-hook .b1-line-1",
+          { y: -40, opacity: 0, duration: 0.35, ease: "power2.in" },
+          1.30);
+
+        // ── 句 2（1.55s–3.55s）"对这种 AI 默认的审美" + "零容忍" scramble ──
+        tl.set("#beat-1-hook .b1-line-2", { opacity: 1 }, 1.55);
+        tl.fromTo("#beat-1-hook .b1-line-2 .b1-line-2-prefix .b1-char",
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.06, duration: 0.42, ease: "power3.out" },
+          1.55);
+
+        // 2.25s — "零容忍" scramble（GSAP onUpdate 替代 requestAnimationFrame）
+        const scrambleObj = { p: 0 };
+        tl.to(scrambleObj, {
+          p: 1,
+          duration: 0.8,
+          ease: "none",
+          onUpdate() {
+            const settled = scrambleObj.p * finalArr.length;
+            // 用 progress 离散化 seed，保证同 progress 同输出（确定性）
+            const frameSeed = 100 + Math.floor(scrambleObj.p * 60);
+            const rng = mulberry32(frameSeed);
+            for (let i = 0; i < scrambleSpans.length; i++) {
+              if (i <= settled) {
+                scrambleSpans[i].textContent = finalArr[i];
+              } else {
+                scrambleSpans[i].textContent =
+                  SCRAMBLE_POOL[Math.floor(rng() * SCRAMBLE_POOL.length)];
+              }
+            }
+          }
+        }, 2.25);
+
+        // 3.10s — "零容忍" 下方 lime 横划线展开
+        tl.fromTo("#beat-1-hook .b1-scramble-underline",
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.45, ease: "expo.out" },
+          3.10);
+
+        // 3.10s — "零容忍" shake-error 抖动（main commit 7ad93ef 组件思路 1:1 移植）
+        //   通过 onStart 加 class 触发 CSS @keyframes，onComplete 删 class 复位
+        tl.to({}, {
+          duration: 0.6,
+          onStart() {
+            const el = document.querySelector("#beat-1-hook .b1-scramble");
+            if (el) el.classList.add("is-shaking");
+          },
+          onComplete() {
+            const el = document.querySelector("#beat-1-hook .b1-scramble");
+            if (el) el.classList.remove("is-shaking");
+          }
+        }, 3.10);
+
+        // 3.55s — 句 2 整体 fade + 上飘
+        tl.to("#beat-1-hook .b1-line-2",
+          { y: -50, opacity: 0, duration: 0.3, ease: "power2.in" },
+          3.55);
+
+        // ── 句 3（3.85s 起）"而这些是我通过工作流跑出来的" ──
+        // y: -260 把 hero 完全推到画布上半（中心 ~280px），给卡片让出 200px+ 空白
+        tl.set("#beat-1-hook .b1-line-3", { opacity: 1 }, 3.85);
+        tl.fromTo("#beat-1-hook .b1-line-3",
+          { y: 20 },
+          { y: -260, duration: 0.7, ease: "power3.out" },
+          3.85);
+        tl.fromTo("#beat-1-hook .b1-line-3 .b1-char",
+          { y: 18, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "power3.out" },
+          3.85);
+
+        // ── 3 张作品占位卡（4.0s 起，错开 0.25s）──
+        tl.to("#beat-1-hook .b1-gallery",
+          { opacity: 1, duration: 0.01 },
+          4.0);
+        tl.fromTo("#beat-1-hook .b1-card",
+          { y: 60, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.25, duration: 0.6, ease: "power3.out" },
+          4.0);
+
+        // ── chip 1（6.10s）"一个比一个简单" ──
+        tl.fromTo("#beat-1-hook .b1-chip-1",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" },
+          6.10);
+
+        // ── chip 2（7.15s）"一个比一个好看" + pulse ──
+        tl.fromTo("#beat-1-hook .b1-chip-2",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" },
+          7.15);
+        tl.fromTo("#beat-1-hook .b1-chip-2",
+          { scale: 1 },
+          { scale: 1.06, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 },
+          7.55);
+
+        // 时长锚点
+        tl.to({}, { duration: 8.3 }, 0);
+        window.__timelines["beat-1-hook"] = tl;
+      })();
+    </script>
+  </div>
+</template>

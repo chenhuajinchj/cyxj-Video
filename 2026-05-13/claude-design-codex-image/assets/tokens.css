@@ -1,0 +1,108 @@
+/* ============================================================
+   AI 生图工作流复盘 · 视觉 tokens（用户 2026-05-13 给的全新风格）
+   苹果发布会 / 中性高级 / 衬线大字 + lime 跳色
+   ------------------------------------------------------------
+   - 不沿用旧 DNA（暖米 #F7F2EA + Claude 橙 + Noto SC + Chrome 渐变）
+   - 浅米底 + 墨黑 + lime + Songti SC 衬线 hero
+   ============================================================ */
+
+:root {
+  --bg: #fafaf8;
+  --panel: #ffffff;
+  --ink: #0b0b08;
+  --muted: #777771;
+  --soft: #f2f2ef;
+  --line: #e2e1dc;
+  --line-strong: #cfcec8;
+  --lime: #dcff45;
+
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 12px;
+
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --serif: "Songti SC", "STSong", "SimSun", Georgia, serif;
+}
+
+/* ── 字号阶梯（按本视频 1920x1080 画布定） ─────────── */
+:root {
+  --fs-hero:      88px;    /* 宋体大字主标题（够大但不溢屏） */
+  --fs-hero-sub:  64px;    /* 副标题/段落级 */
+  --fs-title:     48px;
+  --fs-body:      28px;
+  --fs-kicker:    22px;
+  --fs-pill:      26px;
+}
+
+/* ── 全局 reset（仅画布内部）────────────────────── */
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+h1, h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.04;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* ── 卡片 ────────────────────────────────────── */
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 28px rgba(11, 11, 8, 0.04);
+}
+.card.featured {
+  border-color: var(--lime);
+  box-shadow: inset 0 8px 0 var(--lime),
+              0 12px 28px rgba(11, 11, 8, 0.04);
+}
+
+/* ── Pill / 按钮 ─────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  font-weight: 700;
+  font-family: var(--sans);
+}
+.pill.hot {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--ink);
+}
+.pill.ink {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.button-primary {
+  height: 58px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+  font-weight: 760;
+}
+
+.muted { color: var(--muted); }
+
+/* 中文换行优化 */
+.text-cn {
+  line-break: strict;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}

@@ -94,6 +94,118 @@ CDN URLs:
 | "把 Figma 副总裁挖过来" | F→arrow→A | Figma 大楼/logo 里**一个人形剪影被一只手抓出来 → 飞越画面 → 落到 Anthropic 一侧**（真"挖"的动作） |
 | "Figma 股价持续下跌" | sparkline 折线 | Figma logo 在画面顶部，**像石头一样掉下来**，掉落过程留下 motion blur trail；落地时画面震动，"−14.2%" 红字从地面**砸出**裂缝 |
 
+### b4-b6 metaphor 候选（Stage M 批次 1，等用户拍板）
+
+按 b1-b3 同一格式展开。每句给 2-3 个 metaphor 候选 + 每 beat 末给整 beat 主线候选（贯穿整段的核心物体）+ 推荐项 + 理由。**拍板之前不动 HTML**。
+
+---
+
+#### b4 s1-flow (23.0–43.0s, 20s) — "即梦风格 → 截屏 → 反推规范 → 写 HTML → 出图"
+
+**当前病灶**：3 个 step 卡 + connector + token chip + code 卡 — 完整字幕翻译。每句话都对应一个 HTML 元素，没有承载概念的物体。
+
+| 句（SRT 相对起点） | 核心概念 | 当前做法 | metaphor 候选 |
+|---|---|---|---|
+| 0.066–2.266 "因为我最近在做即梦 Agent 的拆解" | 背景：我在拆一个 AI 工具的设计语言 | 即梦 chip + AGENT pulse | A) **解剖台**：即梦 logo 平躺在工作台上，旁边浮放大镜 / 镊子 / 笔记本 SVG —"拆"是动作不是 chip<br>B) **抽屉拉开 reveal**：即梦 logo 当 hero，从 logo 内部"拉出"一个 schematic 抽屉（设计 token 排列） —"拆"= 从里面拿东西出来<br>C) **桌面工作流场景**：浏览器开着 jimeng.com tab + 旁边一个 markdown 编辑器，画面切到"拆解中" cursor —场景化 |
+| 2.300–3.900 "所以我想要这篇文章" | 起点：我有一篇待发的文章 | article chip "想配图" | A) **空白文章稿浮起**：衬线大标题 + 占位段落 + 占位图框，**图框是问号**（缺图的痛）<br>B) **文章稿 + 一只手按住**：手按在标题"AI Agent 拆解"上 —"我的"占有感<br>C) **思考气泡里只有一张空 article**：从无脸创作者轮廓冒出 —"想做"的状态 |
+| 4.000–5.633 "以即梦的风格去配图" | 要换皮肤：用某个视觉风格 | "即梦 风格" lime 划线 | A) **风格 swatch 拼贴**：4 块颜色 swatch + 3 个字号 sample + 2 个排版片段聚拢，**拼成一张 palette 贴上稿子** —风格 = palette 物体<br>B) **皮肤换色**：article 稿底色 fade 成"即梦"暖色基调（#FF6B6B → #FF8E53） —风格 = 视觉表皮被换<br>C) **印章砸下**：橡皮印章 "JIMENG STYLE" 砸盖在稿子上，墨迹晕开 —贴风格 = 盖章 |
+| 5.633–7.733 "所以我就截了即梦的一张界面" | 截屏 = 拿样本 | 浏览器 chrome + 占位 block 的 capture 卡 | A) **截屏框 + lime 闪光**：浏览器 viewport 里出现虚线选择框 + 4 角控制点 → 瞬间一个 lime 闪 —"咔嚓"物理感<br>B) **拍立得吐出**：屏幕侧面"吐"出一张 Polaroid 大小的截图卡，落到桌面 —截图 = 实物<br>C) **iPhone 截图浮起**：jimeng 界面 mock 从底部滑出，带 iOS 截图缩略图投影 —产物感 |
+| 7.733–10.666 "它直接能够反推出整套的设计规范" | **逆向工程**：从视觉拆出系统 token | connector draw + token 卡浮出 | A) **扫描光束 → 散开为 token**：截图卡上扫过一道 CT 扫描光，光从右侧散开变成 4-6 颗 token 节点漂出 —解码过程可视化<br>B) **截图被打散 grid → 重组为 token list (Flip)**：截图的 block 元素**飞散** → 重新排列成右侧 spec 4 行 —同物体状态 morph<br>C) **截图变 X-ray**：截图半透明，露出底层 spec annotation（颜色标签 / 字号标尺 / 间距尺） —像 Figma inspect |
+| 10.700–12.933 "颜色字号排版留白全部都到位" | 4 维度全覆盖 | 4 token chip 依次填入 | A) **4 个 spec 样本卡 grid**：颜色卡（色块）+ 字号卡（A-A-A 三层）+ 排版卡（grid 线）+ 留白卡（空白方框 + 标尺） —每张都是 metaphor 不是 chip<br>B) **承句 5 续做**：句 5 飞散出的 token 节点继续"长大"成 4 个可视化 spec 卡<br>C) **checklist 打勾**（**降级**：还是太 PPT，不推荐） |
+| 13.100–14.933 "接着让他用写代码的形式" | 从 spec 到 code 的形式转换 | code 卡入场 + connector draw | A) **spec 卡 → code 卡 morph (Flip)**：spec 4 行（颜色 / 字号 / ...） morph 成 code 4 行 `<section>` HTML —同物体形态变化<br>B) **打字机 SplitText**：IDE 窗口浮起，code lines 用 SplitText.chars 逐字 typewriter —写的动作<br>C) **键盘 + 飞出的字符**：键盘 SVG + 字符像火花从键面飞起堆成 code —"敲"的动作 |
+| 14.933–17.133 "把 html 就是网页啊" | HTML = 网页骨架 | code 卡显 `<html>` snippet | A) **HTML tag 浮出 → 自动拼成 wireframe**：`<section>` `<h1>` `<img>` 这些 tag 漂浮 → 自动堆叠成一个 wireframe —HTML = 网页骨骼<br>B) **从 code 块"长出"网页**：code 字符流向右侧 → 实时拼成 mockup 网页 —compile 过程可视化<br>C) **括号炸裂**：`<>` 形状从中间打开，绽放出网页 mock —playful |
+| 17.133–18.466 "把图给写出来" | 网页 → 图片 | mock 网页渲出 | A) **截屏框压扁网页 → 静态图**：wireframe 网页被截屏框框住 → "啪"压扁成一张静态图卡 → 落入"outputs" 文件夹 —完整产品流<br>B) **导出动作**：网页 mock 上方浮出 "EXPORT → png" 按钮，按下后 mock 缩成一张图浮起 —导出可视化<br>C) **网页 → 图 morph (Flip)**：wireframe morph 成 IG post 比例图卡 |
+| 18.533–19.933 "那效果是真的好" | 评价 = 满意 | lime ✓ + "效果真的好" 大字 | A) **3 张成品图 cascade**：导出图卡复制成 3 张，cascade 从画面侧浮起 —"output 真的好"可见<br>B) **lime "PASSED" 印章砸下**：盖在导出图卡上 —物理 success 标记<br>C) **图卡放大占据中央 + 柔光 halo**：成品放大后画面外围 vignette 收暗 —"成品级"质感 |
+
+**整 beat 主线候选**：
+
+- **A) 解构 → 重组（Flip morph 链）**：截图 → 飞散 → spec → morph code → morph 网页 → 压扁成图。**同一份信息**沿时间线连续变换形态，承载"反推 / 写代码 / 出图"的转化叙事。
+- **B) 桌面工作流场景（desktop scene）**：所有元素活在一个虚拟设计师桌面 — 浏览器 / IDE / 文件夹 / 截图卡 / 网页 mock 都是真实工作流物体。场景沉浸感强但 20s 内调度复杂。
+- **C) 传送带流水线（conveyor belt）**：截图 → spec → code → image 沿带子横向移动，每站一个"加工"动作。工业风但跟 DNA（静谧米色）冲突。
+
+**推荐 A — 解构 → 重组**：
+- 用 GSAP Flip plugin 跑 morph 链，正是 PLAN.md Tier 2 已识别的招式
+- 每次形态变化都对应一句 SRT 重音瞬间 — SRT 对齐天然
+- callback 强：句 9 出来的"图卡"可在 b10/b13 复用作"成品"物体
+- 风险：Flip 在 hyperframes wrapper 里做大量 layout shift 需要测内存（memory `feedback_hf_composition_count_memory`）— 但 20s 内 < 8 次 morph 应该 OK
+
+---
+
+#### b5 s1-pain (43.0–57.5s, 14.5s) — "限额墙：1 小时用完 / 冷却一周 / Pro 救不了 / 推上吐槽 / 等不了"
+
+**当前病灶**：usage bar + 3 列 facts（1H / 7DAYS / Pro×）+ X bubble 墙 + Anthropic 回应 + "等不了" 大字。pain 段被翻译成"仪表 + 数据卡 + bubble"，**痛点没有身体感**。
+
+| 句 | 核心 | 当前 | metaphor 候选 |
+|---|---|---|---|
+| 0.033–1.066 "但有个大坑啊" | 警告 / 故事转折 | ⚠ + "但有个大坑" 大字 stagger | A) **断崖出现**：续接 b4 末的成品图卡 — 镜头下 pan 露出图卡下方是一个**深黑色裂缝 / 坑**（SVG 不规则形）<br>B) **成品图卡掉进坑**：图卡向下掉，镜头下移露出深坑 —物理续接 b4<br>C) **路标 ⚠ 从地面插起**：带 motion blur 拍打感 —但仍是 icon-driven，**不推荐** |
+| 1.266–3.033 "Claude 一旦它的周限额特别低" | 限额低 / 资源在快速消耗 | usage bar 升到 95% | A) **沙漏 (hourglass)**：上半已空大半，沙子快速漏 —时间 / 资源消耗的经典物理 metaphor<br>B) **lime 金币堆掉光**：一堆 lime 金币从上往下一颗颗消失 —callback Infinite Payments 的 "coin" 物体（Law #6）<br>C) **电量条 / 油表指针偏左红区**：但仍是仪表卡，**不推荐** |
+| 3.066–4.566 "我当时跑了一个小时" | 1 小时 = 时间花费 | "1 H" 数字 fact | A) **沙漏 callback**：沙漏翻转过一次（标记"1 个周期"）—同物体延续<br>B) **时钟 sweep**：钟面指针 1 小时 sweep 一周 —时间感<br>C) **沙漏底部沙堆字样"1H"**：沙子堆出 "1H" 字形 —物体衍生字形 |
+| 4.600–6.000 "它冷却就要冷却一周" | 锁死整周 | "7 DAYS" 大字 | A) **沙漏结冰 / 冰封**：沙漏被一层霜 / 冰**覆盖**，沙子在冰里冻住 —"冷却"= 物理冷冻<br>B) **日历 7 格阴影覆盖**：周视图日历的 7 个格子被冷调阴影笼罩 —整周失效<br>C) **巨大冰块包住 Claude logo**：冷藏舱 metaphor —但与 b1 已用的"撕毁/被抓"不同物体系，OK |
+| 6.066–7.733 "而且 Pro 的会员也救不了" | 花钱也没用 | Pro pill + ❌ 划掉 | A) **会员卡塞进读卡器 → REJECTED**：塑料 Pro 卡 hover 进 slot，slot 闪灰 → 卡片弹出来 —物理 reject 动作<br>B) **lime 金币撞冰墙**：lime 金币飞向 (句 4 那块) 冰，**撞上去弹回**而不是融化 —"钱不破冰" 的物理 metaphor，**与 b5-A 主线绑定**<br>C) **Pro chip + ❌**：static，**不推荐** |
+| 7.733–9.066 "那限额就是限死的" | 硬上限 / 锁死 | lock + usage 撞顶 + shake | A) **天花板砸下**：粗黑板从画面上方"啪"砸下来，落在 usage / 沙漏顶部 —"撞顶"物理动作<br>B) **挂锁 + 链条**：挂锁 + 锁链缠住沙漏 —"锁死"<br>C) **沙漏中段裂开**：沙漏破裂 —但语义偏"坏"不是"锁"，**不推荐** |
+| 9.133–11.400 "嗯那推上也是一堆人在吐槽啊" | 全网怨气 / 密度感 | 3 X bubble 静态排列 | A) **X 通知洪流**：X icon 从右上角弹出，**铺天盖地的通知卡片**（用户名 + 短句）雨点式从顶部下落，stagger 高密度 —量级感<br>B) **X 黑形 logo 星空背景**：背景密布黑色 X 形 logo，间断"亮起"小红点 —抽象的"全网都在抱怨"<br>C) **手机屏幕震动 + badge 跳到 99+**：iPhone 大幅震动，X icon 红 badge 从 1 → 99+ —物理设备感 |
+| 11.400–12.966 "Anthropic 团队说在优化" | 官方回应 / 安抚但没用 | 蓝色 ink chip "在优化" | A) **官方 verified 推文卡**：Anthropic 头像 + 蓝勾 + "we're optimizing..." 推文卡 —**在洪流中孤立的一条**（与句 7 的密度对比）<br>B) **维护胶带斜跨冰墙**：警戒胶带 "UNDER MAINTENANCE" 斜挂过冰墙 —物理"维修中"标记<br>C) **顶部 banner**："TEAM IS OPTIMIZING" 公告条，**不推荐** |
+| 13.000–14.466 "但我当时是等不了了" | 放弃 / 转身 | "等 不 了" 衬线大字 stagger | A) **沙漏被推倒**：沙漏被推翻，沙子洒满地 —"放弃"物理动作<br>B) **背身离开冰墙**：作者 cursor / 头像从冰墙前转身，远去 motion blur trail —准备过渡 b6<br>C) **关闭浏览器 tab × 被按下**：Claude tab 被关闭 —数字动作 |
+
+**整 beat 主线候选**：
+
+- **A) 沙漏 + 冰墙双物体**：沙漏 = 限额耗尽 / 冰墙 = 冷却锁死 / lime 金币 = 钱（撞冰墙弹回）。两个核心物体贯穿，省字幕翻译。
+- **B) 仪表盘 + 锁链**：升级当前 usage bar 为更工业的仪表盘 + 锁链。但仍是"卡片化"，不彻底反 PPT。
+- **C) X 社交风暴主导**：整 beat 都做成 X 风暴 cold and crowded — pain = 群体焦虑。但 "1H / 7DAYS / Pro" 这种**数据 fact** 塞不进 X 风格。
+
+**推荐 A — 沙漏 + 冰墙**：
+- Law #6 object metaphor 两个物体 carry 整 beat：沙漏（句 2-3-7-9）+ 冰墙（句 4-5-6）
+- 物体状态变化（沙漏漏 → 翻 → 结冰 → 裂；金币撞冰墙弹回）承载"故事性"，不是 5 张卡并排
+- 与 b6 解法（"换思路 / 双脑"）的转身衔接自然 — 沙漏倒地 → 镜头转 → 新画面
+- 沙漏 + 金币是 Infinite Payments / Stripe 视频经典符号，DNA 内（米 / 墨 / lime）可实现，不需新色
+
+---
+
+#### b6 s2-intro (57.5–67.0s, 9.5s) — "换思路 → phase 2 → Claude 做大脑出规范 → 丢给 Codex 执行"
+
+**当前病灶**：switch chip + "第二阶段" 大字 + horizontal pipeline（Brain disc → spec doc 4 行 → Codex disc）—**角色分工没物体感**，"大脑"只是个 label 不是大脑。
+
+| 句 | 核心 | 当前 | metaphor 候选 |
+|---|---|---|---|
+| 0.033–1.266 "所以我就换了一个思路啊" | 切换 / 打开新路 | switch icon + "换思路" chip | A) **toggle 开关弹响 + 画面色调微调**：switch SVG 被"按"一下，背景米色基调微微 pulse —物理"换"<br>B) **路口分叉**：路从一条 SVG line 分成两条，光标走向右边那条 —路径 metaphor<br>C) **续接 b5**：作者 cursor / 头像从倒下的沙漏前**转身**走向画面右侧 —续物体续故事 |
+| 1.266–2.666 "就到了我们的第二阶段" | phase 2 标记 | "第 二 阶 段" 衬线大字 stagger | A) **章节翻页**：纸张从右翻向左，露出 "PHASE 02" 衬线大字 —物理书页感<br>B) **callback b2 teaser 的 3 节点时间线**：第 2 个节点亮起 / pulse —**强 callback**串起 b2 ↔ b6 ↔ b10<br>C) **stage 序号大字 "02" lime fill**：直接大数字 02，背后衬线 + lime —视觉重量但纯文字 |
+| 2.700–4.433 "让 Claude Design 做大脑" | Claude = 思考者 / 出脑力 | Claude disc（橙渐变） + "BRAIN" label | A) **大脑 SVG (lobe-icons brain.svg) + Claude logo 内嵌**：脑形物体本身就是"thinking"，Claude logo 嵌入脑里中央 —**物体即概念**<br>B) **思考者剪影 (Rodin)**：罗丹"思考者"姿态剪影 + Claude logo 标识在头部 —classical 拟人<br>C) **建筑师持蓝图**：Claude 一侧站着剪影持卷轴蓝图 —预示句 4 的"出规范"= 出蓝图 |
+| 4.433–5.500 "出设计规范" | 产出 spec | spec doc 4 行 emit | A) **蓝图卷轴 unroll**：从 brain / 思考者那里"吐出"一张卷轴，**展开**露出 spec 行（颜色 / 字号 / 间距 / 圆角） —物理 emit<br>B) **A4 spec doc 从 brain disc 侧面"打印"出来**：纸张抖一下 —printer 物理感<br>C) **思考气泡破裂 spec 行掉出**：cartoon 风，**不推荐**（与 DNA 风格冲突） |
+| 5.500–7.400 "那把设计规范我怎么呢" | 交接 / 准备递出 | connector 1 → 2 draw | A) **卷轴 hand-off (MotionPath)**：卷轴卷起 → 沿 SVG 曲线轨迹从 Brain 那侧飞向 Codex 那侧 —真"交"动作<br>B) **传送带物体**：spec doc 放上微型传送带被传走 —工业感<br>C) **手递手**：一只手把 spec doc 递出 —拟人但 SVG 复杂 |
+| 7.400–8.500 "丢给 Codex" | 抛出 / 不管了 | spec → Codex 流向 | A) **续接句 5**：卷轴飞到 Codex 手上 / 接口处 —同物体延续<br>B) **toss 弧线**：spec doc 被"抛"出 motion blur 弧线落到 Codex —物理 toss 力度<br>C) **USB / 卡片插入 Codex 接口**：spec 像卡片插入 Codex 一侧 slot —数字 metaphor |
+| 8.500–9.466 "让他去执行" | 行动 / 工人开干 | Codex disc pulse | A) **Codex + 一对工人手臂 SVG + 速度线**：Codex 旁出现忙碌的手臂（卡通手套）+ 短促速度线 —**双手**与"大脑"对比 (Law #6 paired metaphor)<br>B) **进度条启动**：Codex 下方进度条从 0 跑起 —工程感<br>C) **机械臂 robotic arm**：spec 卷轴插入后机械臂工作 —但 SVG 制作成本高，**降级** |
+
+**整 beat 主线候选**：
+
+- **A) 大脑 + 双手 (Brain + Hands)**：Claude = brain SVG（lobe-icons brain）/ Codex = 工人手臂 SVG（heroicons hand 或 phosphor）—角色对比极清晰；spec = 中间传递的"卷轴"。
+- **B) 建筑师 + 施工队 (Architect + Construction)**：Claude = 持蓝图的建筑师剪影 / Codex = 拿工具的施工工人 —叙事感更强但 SVG 资产量大。
+- **C) 思考者 + 打字员 (Thinker + Typist)**：Claude = 罗丹"思考者"剪影 / Codex = 键盘上的手 —classical 但与现代 SaaS 视觉风格 mismatch。
+
+**推荐 A — 大脑 + 双手**：
+- 最简洁 — 2 个物体 carry 整 beat（脑 + 手）
+- callback 强：b7 "两个工具各司其职 / 天选打工"还能复用脑 + 手对比（强化"分工"主线）
+- SVG 资产：lobe-icons 有 brain.svg / heroicons 或 phosphor 有 hand 形 SVG，DNA 米墨配色直接套
+- spec 卷轴是中间的"信物" — MotionPath 飞越 = Tier 2 已识别招式
+
+---
+
+### Stage M 批次 1 总结 + 下步
+
+**b4-b6 三条主线建议（待用户拍板）**：
+- b4 → **解构重组 Flip 链**（截图飞散 → spec → code → 网页 → 图）
+- b5 → **沙漏 + 冰墙**（限额耗尽 / 锁死冷却 / 钱撞冰墙）
+- b6 → **大脑 + 双手**（Claude brain / spec 卷轴 / Codex 工人手臂）
+
+**callback 串接**（Law #6 强化）：
+- b4 末 "成品图卡" → b5 头**掉进坑** → 续 b5 沙漏
+- b5 末 沙漏倒下 → b6 头 cursor **转身**走向新画面
+- b6 brain/hands → b7 "各司其职 / 天选打工" 复用同一对物体
+
+**用户拍板后**：
+- 锁定 b4-b6 主线（A / B / C 任选）
+- 进 Stage M 批次 2 — 展开 b7 (s2-tools) / b8 (s2-result) / b9 (s2-reflect)
+- 13 beat metaphor 全锁定后才进 Stage 0（GSAP 升级）
+
 ### Tier 0 设计原则
 
 - **概念 → 物体**：每 beat 先定 1-2 个核心 metaphor 物体（产品发布的"光柱"、挖角的"被抓出来的人形"、下跌的"掉落物"），整 beat 围绕这个物体设计

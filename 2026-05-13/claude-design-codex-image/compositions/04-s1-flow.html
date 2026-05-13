@@ -1,17 +1,22 @@
 <!-- BEAT 4 · S1-FLOW · 20.0s（绝对 23.0 → 43.0）
+     metaphor 主线 A — 解构 → 重组（PLAN.md Stage M 批次 1）
+       即梦解剖台 → 截屏 + 扫描 → 截图飞散 → 重组 spec → spec 变 code →
+       code 长出网页 → 网页压扁成图 → 3 图 cascade + PASSED
+
      SRT 切分（10 句，相对 beat 起点）：
-       0.066–2.266   "因为我最近在做即梦Agent的拆解"        即梦 chip + AGENT pulse
-       2.300–3.900   "所以我想要这篇文章"                   article chip "想配图"
-       4.000–5.633   "以即梦的风格去配图"                   "即梦 风格" 强调
-       5.633–7.733   "所以我就截了即梦的一张界面"           STEP 1 screen capture 卡
-       7.733–10.666  "它直接能够反推出整套的设计规范"       STEP 1 → STEP 2 connector draw + token 卡浮出
-       10.700–12.933 "颜色字号排版留白全部都到位"           4 token chip 依次填入
-       13.100–14.933 "接着让他用写代码的形式"               STEP 2 → STEP 3 connector draw + code 卡浮出
-       14.933–17.133 "把html就是网页啊"                    code 卡显 <html> snippet
-       17.133–18.466 "把图给写出来"                        STEP 3 上方 mock 网页渲出
-       18.533–19.933 "那效果是真的好"                      lime ✓ + 整体 pulse
-     视觉锚点：3 step workflow horizontal — capture → tokens → html
-     hot 色：lime 仅用于 connector 线条 + step 完成 ✓
+       0.066–2.266   "因为我最近在做即梦Agent的拆解"        即梦 hero + 3 工具围绕（放大镜/笔/笔记本）
+       2.300–3.900   "所以我想要这篇文章"                   article 稿浮起（左下，标题 + 段落 + ? 图框）
+       4.000–5.633   "以即梦的风格去配图"                   JIMENG STYLE 印章砸下盖在 article 上
+       5.633–7.733   "所以我就截了即梦的一张界面"           截屏框 + lime flash + 截图卡浮起
+       7.733–10.666  "它直接能够反推出整套的设计规范"       扫描光束 → 截图 block 飞散 → 重组为 spec 节点
+       10.700–12.933 "颜色字号排版留白全部都到位"           spec 4 行依次填好 (颜色/字号/排版/留白)
+       13.100–14.933 "接着让他用写代码的形式"               spec 卡左滑出 + code 卡右滑入 (cross-fade morph)
+       14.933–17.133 "把html就是网页啊"                    code 4 行 + wireframe 网页从 code 卡右侧长出
+       17.133–18.466 "把图给写出来"                        截屏框框住 wireframe → 压扁成图卡
+       18.533–19.933 "那效果是真的好"                      3 张图 cascade + lime PASSED 印章
+
+     视觉锚点：解构 → 重组的物体形态变化链（不再是 3 个 step 卡）
+     hot 色：lime 仅用于 — 截屏 flash / spec 节点高亮 / PASSED 印章
 -->
 
 <template id="beat-4-s1flow-template">
@@ -29,121 +34,199 @@
       <span class="b4-kicker-label">HTML WORKFLOW</span>
     </div>
 
-    <!-- Stage A: 引子 - 即梦 Agent 拆解 -->
+    <!-- ═══════ Stage A: 即梦解剖台 (0–5s) ═══════ -->
     <div class="b4-stageA">
-      <div class="b4-stageA-row">
-        <span class="b4-jimeng-chip">
-          <span class="b4-jimeng-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="36" height="36" aria-label="Jimeng"><path d="M5.257 1.808C8.768 6.74 14.431 9.45 20.064 8.403a7.398 7.398 0 001.281-.38c.855-.33 1.975 1.01 1.326 1.658-.43.428-.84.82-1.208 1.147a51.149 51.149 0 01-8.389 6.044 51.146 51.146 0 01-9.49 4.263c-.453.15-.98.304-1.546.457-.885.238-1.484-1.4-.77-1.975.378-.306.713-.617.978-.927C5.969 14.336 6.299 8.174 3.717 2.697a18.2 18.2 0 01-.364-.84C2.995.98 4.042.335 4.656 1.055c.243.284.453.545.601.753zM19.53 13.695c-2.324 2.863-2.816 5.944-2.378 8.583l.024.16c.117.79-.816 1.277-1.448.788a12.813 12.813 0 00-.093-.072c-2.12-1.614-4.62-2.828-7.948-2.446a27.95 27.95 0 006.086-2.627c2.21-1.275 4.147-2.774 5.756-4.386z"/></svg>
+      <!-- 即梦 hero 圆盘 + 工具围绕 -->
+      <div class="b4-jimeng-hero">
+        <div class="b4-jimeng-disc">
+          <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" width="120" height="120" aria-label="Jimeng"><path d="M5.257 1.808C8.768 6.74 14.431 9.45 20.064 8.403a7.398 7.398 0 001.281-.38c.855-.33 1.975 1.01 1.326 1.658-.43.428-.84.82-1.208 1.147a51.149 51.149 0 01-8.389 6.044 51.146 51.146 0 01-9.49 4.263c-.453.15-.98.304-1.546.457-.885.238-1.484-1.4-.77-1.975.378-.306.713-.617.978-.927C5.969 14.336 6.299 8.174 3.717 2.697a18.2 18.2 0 01-.364-.84C2.995.98 4.042.335 4.656 1.055c.243.284.453.545.601.753zM19.53 13.695c-2.324 2.863-2.816 5.944-2.378 8.583l.024.16c.117.79-.816 1.277-1.448.788a12.813 12.813 0 00-.093-.072c-2.12-1.614-4.62-2.828-7.948-2.446a27.95 27.95 0 006.086-2.627c2.21-1.275 4.147-2.774 5.756-4.386z"/></svg>
+        </div>
+        <div class="b4-jimeng-label text-cn">即 梦</div>
+      </div>
+
+      <!-- 3 工具围绕（heroicons） -->
+      <div class="b4-tool b4-tool-magnify">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="56" height="56">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <line x1="20" y1="20" x2="15.2" y2="15.2"></line>
+        </svg>
+      </div>
+      <div class="b4-tool b4-tool-pencil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="56" height="56">
+          <path d="M16.5 3.5l4 4-12 12H4.5v-4z"></path>
+          <line x1="13" y1="7" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <div class="b4-tool b4-tool-doc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="56" height="56">
+          <path d="M6 3h9l4 4v14H6z"></path>
+          <line x1="9" y1="11" x2="16" y2="11"></line>
+          <line x1="9" y1="14.5" x2="16" y2="14.5"></line>
+          <line x1="9" y1="18" x2="13" y2="18"></line>
+        </svg>
+      </div>
+
+      <!-- Article 稿（左下） -->
+      <div class="b4-article">
+        <div class="b4-article-card card">
+          <div class="b4-article-title text-cn">AI Agent 拆 解</div>
+          <div class="b4-article-line b4-line-1"></div>
+          <div class="b4-article-line b4-line-2"></div>
+          <div class="b4-article-imgslot">
+            <span class="b4-article-q">?</span>
+          </div>
+          <div class="b4-article-line b4-line-3"></div>
+        </div>
+      </div>
+
+      <!-- JIMENG STYLE 印章（右下，砸下来盖在 article 上） -->
+      <div class="b4-stamp">
+        <div class="b4-stamp-ring">
+          <div class="b4-stamp-text">JIMENG · STYLE</div>
+          <div class="b4-stamp-inner">
+            <div class="b4-stamp-bar"></div>
+            <div class="b4-stamp-bar"></div>
+            <div class="b4-stamp-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ Stage B: 截屏 + 扫描 + 飞散 + 重组 (5.4–13s) ═══════ -->
+    <div class="b4-stageB">
+      <!-- 截屏框（虚线 + 4 角 control） -->
+      <div class="b4-shot-frame">
+        <span class="b4-shot-corner b4-corner-tl"></span>
+        <span class="b4-shot-corner b4-corner-tr"></span>
+        <span class="b4-shot-corner b4-corner-bl"></span>
+        <span class="b4-shot-corner b4-corner-br"></span>
+      </div>
+
+      <!-- lime flash overlay -->
+      <div class="b4-flash"></div>
+
+      <!-- 截图卡（jimeng UI mock） -->
+      <div class="b4-shot-card card">
+        <div class="b4-shot-bar">
+          <span class="b4-dot b4-dot-r"></span>
+          <span class="b4-dot b4-dot-y"></span>
+          <span class="b4-dot b4-dot-g"></span>
+          <span class="b4-shot-url">jimeng.com</span>
+        </div>
+        <div class="b4-shot-canvas">
+          <div class="b4-shot-block b4-block-b1"></div>
+          <div class="b4-shot-block b4-block-b2"></div>
+          <div class="b4-shot-block b4-block-b3"></div>
+          <div class="b4-shot-block b4-block-b4"></div>
+          <div class="b4-shot-block b4-block-b5"></div>
+        </div>
+        <!-- 扫描光束 -->
+        <div class="b4-scan-beam"></div>
+      </div>
+
+      <!-- spec 节点（飞散后重组到这里） -->
+      <div class="b4-spec-card card">
+        <div class="b4-spec-head text-cn">设 计 规 范</div>
+        <div class="b4-spec-row b4-spec-color">
+          <span class="b4-spec-key text-cn">颜 色</span>
+          <span class="b4-spec-val">
+            <span class="b4-color-chip b4-cc-1"></span>
+            <span class="b4-color-chip b4-cc-2"></span>
+            <span class="b4-color-chip b4-cc-3"></span>
           </span>
-          <span class="b4-jimeng-label text-cn">即 梦</span>
-        </span>
-        <span class="b4-stageA-glyph">×</span>
-        <span class="b4-agent-chip">AGENT 拆 解</span>
-      </div>
-      <div class="b4-stageA-target text-cn">
-        想 给 文 章 配 一 套 <span class="b4-stageA-hl">即 梦 风 格</span> 的 图
-      </div>
-    </div>
-
-    <!-- Stage B: 三步工作流 -->
-    <div class="b4-flow">
-      <!-- Step 1: 截屏即梦界面 -->
-      <div class="b4-step" data-step="1">
-        <div class="b4-step-head">
-          <span class="b4-step-num">01</span>
-          <span class="b4-step-title text-cn">截 即 梦 界 面</span>
         </div>
-        <div class="b4-step-body b4-step-capture card">
-          <div class="b4-capture-bar">
-            <span class="b4-dot b4-dot-r"></span>
-            <span class="b4-dot b4-dot-y"></span>
-            <span class="b4-dot b4-dot-g"></span>
-            <span class="b4-capture-url">jimeng.com</span>
-          </div>
-          <div class="b4-capture-canvas">
-            <div class="b4-capture-block b4-capture-b1"></div>
-            <div class="b4-capture-block b4-capture-b2"></div>
-            <div class="b4-capture-block b4-capture-b3"></div>
-            <div class="b4-capture-block b4-capture-b4"></div>
-            <div class="b4-capture-block b4-capture-b5"></div>
-          </div>
+        <div class="b4-spec-row b4-spec-type">
+          <span class="b4-spec-key text-cn">字 号</span>
+          <span class="b4-spec-val b4-type-val">
+            <span class="b4-type-a b4-ta-1">A</span>
+            <span class="b4-type-a b4-ta-2">A</span>
+            <span class="b4-type-a b4-ta-3">A</span>
+          </span>
         </div>
-      </div>
-
-      <!-- Connector 1 -->
-      <div class="b4-connector" data-conn="1">
-        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
-          <line class="b4-conn-line" x1="0" y1="8" x2="60" y2="8"></line>
-          <polyline class="b4-conn-arrow" points="56,3 66,8 56,13" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg>
-      </div>
-
-      <!-- Step 2: 反推设计规范 -->
-      <div class="b4-step" data-step="2">
-        <div class="b4-step-head">
-          <span class="b4-step-num">02</span>
-          <span class="b4-step-title text-cn">反 推 规 范</span>
+        <div class="b4-spec-row b4-spec-layout">
+          <span class="b4-spec-key text-cn">排 版</span>
+          <span class="b4-spec-val b4-layout-val">
+            <span class="b4-layout-bar"></span>
+            <span class="b4-layout-bar"></span>
+            <span class="b4-layout-bar b4-layout-bar-s"></span>
+          </span>
         </div>
-        <div class="b4-step-body b4-step-tokens card">
-          <div class="b4-token-row">
-            <span class="pill b4-token b4-token-color">颜 色</span>
-            <span class="pill b4-token b4-token-type">字 号</span>
-          </div>
-          <div class="b4-token-row">
-            <span class="pill b4-token b4-token-layout">排 版</span>
-            <span class="pill b4-token b4-token-space">留 白</span>
-          </div>
-          <div class="b4-token-caption text-cn">全 部 都 到 位</div>
-        </div>
-      </div>
-
-      <!-- Connector 2 -->
-      <div class="b4-connector" data-conn="2">
-        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
-          <line class="b4-conn-line" x1="0" y1="8" x2="60" y2="8"></line>
-          <polyline class="b4-conn-arrow" points="56,3 66,8 56,13" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg>
-      </div>
-
-      <!-- Step 3: 写 HTML 出图 -->
-      <div class="b4-step" data-step="3">
-        <div class="b4-step-head">
-          <span class="b4-step-num">03</span>
-          <span class="b4-step-title text-cn">写 HTML 出 图</span>
-        </div>
-        <div class="b4-step-body b4-step-code card">
-          <div class="b4-code-bar">
-            <span class="b4-dot b4-dot-r"></span>
-            <span class="b4-dot b4-dot-y"></span>
-            <span class="b4-dot b4-dot-g"></span>
-            <span class="b4-code-filename">page.html</span>
-          </div>
-          <div class="b4-code-body">
-            <div class="b4-code-line">&lt;<span class="b4-tag-name">section</span>&gt;</div>
-            <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">h1</span>&gt;...&lt;/<span class="b4-tag-name">h1</span>&gt;</div>
-            <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">img</span> ... /&gt;</div>
-            <div class="b4-code-line">&lt;/<span class="b4-tag-name">section</span>&gt;</div>
-          </div>
-          <!-- 渲出网页 mock -->
-          <div class="b4-render-mock">
-            <div class="b4-render-bar"></div>
-            <div class="b4-render-blob"></div>
-            <div class="b4-render-line"></div>
-            <div class="b4-render-line b4-render-line-2"></div>
-          </div>
+        <div class="b4-spec-row b4-spec-space">
+          <span class="b4-spec-key text-cn">留 白</span>
+          <span class="b4-spec-val b4-space-val">
+            <span class="b4-space-box"></span>
+            <span class="b4-space-rule">8 · 16 · 24</span>
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- "效果真的好" lime ✓ -->
-    <div class="b4-final">
-      <span class="b4-final-check">
-        <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
-          <polyline points="5,12 10,17 19,7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg>
-      </span>
-      <span class="b4-final-text text-cn">效 果 真 的 好</span>
+    <!-- ═══════ Stage C: spec → code 形态变化 (13–17s) ═══════ -->
+    <div class="b4-stageC">
+      <!-- code 卡 -->
+      <div class="b4-code-card card">
+        <div class="b4-code-bar">
+          <span class="b4-dot b4-dot-r"></span>
+          <span class="b4-dot b4-dot-y"></span>
+          <span class="b4-dot b4-dot-g"></span>
+          <span class="b4-code-filename">article.html</span>
+        </div>
+        <div class="b4-code-body">
+          <div class="b4-code-line">&lt;<span class="b4-tag-name">section</span> class=&quot;<span class="b4-tag-attr">post</span>&quot;&gt;</div>
+          <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">h1</span>&gt;AI Agent 拆解&lt;/<span class="b4-tag-name">h1</span>&gt;</div>
+          <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">img</span> src=&quot;...&quot; /&gt;</div>
+          <div class="b4-code-line">&nbsp;&nbsp;&lt;<span class="b4-tag-name">p</span>&gt;...&lt;/<span class="b4-tag-name">p</span>&gt;</div>
+          <div class="b4-code-line">&lt;/<span class="b4-tag-name">section</span>&gt;</div>
+        </div>
+      </div>
+
+      <!-- wireframe 网页（从 code 卡右侧长出） -->
+      <div class="b4-wire card">
+        <div class="b4-wire-bar"></div>
+        <div class="b4-wire-hero"></div>
+        <div class="b4-wire-h1"></div>
+        <div class="b4-wire-line"></div>
+        <div class="b4-wire-line b4-wire-line-2"></div>
+        <div class="b4-wire-line b4-wire-line-3"></div>
+      </div>
+    </div>
+
+    <!-- ═══════ Stage D: 网页压扁成图 (17–18.5s) ═══════ -->
+    <div class="b4-stageD">
+      <!-- 导出截屏框 -->
+      <div class="b4-export-frame">
+        <span class="b4-shot-corner b4-corner-tl"></span>
+        <span class="b4-shot-corner b4-corner-tr"></span>
+        <span class="b4-shot-corner b4-corner-bl"></span>
+        <span class="b4-shot-corner b4-corner-br"></span>
+      </div>
+    </div>
+
+    <!-- ═══════ Stage E: 3 图 cascade + PASSED (18.5–20s) ═══════ -->
+    <div class="b4-stageE">
+      <div class="b4-result b4-result-back-l">
+        <div class="b4-result-hero"></div>
+        <div class="b4-result-bar"></div>
+        <div class="b4-result-bar b4-result-bar-s"></div>
+      </div>
+      <div class="b4-result b4-result-back-r">
+        <div class="b4-result-hero b4-result-hero-2"></div>
+        <div class="b4-result-bar"></div>
+        <div class="b4-result-bar b4-result-bar-s"></div>
+      </div>
+      <div class="b4-result b4-result-front">
+        <div class="b4-result-hero"></div>
+        <div class="b4-result-bar"></div>
+        <div class="b4-result-bar b4-result-bar-s"></div>
+      </div>
+
+      <!-- PASSED 印章 -->
+      <div class="b4-pass">
+        <span class="b4-pass-text">PASSED</span>
+      </div>
+
+      <!-- "效果真的好" 衬线大字 -->
+      <div class="b4-pass-caption text-cn">效 果 真 的 好</div>
     </div>
 
     <style>
@@ -169,6 +252,7 @@
         font-weight: 700;
         letter-spacing: 0.32em;
         color: var(--muted);
+        z-index: 10;
       }
       [data-composition-id="beat-4-s1flow"] .b4-kicker-num {
         color: var(--ink);
@@ -179,8 +263,19 @@
       }
       [data-composition-id="beat-4-s1flow"] .b4-kicker-sep { opacity: 0.5; }
 
-      /* ── Stage A: 即梦 Agent 拆解 ── */
-      [data-composition-id="beat-4-s1flow"] .b4-stageA {
+      /* ── Stage 容器统一 ── */
+      [data-composition-id="beat-4-s1flow"] .b4-stageA,
+      [data-composition-id="beat-4-s1flow"] .b4-stageB,
+      [data-composition-id="beat-4-s1flow"] .b4-stageC,
+      [data-composition-id="beat-4-s1flow"] .b4-stageD,
+      [data-composition-id="beat-4-s1flow"] .b4-stageE {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+
+      /* ═══════ Stage A: 解剖台 ═══════ */
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-hero {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -188,141 +283,210 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 22px;
         opacity: 0;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-row {
+      [data-composition-id="beat-4-s1flow"] .b4-jimeng-disc {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* 即梦官方品牌色（lobe-icons jimeng-color.svg 渐变定义） */
+        background: linear-gradient(135deg, #27B2F0 0%, #26DFFB 20%, #30F5FE 40%, #F0FEFC 65%, #FBC610 86%, #FD9C22 100%);
         display: flex;
-        align-items: center;
-        gap: 28px;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-jimeng-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 30px;
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        box-shadow: 0 8px 18px rgba(11, 11, 8, 0.05);
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-jimeng-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-        display: inline-flex;
         align-items: center;
         justify-content: center;
         color: #fff;
+        box-shadow: 0 24px 48px rgba(11, 11, 8, 0.12);
       }
       [data-composition-id="beat-4-s1flow"] .b4-jimeng-label {
-        font-family: var(--sans);
-        font-size: 36px;
-        font-weight: 800;
-        color: var(--ink);
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-glyph {
         font-family: var(--serif);
-        font-size: 48px;
-        color: var(--muted);
         font-weight: 500;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-agent-chip {
-        font-family: var(--sans);
-        font-size: 30px;
-        font-weight: 800;
-        color: #fff;
-        background: var(--ink);
-        padding: 16px 30px;
-        border-radius: 999px;
-        letter-spacing: 0.16em;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-target {
-        font-family: var(--serif);
         font-size: 56px;
-        font-weight: 500;
         color: var(--ink);
+        letter-spacing: 0.08em;
+      }
+
+      /* 3 工具 — 围绕在 hero 周围 */
+      [data-composition-id="beat-4-s1flow"] .b4-tool {
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink);
+        box-shadow: 0 12px 24px rgba(11, 11, 8, 0.06);
         opacity: 0;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl {
-        position: relative;
-        display: inline-block;
+      [data-composition-id="beat-4-s1flow"] .b4-tool-magnify {
+        top: 38%;
+        left: 30%;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl::after {
+      [data-composition-id="beat-4-s1flow"] .b4-tool-pencil {
+        top: 32%;
+        right: 30%;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-tool-doc {
+        bottom: 26%;
+        left: 36%;
+      }
+
+      /* article 稿 */
+      [data-composition-id="beat-4-s1flow"] .b4-article {
+        position: absolute;
+        right: 14%;
+        bottom: 16%;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-article-card {
+        width: 420px;
+        padding: 28px 30px;
+        position: relative;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-article-title {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 34px;
+        color: var(--ink);
+        margin-bottom: 18px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-article-line {
+        height: 6px;
+        background: var(--soft);
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-line-1 { width: 92%; }
+      [data-composition-id="beat-4-s1flow"] .b4-line-2 { width: 78%; }
+      [data-composition-id="beat-4-s1flow"] .b4-line-3 { width: 68%; }
+      [data-composition-id="beat-4-s1flow"] .b4-article-imgslot {
+        height: 130px;
+        border: 2px dashed var(--line);
+        border-radius: 12px;
+        margin: 12px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-article-q {
+        font-family: var(--serif);
+        font-size: 64px;
+        font-weight: 500;
+        color: var(--muted);
+        opacity: 0.5;
+      }
+
+      /* JIMENG STYLE 印章 */
+      [data-composition-id="beat-4-s1flow"] .b4-stamp {
+        position: absolute;
+        right: 22%;
+        bottom: 32%;
+        opacity: 0;
+        transform: scale(2.4) rotate(-18deg);
+        transform-origin: center center;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-ring {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 4px solid var(--ink);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(250, 250, 248, 0.5);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-ring::before {
         content: "";
         position: absolute;
-        left: -4px;
-        right: -4px;
-        bottom: 6px;
-        height: 14px;
-        background: var(--lime);
-        z-index: -1;
-        border-radius: 999px;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: none;
+        inset: 8px;
+        border-radius: 50%;
+        border: 2px solid var(--ink);
       }
-      [data-composition-id="beat-4-s1flow"] .b4-stageA-hl.is-lit::after {
-        transform: scaleX(1);
-        transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-text {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--ink);
+        text-align: center;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-bar {
+        width: 110px;
+        height: 12px;
+        background: var(--ink);
+        border-radius: 4px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-stamp-bar:nth-child(2) {
+        width: 84px;
+        background: linear-gradient(90deg, #27B2F0 0%, #30F5FE 40%, #FBC610 75%, #FD9C22 100%);
       }
 
-      /* ── Stage B: 三步工作流 ── */
-      [data-composition-id="beat-4-s1flow"] .b4-flow {
+      /* ═══════ Stage B: 截屏 + 扫描 + 飞散 + 重组 ═══════ */
+      /* 截屏框（与 shot-card 同位置同尺寸 — 按下快门后就是 shot-card） */
+      [data-composition-id="beat-4-s1flow"] .b4-shot-frame {
         position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        gap: 28px;
+        left: 12%;
+        transform: translateY(-50%);
+        width: 620px;
+        height: 440px;
+        border: 2px dashed var(--ink);
+        border-radius: 6px;
         opacity: 0;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-step {
-        width: 380px;
-        opacity: 0;
-        transform: translateY(20px);
+      [data-composition-id="beat-4-s1flow"] .b4-shot-corner {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: var(--ink);
+        border-radius: 4px;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-step-head {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 16px;
-        padding-left: 6px;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-step-num {
-        font-family: var(--sans);
-        font-size: 22px;
-        font-weight: 800;
-        color: var(--ink);
+      [data-composition-id="beat-4-s1flow"] .b4-corner-tl { top: -12px; left: -12px; }
+      [data-composition-id="beat-4-s1flow"] .b4-corner-tr { top: -12px; right: -12px; }
+      [data-composition-id="beat-4-s1flow"] .b4-corner-bl { bottom: -12px; left: -12px; }
+      [data-composition-id="beat-4-s1flow"] .b4-corner-br { bottom: -12px; right: -12px; }
+
+      /* lime flash */
+      [data-composition-id="beat-4-s1flow"] .b4-flash {
+        position: absolute;
+        inset: 0;
         background: var(--lime);
-        padding: 4px 12px;
-        border-radius: 8px;
-        letter-spacing: 0.16em;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-step-title {
-        font-family: var(--sans);
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--ink);
-        letter-spacing: 0.04em;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-step-body {
-        width: 100%;
-        height: 360px;
-        padding: 20px;
-        position: relative;
-        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
       }
 
-      /* ── Step 1: capture 卡 ── */
-      [data-composition-id="beat-4-s1flow"] .b4-capture-bar {
+      /* 截图卡 */
+      [data-composition-id="beat-4-s1flow"] .b4-shot-card {
+        position: absolute;
+        left: 12%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 620px;
+        height: 440px;
+        padding: 22px;
+        opacity: 0;
+        overflow: visible;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-shot-bar {
         display: flex;
         align-items: center;
         gap: 8px;
         height: 28px;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
       }
       [data-composition-id="beat-4-s1flow"] .b4-dot {
         width: 11px;
@@ -333,84 +497,162 @@
       [data-composition-id="beat-4-s1flow"] .b4-dot-r { background: #ff6b5b; }
       [data-composition-id="beat-4-s1flow"] .b4-dot-y { background: #ffc24c; }
       [data-composition-id="beat-4-s1flow"] .b4-dot-g { background: #34c759; }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-url {
+      [data-composition-id="beat-4-s1flow"] .b4-shot-url {
         margin-left: 12px;
         font-family: var(--sans);
         font-size: 14px;
         color: var(--muted);
         font-weight: 600;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-canvas {
+      [data-composition-id="beat-4-s1flow"] .b4-shot-canvas {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 56px;
-        bottom: 20px;
+        left: 22px;
+        right: 22px;
+        top: 66px;
+        bottom: 22px;
         background: var(--soft);
         border-radius: 12px;
-        overflow: hidden;
+        overflow: visible;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-block {
+      [data-composition-id="beat-4-s1flow"] .b4-shot-block {
         position: absolute;
-        background: var(--ink);
         border-radius: 6px;
-        opacity: 0;
+        z-index: 5;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-b1 { left: 8%; top: 10%; width: 38%; height: 32%; }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-b2 { left: 52%; top: 10%; width: 40%; height: 32%; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-b3 { left: 8%; top: 50%; width: 84%; height: 6%; }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-b4 { left: 8%; top: 62%; width: 60%; height: 6%; background: var(--muted); }
-      [data-composition-id="beat-4-s1flow"] .b4-capture-b5 { left: 8%; top: 76%; width: 84%; height: 14%; background: var(--lime); }
+      [data-composition-id="beat-4-s1flow"] .b4-block-b1 { left: 8%; top: 10%; width: 38%; height: 32%; background: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-block-b2 { left: 52%; top: 10%; width: 40%; height: 32%; background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%); }
+      [data-composition-id="beat-4-s1flow"] .b4-block-b3 { left: 8%; top: 50%; width: 84%; height: 6%; background: var(--ink); }
+      [data-composition-id="beat-4-s1flow"] .b4-block-b4 { left: 8%; top: 62%; width: 60%; height: 6%; background: var(--muted); }
+      [data-composition-id="beat-4-s1flow"] .b4-block-b5 { left: 8%; top: 76%; width: 84%; height: 14%; background: var(--ink); }
 
-      /* ── Step 2: tokens 卡 ── */
-      [data-composition-id="beat-4-s1flow"] .b4-step-tokens {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 18px;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-token-row {
-        display: flex;
-        gap: 18px;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-token {
-        font-size: 28px;
-        font-weight: 800;
-        padding: 14px 28px;
-        height: auto;
+      /* 扫描光束 */
+      [data-composition-id="beat-4-s1flow"] .b4-scan-beam {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        top: 66px;
+        height: 60px;
+        background: linear-gradient(to bottom,
+          rgba(220, 255, 69, 0) 0%,
+          rgba(220, 255, 69, 0.6) 50%,
+          rgba(220, 255, 69, 0) 100%);
+        border-top: 2px solid var(--lime);
+        border-bottom: 2px solid var(--lime);
         opacity: 0;
-        transform: translateY(10px);
-        background: var(--panel);
-        border: 1px solid var(--line);
-        color: var(--ink);
+        pointer-events: none;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-token-color { border-color: var(--ink); }
-      [data-composition-id="beat-4-s1flow"] .b4-token-type { border-color: var(--ink); }
-      [data-composition-id="beat-4-s1flow"] .b4-token-layout { border-color: var(--ink); }
-      [data-composition-id="beat-4-s1flow"] .b4-token-space { border-color: var(--ink); }
-      [data-composition-id="beat-4-s1flow"] .b4-token.is-filled {
-        background: var(--ink);
-        color: #fff;
-        transition: background 0.25s ease, color 0.25s ease;
+
+      /* spec 卡（width 与 code 卡同 620，便于后续滑到 code 位置同位 cross-fade） */
+      [data-composition-id="beat-4-s1flow"] .b4-spec-card {
+        position: absolute;
+        right: 12%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 620px;
+        padding: 30px 32px;
+        opacity: 0;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-token-caption {
+      [data-composition-id="beat-4-s1flow"] .b4-spec-head {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        color: var(--muted);
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 18px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-spec-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        opacity: 0;
+        border-bottom: 1px solid rgba(11, 11, 8, 0.06);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-spec-row:last-child { border-bottom: 0; }
+      [data-composition-id="beat-4-s1flow"] .b4-spec-key {
         font-family: var(--sans);
         font-size: 22px;
-        font-weight: 700;
-        color: var(--muted);
+        font-weight: 800;
+        color: var(--ink);
         letter-spacing: 0.08em;
-        margin-top: 8px;
-        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-spec-val {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      /* 颜色行 */
+      [data-composition-id="beat-4-s1flow"] .b4-color-chip {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: inline-block;
+        border: 1px solid var(--line);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-cc-1 { background: #0b0b08; }
+      [data-composition-id="beat-4-s1flow"] .b4-cc-2 { background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%); }
+      [data-composition-id="beat-4-s1flow"] .b4-cc-3 { background: #fafaf8; }
+      /* 字号行 */
+      [data-composition-id="beat-4-s1flow"] .b4-type-val { gap: 10px; }
+      [data-composition-id="beat-4-s1flow"] .b4-type-a {
+        font-family: var(--serif);
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-ta-1 { font-size: 44px; }
+      [data-composition-id="beat-4-s1flow"] .b4-ta-2 { font-size: 30px; }
+      [data-composition-id="beat-4-s1flow"] .b4-ta-3 { font-size: 22px; }
+      /* 排版行 */
+      [data-composition-id="beat-4-s1flow"] .b4-layout-val {
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-end;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-layout-bar {
+        height: 6px;
+        background: var(--ink);
+        border-radius: 3px;
+        width: 120px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-layout-bar-s { width: 84px; }
+      /* 留白行 */
+      [data-composition-id="beat-4-s1flow"] .b4-space-val {
+        flex-direction: row;
+        gap: 14px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-space-box {
+        width: 36px;
+        height: 36px;
+        border: 2px dashed var(--ink);
+        border-radius: 4px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-space-rule {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--ink);
       }
 
-      /* ── Step 3: code 卡 ── */
+      /* ═══════ Stage C: spec → code ═══════ */
+      [data-composition-id="beat-4-s1flow"] .b4-code-card {
+        position: absolute;
+        left: 12%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 620px;
+        height: 380px;
+        padding: 22px;
+        opacity: 0;
+      }
       [data-composition-id="beat-4-s1flow"] .b4-code-bar {
         display: flex;
         align-items: center;
         gap: 8px;
         height: 28px;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
       }
       [data-composition-id="beat-4-s1flow"] .b4-code-filename {
         margin-left: 12px;
@@ -420,15 +662,16 @@
       }
       [data-composition-id="beat-4-s1flow"] .b4-code-body {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 56px;
+        left: 22px;
+        right: 22px;
+        top: 66px;
+        bottom: 22px;
         background: var(--soft);
         border-radius: 12px;
-        padding: 18px;
+        padding: 22px;
         font-family: ui-monospace, "SF Mono", Menlo, monospace;
-        font-size: 18px;
-        line-height: 1.6;
+        font-size: 20px;
+        line-height: 1.7;
         color: var(--ink);
       }
       [data-composition-id="beat-4-s1flow"] .b4-code-line {
@@ -439,92 +682,152 @@
         color: #5a6cff;
         font-weight: 600;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-render-mock {
+      [data-composition-id="beat-4-s1flow"] .b4-tag-attr {
+        color: #b34a4a;
+      }
+
+      /* wireframe 网页 */
+      [data-composition-id="beat-4-s1flow"] .b4-wire {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        height: 130px;
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 14px;
+        right: 12%;
+        top: 50%;
+        transform: translateY(-50%) scale(0.85);
+        width: 480px;
+        height: 380px;
+        padding: 22px;
         opacity: 0;
-        transform: scale(0.9);
-        transform-origin: bottom center;
-        overflow: hidden;
+        transform-origin: left center;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-render-bar {
-        width: 100%;
-        height: 30px;
-        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+      [data-composition-id="beat-4-s1flow"] .b4-wire-bar {
+        height: 28px;
+        background: var(--soft);
         border-radius: 6px;
-        margin-bottom: 10px;
+        margin-bottom: 16px;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-render-blob {
-        position: absolute;
-        right: 14px;
-        top: 14px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: var(--lime);
+      [data-composition-id="beat-4-s1flow"] .b4-wire-hero {
+        height: 110px;
+        background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%);
+        border-radius: 12px;
+        margin-bottom: 18px;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-render-line {
-        width: 80%;
-        height: 8px;
+      [data-composition-id="beat-4-s1flow"] .b4-wire-h1 {
+        height: 22px;
         background: var(--ink);
         border-radius: 4px;
-        margin-bottom: 8px;
+        width: 70%;
+        margin-bottom: 14px;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-render-line-2 {
+      [data-composition-id="beat-4-s1flow"] .b4-wire-line {
+        height: 8px;
+        background: var(--muted);
+        border-radius: 4px;
+        margin-bottom: 10px;
+        opacity: 0.6;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-wire-line-2 { width: 80%; }
+      [data-composition-id="beat-4-s1flow"] .b4-wire-line-3 { width: 60%; }
+
+      /* ═══════ Stage D: 网页 → 图 ═══════ */
+      [data-composition-id="beat-4-s1flow"] .b4-export-frame {
+        position: absolute;
+        right: 12%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 510px;
+        height: 410px;
+        border: 2px dashed var(--lime);
+        border-radius: 6px;
+        opacity: 0;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-export-frame .b4-shot-corner {
+        background: var(--lime);
+      }
+
+      /* ═══════ Stage E: 3 图 + PASSED ═══════ */
+      [data-composition-id="beat-4-s1flow"] .b4-result {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 420px;
+        height: 540px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+        opacity: 0;
+        box-shadow: 0 24px 48px rgba(11, 11, 8, 0.1);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-back-l {
+        transform: translate(calc(-50% - 320px), calc(-50% + 40px)) rotate(-9deg);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-back-r {
+        transform: translate(calc(-50% + 320px), calc(-50% + 40px)) rotate(9deg);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-front {
+        z-index: 3;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-hero {
+        height: 360px;
+        background: linear-gradient(135deg, #27B2F0 0%, #26DFFB 20%, #30F5FE 40%, #F0FEFC 65%, #FBC610 86%, #FD9C22 100%);
+        border-radius: 14px;
+        margin-bottom: 22px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-hero-2 {
+        background: linear-gradient(135deg, #0b0b08 0%, #2a2a26 100%);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-bar {
+        height: 14px;
+        background: var(--ink);
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-result-bar-s {
         width: 60%;
         background: var(--muted);
       }
 
-      /* ── Connector arrows ── */
-      [data-composition-id="beat-4-s1flow"] .b4-connector {
-        color: var(--ink);
-        opacity: 0;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-conn-line {
-        stroke: currentColor;
-        stroke-width: 2.4;
-        stroke-dasharray: 60;
-        stroke-dashoffset: 60;
-        stroke-linecap: round;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-conn-arrow {
-        stroke: currentColor;
-        opacity: 0;
-      }
-
-      /* ── Final ✓ ── */
-      [data-composition-id="beat-4-s1flow"] .b4-final {
+      /* PASSED 印章 */
+      [data-composition-id="beat-4-s1flow"] .b4-pass {
         position: absolute;
+        top: 36%;
         left: 50%;
-        bottom: 90px;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%) scale(2.4) rotate(-12deg);
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 5px solid var(--lime);
+        background: rgba(220, 255, 69, 0.18);
         display: flex;
         align-items: center;
-        gap: 16px;
-        opacity: 0;
-      }
-      [data-composition-id="beat-4-s1flow"] .b4-final-check {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: var(--lime);
-        color: var(--ink);
-        display: inline-flex;
-        align-items: center;
         justify-content: center;
+        opacity: 0;
+        z-index: 4;
       }
-      [data-composition-id="beat-4-s1flow"] .b4-final-text {
-        font-family: var(--serif);
-        font-size: 44px;
-        font-weight: 500;
+      [data-composition-id="beat-4-s1flow"] .b4-pass::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 50%;
+        border: 2px solid var(--lime);
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-pass-text {
+        font-family: var(--sans);
+        font-size: 36px;
+        font-weight: 900;
         color: var(--ink);
+        letter-spacing: 0.18em;
+      }
+      [data-composition-id="beat-4-s1flow"] .b4-pass-caption {
+        position: absolute;
+        left: 50%;
+        bottom: 100px;
+        transform: translateX(-50%);
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 56px;
+        color: var(--ink);
+        opacity: 0;
       }
     </style>
 
@@ -533,150 +836,316 @@
       (() => {
         window.__timelines = window.__timelines || {};
         const tl = gsap.timeline({ paused: true });
+        const ROOT = '[data-composition-id="beat-4-s1flow"]';
 
-        // 0.00s — Kicker
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-kicker',
+        // ═══════ Kicker (0.0s) ═══════
+        tl.fromTo(ROOT + ' .b4-kicker',
           { x: -20, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
           0.0);
 
-        // ── Stage A 引子（0.0–4.0s）──
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-stageA',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          0.0);
+        // ═══════ Stage A: 解剖台 (0.0–5.0s) ═══════
+        tl.set(ROOT + ' .b4-stageA', { opacity: 1 }, 0.0);
 
-        // 0.4s — 即梦 chip 弹一下
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-jimeng-chip',
-          { scale: 0.85 },
-          { scale: 1, duration: 0.4, ease: "back.out(1.6)" },
-          0.4);
+        // 0.066s SRT — 即梦 hero 浮起
+        tl.fromTo(ROOT + ' .b4-jimeng-hero',
+          { y: 30, opacity: 0, scale: 0.92 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.4)" },
+          0.1);
 
-        // 0.6s — agent chip 弹入
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-agent-chip',
-          { scale: 0.85, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" },
-          0.6);
+        // 0.6s — 3 工具围绕（stagger from center 弹出）
+        tl.fromTo(ROOT + ' .b4-tool',
+          { scale: 0.5, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.45, stagger: { each: 0.12, from: "random" }, ease: "back.out(1.6)" },
+          0.7);
 
-        // 2.3s — 目标句滑入 "想给文章配一套即梦风格的图"
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-stageA-target',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          2.3);
+        // 工具持续微动（idle drift）
+        tl.to(ROOT + ' .b4-tool-magnify',
+          { y: -8, duration: 1.6, repeat: 2, yoyo: true, ease: "sine.inOut" },
+          1.2);
+        tl.to(ROOT + ' .b4-tool-pencil',
+          { y: 10, duration: 1.8, repeat: 1, yoyo: true, ease: "sine.inOut" },
+          1.4);
+        tl.to(ROOT + ' .b4-tool-doc',
+          { y: -6, duration: 2.0, repeat: 1, yoyo: true, ease: "sine.inOut" },
+          1.0);
 
-        // 4.0s — "即梦风格" lime 横划线
-        tl.call(() => {
-          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-stageA-hl');
-          if (el) el.classList.add("is-lit");
-        }, [], 4.0);
+        // 2.300s SRT — article 稿浮起（右下）
+        tl.fromTo(ROOT + ' .b4-article',
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+          2.30);
 
-        // 5.0s — Stage A fade out
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-stageA',
-          { y: -30, opacity: 0, duration: 0.4, ease: "power2.in" },
+        // 4.000s SRT — JIMENG STYLE 印章砸下（从大缩小 + 旋转回正）
+        tl.set(ROOT + ' .b4-stamp', { opacity: 0, scale: 2.4, rotate: -18 }, 4.0);
+        tl.to(ROOT + ' .b4-stamp',
+          { opacity: 1, scale: 1, rotate: -8, duration: 0.32, ease: "power3.in" },
+          4.0);
+        // 印章砸下后 article 卡轻微震一下
+        tl.to(ROOT + ' .b4-article-card',
+          { x: -3, duration: 0.05, yoyo: true, repeat: 3, ease: "power1.inOut" },
+          4.32);
+
+        // 5.0s — Stage A 全淡出
+        tl.to(ROOT + ' .b4-stageA',
+          { opacity: 0, duration: 0.4, ease: "power2.in" },
           5.0);
 
-        // ── Stage B 三步工作流（5.5s 起）──
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-flow',
-          { opacity: 1, duration: 0.01 },
-          5.4);
+        // ═══════ Stage B: 截屏 + 飞散 + 重组 (5.4–13s) ═══════
+        tl.set(ROOT + ' .b4-stageB', { opacity: 1 }, 5.4);
 
-        // 5.5s — Step 1 入场
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="1"]',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          5.5);
+        // 5.633s SRT — 截屏框入场（虚线动画 + 4 角 control 弹）
+        tl.fromTo(ROOT + ' .b4-shot-frame',
+          { scale: 1.15, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+          5.63);
+        tl.fromTo(ROOT + ' .b4-shot-frame .b4-shot-corner',
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.3, stagger: 0.06, ease: "back.out(2)" },
+          5.85);
 
-        // 5.9s — Step 1 内部 5 块截图占位逐个浮现
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-capture-block',
+        // 6.5s — lime flash（截屏咔嚓瞬间）
+        tl.fromTo(ROOT + ' .b4-flash',
           { opacity: 0 },
-          { opacity: 1, stagger: 0.18, duration: 0.3, ease: "power2.out" },
-          5.9);
+          { opacity: 0.7, duration: 0.08, ease: "power1.out" },
+          6.5);
+        tl.to(ROOT + ' .b4-flash',
+          { opacity: 0, duration: 0.25, ease: "power2.out" },
+          6.58);
 
-        // 7.7s — Connector 1 draw
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"]',
-          { opacity: 1, duration: 0.01 },
-          7.7);
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"] .b4-conn-line',
-          { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" },
-          7.7);
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="1"] .b4-conn-arrow',
-          { opacity: 1, duration: 0.15, ease: "power2.out" },
-          8.2);
+        // 6.6s — 截屏框 fade 出 + 截图卡浮起
+        tl.to(ROOT + ' .b4-shot-frame',
+          { opacity: 0, duration: 0.25, ease: "power2.in" },
+          6.55);
+        tl.fromTo(ROOT + ' .b4-shot-card',
+          { y: 30, opacity: 0, scale: 0.9 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.3)" },
+          6.7);
 
-        // 8.0s — Step 2 入场（容器，token 还没填）
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="2"]',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          8.0);
+        // 7.733s SRT — 扫描光束 sweep 截图
+        tl.set(ROOT + ' .b4-scan-beam',
+          { opacity: 0, top: 66 },
+          7.73);
+        tl.to(ROOT + ' .b4-scan-beam',
+          { opacity: 1, duration: 0.18, ease: "power2.out" },
+          7.73);
+        tl.to(ROOT + ' .b4-scan-beam',
+          { top: 380, duration: 1.6, ease: "power2.inOut" },
+          7.85);
+        tl.to(ROOT + ' .b4-scan-beam',
+          { opacity: 0, duration: 0.25, ease: "power2.in" },
+          9.30);
 
-        // 8.5s — 4 个空 token chip 显示（灰底）
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-token',
-          { y: 10, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.12, duration: 0.35, ease: "power3.out" },
-          8.5);
+        // 8.9s — spec 卡提前浮起（接住飞过来的 block，提供"目的地"）
+        tl.fromTo(ROOT + ' .b4-spec-card',
+          { x: 30, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          8.9);
 
-        // 10.7s–12.9s — 4 个 token 依次"填入"（变 ink 实色，硬编码 selector 避免 template literal）
-        tl.call(() => {
-          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-color');
-          if (el) el.classList.add("is-filled");
-        }, [], 10.70);
-        tl.call(() => {
-          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-type');
-          if (el) el.classList.add("is-filled");
-        }, [], 11.25);
-        tl.call(() => {
-          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-layout');
-          if (el) el.classList.add("is-filled");
-        }, [], 11.80);
-        tl.call(() => {
-          const el = document.querySelector('[data-composition-id="beat-4-s1flow"] .b4-token-space');
-          if (el) el.classList.add("is-filled");
-        }, [], 12.35);
+        // 9.0s — spec 4 行 val 内 chip 初始全隐藏（等 block 飞到再亮）
+        tl.set(ROOT + ' .b4-color-chip', { opacity: 0, scale: 0.6 }, 9.0);
+        tl.set(ROOT + ' .b4-type-a', { opacity: 0, y: 12 }, 9.0);
+        tl.set(ROOT + ' .b4-layout-bar', { opacity: 0, scaleX: 0.4 }, 9.0);
+        tl.set(ROOT + ' .b4-space-box', { opacity: 0, scale: 0.6 }, 9.0);
+        tl.set(ROOT + ' .b4-space-rule', { opacity: 0, x: -8 }, 9.0);
 
-        // 12.6s — "全部都到位" caption
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-token-caption',
-          { y: 8, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
-          12.6);
+        // 9.1s — spec 4 行 row 容器入场（先显 key 字，val 还空着）
+        tl.fromTo(ROOT + ' .b4-spec-row',
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.35, ease: "power3.out" },
+          9.1);
 
-        // 13.1s — Connector 2 draw
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"]',
-          { opacity: 1, duration: 0.01 },
+        // ── block 直接飞向 spec 对应行 val（不被框截，按 SRT 节奏分批） ──
+
+        // SRT 10.70 "颜色" — b1(黑) + b2(橙) 飞向颜色行 val
+        tl.to(ROOT + ' .b4-block-b1',
+          { x: 1180, y: -10, scaleX: 0.18, scaleY: 0.32, rotate: 8, duration: 1.0, ease: "power2.inOut" },
+          9.8);
+        tl.to(ROOT + ' .b4-block-b1',
+          { opacity: 0, duration: 0.2, ease: "power2.in" },
+          10.6);
+        tl.to(ROOT + ' .b4-block-b2',
+          { x: 920, y: -10, scaleX: 0.16, scaleY: 0.32, rotate: -6, duration: 1.0, ease: "power2.inOut" },
+          9.9);
+        tl.to(ROOT + ' .b4-block-b2',
+          { opacity: 0, duration: 0.2, ease: "power2.in" },
+          10.7);
+        // 颜色 chip 在 block 抵达瞬间亮起
+        tl.to(ROOT + ' .b4-spec-color .b4-color-chip',
+          { opacity: 1, scale: 1, stagger: 0.06, duration: 0.35, ease: "back.out(1.8)" },
+          10.65);
+
+        // SRT 11.25 "字号" — 字号行无飞行 block，3 个 A 字独立 stagger（衬线视觉对应"字号"）
+        tl.to(ROOT + ' .b4-spec-type .b4-type-a',
+          { y: 0, opacity: 1, stagger: 0.06, duration: 0.35, ease: "back.out(1.8)" },
+          11.20);
+
+        // SRT 11.80 "排版" — b3 + b4 (两根横线) 飞向排版行
+        tl.to(ROOT + ' .b4-block-b3',
+          { x: 1060, y: 8, scaleX: 0.25, scaleY: 0.30, rotate: 4, duration: 1.0, ease: "power2.inOut" },
+          10.85);
+        tl.to(ROOT + ' .b4-block-b3',
+          { opacity: 0, duration: 0.2, ease: "power2.in" },
+          11.70);
+        tl.to(ROOT + ' .b4-block-b4',
+          { x: 1120, y: -22, scaleX: 0.24, scaleY: 0.30, rotate: -4, duration: 1.0, ease: "power2.inOut" },
+          10.95);
+        tl.to(ROOT + ' .b4-block-b4',
+          { opacity: 0, duration: 0.2, ease: "power2.in" },
+          11.78);
+        tl.to(ROOT + ' .b4-spec-layout .b4-layout-bar',
+          { opacity: 1, scaleX: 1, stagger: 0.08, duration: 0.35, ease: "power3.out" },
+          11.75);
+
+        // SRT 12.35 "留白" — b5 (大块) 飞向留白行
+        tl.to(ROOT + ' .b4-block-b5',
+          { x: 1080, y: -40, scaleX: 0.08, scaleY: 0.74, rotate: 6, duration: 1.0, ease: "power2.inOut" },
+          11.40);
+        tl.to(ROOT + ' .b4-block-b5',
+          { opacity: 0, duration: 0.2, ease: "power2.in" },
+          12.30);
+        tl.to(ROOT + ' .b4-spec-space .b4-space-box',
+          { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" },
+          12.30);
+        tl.to(ROOT + ' .b4-spec-space .b4-space-rule',
+          { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" },
+          12.45);
+
+        // 12.0s — shot-card 完成使命渐淡（block 已飞光）
+        tl.to(ROOT + ' .b4-shot-card',
+          { opacity: 0.12, duration: 0.6, ease: "power2.inOut" },
+          11.9);
+
+        // 12.5s — spec 卡向左滑到 code 卡位置（物理位移衔接，为同位 cross-fade 做准备）
+        // spec right:12% width 620 → 左边 1070；code left:12% width 620 → 左边 230
+        // 滑过去 Δx = -840（spec 卡左边对齐 code 卡左边）
+        tl.to(ROOT + ' .b4-spec-card',
+          { x: -840, duration: 0.65, ease: "power3.inOut" },
+          12.5);
+
+        // 12.8s — shot-card 完全淡出（spec 滑过来后接管视野）
+        tl.to(ROOT + ' .b4-shot-card',
+          { opacity: 0, duration: 0.3, ease: "power2.in" },
+          12.7);
+
+        // ═══════ Stage C: spec → code 同位 morph (13.1–17s) ═══════
+        // Stage B 容器不再整片淡出（子元素都已透明），spec/code 同位 cross-fade
+        tl.set(ROOT + ' .b4-stageC', { opacity: 1 }, 13.1);
+
+        // 13.05s — spec 卡同位淡出（与 code 同位置 cross-fade）
+        tl.to(ROOT + ' .b4-spec-card',
+          { opacity: 0, duration: 0.4, ease: "power2.inOut" },
+          13.05);
+
+        // 13.10s SRT "接着让他用写代码的形式" — code 卡同位 fade in
+        tl.fromTo(ROOT + ' .b4-code-card',
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5, ease: "power3.out" },
           13.1);
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"] .b4-conn-line',
-          { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" },
-          13.1);
-        tl.to('[data-composition-id="beat-4-s1flow"] .b4-connector[data-conn="2"] .b4-conn-arrow',
-          { opacity: 1, duration: 0.15, ease: "power2.out" },
+
+        // 13.6s — code 5 行 stagger 浮入
+        tl.fromTo(ROOT + ' .b4-code-line',
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, stagger: { each: 0.20, from: "start" }, duration: 0.3, ease: "power2.out" },
           13.6);
 
-        // 13.5s — Step 3 入场
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-step[data-step="3"]',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-          13.5);
+        // 14.933s SRT — wireframe 网页从右侧"长出"（scaleX 0→1 + opacity）
+        tl.set(ROOT + ' .b4-wire',
+          { opacity: 0, scaleX: 0, scaleY: 0.85 },
+          14.93);
+        tl.to(ROOT + ' .b4-wire',
+          { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.7, ease: "power3.out" },
+          14.93);
 
-        // 14.5s — code 行依次浮现
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-code-line',
-          { opacity: 0, x: -8 },
-          { opacity: 1, x: 0, stagger: 0.22, duration: 0.3, ease: "power2.out" },
-          14.5);
-
-        // 17.0s — 网页 mock 渲出（从 code 卡底部展开）
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-render-mock',
-          { opacity: 0, scale: 0.85 },
-          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" },
+        // ═══════ Stage D: 网页压扁成图 (17.0–18.5s) ═══════
+        // 17.133s SRT — 导出截屏框（lime 虚线）框住 wireframe
+        tl.set(ROOT + ' .b4-stageD', { opacity: 1 }, 17.0);
+        tl.fromTo(ROOT + ' .b4-export-frame',
+          { scale: 1.15, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" },
           17.0);
+        tl.fromTo(ROOT + ' .b4-export-frame .b4-shot-corner',
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.25, stagger: 0.05, ease: "back.out(2)" },
+          17.15);
 
-        // 18.5s — final ✓ "效果真的好"
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-final',
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
-          18.5);
-        tl.fromTo('[data-composition-id="beat-4-s1flow"] .b4-final-check',
-          { scale: 0.6, rotate: -20 },
-          { scale: 1, rotate: 0, duration: 0.45, ease: "back.out(1.8)" },
-          18.55);
+        // 17.5s — wireframe 物理移动到画面中央 + 拉伸为竖版 (横版网页 → portrait 图卡 metaphor)
+        // 当前位置: right:12% width 480 → 中心 x=1450
+        // 目标位置: 画面中央 x=960 → Δx = -490
+        // 尺寸变化: 480×380 → 420×540（即 result-front 尺寸）→ scaleX 0.875, scaleY 1.42
+        tl.to(ROOT + ' .b4-wire',
+          {
+            x: -490,
+            scaleX: 0.875,
+            scaleY: 1.42,
+            duration: 0.78,
+            ease: "power2.inOut"
+          },
+          17.5);
+        // export-frame 同步收缩跟随 wireframe（保持"框住"的视觉）
+        tl.to(ROOT + ' .b4-export-frame',
+          { x: -490, scaleX: 0.82, scaleY: 1.32, duration: 0.78, ease: "power2.inOut" },
+          17.5);
+
+        // 17.55s — code 卡淡出（wireframe 已离开 code 卡视野）
+        tl.to(ROOT + ' .b4-code-card',
+          { opacity: 0, duration: 0.4, ease: "power2.in" },
+          17.55);
+
+        // 18.15s — export-frame 完成使命淡出
+        tl.to(ROOT + ' .b4-export-frame',
+          { opacity: 0, duration: 0.25, ease: "power2.in" },
+          18.15);
+
+        // ═══════ Stage E: wireframe → result 同位 cross-fade + 副本 cascade + PASSED (18.3–20s) ═══════
+        tl.set(ROOT + ' .b4-stageE', { opacity: 1 }, 18.3);
+
+        // 18.3s — result-front 在 wireframe 已抵达的位置同位 fade in
+        tl.fromTo(ROOT + ' .b4-result-front',
+          { opacity: 0 },
+          { opacity: 1, duration: 0.35, ease: "power2.inOut" },
+          18.3);
+        // 18.45s — wireframe 同位淡出（cross-fade 完成）
+        tl.to(ROOT + ' .b4-wire',
+          { opacity: 0, duration: 0.35, ease: "power2.inOut" },
+          18.45);
+
+        // 18.7s — 左右副本浮起 cascade
+        tl.fromTo(ROOT + ' .b4-result-back-l',
+          { opacity: 0, x: "-=80", rotate: -16 },
+          { opacity: 1, x: 0, rotate: -9, duration: 0.5, ease: "power3.out" },
+          18.7);
+        tl.fromTo(ROOT + ' .b4-result-back-r',
+          { opacity: 0, x: "+=80", rotate: 16 },
+          { opacity: 1, x: 0, rotate: 9, duration: 0.5, ease: "power3.out" },
+          18.78);
+
+        // 18.8s — stageC/D 容器清掉（cleanup，wireframe / code-card 都已透明）
+        tl.to(ROOT + ' .b4-stageC',
+          { opacity: 0, duration: 0.01 },
+          18.8);
+        tl.to(ROOT + ' .b4-stageD',
+          { opacity: 0, duration: 0.01 },
+          18.8);
+
+        // 18.95s — PASSED 印章砸下
+        tl.set(ROOT + ' .b4-pass',
+          { opacity: 0, scale: 2.4, rotate: -22 },
+          18.95);
+        tl.to(ROOT + ' .b4-pass',
+          { opacity: 1, scale: 1, rotate: -12, duration: 0.28, ease: "power3.in" },
+          18.95);
+
+        // 19.0s — 整组震一下
+        tl.to(ROOT + ' .b4-stageE',
+          { x: -4, duration: 0.05, yoyo: true, repeat: 3, ease: "power1.inOut" },
+          19.22);
+
+        // 19.3s — "效果真的好" 衬线大字浮起
+        tl.fromTo(ROOT + ' .b4-pass-caption',
+          { y: 18, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          19.3);
 
         // 时长锚点
         tl.to({}, { duration: 20.0 }, 0);

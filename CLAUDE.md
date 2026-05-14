@@ -14,7 +14,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 .
 ├── README.md / CLAUDE.md / AGENTS.md     # 入口
 ├── LICENSE
-├── videos/                                # 9 条已发布视频源工程，每条带 README
+├── videos/                                # 10 条已发布视频源工程，每条带 README
 ├── templates/
 │   ├── tutorial-8beat/                    # 唯一从 0 设计的真模板
 │   ├── components/                        # 可复用组件（cc-window 等）
@@ -32,9 +32,15 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 │   └── lottie-davinci-experiment/         # DaVinci 21 Lottie 兼容性实验
 ├── assets/
 │   └── logos/                             # 33 个常用 AI 厂商 / 工具 SVG logo
+├── 参考库/                                # 上游参考工程二级源
+│   ├── heygen-launches/                   # HeyGen 官方落地页参考
+│   ├── nate-demos/                        # Nate Herk 演示工程
+│   └── 我的作品/                          # 自己旧作截图/源
 ├── scripts/                               # 维护脚本（refresh-catalog 等）
-├── 2026-MM-DD/                            # 当前视频工作区（按日期建）
-├── _待定/                                  # gitignored；整理时不确定的暂存
+├── 2026-MM-DD/                            # 当前视频工作区（按日期建，可并存多个）
+├── 归档/                                   # 已废弃的旧探索工程（不删，留参考）
+├── 网页报错/                               # untracked；网页报错复现临时区
+├── remotion-text-effects/                  # untracked；Remotion（非 HyperFrames）文字效果 skill
 ├── MY_VISUAL_DNA.md                       # gitignored；个人美学宪法
 ├── MY_MOTION_NOTES.md                     # gitignored；19 招实战沉淀
 ├── hyperframes-student-kit/               # gitignored 上游
@@ -42,11 +48,13 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 ```
 
 **关键架构区分**：
-- `videos/` —— 9 条已发布视频的源工程（git 跟踪源码，mp4 gitignored）
+- `videos/` —— 10 条已发布视频的源工程（git 跟踪源码，mp4 gitignored）
 - `templates/` —— 真模板 + 组件（**只读参考**，不在这里编辑活工程）
 - `skills/` —— 自写 skill 的真源；`.claude/skills/cyxj-*` 和 `.agents/skills/cyxj-*` 都是软链到这里
-- `2026-MM-DD/<slug>/` —— 当前在做的工作区（git 跟踪源工程，mp4 gitignored）
-- `_待定/` —— 整理过程中暂存的不确定项（**已 gitignore**，不会进开源仓库）
+- `2026-MM-DD/<slug>/` —— 当前在做的工作区（git 跟踪源工程，mp4 gitignored）；可同时存在多个日期目录
+- `归档/` —— 早期没做成型的探索（如 `2026-05-09-探going`），保留参考用，不在这里继续做活
+- `参考库/` —— 上游参考工程的二级源，**与 `assets/` 并列**；memory 里出现 `参考库/assets/logos/` 路径就是这里
+- `remotion-text-effects/` —— **不同渲染管线**（Remotion / React，非 HyperFrames），是 Codex 用的文字效果 skill；不要把它和 HyperFrames 工程混做
 
 ## 标准工作流（一句话开始）
 
@@ -82,6 +90,27 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 - 正在制作的视频工程放在 `2026-MM-DD/<slug>/`，另一个 AI 做审查或基础设施修复时必须先排除这个施工目录
 - 公共层（`templates/` / `skills/` / `docs/` / `assets/` / `.gitignore`）改动前先跑 `npx hyperframes lint`
 
+## 常用命令
+
+**工程目录里跑**（不要在仓库根；仓库根没 package.json）：
+
+```bash
+npx hyperframes lint                                # 验证 meta.json + html 结构
+npx hyperframes preview                             # http://localhost:3002 浏览器打磨
+npx hyperframes render --quality standard \
+  --format mp4 --output renders/final.mp4           # 渲染（满意了才跑）
+```
+
+**仓库根维护**：
+
+```bash
+bash scripts/refresh-catalog.sh                     # 刷 templates/catalog.json
+bash scripts/refresh-docs.sh                        # 刷 docs/hyperframes-official/ 镜像
+bash scripts/lint-projects.sh                       # 批量 lint 所有工程
+```
+
+**CLI 版本**：`npx hyperframes --version` / 强制升 `npx hyperframes@latest --version`。
+
 ## 必须遵守的硬约束
 
 详见 [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md)（单源）。简表（§9-§11 略，去单源看完整）：
@@ -92,7 +121,7 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 4. 中文 Whisper transcribe 要绕开 hyperframes CLI（用 `whisper-cli`）
 5. `npx hyperframes` 必须在工程目录里跑（不在仓库根）
 6. 不要 commit `hyperframes-student-kit/` 或 `hyperframes-launches/`
-7. 大视频/音频不进 git（`.mp4 .mov .mp3 .wav .m4a` + `录屏/`）
+7. 大视频/音频不进 git（靠 `.gitignore` 里 `*.mp4 *.mov *.webm *.mp3 *.wav *.m4a *.srt` 通配；`录屏/` 这种目录就靠后缀通配生效，没显式 ignore 行）
 8. 中文字体在无头 Chromium 渲染时偶发回退（Google Fonts CDN 超时）
 12. 视觉 = 语义扩展联想，不是字幕翻译（口播关键词不能直接翻成 HTML 元素，要做 metaphor；色块占位临时可，但 PLAN.md 必须标 TODO）
 

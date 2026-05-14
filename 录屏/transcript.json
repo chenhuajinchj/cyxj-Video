@@ -1,1 +1,0 @@
-{"ok":false,"error":"Command failed: /opt/homebrew/bin/whisper-cli --model /Users/chenhuajin/.cache/hyperframes/whisper/models/ggml-large-v3.bin --output-json-full --output-file /Users/chenhuajin/项目/参考仓库/hyperframes/hyperframes-student-kit/transcript --dtw large-v3 --suppress-nst --language zh /var/folders/pb/2jvb6s2d0rq_39g_2n76nrk80000gn/T/hyperframes-audio-1777703298138.wav"}

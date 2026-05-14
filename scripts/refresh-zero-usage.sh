@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # refresh-zero-usage.sh
 #
-# 扫 参考库/ 下所有工程，反查每个工程用过哪些 catalog block / component。
-# 输出格式与 INDEX.md "真实工程里用过哪些零件" 节一致。
+# 扫 videos/ 下所有工程，反查每个工程用过哪些 catalog block / component。
+# 输出格式与 docs/REFERENCE_INDEX.md "真实工程里用过哪些零件" 节一致。
 #
 # 检测规则：
 #   block      → compositions/<name>.html 文件存在
 #   component  → compositions/components/<name>.html 文件存在
-# name 列表来自 参考库/catalog.json
+# name 列表来自 templates/catalog.json
 #
 # 用法：
 #   bash scripts/refresh-zero-usage.sh                      # 打印到 stdout
@@ -20,8 +20,8 @@ set -euo pipefail
 shopt -s nullglob
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CATALOG="$ROOT/参考库/catalog.json"
-INDEX="$ROOT/参考库/INDEX.md"
+CATALOG="$ROOT/templates/catalog.json"
+INDEX="$ROOT/docs/REFERENCE_INDEX.md"
 
 if [ ! -f "$CATALOG" ]; then
     echo "ERROR: catalog.json 不存在，先跑 bash scripts/refresh-catalog.sh" >&2
@@ -35,10 +35,9 @@ mapfile -t COMPONENT_NAMES < <(jq -r '.[] | select(.type=="component") | .name' 
 # 扫描函数：输入工程目录，输出 "- `parent/name/` 用了：`x`、`y`、`z`" 行（无引用则空行）
 scan_project() {
     local project_dir="$1"
-    local parent_name
     local project_name
-    parent_name=$(basename "$(dirname "$project_dir")")
     project_name=$(basename "$project_dir")
+    local parent_name="videos"
 
     if [ ! -d "$project_dir/compositions" ]; then
         echo "- \`$parent_name/$project_name/\` 用了：_（无 compositions/ 目录，单文件 index.html）_"
@@ -73,22 +72,20 @@ scan_project() {
 
 # 生成 body（不含 marker），由调用方决定要不要包 marker
 generate_body() {
-    echo "> 由 \`scripts/refresh-zero-usage.sh\` 自动扫描 \`参考库/\` 下所有工程的 \`compositions/*.html\` 和 \`compositions/components/*.html\` 文件名 vs catalog.json 反查得出。重跑：\`bash scripts/refresh-zero-usage.sh --write\`。手动编辑会被下次重跑覆盖。"
+    echo "> 由 \`scripts/refresh-zero-usage.sh\` 自动扫描 \`videos/\` 下所有工程的 \`compositions/*.html\` 和 \`compositions/components/*.html\` 文件名 vs catalog.json 反查得出。重跑：\`bash scripts/refresh-zero-usage.sh --write\`。手动编辑会被下次重跑覆盖。"
     echo ""
 
-    for parent in nate-demos heygen-launches 我的作品; do
-        local has_any=false
-        for project_dir in "$ROOT"/参考库/"$parent"/*/; do
-            [ -d "$project_dir" ] || continue
-            if ! $has_any; then
-                echo "**$parent/**"
-                echo ""
-                has_any=true
-            fi
-            scan_project "$project_dir"
-        done
-        $has_any && echo ""
+    local has_any=false
+    for project_dir in "$ROOT"/videos/*/; do
+        [ -d "$project_dir" ] || continue
+        if ! $has_any; then
+            echo "**videos/**"
+            echo ""
+            has_any=true
+        fi
+        scan_project "$project_dir"
     done
+    $has_any && echo ""
 }
 
 if [ "${1:-}" = "--write" ]; then

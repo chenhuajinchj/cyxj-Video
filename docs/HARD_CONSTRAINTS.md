@@ -71,7 +71,7 @@ npx hyperframes lint
 
 这两个目录是上游 git 仓库（Nate Herk / HeyGen 各自维护），整目录被 `.gitignore` 排除。
 
-跨机器 clone 仓库后需要重新 `git clone` 拉这两个上游，让 `参考库/nate-demos/` 和 `.claude/skills/` 的软链生效。
+跨机器 clone 仓库后需要重新 `git clone` 拉这两个上游，让 `MOTION_PHILOSOPHY.md` 和 `.claude/skills/{gsap,hyperframes,...}` 等软链生效。
 
 ---
 

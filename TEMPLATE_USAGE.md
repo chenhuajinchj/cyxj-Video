@@ -1,6 +1,6 @@
 # 视频工程模板复用指南
 
-> ⚠️ **2026-05-07 状态注释**：本文档前半部分（"以 v2 / codex-intro 为半模板复制"方法论）已废弃。原因：v2 / codex-intro / 7-beat 这些都是早期一次性工程，复制起步会让新视频继承旧工程的 id、底色、特定文案——也就是"伪模板病"。当前唯一从 0 设计的真模板是 `templates/tutorial-8beat/`（见下文 tutorial-8beat 节）。其他形态请**从 0 写工程**，参考 `docs/hyperframes-official/getting-started/quickstart.md` 的最小骨架。原 `templates/host-overlay/` / `host-overlay-alpha/` / `demo-fullscreen/` 已移到 `参考库/历史模板/`（仅档案保留，不要 cp 起步）。本文档全面重写排在 P2。
+> ⚠️ **2026-05-07 状态注释**：本文档前半部分（"以 v2 / codex-intro 为半模板复制"方法论）已废弃。原因：v2 / codex-intro / 7-beat 这些都是早期一次性工程，复制起步会让新视频继承旧工程的 id、底色、特定文案——也就是"伪模板病"。当前唯一从 0 设计的真模板是 `templates/tutorial-8beat/`（见下文 tutorial-8beat 节）。其他形态请**从 0 写工程**，参考 `docs/hyperframes-official/getting-started/quickstart.md` 的最小骨架。旧 `videos/2026-05-02-*` 工程可看拓扑作参考，但不要 cp 起步。本文档全面重写排在 P2。
 
 > 两个工程是"半模板"——下次做新视频时复制 + 改内容，不是全自动。
 > 文件位置：`hyperframes-student-kit/video-projects/`（git ignore，git 里只有 `xcyj-progress/*-snapshot/` 快照）

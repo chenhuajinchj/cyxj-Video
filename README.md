@@ -1,111 +1,109 @@
-# XCYJ HyperFrames Templates
+# HyperFrames Video Production Toolkit
 
-陈与小金（XCYJ）的 YouTube 教程视频模板库 —— 用 [HyperFrames](https://hyperframes.heygen.com)（HTML + GSAP 渲染管线）做技术教程的片头、转场、整片演示。
+用 HTML + GSAP 做 YouTube 教程视频的工作台。可以复用模板、组件、方法论，从 0 搭一条技术教程片头 / 转场 / 整片演示。
 
-> **状态**：私有仓库，整理中。计划在后续视频发布时切换为公开仓库，让观众可以直接复用。
+> 这不是 HyperFrames 本身（[HeyGen 的 HyperFrames](https://hyperframes.heygen.com) 是 HTML → MP4 的渲染管线）。这是在它之上沉淀的生产 SOP + 模板 + 9 条已发布视频的源工程。
 
 ---
 
-## 模板
+## 这个仓库给谁看
 
-当前**只有一个**从 0 设计的真模板。其他形态请从 0 写工程（手抄 meta.json + index.html + compositions/*.html，参考 `docs/hyperframes-official/getting-started/quickstart.md` 的最小骨架）。
+- **想做技术教程视频但不会做动效的人** → 复制 [`templates/tutorial-8beat`](templates/tutorial-8beat) 改文案
+- **想学怎么用 AI 协作做视频的人** → 看 [`videos/`](videos) 里 9 条案例的 README + [`skills/`](skills) 里的 Claude / Codex 工作流
+- **想抄具体动效的人** → 看 [`templates/components/`](templates/components)（cc-window 等）+ [`templates/inspirations/`](templates/inspirations)（5 大 React 组件库的 vanilla 转译版）
 
-| 模板 | 适合的视频类型 | 拓扑 | 输出 |
-|---|---|---|---|
-| [`templates/tutorial-8beat`](templates/tutorial-8beat) | 5-10min 教程的片头 / 中段过渡 / 结构化讲解 | 8 beat 串联（hook→pain→punchline→concept→flow→outro）| 整片 MP4 |
+---
 
-**选哪个**：
-- 教程类、需要"hook + 痛点 + 解决方案 + 流程"完整结构 → `tutorial-8beat`
-- 主播口播 + overlay / 单段演示 / 概念片 / 品牌片 → 从 0 写（参考 `参考库/历史模板/` 里的旧形态档案对照拓扑，但**不要**直接 cp 起步——那 3 个目录是早期工程 rename 而成的伪模板）
-- 一个视频里多种段落 → 每段单独建工作区分别 render，达芬奇里串联
+## 5 分钟上手
 
-详细复用指南见 [`TEMPLATE_USAGE.md`](TEMPLATE_USAGE.md)。
+```bash
+# 1. 装 HyperFrames CLI（用 npx 即可，不需要全局安装）
+npx hyperframes --version
 
-> ⚠️ **2026-05-07 模板状态**：原 `templates/host-overlay/`、`templates/host-overlay-alpha/`、`templates/demo-fullscreen/` 已移到 `参考库/历史模板/`（伪模板，不要 cp 起步）。详见 [`参考库/历史模板/README.md`](参考库/历史模板/README.md)。
+# 2. 复制模板到日期工作区
+DATE=$(date +%Y-%m-%d)
+cp -R templates/tutorial-8beat "videos/$DATE-my-first-video"
+cd "videos/$DATE-my-first-video"
+
+# 3. 改 meta.json 的 id + 改 index.html 和 compositions/*.html 里的文案
+
+# 4. 验证 + 预览
+npx hyperframes lint
+npx hyperframes preview              # http://localhost:3002
+
+# 5. 渲染
+npx hyperframes render --quality standard --format mp4 \
+  --output renders/final.mp4
+```
+
+详细复用 checklist：[`TEMPLATE_USAGE.md`](TEMPLATE_USAGE.md)。
 
 ---
 
 ## 目录结构
 
-```
-.
-├── README.md                  ← 你在看的这个
-├── TEMPLATE_USAGE.md          ← 复用 checklist（下次做新视频翻这个）
-├── AGENTS.md                  ← Codex 工作边界
-├── CLAUDE.md                  ← Claude Code 工作边界
-├── .agents/skills/            ← Codex wrapper skills
-├── .claude/skills/            ← Claude Code skills
-├── templates/                 ← 真模板 + 组件零件（git 跟踪）
-│   ├── tutorial-8beat/        ← 唯一真模板：教程结构化片头/过渡（8 beat）
-│   └── components/            ← 可复用零件（cc-window 等）
-├── examples/                  ← 已经做过的视频的脚本/文案
-│   └── codex-intro/
-│       └── script.md          ← Codex × Claude Code 教程片头文案
-├── docs/                      ← 文档与实验记录
-│   ├── lottie-davinci-experiment/  ← DaVinci 21 Lottie 兼容性实验
-│   ├── round-1-next-steps.md  ← 第一轮工作历史归档
-│   └── round-1-progress.md
-├── 参考库/                     ← 参考工程、catalog、我的作品
-├── 2026-MM-DD/                ← 当前视频工作区
-├── hyperframes-launches/      ← HeyGen 官方参考工程（git ignored）
-├── hyperframes-student-kit/   ← Nate Herk 学习套件（git ignored）
-└── 录屏/                       ← 个人录屏素材（git ignored，不会推 GitHub）
-```
-
-`hyperframes-launches/` 和 `hyperframes-student-kit/` 是上游 git 仓库，本仓库**不重复跟踪**。它们只作为参考库/上游 skill 的来源；新视频工程不要放回这两个目录。
-
-Claude Code 看 `CLAUDE.md` 和 `.claude/skills/`；Codex 看 `AGENTS.md` 和 `.agents/skills/`。两个 AI 共用 `templates/`、`参考库/`、`2026-MM-DD/`，但正在制作的 `2026-MM-DD/<slug>/` 视为施工区，另一个 AI 做审查/修基础设施时应先排除它。
+| 目录 | 内容 |
+|---|---|
+| [`videos/`](videos) | 9 条已发布视频的源工程，每条带 README 讲技术选型 + 怎么复用 |
+| [`templates/tutorial-8beat/`](templates/tutorial-8beat) | 唯一从 0 设计的真模板（8 beat 教程结构）|
+| [`templates/components/`](templates/components) | 可复用组件（cc-window 终端 UI / orbit-dots / pulse-bars 等）|
+| [`templates/inspirations/`](templates/inspirations) | 5 大开源 React 组件库的 vanilla HTML + GSAP 转译版（灵感来源）|
+| [`templates/catalog.json`](templates/catalog.json) | 模板零件清单（机器可读，给 skill 用）|
+| [`skills/cyxj-new-video/`](skills/cyxj-new-video) | Claude / Codex 做新视频的全流程 skill |
+| [`skills/cyxj-add-block/`](skills/cyxj-add-block) | 从 catalog 装零件到当前工程的 skill |
+| [`docs/`](docs) | 方法论：硬约束、风格借鉴、HyperFrames 官方文档 78 页镜像 |
+| [`docs/REFERENCE_INDEX.md`](docs/REFERENCE_INDEX.md) | 上游参考工程（Nate / HeyGen launches）的索引 |
+| [`assets/logos/`](assets/logos) | 33 个常用 AI 厂商 / 工具 SVG logo（Claude / OpenAI / GitHub …）|
+| [`scripts/`](scripts) | 维护脚本（刷 catalog / 刷文档 / lint 各工程）|
 
 ---
 
-## 快速开始
+## 用 AI 协作做视频
 
-### 用模板做新视频（30 秒了解）
+我用 Claude Code 做视频。在仓库根开 Claude Code 说：
 
-```bash
-# 1. 在仓库根复制 tutorial-8beat 模板成日期工作区
-DATE=$(date +%Y-%m-%d)
-mkdir -p "$DATE"
-cp -R templates/tutorial-8beat "$DATE/my-new-intro"
+> "做个新视频，主题《XXX》"
 
-# 2. 改 meta.json 的 id（xcyj-tutorial-8beat-PLACEHOLDER → xcyj-<slug>）
-#    改文案 / 时间码 / beat 内容（看 TEMPLATE_USAGE.md 的 checklist）
+[`skills/cyxj-new-video`](skills/cyxj-new-video) 会自动：建工作区 → 推荐参考 → 等你给文案 → 改 beats → lint → preview → render → 归档。
 
-# 3. 渲染
-cd "$DATE/my-new-intro"
-npx hyperframes lint
-npx hyperframes preview              # http://localhost:3002 验收
-npx hyperframes render --quality standard --format mp4 \
-  --output renders/my-new-intro.mp4
-```
+Codex 用户用 `.agents/skills/` 下的同名 skill（软链到同一份源文件）。
 
-非教程形态（主播 + overlay / 单段演示 / 概念片）请从 0 写——详见 [`TEMPLATE_USAGE.md`](TEMPLATE_USAGE.md) 和 [`参考库/历史模板/README.md`](参考库/历史模板/README.md)。
+---
+
+## 学习路径
+
+| 顺序 | 看哪个 |
+|---|---|
+| 1. 看成品长什么样 | [`videos/2026-05-04-claude-19-tips/README.md`](videos/2026-05-04-claude-19-tips/README.md)（最大的工程，28 composition / 7.5 分钟）|
+| 2. 学动效美学纪律 | [`docs/STYLE_BORROW_PLAYBOOK.md`](docs/STYLE_BORROW_PLAYBOOK.md) |
+| 3. 避坑 | [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md) |
+| 4. 查官方文档 | [`docs/hyperframes-official/`](docs/hyperframes-official) |
+| 5. 看 9 条视频的设计思路 | [`videos/*/README.md`](videos) |
 
 ---
 
 ## 已知坑（吃过的亏）
 
-详见 [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md)（仓库单源）。简表：
+详见 [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md)。简表：
 
-1. GSAP querySelector 不能用 template literal（lint 报 `template_literal_selector` error）
-2. 复制 beat html 时全局换 beat id（不换 → 动画静默失效）
+1. GSAP querySelector 不能用 template literal
+2. 复制 beat html 时全局换 beat id（CSS class + GSAP selector 两处）
 3. DaVinci 21 不能渲染含中文文字的手写 Lottie（含文字走 ProRes 4444 alpha）
-4. 中文 Whisper transcribe 要绕开 hyperframes CLI（用 `whisper-cli`，DTW preset 名不一致）
+4. 中文 Whisper transcribe 要绕开 hyperframes CLI（用 `whisper-cli`）
 5. `npx hyperframes` 必须在工程目录里跑（仓库根无 package.json）
-6. 不要 commit `hyperframes-student-kit/` 或 `hyperframes-launches/`（上游 git 仓库）
-7. 大视频/音频不进 git（`.gitignore` 已排除 `*.mp4 *.mov *.mp3 *.wav *.m4a` 和 `录屏/`）
-8. 中文字体在无头 Chromium 渲染时偶发回退（Google Fonts CDN 超时，本地化字体可避）
+6. 中文字体在无头 Chromium 渲染时偶发回退（Google Fonts CDN 超时）
 
 ---
 
 ## 致谢
 
-- [HyperFrames](https://hyperframes.heygen.com) by HeyGen — HTML + GSAP 视频渲染框架
-- Nate Herk 的 hyperframes-student-kit — 学习参考
+- [HyperFrames](https://hyperframes.heygen.com) by HeyGen — HTML + GSAP 视频渲染管线
+- Nate Herk 的 [hyperframes-student-kit](https://github.com/HeyGen-Official/hyperframes-student-kit) — 视觉灵感与上游 skill 来源
+- [GSAP](https://gsap.com) — 动效引擎
 - Anthropic Claude — AI pair programmer
 
 ---
 
 ## License
 
-暂未定。计划公开仓库时采用 MIT 或 CC BY 4.0。
+见 [`LICENSE`](LICENSE)。

@@ -12,7 +12,7 @@
 
 ### 1. 当 `<img>` 用（最简单）
 ```html
-<img src="../../参考库/assets/logos/claude.svg" class="brand-logo" />
+<img src="../../assets/logos/claude.svg" class="brand-logo" />
 ```
 ```css
 .brand-logo { width: 64px; height: 64px; }
@@ -102,7 +102,7 @@ lobehub 总共有 200+ 厂商，本清单只是常用子集。
 2. **id 规则**：全小写、无分隔符。`ClaudeCode` → `claudecode`，`GeminiCLI` → `geminicli`。
 3. 拉下来：
    ```bash
-   cd ~/项目/参考仓库/hyperframes/参考库/assets/logos
+   cd ~/项目/参考仓库/hyperframes/assets/logos
    curl -sfLO "https://registry.npmmirror.com/@lobehub/icons-static-svg/latest/files/icons/<id>-color.svg"
    ```
    然后更新本表。

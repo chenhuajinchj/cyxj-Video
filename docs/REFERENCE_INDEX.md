@@ -1,4 +1,4 @@
-# 参考库索引
+# 参考工程索引 (REFERENCE_INDEX)
 
 > **入口文件**。做新视频前先扫这里：找参考工程、找零件。
 >
@@ -14,57 +14,57 @@
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/claude-edit-intro/` | 16:9 | 23s | 屏幕录制 → PiP 缩小，**教程片头标杆** |
-| `nate-demos/clickup-demo/` | 16:9 | 60s | 工具云 + Logo + 功能展示 + CTA，**4 幕标准结构** |
-| `我的作品/2026-05-02-codex-claude-intro/` | 16:9 | 52s | 透视网格 + 中文字幕，**你做过的中文教程片头底版** |
-| `我的作品/2026-05-02-claude-demo-v2/` | 16:9 | 26s | 录屏铺底 + 4 个 overlay |
+| `hyperframes-student-kit/video-projects/claude-edit-intro/` | 16:9 | 23s | 屏幕录制 → PiP 缩小，**教程片头标杆** |
+| `hyperframes-student-kit/video-projects/clickup-demo/` | 16:9 | 60s | 工具云 + Logo + 功能展示 + CTA，**4 幕标准结构** |
+| `videos/2026-05-02-codex-claude-intro/` | 16:9 | 52s | 透视网格 + 中文字幕，**你做过的中文教程片头底版** |
+| `videos/2026-05-02-claude-demo-v2/` | 16:9 | 26s | 录屏铺底 + 4 个 overlay |
 
 ### 🎬 想做整片演示（30-60s）
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/linear-promo-30s/` | 16:9 | 30s | Infinite 风格 + 流程图变色，**品牌片金标准** |
-| `nate-demos/aisoc-app-release/` | 16:9 | 30s | 9 comp 节奏紧凑，闪白 + whip-streak |
-| `heygen-launches/hyperframes-launch/` | 16:9 | 49.77s | 玻璃态 UI + 多技术堆栈，**HeyGen 官方标杆** |
+| `hyperframes-student-kit/video-projects/linear-promo-30s/` | 16:9 | 30s | Infinite 风格 + 流程图变色，**品牌片金标准** |
+| `hyperframes-student-kit/video-projects/aisoc-app-release/` | 16:9 | 30s | 9 comp 节奏紧凑，闪白 + whip-streak |
+| `hyperframes-launches/hyperframes-launch/` | 16:9 | 49.77s | 玻璃态 UI + 多技术堆栈，**HeyGen 官方标杆** |
 
 ### 📊 想做数据 / 数学动画 / 长视频教学
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/golden-ratio-demo/` | 16:9 | 37.67s | 黄金螺旋 SVG + 3 色分割，**数学动画范例** |
-| `nate-demos/aisoc-lesson-5-1/` | 16:9 | 112s | 全屏讲者 + 信息卡堆栈，**长视频教学结构** |
-| `我的作品/2026-05-04-claude-19-tips-hf/` | 16:9 | ~7 分钟 | 21 章一招一节，cc-window 终端 UI 体系，**你的长教程基线**（DNA + MY_MOTION_NOTES 沉淀源） |
+| `hyperframes-student-kit/video-projects/golden-ratio-demo/` | 16:9 | 37.67s | 黄金螺旋 SVG + 3 色分割，**数学动画范例** |
+| `hyperframes-student-kit/video-projects/aisoc-lesson-5-1/` | 16:9 | 112s | 全屏讲者 + 信息卡堆栈，**长视频教学结构** |
+| `videos/2026-05-04-claude-19-tips-hf/` | 16:9 | ~7 分钟 | 21 章一招一节，cc-window 终端 UI 体系，**你的长教程基线**（DNA + MY_MOTION_NOTES 沉淀源） |
 
 ### 🏢 想做品牌 / Logo 演绎 / 产品发布
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/first-agent-promo/` | 16:9 | 32s | React 组件 + 终端 UI，产品发布节奏 |
-| `heygen-launches/timeline-launch/` | 16:9 | 33.53s | 互动 UI + 反转点笑点，故事弧 |
+| `hyperframes-student-kit/video-projects/first-agent-promo/` | 16:9 | 32s | React 组件 + 终端 UI，产品发布节奏 |
+| `hyperframes-launches/timeline-launch/` | 16:9 | 33.53s | 互动 UI + 反转点笑点，故事弧 |
 
 ### 🎨 复杂多镜头（学习用）
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/hyperframes-sizzle/` | 16:9 | ~40s | 30 comp，**技法集大成** |
-| `heygen-launches/website-to-hyperframes/` | 16:9 | ~61s | 网站截图变身视频，多色彩面板 |
-| `我的作品/2026-05-02-claude-overlays-only/` | 16:9 | 26s | 仅 overlay（达芬奇精修用），alpha 通道 |
+| `hyperframes-student-kit/video-projects/hyperframes-sizzle/` | 16:9 | ~40s | 30 comp，**技法集大成** |
+| `hyperframes-launches/website-to-hyperframes/` | 16:9 | ~61s | 网站截图变身视频，多色彩面板 |
+| `videos/2026-05-02-claude-overlays-only/` | 16:9 | 26s | 仅 overlay（达芬奇精修用），alpha 通道 |
 
 ### 📱 9:16 竖屏短视频（暂留种）
 
 | 工程 | 比例 | 时长 | 看点 |
 |---|---|---|---|
-| `nate-demos/may-shorts-18/` | 9:16 | ~17s | TikTok 风格 + 卡拉 OK 字幕 |
-| `nate-demos/may-shorts-19/` | 9:16 | 18.84s | 同上的 v2 迭代 |
-| `nate-demos/may-shorts-6/` | 16:9 | ~25s | 横屏讲座短视频，3 种面部模式 |
-| `nate-demos/aisoc-hype/` | 16:9 | ~30s | 颗粒覆盖 + 运动字体 |
+| `hyperframes-student-kit/video-projects/may-shorts-18/` | 9:16 | ~17s | TikTok 风格 + 卡拉 OK 字幕 |
+| `hyperframes-student-kit/video-projects/may-shorts-19/` | 9:16 | 18.84s | 同上的 v2 迭代 |
+| `hyperframes-student-kit/video-projects/may-shorts-6/` | 16:9 | ~25s | 横屏讲座短视频，3 种面部模式 |
+| `hyperframes-student-kit/video-projects/aisoc-hype/` | 16:9 | ~30s | 颗粒覆盖 + 运动字体 |
 
 ---
 
 ## 二、Catalog 零件（46 个：43 blocks + 3 components）
 
 > 用 `npx hyperframes add <name>` 装到工程的 `compositions/components/`。
-> 完整 metadata 看 `参考库/catalog.json`。月度刷新跑 `bash scripts/refresh-catalog.sh`。
+> 完整 metadata 看 `templates/catalog.json`。月度刷新跑 `bash scripts/refresh-catalog.sh`。
 
 ### 🌟 转场效果（最高频，27 个）
 
@@ -142,35 +142,35 @@ components 跟 blocks 不同：components 是"叠加层"，全局生效；blocks
 ### 真实工程里用过哪些零件（自动扫描）
 
 <!-- AUTO:zero-usage:start -->
-> 由 `scripts/refresh-zero-usage.sh` 自动扫描 `参考库/` 下所有工程的 `compositions/*.html` 和 `compositions/components/*.html` 文件名 vs catalog.json 反查得出。重跑：`bash scripts/refresh-zero-usage.sh --write`。手动编辑会被下次重跑覆盖。
+> 由 `scripts/refresh-zero-usage.sh` 自动扫描 `videos/` 下所有工程的 `compositions/*.html` 和 `compositions/components/*.html` 文件名 vs catalog.json 反查得出。重跑：`bash scripts/refresh-zero-usage.sh --write`。手动编辑会被下次重跑覆盖。
 
-**nate-demos/**
+**hyperframes-student-kit/video-projects/**
 
-- `nate-demos/aisoc-app-release/` 用了：`instagram-follow`、`x-post`、`grain-overlay`、`shimmer-sweep`
-- `nate-demos/aisoc-hype/` 用了：`grain-overlay`、`shimmer-sweep`
-- `nate-demos/aisoc-lesson-5-1/` 用了：_（未引用 catalog 零件，全部自制）_
-- `nate-demos/claude-edit-intro/` 用了：`grain-overlay`、`shimmer-sweep`
-- `nate-demos/clickup-demo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
-- `nate-demos/first-agent-promo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
-- `nate-demos/golden-ratio-demo/` 用了：`grain-overlay`
-- `nate-demos/hyperframes-sizzle/` 用了：`app-showcase`、`chromatic-radial-split`、`cinematic-zoom`、`cross-warp-morph`、`data-chart`、`domain-warp-dissolve`、`flash-through-white`、`glitch`、`gravitational-lens`、`instagram-follow`、`light-leak`、`logo-outro`、`ridged-burn`、`sdf-iris`、`swirl-vortex`、`thermal-distortion`、`tiktok-follow`、`whip-pan`、`x-post`、`yt-lower-third`、`grain-overlay`、`grid-pixelate-wipe`、`shimmer-sweep`
-- `nate-demos/linear-promo-30s/` 用了：_（未引用 catalog 零件，全部自制）_
-- `nate-demos/may-shorts-18/` 用了：_（未引用 catalog 零件，全部自制）_
-- `nate-demos/may-shorts-19/` 用了：_（未引用 catalog 零件，全部自制）_
-- `nate-demos/may-shorts-6/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-student-kit/video-projects/aisoc-app-release/` 用了：`instagram-follow`、`x-post`、`grain-overlay`、`shimmer-sweep`
+- `hyperframes-student-kit/video-projects/aisoc-hype/` 用了：`grain-overlay`、`shimmer-sweep`
+- `hyperframes-student-kit/video-projects/aisoc-lesson-5-1/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-student-kit/video-projects/claude-edit-intro/` 用了：`grain-overlay`、`shimmer-sweep`
+- `hyperframes-student-kit/video-projects/clickup-demo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
+- `hyperframes-student-kit/video-projects/first-agent-promo/` 用了：_（无 compositions/ 目录，单文件 index.html）_
+- `hyperframes-student-kit/video-projects/golden-ratio-demo/` 用了：`grain-overlay`
+- `hyperframes-student-kit/video-projects/hyperframes-sizzle/` 用了：`app-showcase`、`chromatic-radial-split`、`cinematic-zoom`、`cross-warp-morph`、`data-chart`、`domain-warp-dissolve`、`flash-through-white`、`glitch`、`gravitational-lens`、`instagram-follow`、`light-leak`、`logo-outro`、`ridged-burn`、`sdf-iris`、`swirl-vortex`、`thermal-distortion`、`tiktok-follow`、`whip-pan`、`x-post`、`yt-lower-third`、`grain-overlay`、`grid-pixelate-wipe`、`shimmer-sweep`
+- `hyperframes-student-kit/video-projects/linear-promo-30s/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-student-kit/video-projects/may-shorts-18/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-student-kit/video-projects/may-shorts-19/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-student-kit/video-projects/may-shorts-6/` 用了：_（未引用 catalog 零件，全部自制）_
 
-**heygen-launches/**
+**hyperframes-launches/**
 
-- `heygen-launches/hyperframes-launch/` 用了：_（未引用 catalog 零件，全部自制）_
-- `heygen-launches/timeline-launch/` 用了：_（未引用 catalog 零件，全部自制）_
-- `heygen-launches/website-to-hyperframes/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-launches/hyperframes-launch/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-launches/timeline-launch/` 用了：_（未引用 catalog 零件，全部自制）_
+- `hyperframes-launches/website-to-hyperframes/` 用了：_（未引用 catalog 零件，全部自制）_
 
-**我的作品/**
+**videos/**
 
-- `我的作品/2026-05-02-claude-demo-v2/` 用了：`grain-overlay`、`shimmer-sweep`
-- `我的作品/2026-05-02-claude-overlays-only/` 用了：`grain-overlay`、`shimmer-sweep`
-- `我的作品/2026-05-02-codex-claude-intro/` 用了：_（未引用 catalog 零件，全部自制）_
-- `我的作品/2026-05-04-claude-19-tips-hf/` 用了：`cinematic-zoom`、`flash-through-white`、`flowchart`、`logo-outro`、`macos-notification`、`whip-pan`、`grain-overlay`、`shimmer-sweep`
+- `videos/2026-05-02-claude-demo-v2/` 用了：`grain-overlay`、`shimmer-sweep`
+- `videos/2026-05-02-claude-overlays-only/` 用了：`grain-overlay`、`shimmer-sweep`
+- `videos/2026-05-02-codex-claude-intro/` 用了：_（未引用 catalog 零件，全部自制）_
+- `videos/2026-05-04-claude-19-tips-hf/` 用了：`cinematic-zoom`、`flash-through-white`、`flowchart`、`logo-outro`、`macos-notification`、`whip-pan`、`grain-overlay`、`shimmer-sweep`
 
 <!-- AUTO:zero-usage:end -->
 
@@ -202,7 +202,7 @@ Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agen
 ### 边界规则
 
 - Claude 专属措辞留在 `.claude/skills/`，Codex 专属措辞留在 `.agents/skills/`
-- 共享层是 `templates/`、`参考库/`、README、INDEX、`.gitignore`
+- 共享层是 `templates/`、`videos/`、`docs/`、`skills/`、`.gitignore`
 - 另一个 AI 做审查或修共享层时，先排除正在制作的 `2026-MM-DD/<slug>/` 施工目录
 
 ---
@@ -229,7 +229,7 @@ Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agen
 
 ## 五、模板（仓库根 `templates/`，1 个真模板）
 
-跟参考库不同：模板是抽过的精简骨架，**直接 cp 起步**用。当前**只有 1 个**从 0 设计的真模板。
+跟 videos/ 不同：模板是抽过的精简骨架，**直接 cp 起步**用。当前**只有 1 个**从 0 设计的真模板。
 
 | 模板 | 拓扑 | 输出 | 适用场景 | 对应 DNA 形态 |
 |---|---|---|---|---|
@@ -237,17 +237,15 @@ Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agen
 
 详见 `TEMPLATE_USAGE.md`。
 
-### 历史模板（`参考库/历史模板/`，3 个伪模板档案 ⚠️）
+### 旧形态拓扑回查（看 videos/，不要 cp）
 
-> ⚠️ **不要 cp 起步**——这 3 个目录是早期工作目录（xcyj-progress）直接 rename 而成的伪模板：id 未抽净、内容是上一条视频的具体产物、底色用 DNA 已废弃的深蓝。仅作档案保留，便于回查"当年那条视频是怎么搭的"。这些形态请**从 0 写工程**。
+> 这些形态没有抽过真模板。想做这些形态的视频请**从 0 写**，可看下面工程的拓扑作参考，但不要 cp 起步（id / 文案 / DNA 老色都绑死了）。
 
-| 历史目录 | 真身（从哪个工程 rename 来的） | 形态 |
-|---|---|---|
-| `参考库/历史模板/host-overlay/` | xcyj-claude-demo-v2（参考库/我的作品/2026-05-02-claude-demo-v2/） | 录屏铺底 + 4 overlay |
-| `参考库/历史模板/host-overlay-alpha/` | xcyj-claude-overlays-only（参考库/我的作品/2026-05-02-claude-overlays-only/） | 仅 overlay alpha 输出 |
-| `参考库/历史模板/demo-fullscreen/` | xcyj-codex-claude-intro（参考库/我的作品/2026-05-02-codex-claude-intro/） | 7 beat 串联无录屏 |
-
-详见 `参考库/历史模板/README.md`。
+| 形态 | 看哪个工程 |
+|---|---|
+| 录屏铺底 + overlay（host-overlay）| `videos/2026-05-02-claude-demo-v2/` |
+| 仅 overlay alpha 输出（host-overlay-alpha）| `videos/2026-05-02-claude-overlays-only/` |
+| 7 beat 串联无录屏（demo-fullscreen）| `videos/2026-05-02-codex-claude-intro/` |
 
 **⭐ tutorial-8beat 配套资产**：
 - 风格借鉴方法论：`docs/STYLE_BORROW_PLAYBOOK.md`
@@ -265,7 +263,7 @@ Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agen
    ↓ 提供文案 + 迭代 + 渲染
    ↓ 说「做完了」
    ↓ /新视频 阶段 B：归档
-归档到  参考库/我的作品/<日期>-<slug>/  （含 final.mp4）
+归档到  videos/<日期>-<slug>/  （含 final.mp4）
    ↓ /新视频 主动问：要抽成新模板吗？
    ├─ 不要 → 完成
    └─ 要 → /新视频 阶段 C
@@ -286,5 +284,5 @@ Claude Code 读 `CLAUDE.md` + `.claude/skills/`；Codex 读 `AGENTS.md` + `.agen
 | 每月 | `bash scripts/refresh-catalog.sh` 刷新 catalog 索引（看是否有新增 block） |
 | 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像（78 页，动态读 llms.txt） |
 | 每 1-2 月 | `cd hyperframes-student-kit && git pull && cd ../hyperframes-launches && git pull` 更新上游 |
-| 每条新视频做完 | 归档到 `参考库/我的作品/`，本 INDEX 加一行 |
+| 每条新视频做完 | 归档到 `videos/`，本 INDEX 加一行 |
 | 每 3-6 月 | 盘点 INDEX，把高频参考工程抽成新 templates/ 模板 |

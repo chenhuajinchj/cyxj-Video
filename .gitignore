@@ -1,56 +1,39 @@
 # ============================================================
-# 上游 git 仓库（独立维护，不进我的 git）
+# 个人笔记 / 待定内容（不进开源仓库）
 # ============================================================
-hyperframes-student-kit/
-hyperframes-launches/
+MY_VISUAL_DNA.md
+MY_MOTION_NOTES.md
+_待定/
 
 # ============================================================
-# 个人素材
+# 媒体（大视频/音频不进 git；小图标 SVG/PNG 允许）
 # ============================================================
-# 录屏（含人脸/声音，不推 GitHub）
-录屏/
-
-# 大视频/音频
 *.mp4
 *.mov
 *.webm
 *.mp3
 *.wav
 *.m4a
+*.srt
 
-# 但允许小图标 / SVG / 转写 JSON
-!templates/**/assets/*.png
-!templates/**/assets/*.svg
-!templates/**/assets/*.json
-!examples/**/assets/*.png
-!examples/**/assets/*.svg
-!examples/**/assets/*.json
-!参考库/**/assets/*.png
-!参考库/**/assets/*.svg
-!参考库/**/assets/*.json
+# 白名单：模板/视频/案例里的小素材
+!**/assets/*.png
+!**/assets/*.svg
+!**/assets/*.json
+!**/assets/**/*.png
+!**/assets/**/*.svg
+!**/assets/**/*.json
 
 # ============================================================
-# 构建产物 / 缓存
+# 上游 git 仓库（独立维护，不进本仓库）
 # ============================================================
-**/node_modules/
-**/renders/
-**/.hyperframes/
-**/.waveform-cache/
-**/.thumbnails/
-**/.frames/
-**/.debug-studio.mjs
-.playwright-mcp/
-
-# git worktree (各自独立 working tree，不进 main)
-.claude/worktrees/
+hyperframes-student-kit/
+hyperframes-launches/
 
 # ============================================================
-# 软链（指向 gitignored 上游，跨机器不可用，不进 git）
+# 软链回上游（依赖 gitignored 目标，跨机器需重建）
 # ============================================================
-# MOTION_PHILOSOPHY 软链
 MOTION_PHILOSOPHY.md
-
-# 仓库根 .claude/skills/ 下的 7 个上游 skill 软链
 .claude/skills/gsap
 .claude/skills/hyperframes
 .claude/skills/hyperframes-cli
@@ -58,8 +41,6 @@ MOTION_PHILOSOPHY.md
 .claude/skills/website-to-hyperframes
 .claude/skills/make-a-video
 .claude/skills/short-form-video
-
-# 仓库根 .agents/skills/ 下的 7 个上游 skill 软链（Codex 可选）
 .agents/skills/gsap
 .agents/skills/hyperframes
 .agents/skills/hyperframes-cli
@@ -68,30 +49,32 @@ MOTION_PHILOSOPHY.md
 .agents/skills/make-a-video
 .agents/skills/short-form-video
 
-# 参考库下 nate-demos 和 heygen-launches 整目录是软链
-参考库/nate-demos/
-参考库/heygen-launches/
+# ============================================================
+# 工具状态 / 缓存 / 构建产物
+# ============================================================
+**/node_modules/
+**/renders/
+**/.hyperframes/
+**/.waveform-cache/
+**/.thumbnails/
+**/.frames/
+**/.debug-studio.mjs
+**/.playwright-mcp/
 
-# ============================================================
-# Claude Code workspace state
-# ============================================================
+# Claude Code 工作状态
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
 .claude/agents/
-# 自写的两个 skill 是真目录，允许进 git：
-# .claude/skills/cyxj-new-video/
-# .claude/skills/cyxj-add-block/
-# .agents/skills/cyxj-new-video/
-# .agents/skills/cyxj-add-block/
+.claude/worktrees/
 
-# 子工程 / 模板内的 .claude state
+# 子工程内部 .claude state
+videos/**/.claude/
 templates/**/.claude/
-参考库/**/.claude/
-2026-*/**/.claude/
 
 # ============================================================
-# macOS / IDE
+# 系统 / IDE
 # ============================================================
 **/.DS_Store
 **/.idea/
 **/.vscode/
+*.swp

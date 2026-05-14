@@ -46,7 +46,7 @@
    - 文案拆字符的方法（也许写个 helper：`splitToChars(text)` 自动生成 `.tw-char` 嵌套结构）
    - 怎么标记高亮词（`<span class="tw-word accent">`）
    - 时序在 hyperframes beat 里怎么对齐 SRT（每个字符出现 = 100ms × N，配合数据驱动的 stagger）
-6. 在 `参考库/catalog.json` 加：
+6. 在 `templates/catalog.json` 加：
    ```json
    {
      "name": "typewriter",

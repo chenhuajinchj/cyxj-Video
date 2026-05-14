@@ -44,7 +44,7 @@
 ## 怎么验收
 
 ```bash
-open ~/项目/参考仓库/hyperframes/参考库/assets/inspirations/<目录>/index.html
+open templates/inspirations/<目录>/index.html
 ```
 
 每个判断：动起来对不对？README 翻译说明清不清？想不想晋级到 templates/components/？
@@ -52,8 +52,8 @@ open ~/项目/参考仓库/hyperframes/参考库/assets/inspirations/<目录>/in
 ## 不要碰
 
 - `templates/components/`（用户手动晋级）
-- `参考库/catalog.json`（用户手动加条目）
-- `参考库/INDEX.md`（用户晋级后再补）
+- `templates/catalog.json`（用户手动加条目）
+- `docs/REFERENCE_INDEX.md`（用户晋级后再补）
 
 ## 后续抓取池
 

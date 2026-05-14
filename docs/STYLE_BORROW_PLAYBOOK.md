@@ -14,7 +14,7 @@
 | 品牌片 / 演示片，多 beat 多场景 | ✅ | |
 | 用户提供了参考截图 / 参考视频 | ✅ | |
 | 短社交视频 ≤15s | | ❌ 用 `short-form-video` skill |
-| 单镜头无 beat 切换 | | ❌ 从 0 写录屏 + overlay 工程（拓扑回查 `参考库/历史模板/host-overlay/`） |
+| 单镜头无 beat 切换 | | ❌ 从 0 写录屏 + overlay 工程（拓扑回查 `videos/2026-05-02-claude-demo-v2/`） |
 | 已有清晰主题但**没有参考素材** | | ❌ 跳过步骤 1-2，直接走 `/cyxj-new-video` |
 
 ---

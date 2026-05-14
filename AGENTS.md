@@ -6,41 +6,47 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 HeyGen 的 [HyperFrames](https://hyperframes.heygen.com)（HTML + GSAP 渲染管线）做技术教程的片头、转场、整片演示。
 
-## 顶层架构（2026-05 重构后）
+**仓库结构按开源项目规范整理（2026-05-14 重构后）**——顶层扁平，对 GitHub 上想复用方法的人友好。AI 自动读取是次要目标。
 
-仓库根 = 一站式工作台。在仓库根开 Codex，`/cyxj-new-video`、`/cyxj-add-block` 两个 XCYJ wrapper skill 可用；HyperFrames/GSAP/CLI 等基础能力由 Codex 当前安装的 HyperFrames plugin 或本地软链提供。18 个参考工程、46 个 catalog 零件都从仓库根进入。
+## 顶层架构
 
 ```
-~/项目/参考仓库/hyperframes/
-├── .agents/skills/                      # Codex 用：2 个自写 wrapper skill（可选 7 个上游软链）
-├── .claude/skills/                      # Claude Code 用：9 个 skill（7 软链 + 2 自写）
-├── MOTION_PHILOSOPHY.md                  # 软链 → student-kit 的美学准则
-├── templates/                            # 1 个真模板（tutorial-8beat）+ components 零件（cc-window / xcyj-tokens）
-├── 参考库/
-│   ├── INDEX.md                          # ⭐ 入口索引（每次做新视频先扫这里）
-│   ├── catalog.json                      # 46 个 catalog 零件 metadata
-│   ├── nate-demos/                       # 软链 12 个 Nate 工程
-│   ├── heygen-launches/                  # 软链 3 个 HeyGen 官方工程
-│   └── 我的作品/                          # 真存的 3 个旧项目（按日期前缀命名）
-├── scripts/
-│   ├── refresh-catalog.sh                # 刷新 catalog.json
-│   └── refresh-docs.sh                   # 刷新 docs/hyperframes-official/ 官方文档镜像
-├── 2026-MM-DD/                           # 新视频按日期建工作区
+.
+├── README.md / CLAUDE.md / AGENTS.md     # 入口
+├── LICENSE
+├── videos/                                # 9 条已发布视频源工程，每条带 README
+├── templates/
+│   ├── tutorial-8beat/                    # 唯一从 0 设计的真模板
+│   ├── components/                        # 可复用组件（cc-window 等）
+│   ├── inspirations/                      # 5 大 React 库的 vanilla 转译版
+│   └── catalog.json                       # 模板零件清单（机器可读）
+├── skills/
+│   ├── cyxj-new-video/                    # 做新视频的全流程 skill
+│   └── cyxj-add-block/                    # 装零件 skill
 ├── docs/
-│   ├── hyperframes-official/             # 78 页官方文档本地镜像（mintlify .md 全集）
-│   └── lottie-davinci-experiment/        # 自建实验记录
-├── hyperframes-student-kit/              # 上游 (gitignored，可 git pull 跟进)
-└── hyperframes-launches/                 # 上游 (gitignored，可 git pull 跟进)
+│   ├── REFERENCE_INDEX.md                 # 上游参考工程的索引
+│   ├── HARD_CONSTRAINTS.md                # 必读硬约束（8 条）
+│   ├── STYLE_BORROW_PLAYBOOK.md           # 借鉴外部视觉的方法论
+│   ├── OFFICIAL_DOCS_VALUE_INDEX.md       # 官方文档摘要
+│   ├── hyperframes-official/              # 78 页官方文档本地镜像
+│   └── lottie-davinci-experiment/         # DaVinci 21 Lottie 兼容性实验
+├── assets/
+│   └── logos/                             # 33 个常用 AI 厂商 / 工具 SVG logo
+├── scripts/                               # 维护脚本（refresh-catalog 等）
+├── 2026-MM-DD/                            # 当前视频工作区（按日期建）
+├── _待定/                                  # gitignored；整理时不确定的暂存
+├── hyperframes-student-kit/               # gitignored 上游
+└── hyperframes-launches/                  # gitignored 上游
 ```
 
 **关键架构区分**：
-- `.agents/skills/` —— Codex 专用入口。这里的 `cyxj-new-video`、`cyxj-add-block` 应和 `.claude/skills/` 里的自写版本保持语义一致，但文档引用要指向 `AGENTS.md`
-- `.claude/skills/` —— Claude Code 专用入口。Claude 仍按 `CLAUDE.md` 工作，不读取 `AGENTS.md`
-- `templates/` —— git 跟踪的精简骨架（**只读参考**，不在这里编辑活工程）
-- `参考库/我的作品/` —— git 跟踪的你的旧作品（含 final.mp4 但 mp4 gitignored）
-- `参考库/nate-demos/` 和 `参考库/heygen-launches/` —— **软链**指向 gitignored 的上游，所以本身也 gitignored
-- `2026-MM-DD/<slug>/` —— 当前在做的工作区（git 跟踪源工程，mp4 gitignored）
-- `hyperframes-student-kit/` 和 `hyperframes-launches/` —— **gitignored**，是 Nate 和 HeyGen 的独立 git 仓库，需要时 `git pull` 更新
+- `.agents/skills/cyxj-{new-video,add-block}` —— Codex 专用入口，**软链**到 `skills/cyxj-<name>`
+- `.claude/skills/cyxj-{new-video,add-block}` —— Claude Code 专用入口，同样**软链**到 `skills/cyxj-<name>`
+- `skills/` —— skill 源文件的唯一存放处。改 skill 只改这里
+- `videos/` —— 9 条已发布视频的源工程（git 跟踪源码，mp4 gitignored）
+- `templates/` —— 真模板 + 组件（**只读参考**，不在这里编辑活工程）
+- `2026-MM-DD/<slug>/` —— 当前在做的工作区
+- `_待定/` —— 整理过程中暂存的不确定项（**已 gitignore**，不会进开源仓库）
 
 ## 标准工作流（一句话开始）
 
@@ -50,33 +56,31 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 
 `/cyxj-new-video` skill 会自动：
 1. 问形态/主题/时长
-2. 读 `参考库/INDEX.md` 推荐参考工程
+2. 读 `docs/REFERENCE_INDEX.md` 推荐参考工程
 3. 复制模板到 `2026-MM-DD/<slug>/`
 4. 改 `meta.json` 和 `index.html`
 5. 等你提供文案 → 改 beats → lint → preview → render
-6. 你说"做完了" → 自动归档到 `参考库/我的作品/<日期>-<slug>/`
+6. 你说"做完了" → 自动归档到 `videos/<日期>-<slug>/`
 7. 主动问"要抽成模板吗？" → 抽 / 不抽
 
-**装零件**：在某个工程目录下说 "加个转场" / "加 macos 通知" / "Logo 落版"，`/cyxj-add-block` 会从 catalog 推荐 + 安装 + 给引用代码。
+**装零件**：在某个工程目录下说 "加个转场" / "加 macos 通知" / "Logo 落版"，`/cyxj-add-block` 会从 `templates/catalog.json` 推荐 + 安装 + 给引用代码。
 
 ## Claude / Codex 边界
 
-这两个 AI 可以共用同一个视频工作台，但边界必须按目录和指令文件分开：
-
-| 使用方 | 读哪个指令 | skill 入口 | 负责什么 |
+| 使用方 | 读哪个指令 | skill 入口 | 软链关系 |
 |---|---|---|---|
-| Claude Code | `CLAUDE.md` | `.claude/skills/` | 继续按原流程制作视频、归档、抽模板 |
-| Codex | `AGENTS.md` | `.agents/skills/` | 用同一套工作流制作视频、审查仓库、修模板/文档/边界 |
+| Claude Code | `CLAUDE.md` | `.claude/skills/` | cyxj-* 软链 → `skills/` |
+| Codex | `AGENTS.md` | `.agents/skills/` | cyxj-* 软链 → `skills/` |
 
-协作规则：
-- 不要让 Codex 改 `.claude/skills/` 的 Claude 专属措辞，除非明确是在同步两边 SOP
-- 不要让 Claude 改 `.agents/skills/` 的 Codex 专属措辞，除非明确是在同步两边 SOP
+**单一源**：skill 源文件在 `skills/cyxj-{new-video,add-block}/`，两边 AI 都软链到同一份。改 skill 只在 `skills/` 改，不要改软链。
+
+**协作规则**：
 - 正在制作的视频工程放在 `2026-MM-DD/<slug>/`，另一个 AI 做审查或基础设施修复时必须先排除这个施工目录
-- 公共模板、参考库、README、INDEX、`.gitignore` 是共享层；修改共享层前先跑对应模板的 `npx hyperframes lint` 和必要的 `npx hyperframes inspect`
+- 公共层（`templates/` / `skills/` / `docs/` / `assets/` / `.gitignore`）改动前先跑 `npx hyperframes lint`
 
 ## 必须遵守的硬约束
 
-详见 [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md)（单源）。简表：
+详见 [`docs/HARD_CONSTRAINTS.md`](docs/HARD_CONSTRAINTS.md)。简表：
 
 1. GSAP querySelector 不能用 template literal
 2. 复制 beat html 时全局换 beat id（CSS class + GSAP selector 两处）
@@ -95,26 +99,21 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 ~/.npm/_npx/<hash>/node_modules/hyperframes/   (~109M，含 Playwright/ffmpeg-static)
 ```
 
-机制：第一次跑 `npx hyperframes <cmd>` 时，npx 从 npm registry 下载 `hyperframes` 包到 `~/.npm/_npx/<参数指纹>/`，之后命中缓存。所以工程的 `package.json` 里**不需要**也**不应该**列 `hyperframes` 依赖。
-
 - 看版本：`npx hyperframes --version`
 - 强制升级：`npx hyperframes@latest --version`
 - 完全清掉重来：`rm -rf ~/.npm/_npx`
 
 ## 软链架构说明
 
-仓库根的这些**都是软链**（指向 gitignored 上游，本身也 gitignored）：
+| 软链 | 指向 | 是否进 git |
+|---|---|---|
+| `MOTION_PHILOSOPHY.md` | `hyperframes-student-kit/MOTION_PHILOSOPHY.md` | gitignored |
+| `.claude/skills/{gsap,hyperframes,...}` (×7) | `hyperframes-student-kit/.claude/skills/<name>` | gitignored |
+| `.agents/skills/{gsap,hyperframes,...}` (×7) | `hyperframes-student-kit/.claude/skills/<name>` | gitignored |
+| `.claude/skills/cyxj-{new-video,add-block}` | `skills/cyxj-<name>` | ✅ 进 git |
+| `.agents/skills/cyxj-{new-video,add-block}` | `skills/cyxj-<name>` | ✅ 进 git |
 
-| 软链 | 指向 |
-|---|---|
-| `MOTION_PHILOSOPHY.md` | `hyperframes-student-kit/MOTION_PHILOSOPHY.md` |
-| `.agents/skills/{gsap,hyperframes,...}` (×7，可选) | `hyperframes-student-kit/.claude/skills/<name>` |
-| `.claude/skills/{gsap,hyperframes,...}` (×7) | `hyperframes-student-kit/.claude/skills/<name>` |
-| `参考库/nate-demos/<name>` (×12) | `hyperframes-student-kit/video-projects/<name>` |
-| `参考库/heygen-launches/<name>` (×3) | `hyperframes-launches/<name>` |
-
-**好处**：上游 `git pull` 自动跟进，不用手动同步。
-**代价**：跨机器 clone 仓库后需要重新拉 student-kit 和 launches 才能让软链生效。
+跨机器 clone 仓库后需要重新拉 `hyperframes-student-kit/` 和 `hyperframes-launches/` 才能让上游软链生效。
 
 ## 中文环境注意
 
@@ -126,22 +125,22 @@ XCYJ（陈与小金）的 YouTube 教程视频**生产工作台**——基于 He
 
 | 周期 | 命令 |
 |---|---|
-| 每月 | `bash scripts/refresh-catalog.sh` 刷新 `参考库/catalog.json` |
-| 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像（动态读 llms.txt，自动跟进新增页面） |
+| 每月 | `bash scripts/refresh-catalog.sh` 刷新 `templates/catalog.json` |
+| 每 1-2 月 | `bash scripts/refresh-docs.sh` 刷新 `docs/hyperframes-official/` 官方文档镜像 |
 | 每 1-2 月 | `cd hyperframes-student-kit && git pull && cd ../hyperframes-launches && git pull` |
-| 每条新视频做完 | 让 `/cyxj-new-video` 阶段 B 自动归档 + 询问是否抽模板 |
+| 每条新视频做完 | 让 `/cyxj-new-video` 阶段 B 自动归档进 `videos/` + 询问是否抽模板 |
 
 ## 仓库速查
 
-> ⚠️ **本文档落后 CLAUDE.md 数轮迭代**：缺 `tutorial-8beat` 模板行 / Claude-Codex 边界节同步等。下一轮独立任务对齐。
-
 | 路径 | 内容 |
 |---|---|
-| `参考库/INDEX.md` | ⭐ 一切入口：18 工程 + 46 catalog 零件 + 9 skill 索引 |
-| `templates/tutorial-8beat/` | 8 beat 教程结构（hook→pain→punchline→concept→flow→outro）—— **当前唯一从 0 设计的真模板** |
+| `docs/REFERENCE_INDEX.md` | ⭐ 上游参考工程入口：18 工程 + 46 catalog 零件 + 9 skill 索引 |
+| `assets/logos/` | ⭐ 33 个 AI 厂商 / 工具 SVG logo |
+| `templates/tutorial-8beat/` | 8 beat 教程结构 —— **当前唯一从 0 设计的真模板** |
 | `templates/components/cc-window/` | Claude Code 终端 UI 零件（19-tips 沉淀） |
-| `参考库/历史模板/` | 3 个伪模板档案（demo-fullscreen / host-overlay / host-overlay-alpha）—— ⚠️ **不要 cp 起步**，仅供回查旧形态 |
+| `templates/inspirations/` | 5 大 React 组件库的 vanilla 转译版（晋级前的灵感区） |
+| `videos/2026-05-04-claude-19-tips/` | 最大工程参考：28 composition / 7.5 分钟 |
+| `videos/2026-05-02-codex-claude-intro/` | 含 SCRIPT.md 范本 |
+| `videos/2026-05-09-mywebsite-teaser/` | DESIGN-first 工作流范本 |
 | `TEMPLATE_USAGE.md` | 模板复用 checklist |
-| `MOTION_PHILOSOPHY.md` | Nate 的动效美学 10 法则 + Infinite 拆解 |
-| `examples/codex-intro/script.md` | Codex × Claude Code 教程实际配音文案 |
-| `docs/lottie-davinci-experiment/` | DaVinci 21 Lottie 兼容性实验记录 |
+| `MOTION_PHILOSOPHY.md` | Nate 的动效美学 10 法则（gitignored 软链）|

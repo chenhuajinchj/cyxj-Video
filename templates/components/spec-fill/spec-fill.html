@@ -1,0 +1,126 @@
+<!--
+  spec-fill.html — 拆解卡 / 规范卡 逐行填充复用骨架
+
+  这个文件本身不是一个 HyperFrames composition，是给你**复制 HTML 片段**用的。
+  下面 2 个变体每段都是一个完整可粘贴的骨架。
+
+  使用方式：
+    1. 在你的 composition 顶部加：
+       <link rel="stylesheet" href="../components/xcyj-tokens/xcyj-tokens.css" />
+       <link rel="stylesheet" href="../components/spec-fill/spec-fill.css" />
+    2. 复制下方你需要的变体，粘到你的 composition body 里
+    3. 改 .sf-key 文字 / val 视觉
+    4. 用 GSAP 给 .sf-card / .sf-row / .sf-chip-* 加动画（见 README）
+
+  实战提示（抽自 2026-05-13 claude-design-codex-image · b4 · 9-13s）：
+    - 4 行依次入场用 stagger:0.08（视觉节奏 = 一秒填两行）
+    - val chip 落位用 back.out(1.8)（小蹦感、不浮夸）
+    - 变体 B 的飞入块坐标需要按你的布局调整（见下方注释）
+
+  CSS 前缀：sf-（spec-fill）
+  依赖：xcyj-tokens（用了 var(--ink) / var(--muted) / var(--line) / var(--sans) / var(--serif)）
+-->
+
+<!-- ===================================================================
+     变体 A · 纯拆解卡（最常用，下次任何"分项规格表"叙事都能用）
+     视觉：4 行规范行，每行 key 在左、val 视觉在右
+     节奏：卡浮起 → row 依次淡入 → val chip 依次蹦起
+     约 3.5 秒
+     =================================================================== -->
+<div class="sf-card" id="sf-card-a">
+  <div class="sf-head">拆解标题</div>
+
+  <!-- val 视觉类型 1：色块 chip（横排 3 个） -->
+  <div class="sf-row">
+    <span class="sf-key">维度 1</span>
+    <span class="sf-val">
+      <span class="sf-chip-color sf-cc-1"></span>
+      <span class="sf-chip-color sf-cc-2"></span>
+      <span class="sf-chip-color sf-cc-3"></span>
+    </span>
+  </div>
+
+  <!-- val 视觉类型 2：字号样张（衬线大中小三个 A） -->
+  <div class="sf-row">
+    <span class="sf-key">维度 2</span>
+    <span class="sf-val sf-val-type">
+      <span class="sf-chip-type sf-ta-1">A</span>
+      <span class="sf-chip-type sf-ta-2">A</span>
+      <span class="sf-chip-type sf-ta-3">A</span>
+    </span>
+  </div>
+
+  <!-- val 视觉类型 3：横条 bar（堆叠 3 根） -->
+  <div class="sf-row">
+    <span class="sf-key">维度 3</span>
+    <span class="sf-val sf-val-bar">
+      <span class="sf-chip-bar"></span>
+      <span class="sf-chip-bar"></span>
+      <span class="sf-chip-bar sf-bar-s"></span>
+    </span>
+  </div>
+
+  <!-- val 视觉类型 4：方框 + 数字（dashed box + mono 数字） -->
+  <div class="sf-row">
+    <span class="sf-key">维度 4</span>
+    <span class="sf-val sf-val-box">
+      <span class="sf-chip-box"></span>
+      <span class="sf-chip-rule">8 · 16 · 24</span>
+    </span>
+  </div>
+</div>
+
+
+<!-- ===================================================================
+     变体 B · 拆解卡 + 飞入块（"块从画面别处飞过来 → 落位变成 val 视觉"）
+     适用：左边有可视化素材（屏幕、设计稿、产品卡）需要"拆解到 spec"
+     节奏：5 个 block 起手 → spec 卡浮起 → row 入场 → block 飞向对应 row → val chip 同步亮起 → block 消失
+     约 4 秒（原视频 9-13s）
+
+     ⚠️ block 的 left/top/width/height 需要按你的左侧素材实际位置调整。
+     ⚠️ GSAP 里 .sf-block-* 的 x/y 落位坐标也要按 spec 卡的实际位置调整。
+     ⚠️ 默认坐标是原视频里的："左半屏有一张 article-card"。
+     =================================================================== -->
+
+<!-- 5 个 block 先放在 sf-card 之外的左半屏（代表"设计稿里的某个区块"） -->
+<div class="sf-block sf-block-1"></div>
+<div class="sf-block sf-block-2"></div>
+<div class="sf-block sf-block-3"></div>
+<div class="sf-block sf-block-4"></div>
+<div class="sf-block sf-block-5"></div>
+
+<!-- 然后 sf-card 同变体 A（复制变体 A 的 HTML 进来即可） -->
+<div class="sf-card" id="sf-card-b">
+  <div class="sf-head">拆解标题</div>
+  <div class="sf-row">
+    <span class="sf-key">维度 1</span>
+    <span class="sf-val">
+      <span class="sf-chip-color sf-cc-1"></span>
+      <span class="sf-chip-color sf-cc-2"></span>
+      <span class="sf-chip-color sf-cc-3"></span>
+    </span>
+  </div>
+  <div class="sf-row">
+    <span class="sf-key">维度 2</span>
+    <span class="sf-val sf-val-type">
+      <span class="sf-chip-type sf-ta-1">A</span>
+      <span class="sf-chip-type sf-ta-2">A</span>
+      <span class="sf-chip-type sf-ta-3">A</span>
+    </span>
+  </div>
+  <div class="sf-row">
+    <span class="sf-key">维度 3</span>
+    <span class="sf-val sf-val-bar">
+      <span class="sf-chip-bar"></span>
+      <span class="sf-chip-bar"></span>
+      <span class="sf-chip-bar sf-bar-s"></span>
+    </span>
+  </div>
+  <div class="sf-row">
+    <span class="sf-key">维度 4</span>
+    <span class="sf-val sf-val-box">
+      <span class="sf-chip-box"></span>
+      <span class="sf-chip-rule">8 · 16 · 24</span>
+    </span>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 # codex-claude-combo · 装备库复用验证产物
 
-> ⚠️ **这不是作品，是 SOP 测试产物**。git 留着，但不 render，不归档进 `参考库/我的作品/`。
+> ⚠️ **这不是作品，是 SOP 测试产物**。放进 `videos/` 是因为它有教学价值——展示"装备库 / 零件复用机制"怎么验证，不是当 motion 范例看。
 
 ## 它是什么
 
@@ -10,7 +10,7 @@
 
 ## 验证结论
 
-✅ 全部 5 层都复用了。详见 [`docs/装备库诊断/05-validation.md`](../../docs/装备库诊断/05-validation.md)。
+✅ 全部 5 层都复用了。（5/3-5/7 完整诊断报告 7 份已在重构时清掉，本工程是诊断的最终验证产物。）
 
 ## 工程组成
 
@@ -35,10 +35,10 @@ codex-claude-combo/
 
 ## 不要拿这个工程当模板 cp 起步
 
-理由跟伪模板（`参考库/历史模板/`）一样——这是一次性具体内容，id 没抽净、视觉是 codex-claude-combo 主题特定产物。
+理由：这是一次性具体内容，id 没抽净、视觉是 codex-claude-combo 主题特定产物。
 
 下次做新视频请按 cyxj-new-video skill 走完整决策流程。
 
 ## 文案源
 
-`examples/codex-intro/script.md`（280 字中文，60s 钩子片头）。
+沿用 `videos/2026-05-02-codex-claude-intro/SCRIPT.md`（280 字中文，60s 钩子片头）。

@@ -1,0 +1,119 @@
+/*
+  spec-fill.css — 拆解卡 / 规范卡 逐行填充
+  CSS 前缀：sf-
+  依赖：xcyj-tokens（var(--ink) / --muted / --line / --sans / --serif）
+  抽自：2026-05-13 claude-design-codex-image / 04-s1-flow.html / b4 / 9-13s
+*/
+
+/* ═══════ 卡容器 ═══════ */
+.sf-card {
+  position: absolute;
+  /* 调用方决定 left / right / top */
+  width: 620px;
+  padding: 30px 32px;
+  opacity: 0;  /* 入场前隐藏，GSAP 接管 */
+}
+
+/* ═══════ 卡头（拆解标题）═══════ */
+.sf-head {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  color: var(--muted);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+
+/* ═══════ 一行（key + val）═══════ */
+.sf-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  opacity: 0;  /* 入场前隐藏，GSAP stagger 接管 */
+  border-bottom: 1px solid rgba(11, 11, 8, 0.06);
+}
+.sf-row:last-child { border-bottom: 0; }
+
+.sf-key {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+}
+
+.sf-val {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ═══════ val 视觉类型 1：色块 chip ═══════ */
+.sf-chip-color {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-block;
+  border: 1px solid var(--line);
+}
+.sf-cc-1 { background: #0b0b08; }
+.sf-cc-2 { background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%); }
+.sf-cc-3 { background: #fafaf8; }
+
+/* ═══════ val 视觉类型 2：字号样张 ═══════ */
+.sf-val-type { gap: 10px; }
+.sf-chip-type {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+.sf-ta-1 { font-size: 44px; }
+.sf-ta-2 { font-size: 30px; }
+.sf-ta-3 { font-size: 22px; }
+
+/* ═══════ val 视觉类型 3：横条 bar ═══════ */
+.sf-val-bar {
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+.sf-chip-bar {
+  height: 6px;
+  background: var(--ink);
+  border-radius: 3px;
+  width: 120px;
+}
+.sf-bar-s { width: 84px; }  /* 短条用来变化节奏 */
+
+/* ═══════ val 视觉类型 4：方框 + 数字 ═══════ */
+.sf-val-box {
+  flex-direction: row;
+  gap: 14px;
+}
+.sf-chip-box {
+  width: 36px;
+  height: 36px;
+  border: 2px dashed var(--ink);
+  border-radius: 4px;
+}
+.sf-chip-rule {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ═══════ 变体 B · 飞入块（block）═══════ */
+.sf-block {
+  position: absolute;
+  /* 默认坐标参考原视频左半屏的 article-card 布局，调用方按需调整 */
+}
+.sf-block-1 { left: 8%;  top: 10%; width: 38%; height: 32%; background: var(--ink); }
+.sf-block-2 { left: 52%; top: 10%; width: 40%; height: 32%; background: linear-gradient(135deg, #27B2F0 0%, #30F5FE 35%, #FBC610 70%, #FD9C22 100%); }
+.sf-block-3 { left: 8%;  top: 50%; width: 84%; height: 6%;  background: var(--ink); }
+.sf-block-4 { left: 8%;  top: 62%; width: 60%; height: 6%;  background: var(--muted); }
+.sf-block-5 { left: 8%;  top: 76%; width: 84%; height: 14%; background: var(--ink); }
